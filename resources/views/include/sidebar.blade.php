@@ -6,6 +6,13 @@
 			<li><a href="#" class="active"><i class='bx bxs-cog icon' ></i> Pengaturan</a></li>
 			<li class="divider" data-text="Pilihan :">Pilihan :</li>
 			<li>
+				<a href="#"><i class='bx bxs-inbox icon' ></i> Pelayanan <i class='bx bx-chevron-right icon-right' ></i></a>
+				<ul class="side-dropdown">
+					<li><a href="#">SPOP</a></li>
+					<li><a href="#">LSPOP</a></li>
+				</ul>
+			</li>
+			<li>
 				<a href="#"><i class='bx bxs-inbox icon' ></i> Dokumen <i class='bx bx-chevron-right icon-right' ></i></a>
 				<ul class="side-dropdown">
 					<li><a href="#">SPOP</a></li>

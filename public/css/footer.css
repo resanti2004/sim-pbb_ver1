@@ -1,0 +1,18 @@
+footer {
+    margin-top: auto;
+    background: var(--light);
+	height: 64px;
+	padding: 0 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	grid-gap: 20px;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	z-index: 100;
+}
+
+footer .card .card-body{
+    text-align: center;
+}
