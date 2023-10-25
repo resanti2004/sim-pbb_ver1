@@ -19,6 +19,10 @@ Route::get('/', function () {
     return view('kerangka.master');
 });
 
+Route::get('/laravel', function () {
+    return view('welcome');
+});
+
 Route::get('/dashboard', [ExtendController::class, 'index']);
 Route::get('/login', [ExtendController::class, 'index1']);
 Route::get('/spop', [ExtendController::class, 'index2']);
