@@ -1,7 +1,5 @@
-<div class="container">
-    <div class="card">
-    <div class="card-body">
+<div class="container-footer">
+    <div class="cardd">
         @2023 Copyright 
-    </div>
     </div>
 </div>

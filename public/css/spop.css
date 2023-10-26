@@ -150,3 +150,34 @@
 	color: var(--white);
   }
 
+
+
+  .recentCustomers table tr td ul {
+	display: inline;
+	
+
+	/* justify-content: center; */
+	/* align-items: center; */
+  }
+
+  /* button */
+
+  .pencarian {
+	display: flex;
+	justify-content: flex-end;
+  }
+
+  button {
+	/* color: var(--white); */
+	color: white;
+	padding: 8px 22px;
+	border-radius: 6px;
+	border: none;
+	background: var(--blue);
+	transition: all 0.2s ease;
+	margin: 10px 0px 10px;
+  }
+
+  button:active {
+	transform: scale(0.96);
+  }

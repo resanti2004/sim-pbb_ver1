@@ -1,18 +1,20 @@
 footer {
     margin-top: auto;
     background: var(--light);
-	height: 64px;
+	height: 45px;
 	padding: 0 20px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	grid-gap: 20px;
-	position: absolute;
+	/* position: absolute;
 	bottom: 0;
 	left: 0;
-	z-index: 100;
+	z-index: 100; */
 }
 
-footer .card .card-body{
+/* footer .cardd{
+	display: flex;
+	justify-content: center;
     text-align: center;
-}
+} */

@@ -24,6 +24,11 @@ class ExtendController extends Controller
         return view('extend.spop');
     }
 
+    public function index3()
+    {
+        return view('extend.lspop');
+    }
+
     /**
      * Show the form for creating a new resource.
      */

@@ -22,6 +22,7 @@ Route::get('/', function () {
 Route::get('/dashboard', [ExtendController::class, 'index']);
 Route::get('/login', [ExtendController::class, 'index1']);
 Route::get('/spop', [ExtendController::class, 'index2']);
+Route::get('/lspop', [ExtendController::class, 'index3']);
 
 
 
