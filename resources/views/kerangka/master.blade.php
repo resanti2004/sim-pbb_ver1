@@ -3,6 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Fontawesome CDN Link -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 	<link rel="stylesheet" href="{{ asset('css/style.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/footer.css') }}">
@@ -11,6 +13,7 @@
 	<link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/spop.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/login.css') }}">
+
 	<title>@yield('title')</title>
 </head>
 <body>
@@ -22,6 +25,7 @@
 	<!-- SIDEBAR -->
 
 	<section id="content">
+
 		<!-- NAVBAR -->
 		@include('include.navbar')
 		<!-- NAVBAR -->
@@ -29,21 +33,22 @@
 		<div class="bg">
 			<img src="{{ asset('image/bg.svg') }}" alt="bg">
 		</div>
-		
+	
 		<!-- MAIN -->
 		<main>
-		@yield('content')
+			@yield('content')
 		</main>
 		<!-- MAIN -->
-	</section>
 
-	<!-- FOOTER -->
-	<footer>
-		@include('include.footer')
-	</footer>
-	<!-- FOOTER -->
+		<!-- FOOTER -->
+		<footer>
+			@include('include.footer')
+		</footer>
+		<!-- FOOTER -->
+	</section>
 
 	<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 	<script src="js/script.js"></script>
+	<script src="js/pagination.js"></script>
 </body>
 </html>

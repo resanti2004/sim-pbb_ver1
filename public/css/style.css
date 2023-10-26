@@ -20,13 +20,13 @@
 	--red: #FC3B56;
 }
 
-html {
+/* html {
 	overflow-x: hidden;
-}
+} */
 
 body {
 	background: var(--grey);
-	overflow-x: hidden;
+	/* overflow-x: hidden; */
 }
 
 a {
@@ -60,15 +60,26 @@ li {
 main {
 	width: 100%;
 	padding: 24px 20px 20px 20px;
+	/* position: relative;
+	z-index: 2; */
+	/* position: absolute;
+	top: 100px; */
 }
 
-.bg {
+.bg img {
+	margin-top: 50px;
 	padding: 0px;
 	width: 100%;
-	height: 0px;
-}
+	/* height: 50%; */
+	/* position: relative; */
+	z-index: -1;
+	position: absolute;
+	top: 0px;
+}	
 
 main .title {
+	/* margin-top: 40px; */
+	padding-top: 20px;
 	font-size: 23px;
 	font-weight: 600;
 	margin-bottom: 5px;
@@ -78,6 +89,7 @@ main .title {
 main .greet {
 	font-size: 13px;
 	color: white;
+	/* margin-bottom: 50px; */
 }
 
 main .breadcrumbs {
@@ -173,7 +185,7 @@ main .data {
 	/* flex-direction: row; */
 	/* grid-template-rows: repeat(auto-fit, minmax(300px, 1fr)); */
 	grid-gap: 20px;
-	margin-top: 20px;
+	margin-top: 30px;
 	/* flex-wrap: nowrap; */
 }
 main .data .content-data {
