@@ -26,17 +26,18 @@ Route::get('/laravel', function () {
     return view('welcome');
 });
 
-Route::get('/simpbb/dashboard', [ExtendController::class, 'index'])->name('dashboard');
-Route::get('/simpbb/login', [AuthController::class, 'login'])->name('login');
-Route::post('/simpbb/auth', [AuthController::class, 'authenticate'])->name('authenticate');
 Route::get('/spop', [ExtendController::class, 'index2'])->name('spop');
-Route::get('/simpbb/register', [AuthController::class, 'register'])->name('register');
-Route::post('/store', [AuthController::class, 'store'])->name('store');
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::controller(AuthController::class)->group(function() {
+    Route::get('/register', 'register')->name('register');
+    Route::post('/store', 'store')->name('store');
+    Route::get('/login', 'login')->name('login');
+    Route::post('authenticate', 'authenticate')->name('authenticate');
+    Route::get('/dashboard', 'dashboard')->name('dashboard');
+    Route::post('/logout', 'logout')->name('logout');
+});
 
 
 
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-// Auth::routes();
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

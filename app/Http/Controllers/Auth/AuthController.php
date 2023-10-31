@@ -23,11 +23,6 @@ class AuthController extends Controller
     {
         return view('auth.register');
     }  
-
-    public function beranda()
-    {
-        return view('beranda');
-    }
     
     public function store(Request $request)
     {

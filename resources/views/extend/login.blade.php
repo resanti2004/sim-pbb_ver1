@@ -40,13 +40,13 @@
                         <h6 class="fw-normal mb-3 pb-3 pb-0 pt-0" style="letter-spacing: 1px; text-align: center;">Masuk Ke SIM-PBB</h6>
 
                         <div class="form-outline mb-4">
-                        <input type="username" id="form2Example18" class="form-control form-control-lg" />
-                        <label class="form-label" for="form2Example18">Username</label>
+                            <input type="text" id="username" name="username" class="form-control form-control-lg" value="{{ old('username') }}">
+                            <label class="form-label" for="password">Username</label>
                         </div>
 
                         <div class="form-outline mb-4">
-                        <input type="password" id="form2Example28" class="form-control form-control-lg" />
-                        <label class="form-label" for="form2Example28">Password</label>
+                            <input type="password" id="password" name="password" class="form-control form-control-lg">
+                            <label class="form-label" for="password">Password</label>
                         </div>
 
                         <div class="form-check">
