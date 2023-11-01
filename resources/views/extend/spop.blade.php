@@ -25,9 +25,9 @@
 								<tr>
 									<td>No</td>
 									<td>NOP</td>
-									<td>Nomor Bangunan</td>
-									<td>Luas Bangunan(ha)</td>
-									<td>Jumlah Lantai Bangunan</td>
+									<td>Subjek Pajak ID</td>
+									<td>Jalan Objek Pajak</td>
+									<td>Luas Bumi</td>
 									<td>Opsi</td>
 								</tr>
 							</thead>
@@ -39,14 +39,14 @@
 									<td>01</td>
 									<td>600m</td>
 									<td>1</td>
-									<td>opsi</td>
-									<!-- <td>
+									<!-- <td>opsi</td> -->
+									<td>
 										<ul>									
 											<li><a href="#" class="active"><i class='bx bxs-trash' ></i></a></li>
 											<li><a href="#" class="active"><i class='bx bxs-trash' ></i></a></li>
-											<li><a href="#" class="active"><i class='bx bxs-trash' ></i></a></li>
+											<!-- <li><a href="#" class="active"><i class='bx bxs-trash' ></i></a></li> -->
 										</ul>
-									</td> -->
+									</td>
 								</tr>
 
 								<tr>
