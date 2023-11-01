@@ -24,11 +24,11 @@
 					<p><b>Arviansyah Eka</b></p>
 					<small>Project Manager</small>
 				</div>
-				<!-- <ul class="profile-link">
+				<ul class="profile-link">
 					<li><a href="#"><i class='bx bxs-user-circle icon' ></i> Profile</a></li>
 					<li><a href="#"><i class='bx bxs-cog' ></i> Settings</a></li>
 					<li><a href="#"><i class='bx bxs-log-out-circle' ></i> Logout</a></li>
-				</ul> -->
+				</ul>
 			</div>
 		</nav>
 		<!-- NAVBAR -->
