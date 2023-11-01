@@ -23,19 +23,9 @@ class SpopController extends Controller
         // })
         // ->get();
         $data_spop = Spop::paginate(20);
-        $no = 1;
+        $no = ($data_spop->currentPage() - 1) * $data_spop->perPage() + 1;
 
-        $data_spop->setPath(''); // Ini untuk menghapus query string dari URL
-
-    // Membuat Paginator kustom
-        $customPaginator = new LengthAwarePaginator(
-            $data_spop->items(),
-            $data_spop->total(),
-            $data_spop->perPage(),
-            $data_spop->currentPage()
-        );
-
-        return view('spop.spop', compact('data_spop', 'no', 'customPaginator'));
+        return view('spop.spop', compact('data_spop', 'no'));
     }
     public function create()
     {

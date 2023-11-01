@@ -13,7 +13,13 @@
 					<div class="recentOrders">
 						<div class="cardHeader">
 							<h3>SPOP</h3>
-							<a href="#" class="btr">Beranda/Laporan/SPOP</a>
+							<div aria-label="breadcrumb">
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="#">Beranda</a></li>
+								<li class="breadcrumb-item"><a href="#">Laporan</a></li>
+								<li class="breadcrumb-item active" aria-current="page">SPOP</li>
+							</ol>
+							</div>
 						</div>
 
 						<div class="pencarian">
@@ -36,15 +42,15 @@
 								@foreach($data_spop as $spop)
 								<tr>
 									<td>{{ $no++ }}</td>
-									<td>{{ $spop->no_urut }}</td>
+									<td>{{ $spop->NO_URUT }}</td>
 									<td>{{ $spop->SUBJEK_PAJAK_ID }}</td>
 									<td>{{ $spop->JALAN_OP }}</td>
 									<td>{{ $spop->LUAS_BUMI }}</td>
 									<td>
-										<ul>									
-											<li><a href="#" class="active"><i class='bx bxs-trash' ></i></a></li>
-											<li><a href="#" class="active"><i class='bx bxs-trash' ></i></a></li>
-											<!-- <li><a href="#" class="active"><i class='bx bxs-trash' ></i></a></li> -->
+										<ul class="list-inline">									
+											<li class="list-inline-item"><a href="#" class="active"><i class='bx bxs-show' ></i></a></li>
+											<li class="list-inline-item"><a href="#" class="active"><i class='bx bxs-edit' ></i></a></li>
+											<li class="list-inline-item"><a href="#" class="active"><i class='bx bxs-trash' ></i></a></li>
 										</ul>
 									</td>
 								</tr>

@@ -42,7 +42,7 @@ Route::controller(SpopController::class)->group(function() {
     Route::get('/spop', 'index')->name('spop');
     Route::get('/create', 'create')->name('spop.create');
     Route::get('/edit', 'edit')->name('spop.edit');
-    Route::get('/update', 'update')->name('spop.update');
+    Route::post('/update', 'update')->name('spop.update');
     Route::get('/delete', 'delete')->name('spop.delete');
 });
 
