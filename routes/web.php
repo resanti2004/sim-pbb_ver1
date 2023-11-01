@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ExtendController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\SpopController;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -35,6 +36,14 @@ Route::controller(AuthController::class)->group(function() {
     Route::post('authenticate', 'authenticate')->name('authenticate');
     Route::get('/dashboard', 'dashboard')->name('dashboard');
     Route::post('/logout', 'logout')->name('logout');
+});
+
+Route::controller(SpopController::class)->group(function() {
+    Route::get('/spop', 'index')->name('spop');
+    Route::get('/create', 'create')->name('spop.create');
+    Route::get('/edit', 'edit')->name('spop.edit');
+    Route::get('/update', 'update')->name('spop.update');
+    Route::get('/delete', 'delete')->name('spop.delete');
 });
 
 

@@ -33,13 +33,13 @@
 							</thead>
 
 							<tbody>
+								@foreach($data_spop as $spop)
 								<tr>
-									<td>1</td>
-									<td>5172349874904856</td>
-									<td>01</td>
-									<td>600m</td>
-									<td>1</td>
-									<!-- <td>opsi</td> -->
+									<td>{{ $no++ }}</td>
+									<td>{{ $spop->no_urut }}</td>
+									<td>{{ $spop->SUBJEK_PAJAK_ID }}</td>
+									<td>{{ $spop->JALAN_OP }}</td>
+									<td>{{ $spop->LUAS_BUMI }}</td>
 									<td>
 										<ul>									
 											<li><a href="#" class="active"><i class='bx bxs-trash' ></i></a></li>
@@ -48,55 +48,14 @@
 										</ul>
 									</td>
 								</tr>
-
-								<tr>
-									<td>2</td>
-									<td>5172349874904856</td>
-									<td>02</td>
-									<td>800m</td>
-									<td>2</td>
-                                    <td>opsi</td>
-								</tr>
-
-								<tr>
-									<td>3</td>
-									<td>5172349874904856</td>
-									<td>03</td>
-									<td>700m</td>
-									<td>3</td>
-                                    <td>opsi</td>
-								</tr>
-
-								<tr>
-									<td>4</td>
-									<td>5172349874904856</td>
-									<td>04</td>
-									<td>200m</td>
-									<td>1</td>
-                                    <td>opsi</td>
-								</tr>
-
-								<tr>
-									<td>5</td>
-									<td>5172349874904856</td>
-									<td>05</td>
-									<td>300m</td>
-									<td>2</td>
-                                    <td>opsi</td>
-								</tr>
-
-								<tr>
-									<td>6</td>
-									<td>5172349874904856</td>
-									<td>06</td>
-									<td>600m</td>
-									<td>1</td>
-                                    <td>opsi</td>
-								</tr>
+								@endforeach
 							</tbody>
 						</table>
-
-						<div class="container">
+						<div class="d-flex justify-content-center">
+							{{ $data_spop->links() }}
+						</div>
+						
+						<!-- <div class="container">
 							<button class="button" id="startBtn" disabled>
 								<i class="fa-solid fa-angles-left"></i>
 							</button>
@@ -118,7 +77,9 @@
 							<button class="button" id="endBtn">
 								<i class="fa-solid fa-angles-right"></i>
 							</button>
-						</div>
+						</div> -->
+							
+
 					</div>
 				</div>
 			</div>
