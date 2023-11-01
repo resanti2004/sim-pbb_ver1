@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ExtendController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Auth\AuthController;
+use Illuminate\Support\Facades\Auth;
 
 
 /*
@@ -23,10 +26,18 @@ Route::get('/laravel', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', [ExtendController::class, 'index']);
-Route::get('/login', [ExtendController::class, 'index1']);
-Route::get('/spop', [ExtendController::class, 'index2']);
-Route::get('/lspop', [ExtendController::class, 'index3']);
+Route::get('/spop', [ExtendController::class, 'index2'])->name('spop');
+
+Route::controller(AuthController::class)->group(function() {
+    Route::get('/register', 'register')->name('register');
+    Route::post('/store', 'store')->name('store');
+    Route::get('/login', 'login')->name('login');
+    Route::post('authenticate', 'authenticate')->name('authenticate');
+    Route::get('/dashboard', 'dashboard')->name('dashboard');
+    Route::post('/logout', 'logout')->name('logout');
+});
 
 
 
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
