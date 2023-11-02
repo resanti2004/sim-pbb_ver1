@@ -50,7 +50,7 @@ class AuthController extends Controller
     }
 
     public function login(){
-        return view('extend.login');
+        return view('auth.login');
     }
 
     public function authenticate(Request $request)
@@ -73,7 +73,7 @@ class AuthController extends Controller
 
     public function dashboard(){
     if (Auth::check()) {
-        return view('extend.dashboard');
+        return view('auth.dashboard');
     }
 
     return redirect()->route('login')
