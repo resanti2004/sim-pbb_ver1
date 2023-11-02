@@ -28,6 +28,10 @@ class ExtendController extends Controller
     {
         return view('extend.lspop');
     }
+    public function index4()
+    {
+        return view('extend.user');
+    }
 
     /**
      * Show the form for creating a new resource.

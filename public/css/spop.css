@@ -22,7 +22,7 @@
   .detail .cardHeader {
 	display: flex;
 	justify-content: space-between;
-	align-items: flex-start;
+	align-items: center;
   }
 
   .cardHeader h3 {
@@ -61,8 +61,24 @@
 	color: var(--white);
   }
   .detail .recentOrders table tr td {
-	padding: 10px;
+	padding: 15px;
   }
+  .detail .recentOrders table tr td ul {
+	display: flex;
+	/* justify-content: space-between; */
+  }
+  .detail .recentOrders a .icon-opsi {
+	display: flex;
+	align-items: center;
+	font-size: 20px;
+	color: var(--blue);
+	/* padding: 12px 16px 12px 0; */
+	transition: all .3s ease;
+	border-radius: 10px;
+	margin: 4px 10px 4px 0;
+	white-space: nowrap;
+	text-align: end;
+	}
   .detail .recentOrders table tr td:last-child {
 	text-align: start;
   }
@@ -160,7 +176,7 @@
 	/* align-items: center; */
   }
 
-  /* button */
+  /* ===========button============== */
 
   .pencarian {
 	display: flex;
@@ -181,3 +197,115 @@
   button:active {
 	transform: scale(0.96);
   }
+
+  /*==============search bar table============*/
+  .pencarian form {
+	max-width: 400px;
+	/* width: 100%; */
+	/* margin-right: auto; */
+	display: flex;
+	justify-content: center;
+	margin-right: 10px;
+	}
+	
+	.pencarian .form-group {
+		position: relative;
+		justify-content: center;
+	}
+	.pencarian .form-group input {
+		width: 100%;
+		background: var(--grey);
+		border-radius: 5px;
+		border: none;
+		outline: none;
+		/* padding: 10px 36px 10px 16px; */
+		padding: 8px 22px;
+		transition: all .3s ease;
+		margin-top: 10px;
+		margin-right: 10px;
+		/* align-items: center; */
+		display: flex;
+		justify-content: center;
+	}
+	.pencarian .form-group input:focus {
+		box-shadow: 0 0 0 1px var(--blue), 0 0 0 4px var(--light-blue);
+	}
+	.pencarian .form-group .icon {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		right: 16px;
+		color: var(--dark-grey);
+	}
+	.pencarian .nav-link {
+		position: relative;
+	}
+	.pencarian .nav-link .icon {
+		font-size: 18px;
+		color: var(--dark);
+	}
+
+/* ============ SELECT NUMBER =========== */
+.select-number{
+    width: 60px;
+    /* margin: 140px auto; */
+	display: flex;
+	align-items: center;
+	/* justify-content: flex-start; */
+	margin-right: 650px;
+}
+.select-number .select-btn{
+    display: flex;
+	justify-content: flex-start;
+    height: 35px;
+    background: #fff;
+    padding: 8px;
+    font-size: 18px;
+    font-weight: 400;
+    border-radius: 8px;
+    align-items: center;
+    cursor: pointer;
+    /* justify-content: space-between; */
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+	justify-content: space-between;
+
+}
+.select-btn i{
+    font-size: 25px;
+    transition: 0.3s;
+}
+.select-number.active .select-btn i{
+    transform: rotate(-180deg);
+}
+.select-number .options{
+    position: relative;
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 0 3px rgba(0,0,0,0.1);
+    display: none;
+}
+.select-number.active .options{
+    display: block;
+}
+.options .option{
+    display: flex;
+    height: 40px;
+    cursor: pointer;
+    padding: 0 10px;
+    border-radius: 8px;
+    align-items: center;
+    background: #fff;
+}
+.options .option:hover{
+    background: #F2F2F2;
+}
+.option i{
+    font-size: 25px;
+    margin-right: 12px;
+}
+.option .option-text{
+    font-size: 18px;
+    color: #333;
+}

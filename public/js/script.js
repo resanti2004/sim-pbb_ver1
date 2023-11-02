@@ -199,3 +199,4 @@ chart.render();
 $("#example").DataTable({
 	responsive: true,
   });
+
