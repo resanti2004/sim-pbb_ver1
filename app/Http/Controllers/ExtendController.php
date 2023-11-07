@@ -26,11 +26,15 @@ class ExtendController extends Controller
 
     public function index3()
     {
-        return view('extend.lspop');
+        return view('lspop.lspop');
     }
     public function index4()
     {
-        return view('extend.user');
+        return view('auth.user');
+    }
+    public function index5()
+    {
+        return view('spop.add_spop');
     }
 
     /**

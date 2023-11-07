@@ -30,6 +30,7 @@ Route::get('/laravel', function () {
 Route::get('/spop', [ExtendController::class, 'index2'])->name('spop');
 Route::get('/lspop', [ExtendController::class, 'index3'])->name('lspop');
 Route::get('/user', [ExtendController::class, 'index4'])->name('user');
+Route::get('/add_spop', [ExtendController::class, 'index5'])->name('add_spop');
 
 Route::controller(AuthController::class)->group(function() {
     Route::get('/register', 'register')->name('register');

@@ -1,5 +1,5 @@
 @extends('kerangka.master')
-@section('title', 'SPOP')
+@section('title', 'Provinsi')
 @section('content')
 
 			<div class="bgn">
@@ -16,8 +16,8 @@
 							<div aria-label="breadcrumb">
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="#">Beranda</a></li>
-								<li class="breadcrumb-item"><a href="#">Laporan</a></li>
-								<li class="breadcrumb-item active" aria-current="page">SPOP</li>
+								<li class="breadcrumb-item"><a href="#">Daerah</a></li>
+								<li class="breadcrumb-item active" aria-current="page">Provinsi</li>
 							</ol>
 							</div>
 						</div>
@@ -35,10 +35,8 @@
 							<thead>
 								<tr>
 									<td>No</td>
-									<td>NOP</td>
-									<td>Subjek Pajak ID</td>
-									<td>Jalan Objek Pajak</td>
-									<td>Luas Bumi</td>
+									<td>Kode Provinsi</td>
+									<td>Nama Provinsi</td>
 									<td>Opsi</td>
 								</tr>
 							</thead>

@@ -196,7 +196,7 @@ tooltip: {
 var chart = new ApexCharts(document.querySelector("#chart"), options);
 chart.render();
 
-$("#example").DataTable({
-	responsive: true,
-  });
 
+new DataTable('#example', {
+    responsive: true
+});

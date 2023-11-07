@@ -1,5 +1,5 @@
 @extends('kerangka.master')
-@section('title', 'SPOP')
+@section('title', 'Kecamatan')
 @section('content')
 
 			<div class="bgn">
@@ -12,12 +12,12 @@
 				<div class="detail">
 					<div class="recentOrders">
 						<div class="cardHeader">
-							<h3>SPOP</h3>
+							<h3>Kecamatan</h3>
 							<div aria-label="breadcrumb">
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="#">Beranda</a></li>
-								<li class="breadcrumb-item"><a href="#">Laporan</a></li>
-								<li class="breadcrumb-item active" aria-current="page">SPOP</li>
+								<li class="breadcrumb-item"><a href="#">Daerah</a></li>
+								<li class="breadcrumb-item active" aria-current="page">Kecamatan</li>
 							</ol>
 							</div>
 						</div>
@@ -35,10 +35,10 @@
 							<thead>
 								<tr>
 									<td>No</td>
-									<td>NOP</td>
-									<td>Subjek Pajak ID</td>
-									<td>Jalan Objek Pajak</td>
-									<td>Luas Bumi</td>
+									<td>Kode Provinsi</td>
+									<td>Kode Dati II</td>
+									<td>Kode Kecamatan</td>
+									<td>Nama Kecamatan</td>
 									<td>Opsi</td>
 								</tr>
 							</thead>
