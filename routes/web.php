@@ -6,6 +6,11 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\SpopController;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\LspopController;
+use App\Http\Controllers\ProvinsiController;
+use App\Http\Controllers\KabupatenController;
+use App\Http\Controllers\KecamatanController;
+use App\Http\Controllers\KelurahanController;
 
 
 /*
@@ -49,7 +54,19 @@ Route::controller(SpopController::class)->group(function() {
     Route::get('/delete', 'delete')->name('spop.delete');
 });
 
+Route::controller(LspopController::class)->group(function() {
+    Route::get('/lspop', 'index')->name('lspop');
+    Route::get('/create', 'create')->name('lspop.create');
+    Route::get('/edit', 'edit')->name('lspop.edit');
+    Route::post('/update', 'update')->name('lspop.update');
+    Route::get('/delete', 'delete')->name('lspop.delete');
+});
 
+
+Route::resource('provinsi', ProvinsiController::class);
+Route::resource('kabupaten', KabupatenController::class);
+Route::resource('kecamatan', KecamatanController::class);
+Route::resource('kelurahan', KelurahanController::class);
 
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

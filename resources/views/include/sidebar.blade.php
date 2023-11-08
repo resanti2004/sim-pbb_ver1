@@ -13,7 +13,7 @@
 				<a href="#"><i class='bx bx-bookmarks icon'></i> Dokumen <i class='bx bx-chevron-right icon-right' ></i></a>
 				<ul class="side-dropdown">
 					<li><a href="{{ route('spop') }}"><i class='bx bxs-circle icon-dot' ></i>SPOP</a></li>
-					<li><a href="#"><i class='bx bxs-circle icon-dot' ></i>LSPOP</a></li>
+					<li><a href="{{ route('lspop') }}"><i class='bx bxs-circle icon-dot' ></i>LSPOP</a></li>
 				</ul>
 			</li>
 			<li>
@@ -43,10 +43,10 @@
 			<li>
 				<a href="#"><i class='bx bxs-map icon'></i> Daerah <i class='bx bx-chevron-right icon-right' ></i></a>
 				<ul class="side-dropdown">
-					<li><a href="#"><i class='bx bxs-circle icon-dot' ></i>Provinsi</a></li>
-					<li><a href="#"><i class='bx bxs-circle icon-dot' ></i>Kabupaten</a></li>
-					<li><a href="#"><i class='bx bxs-circle icon-dot' ></i>Kecamatan</a></li>
-					<li><a href="#"><i class='bx bxs-circle icon-dot' ></i>Kelurahan</a></li>
+					<li><a href="{{ route('provinsi.index') }}"><i class='bx bxs-circle icon-dot' ></i>Provinsi</a></li>
+					<li><a href="{{ route('kabupaten.index') }}"><i class='bx bxs-circle icon-dot' ></i>Kabupaten</a></li>
+					<li><a href="{{ route('kecamatan.index') }}"><i class='bx bxs-circle icon-dot' ></i>Kecamatan</a></li>
+					<li><a href="{{ route('kelurahan.index') }}"><i class='bx bxs-circle icon-dot' ></i>Kelurahan</a></li>
 				</ul>
 			</li>
 			<li><a href="#"><i class='bx bxs-user icon' ></i> Pengguna</a></li>

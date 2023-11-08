@@ -47,7 +47,7 @@
 								@foreach($data_spop as $spop)
 								<tr>
 									<td>{{ $no++ }}</td>
-									<td>{{ $spop->NO_URUT }}</td>
+									<td>{{ $spop->nop }}</td>
 									<td>{{ $spop->SUBJEK_PAJAK_ID }}</td>
 									<td>{{ $spop->JALAN_OP }}</td>
 									<td>{{ $spop->LUAS_BUMI }}</td>
@@ -62,8 +62,10 @@
 								@endforeach
 							</tbody>
 						</table>
-						<div class="d-flex justify-content-center align-items-center p-3">
-							{{ $data_spop->links() }}
+						<div class="d-flex justify-content-center">
+							<div class="pagination">
+    							{{ $data_spop->links() }}
+							</div>
 						</div>
 						
 					</div>

@@ -1,5 +1,7 @@
 @extends('kerangka.master')
+
 @section('title', 'Tambah Data Provinsi')
+
 @section('content')
 
 			<div class="bgn">
@@ -17,20 +19,21 @@
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="#">Beranda</a></li>
 								<li class="breadcrumb-item"><a href="#">Daerah</a></li>
-								<li class="breadcrumb-item"><a href="#">Provinsi</a></li>
+								<li class="breadcrumb-item"><a href=" {{ route('provinsi.index') }}">Provinsi</a></li>
 								<li class="breadcrumb-item active" aria-current="page">Tambah Data Provinsi</li>
 							</ol>
 							</div>
 						</div>
 						
-                        <form class="row g-4 p-5">
+                        <form method="POST" action="{{ route('provinsi.store') }}" enctype="multipart/form-data" class="row g-4 p-5">
+							@csrf
                             <div class="col-md-6">
-                                <label for="inputKodeProvinsi" class="form-label">Kode Provinsi</label>
-                                <input type="text" class="form-control" id="inputKodeProvinsi" >
+                                <label for="kd_propinsi" class="form-label">Kode Provinsi</label>
+                                <input type="text" class="form-control" id="kd_propinsi" name="kd_propinsi" >
                             </div>
                             <div class="col-md-6">
-                                <label for="inputNamaProvinsi" class="form-label">Nama Provinsi</label>
-                                <input type="text" class="form-control" id="inputNamaProvinsi">
+                                <label for="nm_propinsi" class="form-label">Nama Provinsi</label>
+                                <input type="text" class="form-control" id="nm_propinsi" name="nm_propinsi">
                             </div>
 
                             <div class="col-md-12 text-center">

@@ -28,7 +28,7 @@
 								</div>
 						</form> -->
 						<div class="pencarian">
-							<button type="button">Buat Baru</button>
+							<a href="{{ route('kabupaten.create') }}"><button type="button">Buat Baru</button></a>
 						</div>
 
 						<table>
@@ -43,13 +43,12 @@
 							</thead>
 
 							<tbody>
-								@foreach($data_spop as $spop)
+								@foreach($data_kab as $kab)
 								<tr>
 									<td>{{ $no++ }}</td>
-									<td>{{ $spop->NO_URUT }}</td>
-									<td>{{ $spop->SUBJEK_PAJAK_ID }}</td>
-									<td>{{ $spop->JALAN_OP }}</td>
-									<td>{{ $spop->LUAS_BUMI }}</td>
+									<td>{{ $kab->KD_PROPINSI }}</td>
+									<td>{{ $kab->KD_DATI2 }}</td>
+									<td>{{ $kab->NM_DATI2 }}</td>
 									<td>
 										<ul class="list-inline">									
 											<li class="list-inline-item"><a href="#" class="active"><i class='bx bxs-show' ></i></a></li>
@@ -62,7 +61,7 @@
 							</tbody>
 						</table>
 						<div class="d-flex justify-content-center">
-							{{ $data_spop->links() }}
+							{{ $data_kab->links() }}
 						</div>
 						
 					</div>

@@ -28,7 +28,7 @@
 								</div>
 						</form> -->
 						<div class="pencarian">
-							<button type="button">Buat Baru</button>
+							<a href="{{ route('kelurahan.create') }}"><button type="button">Buat Baru</button></a>
 						</div>
 
 						<table>
@@ -48,13 +48,17 @@
 							</thead>
 
 							<tbody>
-								@foreach($data_spop as $spop)
+								@foreach($data_kelurahan as $kelurahan)
 								<tr>
 									<td>{{ $no++ }}</td>
-									<td>{{ $spop->NO_URUT }}</td>
-									<td>{{ $spop->SUBJEK_PAJAK_ID }}</td>
-									<td>{{ $spop->JALAN_OP }}</td>
-									<td>{{ $spop->LUAS_BUMI }}</td>
+									<td>{{ $kelurahan->KD_PROPINSI }}</td>
+									<td>{{ $kelurahan->KD_DATI2 }}</td>
+									<td>{{ $kelurahan->KD_KECAMATAN }}</td>
+									<td>{{ $kelurahan->KD_KELURAHAN }}</td>
+									<td>{{ $kelurahan->KD_SEKTOR }}</td>
+									<td>{{ $kelurahan->NM_KELURAHAN }}</td>
+									<td>{{ $kelurahan->NO_KELURAHAN }}</td>
+									<td>{{ $kelurahan->KD_POS_KELURAHAN }}</td>
 									<td>
 										<ul class="list-inline">									
 											<li class="list-inline-item"><a href="#" class="active"><i class='bx bxs-show' ></i></a></li>
@@ -67,7 +71,7 @@
 							</tbody>
 						</table>
 						<div class="d-flex justify-content-center">
-							{{ $data_spop->links() }}
+							{{ $data_kelurahan->links() }}
 						</div>
 						
 					</div>
