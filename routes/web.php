@@ -24,7 +24,7 @@ Route::get('/', function () {
 });
 
 Route::get('/laravel', function () {
-    return view('welcome');
+    return view('coba');
 });
 
 Route::get('/spop', [ExtendController::class, 'index2'])->name('spop');

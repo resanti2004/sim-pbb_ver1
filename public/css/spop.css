@@ -14,20 +14,24 @@
 	display: grid;
 	min-height: 400px;
 	background: var(--light);
-	padding: 20px;
+	padding: 30px;
 	box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
 	border-radius: 10px;
   }
   
-  .detail .cardHeader {
+  /* .detail .cardHeader {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-  }
+  } */
 
   .cardHeader h3 {
 	font-weight: 600;
 	color: var(--blue);
+  }
+
+  .cardHeader .breadcrumb {
+	margin: 0px;
   }
 
   .cardHeader .btr {
@@ -65,6 +69,7 @@
   }
   .detail .recentOrders table tr td ul {
 	display: flex;
+	margin: 0px;
 	/* justify-content: space-between; */
   }
   .detail .recentOrders a .icon-opsi {

@@ -62,7 +62,7 @@
 								@endforeach
 							</tbody>
 						</table>
-						<div class="d-flex justify-content-center">
+						<div class="d-flex justify-content-center align-items-center p-3">
 							{{ $data_spop->links() }}
 						</div>
 						

@@ -21,12 +21,12 @@
 							</ol>
 							</div>
 						</div>
-						<form action="#">
+						<!-- <form action="#">
 								<div class="form-group">
 									<input type="text" placeholder="Search...">
 									<i class='bx bx-search icon' ></i>
 								</div>
-						</form>
+						</form> -->
 						<div class="pencarian">
 							<button type="button">Buat Baru</button>
 						</div>
@@ -65,32 +65,7 @@
 						<div class="d-flex justify-content-center">
 							{{ $data_spop->links() }}
 						</div>
-						
-						<!-- <div class="container">
-							<button class="button" id="startBtn" disabled>
-								<i class="fa-solid fa-angles-left"></i>
-							</button>
-							<button class="button prevNext" id="prev" disabled>
-								<i class="fa-solid fa-angle-left"></i>
-							</button>
-
-							<div class="links">
-								<a href="#" class="link active">1</a>
-								<a href="#" class="link">2</a>
-								<a href="#" class="link">3</a>
-								<a href="#" class="link">4</a>
-								<a href="#" class="link">5</a>
-							</div>
-
-							<button class="button prevNext" id="next">
-								<i class="fa-solid fa-angle-right"></i>
-							</button>
-							<button class="button" id="endBtn">
-								<i class="fa-solid fa-angles-right"></i>
-							</button>
-						</div> -->
 							
-
 					</div>
 				</div>
 			</div>
