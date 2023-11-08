@@ -41,8 +41,8 @@
 				<ul class="side-dropdown">
 					<li><a href="{{ route('provinsi.index') }}">Provinsi</a></li>
 					<li><a href="{{ route('kabupaten.index') }}">Kabupaten</a></li>
-					<li><a href="#">Kecamatan</a></li>
-					<li><a href="#">Kelurahan</a></li>
+					<li><a href="{{ route('kecamatan.index') }}">Kecamatan</a></li>
+					<li><a href="{{ route('kelurahan.index') }}">Kelurahan</a></li>
 				</ul>
 			</li>
 			<li><a href="#"><i class='bx bxs-user icon' ></i> Pengguna</a></li>

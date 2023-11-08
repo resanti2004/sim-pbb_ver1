@@ -19,7 +19,7 @@
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="#">Beranda</a></li>
 								<li class="breadcrumb-item"><a href="#">Daerah</a></li>
-								<li class="breadcrumb-item"><a href="#">Kabupaten</a></li>
+								<li class="breadcrumb-item"><a href="{{ route('kabupaten.index') }}">Kabupaten</a></li>
 								<li class="breadcrumb-item active" aria-current="page">Tambah Data Dati 2</li>
 							</ol>
 							</div>

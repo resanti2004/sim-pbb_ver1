@@ -17,28 +17,29 @@
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="#">Beranda</a></li>
 								<li class="breadcrumb-item"><a href="#">Daerah</a></li>
-								<li class="breadcrumb-item"><a href="#">Kecamatan</a></li>
+								<li class="breadcrumb-item"><a href="{{ route('kecamatan.index') }}">Kecamatan</a></li>
 								<li class="breadcrumb-item active" aria-current="page">Tambah Data Kecamatan</li>
 							</ol>
 							</div>
 						</div>
 						
-                        <form class="row g-4 p-5">
+                        <form method="POST" action="{{ route('kecamatan.store') }}" enctype="multipart/form-data" class="row g-4 p-5">
+							@csrf
                             <div class="col-md-6">
                                 <label for="inputKodeProvinsi" class="form-label">Kode Provinsi</label>
-                                <input type="text" class="form-control" id="inputKodeProvinsi" >
+                                <input type="text" class="form-control" id="inputKodeProvinsi" name="inputKodeProvinsi">
                             </div>
                             <div class="col-md-6">
                                 <label for="inputKodeDati2" class="form-label">Kode Dati 2</label>
-                                <input type="text" class="form-control" id="inputKodeDati2">
+                                <input type="text" class="form-control" id="inputKodeDati2" name="inputKodeDati2">
                             </div>
                             <div class="col-md-6">
                                 <label for="inputKodeKecamatan" class="form-label">Kode Kecamatan</label>
-                                <input type="text" class="form-control" id="inputKodeKecamatan">
+                                <input type="text" class="form-control" id="inputKodeKecamatan" name="inputKodeKecamatan">
                             </div>
                             <div class="col-md-6">
                                 <label for="inputNamaKecamatan" class="form-label">Nama Kecamatan</label>
-                                <input type="text" class="form-control" id="inputNamaKecamatan">
+                                <input type="text" class="form-control" id="inputNamaKecamatan" name="inputNamaKecamatan">
                             </div>
 
                             <div class="col-md-12 text-center">

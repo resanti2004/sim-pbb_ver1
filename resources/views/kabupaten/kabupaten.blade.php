@@ -46,7 +46,7 @@
 								@foreach($data_kab as $kab)
 								<tr>
 									<td>{{ $no++ }}</td>
-									<td>{{ $kab->kd_propinsi }}</td>
+									<td>{{ $kab->KD_PROPINSI }}</td>
 									<td>{{ $kab->KD_DATI2 }}</td>
 									<td>{{ $kab->NM_DATI2 }}</td>
 									<td>

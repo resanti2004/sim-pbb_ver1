@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\LspopController;
 use App\Http\Controllers\ProvinsiController;
 use App\Http\Controllers\KabupatenController;
+use App\Http\Controllers\KecamatanController;
+use App\Http\Controllers\KelurahanController;
 
 
 /*
@@ -63,6 +65,8 @@ Route::controller(LspopController::class)->group(function() {
 
 Route::resource('provinsi', ProvinsiController::class);
 Route::resource('kabupaten', KabupatenController::class);
+Route::resource('kecamatan', KecamatanController::class);
+Route::resource('kelurahan', KelurahanController::class);
 
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

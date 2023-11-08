@@ -25,6 +25,7 @@ class RefKecamatan extends Model
 	public $timestamps = false;
 
 	protected $fillable = [
+		'KD_KECAMATAN',
 		'NM_KECAMATAN'
 	];
 }

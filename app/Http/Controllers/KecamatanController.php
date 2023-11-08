@@ -5,20 +5,20 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Pagination\LengthAwarePaginator;
-use App\Models\RefPropinsi;
+use App\Models\RefKecamatan;
 
-class ProvinsiController extends Controller
+class KecamatanController extends Controller
 {
      /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $data_provinsi = RefPropinsi::orderBy('kd_propinsi', 'asc')
+        $data_kecamatan = RefKecamatan::orderBy('kd_kecamatan', 'asc')
         ->paginate(25);
 
-        $no = ($data_provinsi->currentPage() - 1) * $data_provinsi->perPage() + 1;
-        return view('provinsi.provinsi', compact('data_provinsi', 'no'));
+        $no = ($data_kecamatan->currentPage() - 1) * $data_kecamatan->perPage() + 1;
+        return view('kecamatan.kecamatan', compact('data_kecamatan', 'no'));
     }
 
     /**
@@ -26,7 +26,7 @@ class ProvinsiController extends Controller
      */
     public function create()
     {
-        return view('provinsi.add_provinsi');
+        return view('kecamatan.add_kecamatan');
     }
 
     /**
@@ -36,18 +36,22 @@ class ProvinsiController extends Controller
     {   
         
         $request->validate([
-            'kd_propinsi' => 'required|unique:ref_propinsi . kd_propinsi',
-            'nm_propinsi' => 'required',
+            'inputKodeProvinsi' => 'required',
+            'inputKodeDati2' => 'required',
+            'inputKodeKecamatan' => 'required',
+            'inputNamaKecamatan' => 'required',
         ]);
         
-        $provinsi = new RefPropinsi;
-        $provinsi->kd_propinsi = $request->kd_propinsi;
-        $provinsi->nm_propinsi = $request->nm_propinsi;
-        $provinsi->save();
+        $kecamatan = new RefKecamatan;
+        $kecamatan->kd_propinsi = $request->inputKodeProvinsi;
+        $kecamatan->kd_dati2 = $request->inputKodeDati2;
+        $kecamatan->kd_kecamatan = $request->inputKodeKecamatan;
+        $kecamatan->nm_kecamatan = $request->inputNamaKecamatan;
+        $kecamatan->save();
         // dd($request->all());
 
-        return redirect()->route('provinsi.index')
-            ->with('success', 'Provinsi berhasil ditambah.');
+        return redirect()->route('kecamatan.index')
+            ->with('success', 'Kecamatan berhasil ditambah.');
     }
 
     /**

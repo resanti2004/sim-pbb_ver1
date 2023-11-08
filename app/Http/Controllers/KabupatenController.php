@@ -39,14 +39,14 @@ class KabupatenController extends Controller
         ]);
         
         $provinsi = new RefDati2();
-        $provinsi->inputKodeProvinsi = $request->kd_propinsi;
-        $provinsi->inputKodeDati2 = $request->kd_dati2;
-        $provinsi->inputNamaDati2 = $request->nm_dati2;
+        $provinsi->inputKodeProvinsi = $request->inputKodeProvinsi;
+        $provinsi->inputKodeDati2 = $request->inputKodeDati2;
+        $provinsi->inputNamaDati2 = $request->inputNamaDati2;
         $provinsi->save();
         // dd($request->all());
 
         return redirect()->route('kabupaten.index')
-            ->with('success', 'Provinsi berhasil ditambah.');
+            ->with('success', 'Kabupaten berhasil ditambah.');
     }
 
     /**
