@@ -39,8 +39,8 @@
 			<li>
 				<a href="#"><i class='bx bxs-map icon'></i> Daerah <i class='bx bx-chevron-right icon-right' ></i></a>
 				<ul class="side-dropdown">
-					<li><a href="#">Provinsi</a></li>
-					<li><a href="#">Kabupaten</a></li>
+					<li><a href="{{ route('provinsi.index') }}">Provinsi</a></li>
+					<li><a href="{{ route('kabupaten.index') }}">Kabupaten</a></li>
 					<li><a href="#">Kecamatan</a></li>
 					<li><a href="#">Kelurahan</a></li>
 				</ul>

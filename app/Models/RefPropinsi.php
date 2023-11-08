@@ -24,6 +24,7 @@ class RefPropinsi extends Model
 	public $timestamps = false;
 
 	protected $fillable = [
+		'KD_PROPINSI',
 		'NM_PROPINSI'
 	];
 }

@@ -1,5 +1,7 @@
 @extends('kerangka.master')
+
 @section('title', 'Tambah Data Kabupaten')
+
 @section('content')
 
 			<div class="bgn">
@@ -23,18 +25,19 @@
 							</div>
 						</div>
 						
-                        <form class="row g-4 p-5">
+                        <form method="POST" action="{{ route('kabupaten.store') }}" enctype="multipart/form-data" class="row g-4 p-5">
+							@csrf
                             <div class="col-md-6">
                                 <label for="inputKodeProvinsi" class="form-label">Kode Provinsi</label>
-                                <input type="text" class="form-control" id="inputKodeProvinsi" >
+                                <input type="text" class="form-control" id="inputKodeProvinsi" name="inputKodeProvinsi">
                             </div>
                             <div class="col-md-6">
                                 <label for="inputKodeDati2" class="form-label">Kode Dati 2</label>
-                                <input type="text" class="form-control" id="inputKodeDati2">
+                                <input type="text" class="form-control" id="inputKodeDati2" name="inputKodeDati2">
                             </div>
                             <div class="col-md-6">
                                 <label for="inputNamaDati2" class="form-label">Nama Dati 2</label>
-                                <input type="text" class="form-control" id="inputNamaDati2">
+                                <input type="text" class="form-control" id="inputNamaDati2" name="inputNamaDati2"> 
                             </div>
 
                             <div class="col-md-12 text-center">

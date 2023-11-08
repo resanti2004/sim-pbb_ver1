@@ -7,6 +7,8 @@ use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\SpopController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\LspopController;
+use App\Http\Controllers\ProvinsiController;
+use App\Http\Controllers\KabupatenController;
 
 
 /*
@@ -58,6 +60,9 @@ Route::controller(LspopController::class)->group(function() {
     Route::get('/delete', 'delete')->name('lspop.delete');
 });
 
+
+Route::resource('provinsi', ProvinsiController::class);
+Route::resource('kabupaten', KabupatenController::class);
 
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -12,12 +12,12 @@
 				<div class="detail">
 					<div class="recentOrders">
 						<div class="cardHeader">
-							<h3>SPOP</h3>
+							<h3>Provinsi</h3>
 							<div aria-label="breadcrumb">
 							<ol class="breadcrumb">
-								<li class="breadcrumb-item"><a href="#">Beranda</a></li>
-								<li class="breadcrumb-item"><a href="#">Daerah</a></li>
-								<li class="breadcrumb-item active" aria-current="page">Provinsi</li>
+								<li class="breadcrumb-item">Beranda</li>
+								<li class="breadcrumb-item">Daerah</li>
+								<li class="breadcrumb-item active" aria-current="page" >Provinsi</li>
 							</ol>
 							</div>
 						</div>
@@ -28,9 +28,8 @@
 								</div>
 						</form> -->
 						<div class="pencarian">
-							<button type="button">Buat Baru</button>
+							<a href="{{ route('provinsi.create') }}"><button type="button">Buat Baru</button></a>
 						</div>
-
 						<table>
 							<thead>
 								<tr>
@@ -42,13 +41,11 @@
 							</thead>
 
 							<tbody>
-								@foreach($data_spop as $spop)
+								@foreach($data_provinsi as $provinsi)
 								<tr>
 									<td>{{ $no++ }}</td>
-									<td>{{ $spop->NO_URUT }}</td>
-									<td>{{ $spop->SUBJEK_PAJAK_ID }}</td>
-									<td>{{ $spop->JALAN_OP }}</td>
-									<td>{{ $spop->LUAS_BUMI }}</td>
+									<td>{{ $provinsi->KD_PROPINSI }}</td>
+									<td>{{ $provinsi->NM_PROPINSI }}</td>
 									<td>
 										<ul class="list-inline">									
 											<li class="list-inline-item"><a href="#" class="active"><i class='bx bxs-show' ></i></a></li>
@@ -61,7 +58,7 @@
 							</tbody>
 						</table>
 						<div class="d-flex justify-content-center">
-							{{ $data_spop->links() }}
+							{{ $data_provinsi->links() }}
 						</div>
 						
 					</div>
