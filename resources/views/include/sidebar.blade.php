@@ -9,7 +9,7 @@
 				<a href="#"><i class='bx bx-bookmarks icon'></i> Dokumen <i class='bx bx-chevron-right icon-right' ></i></a>
 				<ul class="side-dropdown">
 					<li><a href="{{ route('spop') }}">SPOP</a></li>
-					<li><a href="#">LSPOP</a></li>
+					<li><a href="{{ route('lspop') }}">LSPOP</a></li>
 				</ul>
 			</li>
 			<li>

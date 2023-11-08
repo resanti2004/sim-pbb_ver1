@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\SpopController;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\LspopController;
 
 
 /*
@@ -49,6 +50,13 @@ Route::controller(SpopController::class)->group(function() {
     Route::get('/delete', 'delete')->name('spop.delete');
 });
 
+Route::controller(LspopController::class)->group(function() {
+    Route::get('/lspop', 'index')->name('lspop');
+    Route::get('/create', 'create')->name('lspop.create');
+    Route::get('/edit', 'edit')->name('lspop.edit');
+    Route::post('/update', 'update')->name('lspop.update');
+    Route::get('/delete', 'delete')->name('lspop.delete');
+});
 
 
 

@@ -44,13 +44,13 @@
 							</thead>
 
 							<tbody>
-								@foreach($data_spop as $spop)
+								@foreach($data_lspop as $lspop)
 								<tr>
 									<td>{{ $no++ }}</td>
-									<td>{{ $spop->NO_URUT }}</td>
-									<td>{{ $spop->SUBJEK_PAJAK_ID }}</td>
-									<td>{{ $spop->JALAN_OP }}</td>
-									<td>{{ $spop->LUAS_BUMI }}</td>
+									<td>{{ $lspop->nop }}</td>
+									<td>{{ $lspop->NO_BNG }}</td>
+									<td>{{ $lspop->LUAS_BNG }}</td>
+									<td>{{ $lspop->JML_LANTAI_BNG }}</td>
 									<td>
 										<ul class="list-inline">									
 											<li class="list-inline-item"><a href="#" class="active"><i class='bx bxs-show' ></i></a></li>
@@ -63,7 +63,7 @@
 							</tbody>
 						</table>
 						<div class="d-flex justify-content-center">
-							{{ $data_spop->links() }}
+							{{ $data_lspop->links() }}
 						</div>
 						
 						<!-- <div class="container">
