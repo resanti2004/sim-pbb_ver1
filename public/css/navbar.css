@@ -132,7 +132,22 @@ nav .profile .profile-link a {
 	align-items: center;
 	transition: all .3s ease;
 }
+
+/* nav .profile .profile-name {
+	display: flex;
+} */
+
+nav br {
+	line-height: 1;
+}
+
 nav .profile .profile-link a:hover {
 	background: var(--grey);
 }
+
+nav small {
+	color: var(--dark-grey);
+	font-size: 13px;
+}
+
 /* NAVBAR */

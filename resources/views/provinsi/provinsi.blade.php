@@ -15,9 +15,9 @@
 							<h3>Provinsi</h3>
 							<div aria-label="breadcrumb">
 							<ol class="breadcrumb">
-								<li class="breadcrumb-item">Beranda</li>
-								<li class="breadcrumb-item">Daerah</li>
-								<li class="breadcrumb-item active" aria-current="page" >Provinsi</li>
+							<li class="breadcrumb-item"><a href="#">Beranda</a></li>
+							<li class="breadcrumb-item"><a href="#">Daerah</a></li>
+							<li class="breadcrumb-item active" aria-current="page">Provinsi</li>
 							</ol>
 							</div>
 						</div>

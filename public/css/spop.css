@@ -11,7 +11,7 @@
   
   .detail .recentOrders {
 	position: relative;
-	display: grid;
+	/* display: grid; */
 	min-height: 400px;
 	background: var(--light);
 	padding: 30px;
@@ -66,6 +66,7 @@
   }
   .detail .recentOrders table tr td {
 	padding: 15px;
+	/* white-space: nowrap; */
   }
   .detail .recentOrders table tr td ul {
 	display: flex;
@@ -186,6 +187,7 @@
   .pencarian {
 	display: flex;
 	justify-content: flex-end;
+	height: 60px;
   }
 
   button {
@@ -314,3 +316,10 @@
     font-size: 18px;
     color: #333;
 }
+
+/* PADA TAMBAH DATA */
+/* Ganti warna border input menjadi biru */
+.form-control {
+	border-color: var(--blue);
+  }
+  

@@ -24,7 +24,6 @@
 					<b>Arviansyah Eka</b><br>
 					<small>Project Manager</small>
 					<ul class="dropdown-menu">
-                    
                 </ul>
 				</div>
 				<ul class="profile-link">

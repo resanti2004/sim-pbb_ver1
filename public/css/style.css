@@ -67,6 +67,9 @@ li {
 
 /* MAIN */
 main {
+	position: relative;
+  	padding-bottom: 40px;
+	min-height: 86vh;
 	width: 100%;
 	padding: 24px 20px 20px 20px;
 	/* position: relative;
