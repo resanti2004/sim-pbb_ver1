@@ -1,7 +1,8 @@
   
 		<!-- <a href="#" class="brand"><i class='icon' src="image/logo.svg"></i> SIM-PBB</a> -->
 		<a href="#" class="brand">
-			<img class="icon-utama" src="image/logo.svg" alt="Logo">
+			<img class="icon-utama" src="{{asset('
+				image/logo.svg')}}" alt="Logo">
 			SIM-PBB
 		</a>
 		<ul class="side-menu">
@@ -50,9 +51,11 @@
 				</ul>
 			</li>
 			<li><a href="#"><i class='bx bxs-user icon' ></i> Pengguna</a></li>
+
+			<li><a href="#"><i class='bx bx-log-out icon'></i>Log Out</a></li>
 		</ul>
-		<div class="ads">
+		<!-- <div class="ads">
 			<div class="wrapper">
 				<a href="#" class="btn-upgrade">LOGOUT</a>
 			</div>
-		</div>
+		</div> -->

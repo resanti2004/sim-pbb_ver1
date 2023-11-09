@@ -28,7 +28,7 @@
 								</div>
 						</form> -->
 						<div class="pencarian">
-							<a href="{{ route('kabupaten.create') }}"><button type="button">Buat Baru</button></a>
+							<a href="{{ route('kabupaten.create') }}"><button type="button">+ Buat Baru</button></a>
 						</div>
 
 						<table>

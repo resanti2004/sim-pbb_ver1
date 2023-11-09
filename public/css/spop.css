@@ -28,6 +28,7 @@
   .cardHeader h3 {
 	font-weight: 600;
 	color: var(--blue);
+	font-size: 28px;
   }
 
   .cardHeader .breadcrumb {
@@ -94,6 +95,11 @@
   .detail .recentOrders table tr td:nth-child(3) {
 	text-align: start;
   }
+  .detail .recentOrders table tr:nth-child(odd) {
+	background-color: var(--grey);
+  }
+
+
   .status.delivered {
 	padding: 2px 4px;
 	background: #8de02c;

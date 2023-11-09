@@ -19,7 +19,7 @@
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="#">Beranda</a></li>
 								<li class="breadcrumb-item"><a href="#">Daerah</a></li>
-								<li class="breadcrumb-item"><a href=" {{ route('provinsi.index') }}">Provinsi</a></li>
+								<!-- <li class="breadcrumb-item"><a href=" {{ route('provinsi.index') }}">Provinsi</a></li> -->
 								<li class="breadcrumb-item active" aria-current="page">Tambah Data Provinsi</li>
 							</ol>
 							</div>
@@ -40,12 +40,6 @@
                                 <button type="submit" class="btn btn-primary" style="width:150px;">Tambah</button>
                             </div>
                         </form>
-
-						<div class="d-flex justify-content-center">
-							<div class="pagination">
-    							{{ $data_spop->links() }}
-							</div>
-						</div>
 
 					</div>
 				</div>

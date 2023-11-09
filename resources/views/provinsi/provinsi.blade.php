@@ -12,7 +12,7 @@
 				<div class="detail">
 					<div class="recentOrders">
 						<div class="cardHeader">
-							<h3>Provinsi</h3>
+							<a href=""><h3>Provinsi</h3></a> 
 							<div aria-label="breadcrumb">
 							<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="#">Beranda</a></li>
@@ -28,7 +28,7 @@
 								</div>
 						</form> -->
 						<div class="pencarian">
-							<a href="{{ route('provinsi.create') }}"><button type="button">Buat Baru</button></a>
+							<a href="{{ route('provinsi.create') }}"><button type="button">+ Buat Baru</button></a>
 						</div>
 						<table>
 							<thead>
