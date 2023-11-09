@@ -41,12 +41,6 @@
                             </div>
                         </form>
 
-						<div class="d-flex justify-content-center">
-							<div class="pagination">
-    							{{ $data_spop->links() }}
-							</div>
-						</div>
-
 					</div>
 				</div>
 			</div>
