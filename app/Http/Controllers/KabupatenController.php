@@ -32,18 +32,21 @@ class KabupatenController extends Controller
      */
     public function store(Request $request)
     {
+        
         $request->validate([
             'inputKodeProvinsi' => 'required',
             'inputKodeDati2' => 'required',
-            `inputNamaDati2` => 'required',
+            'inputNamaDati2' => 'required',
         ]);
         
-        $provinsi = new RefDati2();
-        $provinsi->inputKodeProvinsi = $request->inputKodeProvinsi;
-        $provinsi->inputKodeDati2 = $request->inputKodeDati2;
-        $provinsi->inputNamaDati2 = $request->inputNamaDati2;
-        $provinsi->save();
-        // dd($request->all());
+        $kabupaten = new RefDati2();
+        
+        $kabupaten->kd_propinsi= $request->inputKodeProvinsi;
+        $kabupaten->kd_dati2 = $request->inputKodeDati2;
+        $kabupaten->nm_dati2 = $request->inputNamaDati2;
+        
+        $kabupaten->save();
+        
 
         return redirect()->route('kabupaten.index')
             ->with('success', 'Kabupaten berhasil ditambah.');

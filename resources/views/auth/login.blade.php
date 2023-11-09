@@ -19,7 +19,7 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.css"
     rel="stylesheet"
     />
-    <title>Document</title>
+    <title>Login</title>
 </head>
 <body>
     <section class="vh-100">
@@ -34,14 +34,14 @@
 
                 <div class="d-flex align-items-center h-custom-2 px-5 ms-xl-8 mt-5 pt-5 pt-xl-0 mt-xl-n8 style=">
 
-                    <form method="POST" action="{{ route('authenticate') }}" style="width: 23rem;">
+            <form method="POST" action="{{ route('authenticate') }}" style="width: 23rem;">
                            @csrf 
                         <h3 class="fw-normal mb-0 pb-3" style="letter-spacing: 1px; text-align: center;">MASUK</h3>
                         <h6 class="fw-normal mb-3 pb-3 pb-0 pt-0" style="letter-spacing: 1px; text-align: center;">Masuk Ke SIM-PBB</h6>
 
                         <div class="form-outline mb-4">
-                            <input type="text" id="username" name="username" class="form-control form-control-lg" value="{{ old('username') }}">
-                            <label class="form-label" for="password">Username</label>
+                            <input type="text" id="username" name="username" class="form-control form-control-lg">
+                            <label class="form-label" for="username">Username</label>
                         </div>
 
                         <div class="form-outline mb-4">

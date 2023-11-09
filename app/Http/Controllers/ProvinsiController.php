@@ -34,17 +34,18 @@ class ProvinsiController extends Controller
      */
     public function store(Request $request)
     {   
-        
+        // dd($request->all());
         $request->validate([
-            'kd_propinsi' => 'required|unique:ref_propinsi . kd_propinsi',
+            'kd_propinsi' => 'required',
             'nm_propinsi' => 'required',
         ]);
+        
         
         $provinsi = new RefPropinsi;
         $provinsi->kd_propinsi = $request->kd_propinsi;
         $provinsi->nm_propinsi = $request->nm_propinsi;
         $provinsi->save();
-        // dd($request->all());
+        
 
         return redirect()->route('provinsi.index')
             ->with('success', 'Provinsi berhasil ditambah.');
