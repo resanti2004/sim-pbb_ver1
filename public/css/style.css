@@ -19,7 +19,9 @@
 :root {
 	--grey: #F1F0F6;
 	--dark-grey: #8D8D8D;
-	--light: #fff;
+	--light-grey: #f0eeee;
+	--dark2-grey: #dcdcdc;
+	--light: #f6f6f6;
 	--dark: #000;
 	--green: #81D43A;
 	--light-green: #E3FFCB;
@@ -91,7 +93,7 @@ main {
 
 main .title {
 	/* margin-top: 40px; */
-	padding-top: 20px;
+	padding-top: 15px;
 	font-size: 30px;
 	font-weight: 600;
 	margin-bottom: 5px;

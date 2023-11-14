@@ -33,6 +33,7 @@
 
   .cardHeader .breadcrumb {
 	margin: 0px;
+	font-size: 17px;
   }
 
   .cardHeader .btr {
@@ -46,6 +47,11 @@
 	width: 100%;
 	border-collapse: collapse;
 	margin-top: 10px;
+	/* overflow: scroll; */
+  }
+.filterBox .table {
+	overflow: scroll;
+	white-space: nowrap;
   }
   .detail table thead td {
 	font-weight: 600;
@@ -56,18 +62,23 @@
 	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   }
   .detail .recentOrders table tr:last-child {
-	border-bottom: none;
-	/* background-color: var(--grey); */
+	/* border-bottom: none; */
+	background-color: var(--grey);
+	border-bottom: 1px solid rgba(0, 0, 0, 1);
   }
 
   .detail .recentOrders table tbody tr:hover {
 	border-radius: 20px;
-	background: var(--grey);
+	background: var(--dark2-grey);
 	color: var(--white);
+  }
+  .detail .recentOrders{
+	/* padding: 15px; */
+	white-space: wrap;
   }
   .detail .recentOrders table tr td {
 	padding: 15px;
-	/* white-space: nowrap; */
+
   }
   .detail .recentOrders table tr td ul {
 	display: flex;
@@ -96,9 +107,8 @@
 	text-align: start;
   }
   .detail .recentOrders table tr:nth-child(odd) {
-	background-color: var(--grey);
+	background-color: var(--light-grey);
   }
-
 
   .status.delivered {
 	padding: 2px 4px;
@@ -328,4 +338,30 @@
 .form-control {
 	border-color: var(--blue);
   }
+
+/*================ CONTAINER FILTER ===============*/
+.detail .recentOrders .filterBox {
+	position: relative;
+	/* display: grid; */
+	/* min-height: 400px; */
+	background: var(--light);
+	padding: 20px;
+	margin: 20px auto;
+	box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+	border-radius: 10px;
+	border: 1px solid var(--blue);
+	width: 600px;
+  }
+.detail .recentOrders .dataBox {
+	position: relative;
+	/* display: grid; */
+	/* min-height: 400px; */
+	background: var(--light);
+	padding: 20px;
+	margin: 20px;
+	box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+	border-radius: 10px;
+  }
+
+
   
