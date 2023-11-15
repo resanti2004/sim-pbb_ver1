@@ -27,9 +27,9 @@
 									<i class='bx bx-search icon' ></i>
 								</div>
 						</form> -->
-						<div class="d-flex justify-content-between align-items-bottom">
-						<p class="align-bottom">Menampilkan <b> {{ $data_kecamatan->count() }} </b> data dari total <b> {{ $data_kecamatan->total() }} </b> data</p>
-						<a href="{{ route('kecamatan.create') }}"><button type="button">+ Buat Baru</button></a>
+						<div class="pencarian d-flex justify-content-between align-items-end">
+							<p class="m-0">Menampilkan <b>{{ $data_kecamatan->count() }}</b> data dari total <b>{{ count($data_kecamatan) }}</b> </p>
+							<a href="{{ route('kecamatan.create') }}"><button type="button">+ Buat Baru</button></a>
 						</div>
 						
 						<table>

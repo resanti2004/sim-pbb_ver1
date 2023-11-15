@@ -35,7 +35,24 @@ class SpopController extends Controller
     }
     public function create()
     {
-        // return view('spop.create');
+        return view('spop.add_spop');
+    }
+    public function store(Request $request)
+    {
+        $request->validate([
+            'kd_prov' => 'required|unique:ref_propinsi|numeric',
+            'kd_dati' => 'required',
+        ]);
+        
+        
+        // $provinsi = new RefPropinsi;
+        // $provinsi->kd_propinsi = $request->kd_propinsi;
+        // $provinsi->nm_propinsi = $request->nm_propinsi;
+        // $provinsi->save();
+        
+
+        return redirect()->route('spop.index')
+            ->with('success', 'SPOP berhasil ditambah.');
     }
     public function edit()
     {
@@ -45,7 +62,7 @@ class SpopController extends Controller
     {
         // 
     }
-    public function delete()
+    public function destroy()
     {
         // return view('spop.delete');
     }

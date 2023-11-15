@@ -21,13 +21,13 @@
 				<a href="#"><i class='bx bx-file icon'></i> Laporan <i class='bx bx-chevron-right icon-right' ></i></a>
 				<ul class="side-dropdown">
 					<li><a href="#"><i class='bx bxs-circle icon-dot' ></i>Realisasi Kelurahan</a></li>
+					<li><a href="#"><i class='bx bxs-circle icon-dot' ></i>Pelayanan</a></li>
 					<li><a href="#"><i class='bx bxs-circle icon-dot' ></i>SK NJOP</a></li>
 					<li><a href="#"><i class='bx bxs-circle icon-dot' ></i>Informasi PBB</a></li>
 					<li><a href="#"><i class='bx bxs-circle icon-dot' ></i>Neraca KPP</a></li>
 					<li><a href="#"><i class='bx bxs-circle icon-dot' ></i>Total Neraca KPP</a></li>
 					<li><a href="#"><i class='bx bxs-circle icon-dot' ></i>Neraca BPK</a></li>
 					<li><a href="#"><i class='bx bxs-circle icon-dot' ></i>Total Neraca BPK</a></li>
-					<li><a href="#"><i class='bx bxs-circle icon-dot' ></i>Informasi PBB</a></li>
 					<li><a href="#"><i class='bx bxs-circle icon-dot' ></i>Penetapan</a></li>
 					<li><a href="#"><i class='bx bxs-circle icon-dot' ></i>Validasi</a></li>
 					<li><a href="#"><i class='bx bxs-circle icon-dot' ></i>Hasil Input Pelayanan</a></li>

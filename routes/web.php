@@ -29,13 +29,8 @@ Route::get('/', function () {
 });
 
 Route::get('/laravel', function () {
-    return view('coba');
+    return view('lspop.edit_lspop');
 });
-
-Route::get('/spop', [ExtendController::class, 'index2'])->name('spop');
-Route::get('/lspop', [ExtendController::class, 'index3'])->name('lspop');
-Route::get('/user', [ExtendController::class, 'index4'])->name('user');
-Route::get('/add_spop', [ExtendController::class, 'index5'])->name('add_spop');
 
 Route::controller(AuthController::class)->group(function() {
     Route::get('/register', 'register')->name('register');
@@ -46,13 +41,13 @@ Route::controller(AuthController::class)->group(function() {
     Route::post('/logout', 'logout')->name('logout');
 });
 
-Route::controller(SpopController::class)->group(function() {
-    Route::get('/spop', 'index')->name('spop');
-    Route::get('/create', 'create')->name('spop.create');
-    Route::get('/edit', 'edit')->name('spop.edit');
-    Route::post('/update', 'update')->name('spop.update');
-    Route::get('/delete', 'delete')->name('spop.delete');
-});
+// Route::controller(SpopController::class)->group(function() {
+//     Route::get('/spop', 'index')->name('spop');
+//     Route::get('/create', 'create')->name('spop.create');
+//     Route::get('/edit', 'edit')->name('spop.edit');
+//     Route::post('/update', 'update')->name('spop.update');
+//     Route::get('/delete', 'delete')->name('spop.delete');
+// });
 
 Route::controller(LspopController::class)->group(function() {
     Route::get('/lspop', 'index')->name('lspop');
@@ -62,7 +57,7 @@ Route::controller(LspopController::class)->group(function() {
     Route::get('/delete', 'delete')->name('lspop.delete');
 });
 
-
+Route::resource('spop', SpopController::class);
 Route::resource('provinsi', ProvinsiController::class);
 Route::resource('kabupaten', KabupatenController::class);
 Route::resource('kecamatan', KecamatanController::class);

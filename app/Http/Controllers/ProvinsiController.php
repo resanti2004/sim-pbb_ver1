@@ -36,7 +36,7 @@ class ProvinsiController extends Controller
     {   
         // dd($request->all());
         $request->validate([
-            'kd_propinsi' => 'required',
+            'kd_propinsi' => 'required|unique:ref_propinsi|numeric',
             'nm_propinsi' => 'required',
         ]);
         

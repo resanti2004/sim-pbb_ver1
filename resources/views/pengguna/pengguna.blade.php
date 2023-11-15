@@ -12,12 +12,11 @@
 				<div class="detail">
 					<div class="recentOrders">
 						<div class="cardHeader">
-							<a href=""><h3>Provinsi</h3></a> 
+							<a href=""><h3>Pengguna</h3></a> 
 							<div aria-label="breadcrumb">
 							<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="#">Beranda</a></li>
-							<li class="breadcrumb-item"><a href="#">Daerah</a></li>
-							<li class="breadcrumb-item active" aria-current="page">Provinsi</li>
+							<li class="breadcrumb-item active" aria-current="page">Pengguna</li>
 							</ol>
 							</div>
 						</div>
@@ -27,27 +26,25 @@
 									<i class='bx bx-search icon' ></i>
 								</div>
 						</form> -->
-						<div class="pencarian d-flex justify-content-between align-items-end">
-							<p class="m-0">Menampilkan <b>{{ $data_provinsi->count() }}</b> data dari total <b>{{ count($data_provinsi) }}</b> </p>
-							<a href="{{ route('provinsi.create') }}"><button type="button">+ Buat Baru</button></a>
+						<div class="pencarian">
+							<a href="{{ route('user.create') }}"><button type="button">+ Buat Baru</button></a>
 						</div>
 						<table>
 							<thead>
 								<tr>
 									<td>No</td>
-									<td>Kode Provinsi</td>
-									<td>Nama Provinsi</td>
+									<td>Username</td>
+									<td>Fullname</td>
 									<td>Opsi</td>
 								</tr>
 							</thead>
 
 							<tbody>
-								@foreach($data_provinsi as $provinsi)
+								@foreach($data_users as $user)
 								<tr>
 									<td>{{ $no++ }}</td>
-									<td>{{ $provinsi->KD_PROPINSI }}</td>
-									<td>{{ $provinsi->NM_PROPINSI }}</td>
-									<td>
+									<td>{{ $user->username }}</td>
+									<td>{{ $user->fullname }}</td>									<td>
 										<ul class="list-inline">									
 											<li class="list-inline-item"><a href="#" class="active"><i class='bx bxs-show' ></i></a></li>
 											<li class="list-inline-item"><a href="#" class="active"><i class='bx bxs-edit' ></i></a></li>
@@ -59,7 +56,7 @@
 							</tbody>
 						</table>
 						<div class="d-flex justify-content-center">
-							{{ $data_provinsi->links() }}
+							{{ $data_users->links() }}
 						</div>
 						
 					</div>

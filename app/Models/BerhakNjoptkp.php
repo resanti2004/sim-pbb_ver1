@@ -9,36 +9,34 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class RefKelurahan
+ * Class BerhakNjoptkp
  * 
+ * @property string $SUBJEK_PAJAK_ID
+ * @property string|null $NOP
+ * @property int $JML
  * @property string $KD_PROPINSI
  * @property string $KD_DATI2
  * @property string $KD_KECAMATAN
  * @property string $KD_KELURAHAN
- * @property string $KD_SEKTOR
- * @property string $NM_KELURAHAN
- * @property int|null $NO_KELURAHAN
- * @property string|null $KD_POS_KELURAHAN
+ * @property string $KD_BLOK
+ * @property string $NO_URUT
+ * @property string $KD_JNS_OP
  *
  * @package App\Models
  */
-class RefKelurahan extends Model
+class BerhakNjoptkp extends Model
 {
-	protected $table = 'ref_kelurahan';
+	protected $table = 'berhak_njoptkp';
 	public $incrementing = false;
 	public $timestamps = false;
 
 	protected $casts = [
-		'NO_KELURAHAN' => 'int'
+		'JML' => 'int'
 	];
 
 	protected $fillable = [
-		'KD_PROPINSI',
-		'KD_DATI2',
-		'KD_KECAMATAN',
-		'KD_SEKTOR',
-		'NM_KELURAHAN',
-		'NO_KELURAHAN',
-		'KD_POS_KELURAHAN'
+		'SUBJEK_PAJAK_ID',
+		'NOP',
+		'JML'
 	];
 }
