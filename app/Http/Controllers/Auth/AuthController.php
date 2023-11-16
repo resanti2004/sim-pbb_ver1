@@ -9,21 +9,23 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Mail\SendEmail;
 use App\Jobs\SendMailJob;
+use Illuminate\Support\Facades\DB;
 
 class AuthController extends Controller
 {
-    public function __construct(){
-        $this->middleware('guest')->except (
+    public function __construct()
+    {
+        $this->middleware('guest')->except(
             ['logout', 'dashboard', 'beranda']
         );
     }
     //hanya logout dan dashboard yang dapat diakses setelah login
-    
+
     public function register()
     {
         return view('auth.register');
-    }  
-    
+    }
+
     public function store(Request $request)
     {
         $request->validate([
@@ -34,7 +36,7 @@ class AuthController extends Controller
 
         User::create([
             'username' => $request->username,
-            'fullname' => $request->name, 
+            'fullname' => $request->name,
             'password' => Hash::make($request->password),
         ]);
 
@@ -45,11 +47,12 @@ class AuthController extends Controller
         $request->session()->regenerate(); //mengatur ulang session
         return redirect()->route('dashboard')->withSuccess('You have successfully registered & logged in!'); //redirect ke halaman dashboard
 
-    
-        
+
+
     }
 
-    public function login(){
+    public function login()
+    {
         return view('auth.login');
     }
 
@@ -59,11 +62,11 @@ class AuthController extends Controller
             'username' => 'required',
             'password' => 'required',
         ]);
-        
+
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
             return redirect()->route('dashboard')
-            ->withSuccess('You have successfully logged in!');
+                ->withSuccess('You have successfully logged in!');
         }
 
         return back()->withErrors([
@@ -71,23 +74,28 @@ class AuthController extends Controller
         ])->onlyInput('username');
     }
 
-    public function dashboard(){
-    if (Auth::check()) {
-        return view('auth.dashboard');
+    public function dashboard()
+    {
+        $data_user = DB::table('users');
+        $user = $data_user->where('id', Auth()->user()->id)->first();
+        $fullname = $user->fullname;
+        $username = $user->username;
+        if (Auth::check()) {
+            return view('auth.dashboard', compact('fullname', 'username'));
+        }
+
+        return redirect()->route('login')
+            ->withErrors([
+                'username' => 'Please login to access this page.',
+            ])->onlyInput('username');
     }
 
-    return redirect()->route('login')
-    ->withErrors([
-        'username' => 'Please login to access this page.',
-    ])->onlyInput('username');
-    
-}
-
-    public function logout(Request $request){
+    public function logout(Request $request)
+    {
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
         return redirect()->route('login')
-        ->withSuccess('You have successfully logged out!');
+            ->withSuccess('You have successfully logged out!');
     }
 }
