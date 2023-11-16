@@ -28,20 +28,20 @@
                             <form method="POST" action="{{ route('provinsi.store') }}" enctype="multipart/form-data" class="row g-4 p-3">
                                 @csrf
                                 <div class="col-md-6">
-                                    <label for="kd_propinsi" class="form-label">Tahun</label>
-                                    <input type="text" class="form-control" id="kd_propinsi" name="kd_propinsi" >
+                                    <label for="Tahun" class="form-label">Tahun</label>
+                                    <input type="text" class="form-control" id="Tahun" name="Tahun" >
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="nm_propinsi" class="form-label">PBB Minimum</label>
-                                    <input type="text" class="form-control" id="nm_propinsi" name="nm_propinsi">
+                                    <label for="PBBMinimum" class="form-label">PBB Minimum</label>
+                                    <input type="text" class="form-control" id="PBBMinimum" name="PBBMinimum">
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="kd_propinsi" class="form-label">PBB Maximum</label>
-                                    <input type="text" class="form-control" id="kd_propinsi" name="kd_propinsi" >
+                                    <label for="PBBMaximum" class="form-label">PBB Maximum</label>
+                                    <input type="text" class="form-control" id="PBBMaximum" name="PBBMaximum" >
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="nm_propinsi" class="form-label">Tanggal Realisasi</label>
-                                    <input type="text" class="form-control" id="nm_propinsi" name="nm_propinsi">
+                                    <label for="TanggalRealisasi" class="form-label">Tanggal Realisasi</label>
+                                    <input type="text" class="form-control" id="TanggalRealisasi" name="TanggalRealisasi">
                                 </div>
 
                                 <div class="col-md-6 d-flex justify-content-end ms-auto">

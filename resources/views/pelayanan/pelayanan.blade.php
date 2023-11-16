@@ -41,6 +41,8 @@
 									<td>URUT</td>
 									<td>Kode Jenis Pelayanan</td>
 									<td>Status Pelayanan</td>
+									<td>Ketrangan Berkas</td>
+									<td>Info</td>
 								</tr>
 							</thead>
 
@@ -49,6 +51,13 @@
 								<tr>
 									<td>{{ $no++ }}</td>
 									<td>{{ $provinsi->KD_PROPINSI }}</td>
+									<td>{{ $provinsi->NM_PROPINSI }}</td>
+									<td>{{ $provinsi->NM_PROPINSI }}</td>
+									<td>{{ $provinsi->NM_PROPINSI }}</td>
+									<td>{{ $provinsi->NM_PROPINSI }}</td>
+									<td>{{ $provinsi->NM_PROPINSI }}</td>
+									<td>{{ $provinsi->NM_PROPINSI }}</td>
+									<td>{{ $provinsi->NM_PROPINSI }}</td>
 									<td>{{ $provinsi->NM_PROPINSI }}</td>
 									<td>
 										<ul class="list-inline">									

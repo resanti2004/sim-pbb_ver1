@@ -28,16 +28,16 @@
                             <form method="POST" action="{{ route('provinsi.store') }}" enctype="multipart/form-data" class="row g-4 p-3">
                                 @csrf
                                 <div class="col-md-6 ">
-                                    <label for="kd_propinsi" class="form-label">Tahun Awal</label>
-                                    <input type="text" class="form-control" id="kd_propinsi" name="kd_propinsi" >
+                                    <label for="TahunAwal" class="form-label">Tahun Awal</label>
+                                    <input type="text" class="form-control" id="TahunAwal" name="TahunAwal" >
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="nm_propinsi" class="form-label">Tahun Akhir</label>
-                                    <input type="text" class="form-control" id="nm_propinsi" name="nm_propinsi">
+                                    <label for="TahunAkhir" class="form-label">Tahun Akhir</label>
+                                    <input type="text" class="form-control" id="TahunAkhir" name="TahunAkhir">
                                 </div>
                                 <div class="col-md-12">
-                                    <label for="kd_propinsi" class="form-label">Per Tanggal Bayar</label>
-                                    <input type="text" class="form-control" id="kd_propinsi" name="kd_propinsi" >
+                                    <label for="PerTanggalBayar" class="form-label">Per Tanggal Bayar</label>
+                                    <input type="text" class="form-control" id="PerTanggalBayar" name="PerTanggalBayar" >
                                 </div>
                             
                                 <div class="col-md-6 d-flex justify-content-end ms-auto">
