@@ -2,39 +2,38 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
-use App\Models\RefDati2;
-use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\DB;
 
-class KabupatenController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
-    {
+    {      
         $data_user = DB::table('users');
         $user = $data_user->where('id', Auth()->user()->id)->first();
         $fullname = $user->fullname;
         $username = $user->username;
-        $data_kab = RefDati2::orderBy('kd_propinsi', 'asc')
-        ->paginate(25);
+        $data_users = User::orderBy('id', 'asc');
+        $data_users = $data_users->paginate(25);
 
-        $no = ($data_kab->currentPage() - 1) * $data_kab->perPage() + 1;
-        return view('kabupaten.kabupaten', compact('data_kab', 'no', 'fullname', 'username'));
+        $no = ($data_users->currentPage() - 1) * $data_users->perPage() + 1;
+        return view('pengguna.pengguna', compact('data_users', 'no', 'fullname', 'username'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
-    {   
+    {
         $data_user = DB::table('users');
         $user = $data_user->where('id', Auth()->user()->id)->first();
         $fullname = $user->fullname;
         $username = $user->username;
-        return view('kabupaten.add_kabupaten', compact('fullname', 'username'));
+        return(view('pengguna.add_pengguna', compact('fullname', 'username')));
     }
 
     /**
@@ -42,24 +41,7 @@ class KabupatenController extends Controller
      */
     public function store(Request $request)
     {
-        
-        $request->validate([
-            'inputKodeProvinsi' => 'required',
-            'inputKodeDati2' => 'required',
-            'inputNamaDati2' => 'required',
-        ]);
-        
-        $kabupaten = new RefDati2();
-        
-        $kabupaten->kd_propinsi= $request->inputKodeProvinsi;
-        $kabupaten->kd_dati2 = $request->inputKodeDati2;
-        $kabupaten->nm_dati2 = $request->inputNamaDati2;
-        
-        $kabupaten->save();
-        
-
-        return redirect()->route('kabupaten.index')
-            ->with('success', 'Kabupaten berhasil ditambah.');
+        //
     }
 
     /**

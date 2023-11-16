@@ -5,7 +5,7 @@
 @section('content')
 
 			<div class="bgn">
-				<h1 class="title">Selamat Datang, Arviansyah Eka!</h1>
+				<h1 class="title">Selamat Datang, {{$fullname}}!</h1>
 				<p class="greet">Selamat Datang di Sistem Informasi Pajak Bumi Bangunan</p>
 			</div>
 
@@ -105,7 +105,7 @@
                             </div>
                             <div class="col-md-6">
                                 <label for="KdLangit-Langit" class="form-label">Kd Langit-Langit</label>
-                                <input type="text" class="form-control" id="KdLangit-Langit" name="KdLangit-Langit">
+                                <input type="text" class="form-control" id="KdLangit-Langit" name="KdLangit_Langit">
                             </div>
                             <div class="col-md-6">
                                 <label for="NilaiSistemBangunan" class="form-label">Nilai Sistem Bangunan</label>

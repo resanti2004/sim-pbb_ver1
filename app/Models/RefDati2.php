@@ -24,7 +24,9 @@ class RefDati2 extends Model
 	public $timestamps = false;
 
 	protected $fillable = [
+		'NM_DATI2',
+		'KD_PROPINSI',
 		'KD_DATI2',
-		'NM_DATI2'
+		
 	];
 }

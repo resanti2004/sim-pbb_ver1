@@ -9,28 +9,28 @@
             <li class="divider" data-text="Home">Home</li>
 			<li><a href="{{ route('dashboard') }}"><i class='bx bxs-dashboard icon' ></i> Dashboard</a></li>
 			<li class="divider" data-text="Pilihan ">Pilihan </li>
-			<li><a href="#"><i class='bx bxs-cog icon' ></i> Pelayanan</a></li>
+			<li><a href="{{ route('pelayanan.index') }}"><i class='bx bxs-cog icon' ></i> Pelayanan</a></li>
 			<li>
 				<a href="#"><i class='bx bx-bookmarks icon'></i> Dokumen <i class='bx bx-chevron-right icon-right' ></i></a>
 				<ul class="side-dropdown">
-					<li><a href="{{ route('spop') }}"><i class='bx bxs-circle icon-dot' ></i>SPOP</a></li>
-					<li><a href="{{ route('lspop') }}"><i class='bx bxs-circle icon-dot' ></i>LSPOP</a></li>
+					<li><a href="{{ route('spop.index') }}"><i class='bx bxs-circle icon-dot' ></i>SPOP</a></li>
+					<li><a href="{{ route('lspop.index') }}"><i class='bx bxs-circle icon-dot' ></i>LSPOP</a></li>
 				</ul>
 			</li>
 			<li>
 				<a href="#"><i class='bx bx-file icon'></i> Laporan <i class='bx bx-chevron-right icon-right' ></i></a>
 				<ul class="side-dropdown">
-					<li><a href="#"><i class='bx bxs-circle icon-dot' ></i>Realisasi Kelurahan</a></li>
-					<li><a href="#"><i class='bx bxs-circle icon-dot' ></i>Pelayanan</a></li>
-					<li><a href="#"><i class='bx bxs-circle icon-dot' ></i>SK NJOP</a></li>
-					<li><a href="#"><i class='bx bxs-circle icon-dot' ></i>Informasi PBB</a></li>
-					<li><a href="#"><i class='bx bxs-circle icon-dot' ></i>Neraca KPP</a></li>
-					<li><a href="#"><i class='bx bxs-circle icon-dot' ></i>Total Neraca KPP</a></li>
-					<li><a href="#"><i class='bx bxs-circle icon-dot' ></i>Neraca BPK</a></li>
-					<li><a href="#"><i class='bx bxs-circle icon-dot' ></i>Total Neraca BPK</a></li>
+					<li><a href="{{ route('realisasiKel.index') }}"><i class='bx bxs-circle icon-dot' ></i>Realisasi Kelurahan</a></li>
+					<li><a href=" "><i class='bx bxs-circle icon-dot' ></i>Pelayanan</a></li>
+					<li><a href="{{ route('skNjop.index') }}"><i class='bx bxs-circle icon-dot' ></i>SK NJOP</a></li>
+					<li><a href="{{ route('informasiPbb.index') }}"><i class='bx bxs-circle icon-dot' ></i>Informasi PBB</a></li>
+					<li><a href="{{ route('neracaKpp.index') }}"><i class='bx bxs-circle icon-dot' ></i>Neraca KPP</a></li>
+					<li><a href="{{ route('summaryNerKPP.index') }}"><i class='bx bxs-circle icon-dot' ></i>Total Neraca KPP</a></li>
+					<li><a href="{{ route('neracaBpk.index') }}"><i class='bx bxs-circle icon-dot' ></i>Neraca BPK</a></li>
+					<li><a href="{{ route('summaryNerBpk.index') }}"><i class='bx bxs-circle icon-dot' ></i>Total Neraca BPK</a></li>
 					<li><a href="#"><i class='bx bxs-circle icon-dot' ></i>Penetapan</a></li>
 					<li><a href="#"><i class='bx bxs-circle icon-dot' ></i>Validasi</a></li>
-					<li><a href="#"><i class='bx bxs-circle icon-dot' ></i>Hasil Input Pelayanan</a></li>
+					<li><a href="{{ route('hasilInputPelayanan.index') }}"><i class='bx bxs-circle icon-dot' ></i>Hasil Input Pelayanan</a></li>
 				</ul>
 			</li>
 			<li>
@@ -50,7 +50,7 @@
 					<li><a href="{{ route('kelurahan.index') }}"><i class='bx bxs-circle icon-dot' ></i>Kelurahan</a></li>
 				</ul>
 			</li>
-			<li><a href="#"><i class='bx bxs-user icon' ></i> Pengguna</a></li>
+			<li><a href="{{ route('user.index') }}"><i class='bx bxs-user icon' ></i> Pengguna</a></li>
 
 			<li><a href="#"><i class='bx bx-log-out icon'></i>Log Out</a></li>
 		</ul>

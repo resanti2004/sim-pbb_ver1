@@ -3,7 +3,7 @@
 @section('content')
 
 			<div class="bgn">
-				<h1 class="title">Selamat Datang, Arviansyah Eka!</h1>
+				<h1 class="title">Selamat Datang, {{$fullname}}!</h1>
 				<p class="greet">Selamat Datang di Sistem Informasi Pajak Bumi Bangunan</p>
 			</div>
 
@@ -17,7 +17,7 @@
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="#">Beranda</a></li>
 								<li class="breadcrumb-item"><a href="#">Laporan</a></li>
-								<li class="breadcrumb-item"><a href="#">SPOP</a></li>
+								<li class="breadcrumb-item"><a href="{{ route('spop.index') }}">SPOP</a></li>
 								<li class="breadcrumb-item active" aria-current="page">Tambah Data SPOP</li>
 							</ol>
 							</div>
@@ -190,7 +190,7 @@
                             </div>
 
                             <div class="col-md-12 text-center">
-                                <button type="submit" class="btn btn-primary" style="width:150px;">Tambah</button>
+                                <button type="submit" class="btn btn-primary" style="width:150px;">Simpan</button>
                             </div>
                         </form>
 

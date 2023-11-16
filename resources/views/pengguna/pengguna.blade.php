@@ -1,9 +1,9 @@
 @extends('kerangka.master')
-@section('title', 'Provinsi')
+@section('title', 'Pengguna')
 @section('content')
 
 			<div class="bgn">
-				<h1 class="title">Selamat Datang, Arviansyah Eka!</h1>
+				<h1 class="title">Selamat Datang, {{$fullname}}!</h1>
 				<p class="greet">Selamat Datang di Sistem Informasi Pajak Bumi Bangunan</p>
 			</div>
 
@@ -27,7 +27,7 @@
 								</div>
 						</form> -->
 						<div class="pencarian">
-							<a href="{{ route('provinsi.create') }}"><button type="button">+ Buat Baru</button></a>
+							<a href="{{ route('user.create') }}"><button type="button">+ Buat Baru</button></a>
 						</div>
 						<table>
 							<thead>
@@ -40,12 +40,11 @@
 							</thead>
 
 							<tbody>
-								@foreach($data_provinsi as $provinsi)
+								@foreach($data_users as $user)
 								<tr>
 									<td>{{ $no++ }}</td>
-									<td>{{ $provinsi->KD_PROPINSI }}</td>
-									<td>{{ $provinsi->NM_PROPINSI }}</td>
-									<td>
+									<td>{{ $user->username }}</td>
+									<td>{{ $user->fullname }}</td>									<td>
 										<ul class="list-inline">									
 											<li class="list-inline-item"><a href="#" class="active"><i class='bx bxs-show' ></i></a></li>
 											<li class="list-inline-item"><a href="#" class="active"><i class='bx bxs-edit' ></i></a></li>
@@ -57,7 +56,7 @@
 							</tbody>
 						</table>
 						<div class="d-flex justify-content-center">
-							{{ $data_provinsi->links() }}
+							{{ $data_users->links() }}
 						</div>
 						
 					</div>

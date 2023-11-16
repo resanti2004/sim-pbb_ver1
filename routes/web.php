@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ExtendController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\InformasiPBBController;
 use App\Http\Controllers\SpopController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\LspopController;
@@ -11,7 +12,17 @@ use App\Http\Controllers\ProvinsiController;
 use App\Http\Controllers\KabupatenController;
 use App\Http\Controllers\KecamatanController;
 use App\Http\Controllers\KelurahanController;
-
+use App\Http\Controllers\NeracaBPKController;
+use App\Http\Controllers\PelayananController;
+use App\Http\Controllers\RealisasiKelurahanController;
+use App\Http\Controllers\SKNJOPController;
+use App\Http\Controllers\SummaryNeracaBPKController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\HasilInputPelayananController;
+use App\Http\Controllers\SummaryNeracaKPPController;
+use App\Http\Controllers\NeracaKPPController;
+use App\Http\Controllers\NJOPTKPController;
+use App\Http\Controllers\PelayananLaporanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,9 +35,9 @@ use App\Http\Controllers\KelurahanController;
 |
 */
 
-Route::get('/', function () {
-    return view('kerangka.master');
-});
+// Route::get('/', function () {
+//     return view('kerangka.master');
+// });
 
 Route::get('/laravel', function () {
     return view('lspop.edit_lspop');
@@ -37,31 +48,37 @@ Route::controller(AuthController::class)->group(function() {
     Route::post('/store', 'store')->name('store');
     Route::get('/login', 'login')->name('login');
     Route::post('authenticate', 'authenticate')->name('authenticate');
-    Route::get('/dashboard', 'dashboard')->name('dashboard');
+    Route::get('/', 'dashboard')->name('dashboard');
     Route::post('/logout', 'logout')->name('logout');
 });
 
-Route::controller(SpopController::class)->group(function() {
-    Route::get('/spop', 'index')->name('spop');
-    Route::get('/create', 'create')->name('spop.create');
-    Route::get('/edit', 'edit')->name('spop.edit');
-    Route::post('/update', 'update')->name('spop.update');
-    Route::get('/delete', 'delete')->name('spop.delete');
-});
-
-Route::controller(LspopController::class)->group(function() {
-    Route::get('/lspop', 'index')->name('lspop');
-    Route::get('/create', 'create')->name('lspop.create');
-    Route::get('/edit', 'edit')->name('lspop.edit');
-    Route::post('/update', 'update')->name('lspop.update');
-    Route::get('/delete', 'delete')->name('lspop.delete');
-});
+// Route::controller(SpopController::class)->group(function() {
+//     Route::get('/spop', 'index')->name('spop');
+//     Route::get('/create', 'create')->name('spop.create');
+//     Route::get('/edit', 'edit')->name('spop.edit');
+//     Route::post('/update', 'update')->name('spop.update');
+//     Route::get('/delete', 'delete')->name('spop.delete');
+// });
 
 
+Route::resource('lspop', LspopController::class);
+Route::resource('spop', SpopController::class);
 Route::resource('provinsi', ProvinsiController::class);
 Route::resource('kabupaten', KabupatenController::class);
 Route::resource('kecamatan', KecamatanController::class);
 Route::resource('kelurahan', KelurahanController::class);
+Route::resource('pelayanan', PelayananController::class);
+Route::resource('user', UserController::class);
+
+Route::resource('pelayananLap', PelayananLaporanController::class);
+Route::resource('hasilInputPelayanan', HasilInputPelayananController::class);
+Route::resource('informasiPbb', InformasiPBBController::class);
+Route::resource('neracaBpk', NeracaBPKController::class);
+Route::resource('neracaKpp', NeracaKPPController::class);
+Route::resource('realisasiKel', RealisasiKelurahanController::class);
+Route::resource('skNjop', SKNJOPController::class);
+Route::resource('summaryNerBpk', SummaryNeracaBPKController::class);
+Route::resource('summaryNerKPP', SummaryNeracaKPPController::class);
 
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

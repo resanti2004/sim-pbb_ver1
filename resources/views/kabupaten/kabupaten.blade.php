@@ -3,7 +3,7 @@
 @section('content')
 
 			<div class="bgn">
-				<h1 class="title">Selamat Datang, Arviansyah Eka!</h1>
+				<h1 class="title">Selamat Datang, {{$fullname}}!</h1>
 				<p class="greet">Selamat Datang di Sistem Informasi Pajak Bumi Bangunan</p>
 			</div>
 
@@ -28,7 +28,7 @@
 								</div>
 						</form> -->
 						<div class="pencarian d-flex justify-content-between align-items-end">
-							<p class="m-0">Menampilkan <b>{{ $data_kab->count() }}</b> data dari total <b>{{ count($data_kab) }}</b> </p>
+							<p class="m-0">Menampilkan <b>{{ $data_kab->count() }}</b> data dari total <b>{{ $data_kab->total() }}</b> </p>
 							<a href="{{ route('kabupaten.create') }}"><button type="button">+ Buat Baru</button></a>
 						</div>
 

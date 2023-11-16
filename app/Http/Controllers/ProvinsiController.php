@@ -14,11 +14,15 @@ class ProvinsiController extends Controller
      */
     public function index()
     {
+        $data_user = DB::table('users');
+        $user = $data_user->where('id', Auth()->user()->id)->first();
+        $fullname = $user->fullname;
+        $username = $user->username;
         $data_provinsi = RefPropinsi::orderBy('kd_propinsi', 'asc')
         ->paginate(25);
 
         $no = ($data_provinsi->currentPage() - 1) * $data_provinsi->perPage() + 1;
-        return view('provinsi.provinsi', compact('data_provinsi', 'no'));
+        return view('provinsi.provinsi', compact('data_provinsi', 'no', 'fullname', 'username'));
     }
 
     /**
@@ -26,7 +30,11 @@ class ProvinsiController extends Controller
      */
     public function create()
     {
-        return view('provinsi.add_provinsi');
+        $data_user = DB::table('users');
+        $user = $data_user->where('id', Auth()->user()->id)->first();
+        $fullname = $user->fullname;
+        $username = $user->username;
+        return view('provinsi.add_provinsi', compact('fullname', 'username'));
     }
 
     /**
@@ -36,7 +44,7 @@ class ProvinsiController extends Controller
     {   
         // dd($request->all());
         $request->validate([
-            'kd_propinsi' => 'required',
+            'kd_propinsi' => 'required|unique:ref_propinsi|numeric',
             'nm_propinsi' => 'required',
         ]);
         

@@ -9,22 +9,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class RefPropinsi
+ * Class LookupItem
  * 
- * @property string $KD_PROPINSI
- * @property string $NM_PROPINSI
+ * @property string $KD_LOOKUP_GROUP
+ * @property string $KD_LOOKUP_ITEM
+ * @property string|null $NM_LOOKUP_ITEM
  *
  * @package App\Models
  */
-class RefPropinsi extends Model
+class LookupItem extends Model
 {
-	protected $table = 'ref_propinsi';
-	protected $primaryKey = 'KD_PROPINSI';
+	protected $table = 'lookup_item';
 	public $incrementing = false;
 	public $timestamps = false;
 
 	protected $fillable = [
-		'NM_PROPINSI',
-		'KD_PROPINSI'
+		'NM_LOOKUP_ITEM'
 	];
 }
