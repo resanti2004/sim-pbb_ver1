@@ -13,20 +13,28 @@ class KelurahanController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
+    {   
+        $data_user = DB::table('users');
+        $user = $data_user->where('id', Auth()->user()->id)->first();
+        $fullname = $user->fullname;
+        $username = $user->username;
         $data_kelurahan = RefKelurahan::orderBy('kd_kelurahan', 'asc')
         ->paginate(25);
         // dd($data_kelurahan);
         $no = ($data_kelurahan->currentPage() - 1) * $data_kelurahan->perPage() + 1;
-        return view('kelurahan.kelurahan', compact('data_kelurahan', 'no'));
+        return view('kelurahan.kelurahan', compact('data_kelurahan', 'no', 'fullname', 'username'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
-    {
-        return view('kelurahan.add_kelurahan');
+    {   
+        $data_user = DB::table('users');
+        $user = $data_user->where('id', Auth()->user()->id)->first();
+        $fullname = $user->fullname;
+        $username = $user->username;
+        return view('kelurahan.add_kelurahan', compact('fullname', 'username'));
     }
 
     /**

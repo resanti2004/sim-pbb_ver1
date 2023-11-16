@@ -13,6 +13,10 @@ class SpopController extends Controller
 {
     public function index()
     {
+        $data_user = DB::table('users');
+        $user = $data_user->where('id', Auth()->user()->id)->first();
+        $fullname = $user->fullname;
+        $username = $user->username;
         // Eksekusi query SQL menggunakan metode DB
         $data_spop = DB::table('pbb.spop')
         ->join('berhak_njoptkp', function ($join) {
@@ -31,11 +35,15 @@ class SpopController extends Controller
     // Menghitung nomor awal data yang ditampilkan pada halaman
         $no = ($data_spop->currentPage() - 1) * $data_spop->perPage() + 1;
 
-        return view('spop.spop', compact('data_spop', 'no'));
+        return view('spop.spop', compact('data_spop', 'no', 'fullname', 'username'));
     }
     public function create()
-    {
-        return view('spop.add_spop');
+    {   
+        $data_user = DB::table('users');
+        $user = $data_user->where('id', Auth()->user()->id)->first();
+        $fullname = $user->fullname;
+        $username = $user->username;
+        return view('spop.add_spop', compact('fullname', 'username'));
     }
     public function store(Request $request)
     {
@@ -54,16 +62,26 @@ class SpopController extends Controller
         return redirect()->route('spop.index')
             ->with('success', 'SPOP berhasil ditambah.');
     }
-    public function edit()
-    {
-        // return view('spop.edit');
+    public function edit($spop)
+    {   
+        $data_user = DB::table('users');
+        $user = $data_user->where('id', Auth()->user()->id)->first();
+        $fullname = $user->fullname;
+        $username = $user->username;
+        $data_spop = DB::table('pbb.spop');
+        $data_spop->where('nop', $spop);
+        return view('spop.edit_spop', compact('data_spop', 'fullname', 'username'));
     }
-    public function update()
+    public function update(Request $request)
     {
-        // 
+         
     }
-    public function destroy()
+    public function destroy($spop)
     {
-        // return view('spop.delete');
+        $data_spop = DB::table('pbb.berhak_njoptkp');
+        $data_spop->where('nop', $spop);
+        $data_spop->delete();
+        return redirect()->route('spop.index')
+            ->with('success', 'SPOP berhasil dihapus.');
     }
 }

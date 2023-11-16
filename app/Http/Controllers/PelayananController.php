@@ -2,26 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class UserController extends Controller
+class PelayananController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
-    {      
+    {
         $data_user = DB::table('users');
         $user = $data_user->where('id', Auth()->user()->id)->first();
         $fullname = $user->fullname;
         $username = $user->username;
-        $data_users = User::orderBy('id', 'asc');
-        $data_users = $data_users->paginate(25);
-
-        $no = ($data_users->currentPage() - 1) * $data_users->perPage() + 1;
-        return view('pengguna.pengguna', compact('data_users', 'no', 'fullname', 'username'));
+        return(view('pelayanan.pelayanan', compact('fullname', 'username')));
     }
 
     /**
@@ -33,7 +28,7 @@ class UserController extends Controller
         $user = $data_user->where('id', Auth()->user()->id)->first();
         $fullname = $user->fullname;
         $username = $user->username;
-        return(view('pengguna.add_pengguna', compact('fullname', 'username')));
+        return(view('pelayanan.add_pelayanan', compact('fullname', 'username')));
     }
 
     /**
@@ -57,7 +52,11 @@ class UserController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $data_user = DB::table('users');
+        $user = $data_user->where('id', Auth()->user()->id)->first();
+        $fullname = $user->fullname;
+        $username = $user->username;
+        return(view('pelayanan.edit_pelayanan', compact('fullname', 'username')));
     }
 
     /**

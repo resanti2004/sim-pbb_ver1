@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\RefDati2;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Facades\DB;
 
 class KabupatenController extends Controller
 {
@@ -12,19 +14,27 @@ class KabupatenController extends Controller
      */
     public function index()
     {
+        $data_user = DB::table('users');
+        $user = $data_user->where('id', Auth()->user()->id)->first();
+        $fullname = $user->fullname;
+        $username = $user->username;
         $data_kab = RefDati2::orderBy('kd_propinsi', 'asc')
         ->paginate(25);
 
         $no = ($data_kab->currentPage() - 1) * $data_kab->perPage() + 1;
-        return view('kabupaten.kabupaten', compact('data_kab', 'no'));
+        return view('kabupaten.kabupaten', compact('data_kab', 'no', 'fullname', 'username'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
-    {
-        return view('kabupaten.add_kabupaten');
+    {   
+        $data_user = DB::table('users');
+        $user = $data_user->where('id', Auth()->user()->id)->first();
+        $fullname = $user->fullname;
+        $username = $user->username;
+        return view('kabupaten.add_kabupaten', compact('fullname', 'username'));
     }
 
     /**

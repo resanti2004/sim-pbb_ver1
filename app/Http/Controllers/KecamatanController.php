@@ -13,12 +13,16 @@ class KecamatanController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
+    {   
+        $data_user = DB::table('users');
+        $user = $data_user->where('id', Auth()->user()->id)->first();
+        $fullname = $user->fullname;
+        $username = $user->username;
         $data_kecamatan = RefKecamatan::orderBy('kd_kecamatan', 'asc')
         ->paginate(25);
 
         $no = ($data_kecamatan->currentPage() - 1) * $data_kecamatan->perPage() + 1;
-        return view('kecamatan.kecamatan', compact('data_kecamatan', 'no'));
+        return view('kecamatan.kecamatan', compact('data_kecamatan', 'no', 'fullname', 'username'));
     }
 
     /**
@@ -26,7 +30,11 @@ class KecamatanController extends Controller
      */
     public function create()
     {
-        return view('kecamatan.add_kecamatan');
+        $data_user = DB::table('users');
+        $user = $data_user->where('id', Auth()->user()->id)->first();
+        $fullname = $user->fullname;
+        $username = $user->username;
+        return view('kecamatan.add_kecamatan', compact('fullname', 'username'));
     }
 
     /**

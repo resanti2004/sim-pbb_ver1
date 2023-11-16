@@ -10,7 +10,11 @@ use Illuminate\Support\Facades\DB;
 class LspopController extends Controller
 {
     public function index()
-    {
+    {   
+        $data_user = DB::table('users');
+        $user = $data_user->where('id', Auth()->user()->id)->first();
+        $fullname = $user->fullname;
+        $username = $user->username;
         // Eksekusi query SQL menggunakan metode DB
         $data_lspop = DB::table('pbb.lspop')
         ->join('berhak_njoptkp', function ($join) {
@@ -29,11 +33,15 @@ class LspopController extends Controller
     // Menghitung nomor awal data yang ditampilkan pada halaman
         $no = ($data_lspop->currentPage() - 1) * $data_lspop->perPage() + 1;
 
-        return view('lspop.lspop', compact('data_lspop', 'no'));
+        return view('lspop.lspop', compact('data_lspop', 'no', 'fullname', 'username'));
     }
     public function create()
-    {
-        return view('lspop.add_lspop');
+    {   
+        $data_user = DB::table('users');
+        $user = $data_user->where('id', Auth()->user()->id)->first();
+        $fullname = $user->fullname;
+        $username = $user->username;
+        return view('lspop.add_lspop', compact('fullname', 'username'));
     }
     public function store(Request $request){
         $request->validate([
@@ -98,8 +106,8 @@ class LspopController extends Controller
         $lspop->NIP_PENDATA_BNG = $request->NIPPendataBangunan;
         $lspop->TGL_PEMERIKSAAN_BNG = $request->TanggalPemeriksaanBangunan;
         $lspop->NIP_PEMERIKSA_BNG = $request->NIPPemeriksaBangunan;
-        $lspop->tanggal_perekaman_bangunan = $request->TanggalPerekamanBangunan;
-        $lspop->nip_perekam_bangunan = $request->NIPPerekamBangunan;
+       // $lspop->tanggal_perekaman_bangunan = $request->TanggalPerekamanBangunan;
+        //$lspop->nip_perekam_bangunan = $request->NIPPerekamBangunan;
         $lspop->TGL_KUNJUNGAN_KEMBALI = $request->TanggalKunjunganKembali;
         $lspop->NILAI_INDIVIDU = $request->NilaiIndividu;
         $lspop->AKTIF = $request->Aktif;
@@ -111,16 +119,26 @@ class LspopController extends Controller
             ->with('success', 'LSPOP berhasil ditambah.');
     }
 
-    public function edit()
+    public function edit($lspop)
     {
-        // return view('spop.edit');
+        $data_user = DB::table('users');
+        $user = $data_user->where('id', Auth()->user()->id)->first();
+        $fullname = $user->fullname;
+        $username = $user->username;
+        $data_spop = DB::table('pbb.lspop');
+        $data_spop->where('nop', $lspop);
+        return view('lspop.edit_lspop', compact('data_lspop', 'fullname', 'username'));
     }
     public function update()
     {
         // 
     }
-    public function delete()
+    public function destroy($lspop)
     {
-        // return view('spop.delete');
+        $data_lspop = DB::table('pbb.berhak_njoptkp');
+        $data_lspop->where('nop', $lspop);
+        $data_lspop->delete();
+        return redirect()->route('lspop.index')
+            ->with('success', 'LSPOP berhasil dihapus.');
     }
 }
