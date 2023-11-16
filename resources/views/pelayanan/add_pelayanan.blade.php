@@ -85,39 +85,39 @@
                             </div>
                             <div class="col-md-6">
                                 <label for="ttd_jabatanKiri" class="form-label">Tanda Tangan Jabatan Kiri</label>
-                                <input type="text" class="form-control" id="inputLebihDibayar">
+                                <input type="text" class="form-control" id="ttd_jabatanKiri" name="ttd_jabatanKiri">
                             </div>
                             <div class="col-md-6">
-                                <label for="inputNamaKecamatan" class="form-label">Kelurahan</label>
-                                <input type="text" class="form-control" id="inputNamaKecamatan" >
+                                <label for="kelurahan" class="form-label">Kelurahan</label>
+                                <input type="text" class="form-control" id="kelurahan" name="kelurahan" >
                             </div>
                             <div class="col-md-6">
-                                <label for="inputDendaDibayar" class="form-label">Tanda Tangan Nama Kiri</label>
-                                <input type="text" class="form-control" id="inputDendaDibayar">
+                                <label for="ttd_namaKiri" class="form-label">Tanda Tangan Nama Kiri</label>
+                                <input type="text" class="form-control" id="ttd_namaKiri" name="ttd_namaKiri">
                             </div>
                             <div class="col-md-6">
-                                <label for="inputNamaKelurahan" class="form-label">BLK</label>
-                                <input type="text" class="form-control" id="inputNamaKelurahan">
+                                <label for="blk" class="form-label">BLK</label>
+                                <input type="text" class="form-control" id="blk" name="blk">
                             </div>
                             <div class="col-md-6">
-                                <label for="inputTotalPembayaran" class="form-label">Tanda Tangan NIP Kiri</label>
-                                <input type="text" class="form-control" id="inputTotalPembayaran">
+                                <label for="ttd_nipKiri" class="form-label">Tanda Tangan NIP Kiri</label>
+                                <input type="text" class="form-control" id="ttd_nipKiri" name="ttd_nipKiri">
                             </div>
                             <div class="col-md-6">
-                                <label for="inputPokok" class="form-label">URUT</label>
-                                <input type="text" class="form-control" id="inputPokok">
+                                <label for="urut" class="form-label">URUT</label>
+                                <input type="text" class="form-control" id="urut" name="urut">
                             </div>
                             <div class="col-md-6">
-                                <label for="inputKurangDibayar" class="form-label">Tanda Tangan Jabatan Kanan</label>
-                                <input type="text" class="form-control" id="inputKurangDibayar">
+                                <label for="ttd_jabatanKanan" class="form-label">Tanda Tangan Jabatan Kanan</label>
+                                <input type="text" class="form-control" id="ttd_jabatanKanan" name="ttd_jabatanKanan">
                             </div>
                             <div class="col-md-6">
-                                <label for="inputPokokDibayar" class="form-label">No Pelayanan</label>
-                                <input type="text" class="form-control" id="inputPokokDibayar">
+                                <label for="no_pelayanan" class="form-label">No Pelayanan</label>
+                                <input type="text" class="form-control" id="no_pelayanan" name="no_pelayanan">
                             </div>
                             <div class="col-md-6">
-                                <label for="inputLebihDibayar" class="form-label">Tanggal Selesai</label>
-                                <input type="text" class="form-control" id="inputLebihDibayar">
+                                <label for="Tgl_selesai" class="form-label">Tanggal Selesai</label>
+                                <input type="text" class="form-control" id="Tgl_selesai" name="Tgl_selesai">
                             </div>
 
                             <div class="col-md-12 text-center">

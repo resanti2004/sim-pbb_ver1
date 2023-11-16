@@ -28,20 +28,20 @@
                             <form method="POST" action="{{ route('provinsi.store') }}" enctype="multipart/form-data" class="row g-4 p-3">
                                 @csrf
                                 <div class="col-md-6">
-                                    <label for="kd_propinsi" class="form-label">NOP</label>
-                                    <input type="text" class="form-control" id="kd_propinsi" name="kd_propinsi" >
+                                    <label for="NOP" class="form-label">NOP</label>
+                                    <input type="text" class="form-control" id="NOP" name="NOP" >
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="nm_propinsi" class="form-label">No Surat</label>
-                                    <input type="text" class="form-control" id="nm_propinsi" name="nm_propinsi">
+                                    <label for="NoSurat" class="form-label">No Surat</label>
+                                    <input type="text" class="form-control" id="NoSurat" name="NoSurat">
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="kd_propinsi" class="form-label">No Pelayanan</label>
-                                    <input type="text" class="form-control" id="kd_propinsi" name="kd_propinsi" >
+                                    <label for="NoPelayanan" class="form-label">No Pelayanan</label>
+                                    <input type="text" class="form-control" id="NoPelayanan" name="NoPelayanan" >
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="nm_propinsi" class="form-label">Tahun</label>
-                                    <input type="text" class="form-control" id="nm_propinsi" name="nm_propinsi">
+                                    <label for="Tahun" class="form-label">Tahun</label>
+                                    <input type="text" class="form-control" id="Tahun" name="Tahun">
                                 </div>
 
                                 <div class="col-md-6 d-flex justify-content-end ms-auto">
