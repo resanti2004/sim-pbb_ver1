@@ -1,6 +1,6 @@
 @extends('kerangka.master')
 
-@section('title', 'Summary Neraca BPK')
+@section('title', 'Total Neraca BPK')
 
 @section('content')
 
@@ -14,14 +14,21 @@
 				<div class="detail">
 					<div class="recentOrders">
 						<div class="cardHeader">
-							<h3>Summary Neraca BPK</h3>
-							<div aria-label="breadcrumb">
+							<h3>Total Neraca BPK</h3>
+							<!-- <div aria-label="breadcrumb">
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="#">Beranda</a></li>
 								<li class="breadcrumb-item"><a href="#">Laporan</a></li>
 								<li class="breadcrumb-item active" aria-current="page">Summary Neraca BPK</li>
 							</ol>
-							</div>
+							</div> -->
+                            <div class=" p-0 d-flex align-items-start" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="#">Beranda</a></li>
+                                    <li class="breadcrumb-item"><a href="#">Laporan</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Total Neraca BPK</li>
+                                </ol>
+                            </div>
 						</div>
 						
                         <div class="filterBox">

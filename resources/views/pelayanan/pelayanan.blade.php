@@ -13,12 +13,18 @@
 					<div class="recentOrders">
 						<div class="cardHeader">
 							<a href=""><h3>Pelayanan</h3></a> 
-							<div aria-label="breadcrumb">
+							<!-- <div aria-label="breadcrumb">
 							<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="#">Beranda</a></li>
 							<li class="breadcrumb-item active" aria-current="page">Pelayanan</li>
 							</ol>
-							</div>
+							</div> -->
+							<div class=" p-0 d-flex align-items-start" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="#">Beranda</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Pelayanan</li>
+                                </ol>
+                            </div>
 						</div>
 						<!-- <form action="#">
 								<div class="form-group">
@@ -27,6 +33,7 @@
 								</div>
 						</form> -->
 						<div class="pencarian">
+							<a href="#"><button type="button">Laporan Pelayanan</button></a>
 							<a href="{{ route('pelayanan.create') }}"><button type="button">+ Buat Baru</button></a>
 						</div>
 						<table>
@@ -34,6 +41,7 @@
 								<tr>
 									<td>No</td>
 									<td>No Pelayanan</td>
+									<td>Nama Pemohon</td>
 									<td>Tanggal Pelayanan</td>
 									<td>KEC</td>
 									<td>KEL</td>
@@ -48,6 +56,7 @@
 							<tbody>
 	
 								<tr>
+									<td></td>
 									<td></td>
 									<td></td>
 									<td></td>

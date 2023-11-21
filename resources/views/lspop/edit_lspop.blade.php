@@ -15,14 +15,22 @@
 					<div class="recentOrders">
 						<div class="cardHeader">
 							<h3>Edit Data LSPOP</h3>
-							<div aria-label="breadcrumb">
+							<!-- <div aria-label="breadcrumb">
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="#">Beranda</a></li>
 								<li class="breadcrumb-item"><a href="#">Dokumen</a></li>
 								<li class="breadcrumb-item"><a href="{{ route('kelurahan.index') }}">LSPOP</a></li>
 								<li class="breadcrumb-item active" aria-current="page">Edit Data LSPOP</li>
 							</ol>
-							</div>
+							</div> -->
+                            <div class=" p-0 d-flex align-items-start" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="#">Beranda</a></li>
+                                    <li class="breadcrumb-item"><a href="#">Laporan</a></li>
+                                    <li class="breadcrumb-item"><a href="{{ route('lspop.index') }}">LSPOP</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Edit Data LSPOP</li>
+                                </ol>
+                            </div>
 						</div>
 						
                         <form method="POST" action="{{ route('kelurahan.store') }}" enctype="multipart/form-data" class="row g-4 p-5">

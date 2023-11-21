@@ -40,7 +40,7 @@ use App\Http\Controllers\PelayananLaporanController;
 // });
 
 Route::get('/laravel', function () {
-    return view('lspop.edit_lspop');
+    return view('provinsi.detail_provinsi');
 });
 
 Route::controller(AuthController::class)->group(function() {

@@ -13,13 +13,20 @@
 					<div class="recentOrders">
 						<div class="cardHeader">
 							<h3>Kelurahan</h3>
-							<div aria-label="breadcrumb">
+							<!-- <div aria-label="breadcrumb">
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="#">Beranda</a></li>
 								<li class="breadcrumb-item"><a href="#">Daerah</a></li>
 								<li class="breadcrumb-item active" aria-current="page">Kelurahan</li>
 							</ol>
-							</div>
+							</div> -->
+							<div class=" p-0 d-flex align-items-start" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="#">Beranda</a></li>
+                                    <li class="breadcrumb-item"><a href="#">Daerah</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Kelurahan</li>
+                                </ol>
+                            </div>
 						</div>
 						<!-- <form action="#">
 								<div class="form-group">

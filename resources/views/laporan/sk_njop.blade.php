@@ -1,6 +1,6 @@
 @extends('kerangka.master')
 
-@section('title', 'Realisasi Kelurahan')
+@section('title', 'SK-NJOP')
 
 @section('content')
 
@@ -14,14 +14,21 @@
 				<div class="detail">
 					<div class="recentOrders">
 						<div class="cardHeader">
-							<h3>Realisasi Kelurahan</h3>
-							<div aria-label="breadcrumb">
+							<h3>SK-NJOP</h3>
+							<!-- <div aria-label="breadcrumb">
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="#">Beranda</a></li>
 								<li class="breadcrumb-item"><a href="#">Laporan</a></li>
 								<li class="breadcrumb-item active" aria-current="page">Realisasi Kelurahan</li>
 							</ol>
-							</div>
+							</div> -->
+                            <div class=" p-0 d-flex align-items-start" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="#">Beranda</a></li>
+                                    <li class="breadcrumb-item"><a href="#">Laporan</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">SK-NJOP</li>
+                                </ol>
+                            </div>
 						</div>
 						
                         <div class="filterBox">

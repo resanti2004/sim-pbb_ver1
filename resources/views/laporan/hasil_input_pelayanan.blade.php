@@ -22,13 +22,13 @@
 								<li class="breadcrumb-item active" aria-current="page">Hasil Input Pelayanan</li>
 							</ol>
 							</div> -->
-                            <nav class=" p-0 d-flex align-items-start" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="#">Beranda</a></li>
-                                <li class="breadcrumb-item"><a href="#">Laporan</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Hasil Input Pelayanan</li>
-                            </ol>
-                            </nav>
+                            <div class=" p-0 d-flex align-items-start" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="#">Beranda</a></li>
+                                    <li class="breadcrumb-item"><a href="#">Laporan</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Hasil Input Pelayanan</li>
+                                </ol>
+                            </div>
 						</div>
 						
                         <div class="filterBox">

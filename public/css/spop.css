@@ -61,11 +61,11 @@
 	color: var(--black1);
 	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   }
-  .detail .recentOrders table tr:last-child {
+  /* .detail .recentOrders table tr:last-child { */
 	/* border-bottom: none; */
-	background-color: var(--grey);
-	border-bottom: 1px solid rgba(0, 0, 0, 1);
-  }
+	/* background-color: var(--grey); */
+	/* border-bottom: 1px solid rgba(0, 0, 0, 1); */
+  /* } */
 
   .detail .recentOrders table tbody tr:hover {
 	border-radius: 20px;
@@ -78,7 +78,6 @@
   }
   .detail .recentOrders table tr td {
 	padding: 15px;
-
   }
   .detail .recentOrders table tr td ul {
 	display: flex;
@@ -204,6 +203,7 @@
 	display: flex;
 	justify-content: flex-end;
 	height: 60px;
+	gap: 10px;
   }
 
   button {
@@ -338,6 +338,9 @@
 .form-control {
 	border-color: var(--blue);
   }
+.form-select {
+	border-color: var(--blue);
+  }
 
 /*================ CONTAINER FILTER ===============*/
 .detail .recentOrders .filterBox {
@@ -364,4 +367,45 @@
   }
 
 
-  
+/*============= TABLE DETAIL DATA =============*/
+.custom-table tr:hover td {
+    background-color: #f5f5f5;
+}
+
+.custom-table {
+    border-radius: 10px; /* Sesuaikan nilai border radius sesuai keinginan Anda */
+}
+.border-bottom {
+    border-bottom-color: #1795ce; /* Sesuaikan nilai border radius sesuai keinginan Anda */
+}
+
+.custom-table tr {
+	margin: 10px;
+	border-bottom: none !important;
+}
+.custom-table th {
+	margin: 10px;
+	margin-top: 10px;
+	padding-left: 20px;
+}
+
+.table-detail {
+	padding: 50px 100px;
+	/* display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center; */
+}
+
+.border-top-right{
+	border-top-right-radius: 10px;	
+}
+.border-bottom-right{
+	border-bottom-right-radius: 10px;	
+}
+.border-top-left{
+	border-top-left-radius: 10px;	
+}
+.border-bottom-left{
+	border-bottom-left-radius: 10px;	
+}
