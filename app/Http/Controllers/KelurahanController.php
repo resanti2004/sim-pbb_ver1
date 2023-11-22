@@ -9,17 +9,17 @@ use App\Models\RefKelurahan;
 
 class KelurahanController extends Controller
 {
-     /**
+    /**
      * Display a listing of the resource.
      */
     public function index()
-    {   
+    {
         $data_user = DB::table('users');
         $user = $data_user->where('id', Auth()->user()->id)->first();
         $fullname = $user->fullname;
         $username = $user->username;
         $data_kelurahan = RefKelurahan::orderBy('kd_kelurahan', 'asc')
-        ->paginate(25);
+            ->paginate(25);
         // dd($data_kelurahan);
         $no = ($data_kelurahan->currentPage() - 1) * $data_kelurahan->perPage() + 1;
         return view('kelurahan.kelurahan', compact('data_kelurahan', 'no', 'fullname', 'username'));
@@ -29,7 +29,7 @@ class KelurahanController extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
-    {   
+    {
         $data_user = DB::table('users');
         $user = $data_user->where('id', Auth()->user()->id)->first();
         $fullname = $user->fullname;
@@ -41,8 +41,8 @@ class KelurahanController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {   
-        
+    {
+
         $request->validate([
             'inputKodeProvinsi' => 'required',
             'inputKodeDati2' => 'required',
@@ -53,7 +53,7 @@ class KelurahanController extends Controller
             'inputNomorKelurahan' => 'required',
             'inputKodePosKelurahan' => 'required',
         ]);
-        
+
         $kelurahan = new RefKelurahan;
         $kelurahan->kd_propinsi = $request->inputKodeProvinsi;
         $kelurahan->kd_dati2 = $request->inputKodeDati2;
@@ -73,10 +73,27 @@ class KelurahanController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($kdPropinsi, $kdDati2, $kdKecamatan, $kdKelurahan, $no)
     {
-        //
+        // Fetch user data
+        $no = $no;
+        $data_user = DB::table('users');
+        $user = $data_user->where('id', Auth()->user()->id)->first();
+        $fullname = $user->fullname;
+        $username = $user->username;
+
+        // Fetch Kelurahan data based on the provided parameters
+        $kelurahan = RefKelurahan::where([
+            'KD_PROPINSI' => $kdPropinsi,
+            'KD_DATI2' => $kdDati2,
+            'KD_KECAMATAN' => $kdKecamatan,
+            'KD_KELURAHAN' => $kdKelurahan,
+        ])->first();
+
+        // Return the view with the user and Kelurahan data
+        return view('kelurahan.detail_kelurahan', compact('fullname', 'username', 'kelurahan', 'no'));
     }
+
 
     /**
      * Show the form for editing the specified resource.

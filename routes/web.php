@@ -67,6 +67,10 @@ Route::resource('provinsi', ProvinsiController::class);
 Route::resource('kabupaten', KabupatenController::class);
 Route::resource('kecamatan', KecamatanController::class);
 Route::resource('kelurahan', KelurahanController::class);
+Route::controller(KelurahanController::class)->group(function() {
+        Route::get('//kelurahan/{kdPropinsi}/{kdDati2}/{kdKecamatan}/{kdKelurahan}/{no}', 'show')->name('kelurahan.show');
+    });
+
 Route::resource('pelayanan', PelayananController::class);
 Route::resource('user', UserController::class);
 

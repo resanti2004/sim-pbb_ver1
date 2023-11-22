@@ -76,11 +76,12 @@ class AuthController extends Controller
 
     public function dashboard()
     {
-        $data_user = DB::table('users');
-        $user = $data_user->where('id', Auth()->user()->id)->first();
-        $fullname = $user->fullname;
-        $username = $user->username;
+
         if (Auth::check()) {
+            $data_user = DB::table('users');
+            $user = $data_user->where('id', Auth()->user()->id)->first();
+            $fullname = $user->fullname;
+            $username = $user->username;
             return view('auth.dashboard', compact('fullname', 'username'));
         }
 

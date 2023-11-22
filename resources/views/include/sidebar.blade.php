@@ -21,7 +21,7 @@
 				<a href="#"><i class='bx bx-file icon'></i> Laporan <i class='bx bx-chevron-right icon-right' ></i></a>
 				<ul class="side-dropdown">
 					<li><a href="{{ route('realisasiKel.index') }}"><i class='bx bxs-circle icon-dot' ></i>Realisasi Kelurahan</a></li>
-					<li><a href=" "><i class='bx bxs-circle icon-dot' ></i>Pelayanan</a></li>
+					<li><a href="#"><i class='bx bxs-circle icon-dot' ></i>Pelayanan</a></li>
 					<li><a href="{{ route('skNjop.index') }}"><i class='bx bxs-circle icon-dot' ></i>SK NJOP</a></li>
 					<li><a href="{{ route('informasiPbb.index') }}"><i class='bx bxs-circle icon-dot' ></i>Informasi PBB</a></li>
 					<li><a href="{{ route('neracaKpp.index') }}"><i class='bx bxs-circle icon-dot' ></i>Neraca KPP</a></li>
