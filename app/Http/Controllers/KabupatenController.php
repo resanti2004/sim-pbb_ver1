@@ -65,9 +65,24 @@ class KabupatenController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($kdPropinsi, $kdDati2, $no)
     {
-        //
+        // Fetch user data
+        $no = $no;
+        $data_user = DB::table('users');
+        $user = $data_user->where('id', Auth()->user()->id)->first();
+        $fullname = $user->fullname;
+        $username = $user->username;
+
+        // Fetch Kelurahan data based on the provided parameters
+        $kabupaten = RefDati2::where([
+            'KD_PROPINSI' => $kdPropinsi,
+            'KD_DATI2' => $kdDati2
+            
+        ])->first();
+
+        // Return the view with the user and Kelurahan data
+        return view('kabupaten.detail_kabupaten', compact('fullname', 'username', 'kabupaten', 'no'));
     }
 
     /**

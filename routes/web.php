@@ -68,10 +68,13 @@ Route::resource('kabupaten', KabupatenController::class);
 Route::resource('kecamatan', KecamatanController::class);
 Route::resource('kelurahan', KelurahanController::class);
 Route::controller(KelurahanController::class)->group(function () {
-    Route::get('//kelurahan/{kdPropinsi}/{kdDati2}/{kdKecamatan}/{kdKelurahan}/{no}', 'show')->name('kelurahan.show');
+    Route::get('/kelurahan/{kdPropinsi}/{kdDati2}/{kdKecamatan}/{kdKelurahan}/{no}', 'show')->name('kelurahan.show');
 });
 Route::controller(KecamatanController::class)->group(function () {
-    Route::get('//kecamatan/{kdPropinsi}/{kdDati2}/{kdKecamatan}/{no}', 'show')->name('kecamatan.show');
+    Route::get('/kecamatan/{kdPropinsi}/{kdDati2}/{kdKecamatan}/{no}', 'show')->name('kecamatan.show');
+});
+Route::controller(KabupatenController::class)->group(function () {
+    Route::get('/kabupaten/{kdPropinsi}/{kdDati2}/{no}', 'show')->name('kabupaten.show');
 });
 
 
