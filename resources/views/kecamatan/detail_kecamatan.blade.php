@@ -27,7 +27,7 @@
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="#">Beranda</a></li>
                                     <li class="breadcrumb-item"><a href="#">Daerah</a></li>
-									<li class="breadcrumb-item"><a href=" {{ route('provinsi.index') }}">Kecamatan</a></li>
+									<li class="breadcrumb-item"><a href=" {{ route('kecamatan.index') }}">Kecamatan</a></li>
                                     <li class="breadcrumb-item active" aria-current="page">Detail Data Kecamatan</li>
                                 </ol>
                             </div>
@@ -35,32 +35,32 @@
 						
 						<div class="table-detail d-flex flex-column align-items-center justify-content-center">
 							<div class="no-detail">
-								<b class="fs-3">-- 1 --</b>
+								<b class="fs-3">-- {{ $no }} --</b>
 							</div>
 							<table class="table table-borderless custom-table">
 								<tbody>
 									<tr class="mb-3">
 										<th width="200" class="align-middle table-primary border-bottom border-top-left ">Kode Provinsi</th>
-										<td class="border-top-right">12</td>
+										<td class="border-top-right"> {{ $kecamatan->KD_PROPINSI }}</td>
 									</tr>
 									<tr class="mb-3">
 										<th width="200" class="align-middle table-primary border-bottom">Kode Dati 2</th>
-										<td>12</td>
+										<td> {{ $kecamatan->KD_DATI2 }}</td>
 									</tr>
 									<tr class="mb-3">
 										<th width="200" class="align-middle table-primary border-bottom">Kode Kecamatan</th>
-										<td>12</td>
+										<td>{{ $kecamatan->KD_KECAMATAN }}</td>
 									</tr>
 									<tr>
 										<th  class="align-middle table-primary border-bottom-left">Nama Kecamatan</th>
-										<td class="border-bottom-right">12</td>
+										<td class="border-bottom-right">{{ $kecamatan->NM_KECAMATAN }}</td>
 									</tr>
 									</tr>
 								</tbody>
 							</table>
 							<div class="tombol d-flex justify-content-center align-items-center gap-2">
-								<a href="#"><button type="button">update</button></a>
-								<a href="#"><button type="button" class="bg-danger">delete</button></a>
+								<a href="#"><button type="button">Update</button></a>
+								<a href="#"><button type="button" class="bg-danger">Delete</button></a>
 							</div>
 						</div>
 

@@ -43,7 +43,7 @@ Route::get('/laravel', function () {
     return view('provinsi.detail_provinsi');
 });
 
-Route::controller(AuthController::class)->group(function() {
+Route::controller(AuthController::class)->group(function () {
     Route::get('/register', 'register')->name('register');
     Route::post('/store', 'store')->name('store');
     Route::get('/login', 'login')->name('login');
@@ -67,9 +67,13 @@ Route::resource('provinsi', ProvinsiController::class);
 Route::resource('kabupaten', KabupatenController::class);
 Route::resource('kecamatan', KecamatanController::class);
 Route::resource('kelurahan', KelurahanController::class);
-Route::controller(KelurahanController::class)->group(function() {
-        Route::get('//kelurahan/{kdPropinsi}/{kdDati2}/{kdKecamatan}/{kdKelurahan}/{no}', 'show')->name('kelurahan.show');
-    });
+Route::controller(KelurahanController::class)->group(function () {
+    Route::get('//kelurahan/{kdPropinsi}/{kdDati2}/{kdKecamatan}/{kdKelurahan}/{no}', 'show')->name('kelurahan.show');
+});
+Route::controller(KecamatanController::class)->group(function () {
+    Route::get('//kecamatan/{kdPropinsi}/{kdDati2}/{kdKecamatan}/{no}', 'show')->name('kecamatan.show');
+});
+
 
 Route::resource('pelayanan', PelayananController::class);
 Route::resource('user', UserController::class);
