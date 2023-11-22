@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Users; // Add this line to import the Users model
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -12,7 +15,7 @@ class UserController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {      
+    {
         $data_user = DB::table('users');
         $user = $data_user->where('id', Auth()->user()->id)->first();
         $fullname = $user->fullname;
@@ -33,7 +36,7 @@ class UserController extends Controller
         $user = $data_user->where('id', Auth()->user()->id)->first();
         $fullname = $user->fullname;
         $username = $user->username;
-        return(view('pengguna.add_pengguna', compact('fullname', 'username')));
+        return (view('pengguna.add_pengguna', compact('fullname', 'username')));
     }
 
     /**
@@ -47,9 +50,23 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($user, $no)
     {
-        //
+        $authenticatedUser = Auth::user();
+        $fullname = $authenticatedUser->fullname;
+        $username = $authenticatedUser->username;
+
+        // Fetch all users ordered by ID
+        $data_users = Users::where([
+            'id' => $user,
+            
+        ])->first();
+
+
+
+        // dd($data_users );
+        // Pass the necessary data to the view
+        return view('pengguna.detail_pengguna', compact('fullname', 'username', 'data_users', 'no'));
     }
 
     /**

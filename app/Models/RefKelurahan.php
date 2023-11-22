@@ -33,9 +33,6 @@ class RefKelurahan extends Model
 	];
 
 	protected $fillable = [
-		'KD_PROPINSI',
-		'KD_DATI2',
-		'KD_KECAMATAN',
 		'KD_SEKTOR',
 		'NM_KELURAHAN',
 		'NO_KELURAHAN',

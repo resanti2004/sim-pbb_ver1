@@ -85,6 +85,9 @@ Route::controller(ProvinsiController::class)->group(function () {
 
 Route::resource('pelayanan', PelayananController::class);
 Route::resource('user', UserController::class);
+Route::controller(UserController::class)->group(function () {
+    Route::get('/user/{user}/{no}', 'show')->name('user.show');
+});
 
 Route::resource('pelayananLap', PelayananLaporanController::class);
 Route::resource('hasilInputPelayanan', HasilInputPelayananController::class);

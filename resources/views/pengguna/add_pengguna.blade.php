@@ -18,7 +18,7 @@
 							<div aria-label="breadcrumb">
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="#">Beranda</a></li>
-								<li class="breadcrumb-item"><a href="#">Pengguna</a></li>
+								<li class="breadcrumb-item"><a href="{{ route('user.index')}}">Pengguna</a></li>
 								<li class="breadcrumb-item active" aria-current="page">Tambah Data Pengguna</li>
 							</ol>
 							</div>
