@@ -23,6 +23,8 @@ use App\Http\Controllers\SummaryNeracaKPPController;
 use App\Http\Controllers\NeracaKPPController;
 use App\Http\Controllers\NJOPTKPController;
 use App\Http\Controllers\PelayananLaporanController;
+use App\Http\Controllers\TarifController;
+use App\Http\Controllers\TunggakanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -76,6 +78,9 @@ Route::controller(KecamatanController::class)->group(function () {
 Route::controller(KabupatenController::class)->group(function () {
     Route::get('/kabupaten/{kdPropinsi}/{kdDati2}/{no}', 'show')->name('kabupaten.show');
 });
+Route::controller(ProvinsiController::class)->group(function () {
+    Route::get('/provinsi/{kdPropinsi}/{no}', 'show')->name('provinsi.show');
+});
 
 
 Route::resource('pelayanan', PelayananController::class);
@@ -90,6 +95,10 @@ Route::resource('realisasiKel', RealisasiKelurahanController::class);
 Route::resource('skNjop', SKNJOPController::class);
 Route::resource('summaryNerBpk', SummaryNeracaBPKController::class);
 Route::resource('summaryNerKPP', SummaryNeracaKPPController::class);
+
+Route::resource('njoptkp', NJOPTKPController::class);
+Route::resource('tunggakan', TunggakanController::class);
+Route::resource('tarif', TarifController::class);
 
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

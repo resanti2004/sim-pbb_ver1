@@ -36,9 +36,9 @@
 			<li>
 				<a href="#"><i class='bx bxs-inbox icon' ></i> Keuangan <i class='bx bx-chevron-right icon-right' ></i></a>
 				<ul class="side-dropdown">
-					<li><a href="#"><i class='bx bxs-circle icon-dot' ></i>Tunggakan</a></li>
-					<li><a href="#"><i class='bx bxs-circle icon-dot' ></i>Tarif</a></li>
-					<li><a href="#"><i class='bx bxs-circle icon-dot' ></i>NJOPTKP</a></li>
+					<li><a href="{{ route('tunggakan.index') }}"><i class='bx bxs-circle icon-dot' ></i>Tunggakan</a></li>
+					<li><a href="{{ route('tarif.index')}}"><i class='bx bxs-circle icon-dot' ></i>Tarif</a></li>
+					<li><a href="{{ route('njoptkp.index') }}"><i class='bx bxs-circle icon-dot' ></i>NJOPTKP</a></li>
 				</ul>
 			</li>
 			<li>

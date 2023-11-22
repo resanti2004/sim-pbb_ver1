@@ -23,7 +23,7 @@
 					<div class=" p-0 d-flex align-items-start" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#">Beranda</a></li>
-                            <li class="breadcrumb-item"><a href="#">Laporan</a></li>
+                            <li class="breadcrumb-item"><a href="#">Dokumen</a></li>
                             <li class="breadcrumb-item active" aria-current="page">LSPOP</li>
                         </ol>
                     </div>
@@ -35,7 +35,7 @@
 								</div>
 						</form> -->
 				<div class="pencarian">
-					<button type="button">Buat Baru</button>
+					<a href="{{ route('lspop.create')}}"><button type="button">Buat Baru</button></a>
 				</div>
 
 				<table>
@@ -60,7 +60,7 @@
 							<td>{{ $lspop->JML_LANTAI_BNG }}</td>
 							<td>
 								<ul class="list-inline">
-									<li class="list-inline-item"><a href="#" class="active"><i class='bx bxs-show'></i></a></li>
+									<li class="list-inline-item"><a href="{{ route('lspop.show') }}" class="active"><i class='bx bxs-show'></i></a></li>
 									<li class="list-inline-item"><a href="{{ route('lspop.edit', ['lspop' => $lspop->nop]) }}" class="active"><i class='bx bxs-edit'></i></a></li>
 									<li class="list-inline-item">
 

@@ -125,8 +125,8 @@ class LspopController extends Controller
         $user = $data_user->where('id', Auth()->user()->id)->first();
         $fullname = $user->fullname;
         $username = $user->username;
-        $data_spop = DB::table('pbb.lspop');
-        $data_spop->where('nop', $lspop);
+        $data_lspop = DB::table('pbb.lspop');
+        $data_lspop->where('nop', $lspop);
         return view('lspop.edit_lspop', compact('data_lspop', 'fullname', 'username'));
     }
     public function update()
