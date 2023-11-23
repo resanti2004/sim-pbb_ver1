@@ -62,7 +62,7 @@ class SpopController extends Controller
         return redirect()->route('spop.index')
             ->with('success', 'SPOP berhasil ditambah.');
     }
-    public function edit($spop)
+    public function edit()
     {   
         $data_user = DB::table('users');
         $user = $data_user->where('id', Auth()->user()->id)->first();
@@ -71,7 +71,7 @@ class SpopController extends Controller
 
         
         $data_spop = DB::table('pbb.spop');
-        $data_spop->where('nop', $spop);
+        // $data_spop->where('nop', $spop);
         return view('spop.edit_spop', compact('data_spop', 'fullname', 'username'));
     }
     public function update(Request $request)
@@ -85,5 +85,18 @@ class SpopController extends Controller
         $data_spop->delete();
         return redirect()->route('spop.index')
             ->with('success', 'SPOP berhasil dihapus.');
+    }
+
+    public function show()
+    {
+        // Fetch user data
+        // $no = $no;
+        $data_user = DB::table('users');
+        $user = $data_user->where('id', Auth()->user()->id)->first();
+        $fullname = $user->fullname;
+        $username = $user->username;
+
+        // Return the view with the user and Kelurahan data
+        return view('spop.detail_spop', compact('fullname', 'username'));
     }
 }

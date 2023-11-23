@@ -62,7 +62,7 @@ Route::controller(AuthController::class)->group(function () {
 //     Route::get('/delete', 'delete')->name('spop.delete');
 // });
 
-
+Route::resource('pelayanan', PelayananController::class);
 Route::resource('lspop', LspopController::class);
 Route::resource('spop', SpopController::class);
 Route::resource('provinsi', ProvinsiController::class);
@@ -81,12 +81,25 @@ Route::controller(KabupatenController::class)->group(function () {
 Route::controller(ProvinsiController::class)->group(function () {
     Route::get('/provinsi/{kdPropinsi}/{no}', 'show')->name('provinsi.show');
 });
+Route::controller(LspopController::class)->group(function () {
+    Route::get('/lspop/detail', 'show')->name('lspop.show');
+    Route::get('/lspop/edit', 'edit')->name('lspop.edit');
+});
+Route::controller(SpopController::class)->group(function () {
+    Route::get('/spop/detail', 'show')->name('spop.show');
+    Route::get('/spop/edit', 'edit')->name('spop.edit');
+});
+Route::controller(PelayananController::class)->group(function () {
+    Route::get('/pelayanan/detail', 'show')->name('pelayanan.show');
+});
 
 
-Route::resource('pelayanan', PelayananController::class);
+
 Route::resource('user', UserController::class);
 Route::controller(UserController::class)->group(function () {
     Route::get('/user/{user}/{no}', 'show')->name('user.show');
+    Route::get('/user/edit', 'edit')->name('user.edit');
+    
 });
 
 Route::resource('pelayananLap', PelayananLaporanController::class);

@@ -42,9 +42,13 @@ class PelayananController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($show)
-    {
-        return view('pelayanan.detail_pelayanan');
+    public function show()
+    {   
+        $data_user = DB::table('users');
+        $user = $data_user->where('id', Auth()->user()->id)->first();
+        $fullname = $user->fullname;
+        $username = $user->username;
+        return view('pelayanan.detail_pelayanan', compact('fullname', 'username'));
     }
 
     /**

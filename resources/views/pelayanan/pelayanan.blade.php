@@ -68,7 +68,7 @@
 									<td></td>
 									<td>
 										<ul class="list-inline">									
-											<li class="list-inline-item"><a href="#" class="active"><i class='bx bxs-show' ></i></a></li>
+											<li class="list-inline-item"><a href="{{ route('pelayanan.show') }}" class="active"><i class='bx bxs-show' ></i></a></li>
 											<li class="list-inline-item"><a href="#" class="active"><i class='bx bxs-edit' ></i></a></li>
 											<li class="list-inline-item"><a href="#" class="active"><i class='bx bxs-trash' ></i></a></li>
 										</ul>

@@ -134,14 +134,14 @@ class LspopController extends Controller
             ->with('success', 'LSPOP berhasil ditambah.');
     }
 
-    public function edit($lspop)
+    public function edit()
     {
         $data_user = DB::table('users');
         $user = $data_user->where('id', Auth()->user()->id)->first();
         $fullname = $user->fullname;
         $username = $user->username;
         $data_lspop = DB::table('pbb.lspop');
-        $data_lspop->where('nop', $lspop);
+        // $data_lspop->where('nop', $lspop);
         return view('lspop.edit_lspop', compact('data_lspop', 'fullname', 'username'));
     }
     public function update()
@@ -157,16 +157,16 @@ class LspopController extends Controller
             ->with('success', 'LSPOP berhasil dihapus.');
     }
 
-    public function show($lspop, $no)
+    public function show()
     {
         // Fetch user data
-        $no = $no;
+        // $no = $no;
         $data_user = DB::table('users');
         $user = $data_user->where('id', Auth()->user()->id)->first();
         $fullname = $user->fullname;
         $username = $user->username;
 
         // Return the view with the user and Kelurahan data
-        return view('lspop.detail_lspop', compact('fullname', 'username', 'no'));
+        return view('lspop.detail_lspop', compact('fullname', 'username'));
     }
 }

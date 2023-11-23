@@ -53,7 +53,7 @@
 										'user' => $user->id,
 										'no' => $no-1
 									]) }}" class="active"><i class='bx bxs-show'></i></a></li>
-									<li class="list-inline-item"><a href="#" class="active"><i class='bx bxs-edit'></i></a></li>
+									<li class="list-inline-item"><a href="{{ route('user.edit') }}" class="active"><i class='bx bxs-edit'></i></a></li>
 									<li class="list-inline-item"><a href="#" class="active"><i class='bx bxs-trash'></i></a></li>
 								</ul>
 							</td>
