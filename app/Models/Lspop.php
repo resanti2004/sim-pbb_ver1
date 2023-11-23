@@ -67,6 +67,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property Carbon|null $TGL_PEMERIKSAAN_BNG
  * @property string $NM_PEMERIKSAAN_OP
  * @property string|null $NIP_PEMERIKSA_BNG
+ * @property Carbon|null $TGL_PEREKAMAN_BNG
+ * @property string|null $NIP_PEREKAM_BNG
  * @property bool $AKTIF
  *
  * @package App\Models
@@ -111,6 +113,7 @@ class Lspop extends Model
 		'TGL_KUNJUNGAN_KEMBALI' => 'datetime',
 		'TGL_PENDATAAN_BNG' => 'datetime',
 		'TGL_PEMERIKSAAN_BNG' => 'datetime',
+		'TGL_PEREKAMAN_BNG' => 'datetime',
 		'AKTIF' => 'bool'
 	];
 
@@ -170,6 +173,8 @@ class Lspop extends Model
 		'TGL_PEMERIKSAAN_BNG',
 		'NM_PEMERIKSAAN_OP',
 		'NIP_PEMERIKSA_BNG',
+		'TGL_PEREKAMAN_BNG',
+		'NIP_PEREKAM_BNG',
 		'AKTIF'
 	];
 }

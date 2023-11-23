@@ -43,10 +43,10 @@
 									<td>No Pelayanan</td>
 									<td>Nama Pemohon</td>
 									<td>Tanggal Pelayanan</td>
-									<td>KEC</td>
-									<td>KEL</td>
-									<td>BLK</td>
-									<td>URUT</td>
+									<td>Kecamatan</td>
+									<td>Kelurahan</td>
+									<td>Blok</td>
+									<td>No Urut</td>
 									<td>Kode Jenis Pelayanan</td>
 									<td>Status Pelayanan</td>
 									<td>Opsi</td>
@@ -54,7 +54,7 @@
 							</thead>
 
 							<tbody>
-	
+								
 								<tr>
 									<td></td>
 									<td></td>

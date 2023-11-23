@@ -42,9 +42,9 @@ class PelayananController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($show)
     {
-        //
+        return view('pelayanan.detail_pelayanan');
     }
 
     /**

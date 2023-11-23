@@ -7,14 +7,14 @@
 					<i class='bx bx-search icon' ></i>
 				</div>
 			</form>
-			<a href="#" class="nav-link">
+			<!-- <a href="#" class="nav-link">
 				<i class='bx bxs-bell icon' ></i>
 				<span class="badge">5</span>
 			</a>
 			<a href="#" class="nav-link">
 				<i class='bx bxs-message-square-dots icon' ></i>
 				<span class="badge">8</span>
-			</a>
+			</a> -->
 			<!-- <span class="divider"></span> -->
 			<div class="profile">
 				<div class="profile-foto">

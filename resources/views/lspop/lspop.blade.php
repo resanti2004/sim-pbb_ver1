@@ -60,7 +60,7 @@
 							<td>{{ $lspop->JML_LANTAI_BNG }}</td>
 							<td>
 								<ul class="list-inline">
-									<li class="list-inline-item"><a href="{{ route('lspop.show') }}" class="active"><i class='bx bxs-show'></i></a></li>
+									<li class="list-inline-item"><a href="#" class="active"><i class='bx bxs-show'></i></a></li>
 									<li class="list-inline-item"><a href="{{ route('lspop.edit', ['lspop' => $lspop->nop]) }}" class="active"><i class='bx bxs-edit'></i></a></li>
 									<li class="list-inline-item">
 

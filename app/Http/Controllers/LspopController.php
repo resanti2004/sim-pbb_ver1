@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DatOpBangunan;
 use Illuminate\Http\Request;
 use App\Models\Lspop;
 use Illuminate\Pagination\LengthAwarePaginator;
@@ -15,6 +16,7 @@ class LspopController extends Controller
         $user = $data_user->where('id', Auth()->user()->id)->first();
         $fullname = $user->fullname;
         $username = $user->username;
+
         // Eksekusi query SQL menggunakan metode DB
         $data_lspop = DB::table('pbb.lspop')
             ->join('berhak_njoptkp', function ($join) {
@@ -53,34 +55,35 @@ class LspopController extends Controller
             'KodeBlok' => 'required',
             'NoUrut' => 'required',
             'KodeJenisOp' => 'required',
-            'NoBangunan' => 'required',
-            'KodeJpb' => 'required',
-            'NoFormulirLspop' => 'required',
+            'NoBangunan' => 'required|integer',
+            'KodeJpb' => 'nullable',
+            'NoFormulirLspop' => 'nullable',
             'TahunDibangunBangunan' => 'required',
-            'TahunRenovasiBangunan' => 'required',
-            'LuasBangunan' => 'required',
-            'JumlahLantaiBangunan' => 'required',
-            'KondisiBangunan' => 'required',
-            'JenisKonstruksiBangunan' => 'required',
-            'JenisAtapBangunan' => 'required',
-            'KdDinding' => 'required',
-            'KdLantai' => 'required',
-            'KdLangit_Langit' => 'required',
-            'NilaiSistemBangunan' => 'required',
-            'JenisTransaksiKelurahan' => 'required',
-            'TanggalPendataanBangunan' => 'required',
+            'TahunRenovasiBangunan' => 'nullable',
+            'LuasBangunan' => 'required|integer',
+            'JumlahLantaiBangunan' => 'required|integer',
+            'KondisiBangunan' => 'nullable',
+            'JenisKonstruksiBangunan' => 'nullable',
+            'JenisAtapBangunan' => 'nullable',
+            'KdDinding' => 'nullable',
+            'KdLantai' => 'nullable',
+            'KdLangit_Langit' => 'nullable',
+            'NilaiSistemBangunan' => 'required|integer',
+            'JenisTransaksiKelurahan' => 'nullable',
+            'TanggalPendataanBangunan' => 'required|date',
             'NIPPendataBangunan' => 'required',
-            'TanggalPemeriksaanBangunan' => 'required',
+            'TanggalPemeriksaanBangunan' => 'required|date',
             'NIPPemeriksaBangunan' => 'required',
-            'TanggalPerekamanBangunan' => 'required',
+            'TanggalPerekamanBangunan' => 'required|date',
             'NIPPerekamBangunan' => 'required',
-            'TanggalKunjunganKembali' => 'required',
-            'NilaiIndividu' => 'required',
-            'Aktif' => 'required',
+            'TanggalKunjunganKembali' => 'nullable|date',
+            'NilaiIndividu' => 'required|integer',
+            'Aktif' => 'required|boolean',
         ]);
+        
 
 
-        $lspop = new Lspop();
+        $lspop = new DatOpBangunan();
         $lspop->KD_PROPINSI = $request->KodeProvinsi;
         $lspop->KD_DATI2 = $request->KodeDati2;
         $lspop->KD_KECAMATAN = $request->KodeKecamatan;
@@ -107,13 +110,24 @@ class LspopController extends Controller
         $lspop->NIP_PENDATA_BNG = $request->NIPPendataBangunan;
         $lspop->TGL_PEMERIKSAAN_BNG = $request->TanggalPemeriksaanBangunan;
         $lspop->NIP_PEMERIKSA_BNG = $request->NIPPemeriksaBangunan;
-        // $lspop->tanggal_perekaman_bangunan = $request->TanggalPerekamanBangunan;
-        //$lspop->nip_perekam_bangunan = $request->NIPPerekamBangunan;
+        $lspop->TGL_PEREKAMAN_BNG = $request->TanggalPerekamanBangunan;
+        $lspop->NIP_PEREKAM_BNG = $request->NIPPerekamBangunan;
         $lspop->TGL_KUNJUNGAN_KEMBALI = $request->TanggalKunjunganKembali;
         $lspop->NILAI_INDIVIDU = $request->NilaiIndividu;
         $lspop->AKTIF = $request->Aktif;
-
-        $lspop->save();
+        $lspop->updateOrCreate(
+            [
+                'KD_PROPINSI' => $request->KodeProvinsi,
+                'KD_DATI2' => $request->KodeDati2,
+                'KD_KECAMATAN' => $request->KodeKecamatan,
+                'KD_KELURAHAN' => $request->KodeKelurahan,
+                'KD_BLOK' => $request->KodeBlok,
+                'NO_URUT' => $request->NoUrut,
+                'KD_JNS_OP' => $request->KodeJenisOp,
+                'NO_BNG' => $request->NoBangunan,
+            ],
+            $lspop->toArray()
+        );
 
 
         return redirect()->route('lspop.index')

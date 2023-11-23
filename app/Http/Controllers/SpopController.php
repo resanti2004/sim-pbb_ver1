@@ -68,6 +68,8 @@ class SpopController extends Controller
         $user = $data_user->where('id', Auth()->user()->id)->first();
         $fullname = $user->fullname;
         $username = $user->username;
+
+        
         $data_spop = DB::table('pbb.spop');
         $data_spop->where('nop', $spop);
         return view('spop.edit_spop', compact('data_spop', 'fullname', 'username'));
