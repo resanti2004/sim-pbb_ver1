@@ -78,14 +78,14 @@ class UserController extends Controller
         $user = $data_user->where('id', Auth()->user()->id)->first();
         $fullname = $user->fullname;
         $username = $user->username;
-        return (view('pengguna.edit_pengguna', compact('fullname', 'username')));
-    }
-    }
+        return (view('pengguna.edit_pengguna', compact('fullname', 'username')));}
+    
+    
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update()
     {
         //
     }

@@ -25,6 +25,7 @@ use App\Http\Controllers\NJOPTKPController;
 use App\Http\Controllers\PelayananLaporanController;
 use App\Http\Controllers\TarifController;
 use App\Http\Controllers\TunggakanController;
+use App\Http\Controllers\ValidasiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -111,6 +112,7 @@ Route::resource('realisasiKel', RealisasiKelurahanController::class);
 Route::resource('skNjop', SKNJOPController::class);
 Route::resource('summaryNerBpk', SummaryNeracaBPKController::class);
 Route::resource('summaryNerKPP', SummaryNeracaKPPController::class);
+Route::resource('validasi', ValidasiController::class);
 
 Route::resource('njoptkp', NJOPTKPController::class);
 Route::resource('tunggakan', TunggakanController::class);
