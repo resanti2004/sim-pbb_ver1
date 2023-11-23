@@ -16,7 +16,7 @@ class PelayananLaporanController extends Controller
         $user = $data_user->where('id', Auth()->user()->id)->first();
         $fullname = $user->fullname;
         $username = $user->username;
-        return view('laporan.pelayanan', compact('fullname', 'username'));
+        return view('pelayanan.laporan_pelayanan', compact('fullname', 'username'));
     }
 
     /**
