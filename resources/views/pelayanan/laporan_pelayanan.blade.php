@@ -34,7 +34,7 @@
                         <div class="filterBox">
                             <form method="POST" action="{{ route('provinsi.store') }}" enctype="multipart/form-data" class="row g-4 p-3">
                                 @csrf
-                                <div class="col-md-6">
+                                <!-- <div class="col-md-6">
                                     <label for="TahunAwal" class="form-label">Tahun Awal</label>
                                     <div class="input-group">
                                         <input type="text" class="datepicker_input form-control" placeholder="DD/MM/YYYY" required aria-label="Date input 3 (using aria-label)">
@@ -42,8 +42,16 @@
                                             <i class='bx bxs-calendar'></i>
                                         </span>
                                     </div>
+                                </div> -->
+                                <div class="col-md-6">
+                                    <label for="TanggalRealisasi" class="form-label">Tanggal Awal</label>
+                                    <input type="date" class="form-control" id="TanggalRealisasi" name="TGL_REALISASI" value="{{ date('Y').'-12-31' }}">
                                 </div>
                                 <div class="col-md-6">
+                                    <label for="TanggalRealisasi" class="form-label">Tanggal Akhir</label>
+                                    <input type="date" class="form-control" id="TanggalRealisasi" name="TGL_REALISASI" value="{{ date('Y').'-12-31' }}">
+                                </div>
+                                <!-- <div class="col-md-6">
                                     <label for="TahunAkhir" class="form-label">Tahun Akhir</label>
                                     <div class="input-group">
                                         <input type="text" class="datepicker_input form-control" placeholder="DD/MM/YYYY" required aria-label="Date input 3 (using aria-label)">
@@ -51,11 +59,11 @@
                                             <i class='bx bxs-calendar'></i>
                                         </span>
                                     </div>
-                                </div>
-                                <div class="col-md-6">
+                                </div> -->
+                                <!-- <div class="col-md-6">
                                     <label for="TahunAkhir" class="form-label">Tahun Akhir</label>
                                     <input type="text" class="form-control" id="TahunAkhir" name="TahunAkhir">
-                                </div>
+                                </div> -->
                                 <div class="col-md-12">
                                     <label for="JenisPelayanan" class="form-label">Jenis Pelayanan</label>
                                     <select class="form-select" id="JenisPelayanan" name="JenisPelayanan" required>
