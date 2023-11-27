@@ -365,6 +365,50 @@
 	box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
 	border-radius: 10px;
   }
+.detail .recentOrders .BoxUtama {
+	position: relative;
+	/* display: grid; */
+	/* min-height: 400px; */
+	background: var(--light);
+	/* padding: 20px;
+	margin: 20px; */
+	/* box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08); */
+	border-radius: 10px;
+	display: flex;
+  }
+.detail .recentOrders .Box1 {
+	position: relative;
+	/* display: grid; */
+	/* min-height: 400px; */
+	background: var(--light);
+	padding: 10px;
+	/* margin: 20px; */
+	/* box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08); */
+	border-radius: 10px;
+	flex: 1;
+  }
+.detail .recentOrders .Box2 {
+	position: relative;
+	/* display: grid; */
+	/* min-height: 400px; */
+	background: var(--light);
+	padding: 10px;
+	/* margin: 20px; */
+	/* box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08); */
+	border-radius: 10px;
+	flex: 1;
+  }
+.detail .recentOrders .Box3 {
+	position: relative;
+	/* display: grid; */
+	/* min-height: 400px; */
+	background: var(--light);
+	padding: 10px;
+	/* margin: 20px; */
+	/* box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08); */
+	border-radius: 10px;
+	flex: 1;
+  }
 
 
 /*============= TABLE DETAIL DATA =============*/
@@ -408,4 +452,16 @@
 }
 .border-bottom-left{
 	border-bottom-left-radius: 10px;	
+}
+
+/* CSS untuk memposisikan label setelah input dengan ikon kalender */
+.form-floating > .input-group > .datepicker_input + .input-group-text + label {
+    padding-left: 3.5rem;
+    z-index: 3;
+}
+
+
+#JenisPelayanan {
+	max-height: 150px; /* Ganti dengan tinggi maksimum yang diinginkan */
+    overflow-y: auto !important;
 }

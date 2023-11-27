@@ -34,9 +34,23 @@
                         <div class="filterBox">
                             <form method="POST" action="{{ route('provinsi.store') }}" enctype="multipart/form-data" class="row g-4 p-3">
                                 @csrf
-                                <div class="col-md-6 ">
+                                <div class="col-md-6">
                                     <label for="TahunAwal" class="form-label">Tahun Awal</label>
-                                    <input type="text" class="form-control" id="TahunAwal" name="TahunAwal" >
+                                    <div class="input-group">
+                                        <input type="text" class="datepicker_input form-control" placeholder="DD/MM/YYYY" required aria-label="Date input 3 (using aria-label)">
+                                        <span class="input-group-text">
+                                            <i class='bx bxs-calendar'></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="TahunAkhir" class="form-label">Tahun Akhir</label>
+                                    <div class="input-group">
+                                        <input type="text" class="datepicker_input form-control" placeholder="DD/MM/YYYY" required aria-label="Date input 3 (using aria-label)">
+                                        <span class="input-group-text">
+                                            <i class='bx bxs-calendar'></i>
+                                        </span>
+                                    </div>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="TahunAkhir" class="form-label">Tahun Akhir</label>
@@ -44,11 +58,43 @@
                                 </div>
                                 <div class="col-md-12">
                                     <label for="JenisPelayanan" class="form-label">Jenis Pelayanan</label>
-                                    <input type="text" class="form-control" id="JenisPelayanan" name="JenisPelayanan" >
+                                    <select class="form-select" id="JenisPelayanan" name="JenisPelayanan" required>
+                                        <option selected disabled value="">Choose...</option>
+                                        <option>PENDAFTARAN DATA BARU</option>
+                                        <option>MUTASI OBJEK/SUBJEK</option>
+                                        <option>PEMBETULAN SPPT/SKP/STP</option>
+                                        <option>PEMBATALAN SPPT/SKP</option>
+                                        <option>SALINAN SPPT/SKP</option>
+                                        <option>KEBERATAN PENUNJUKAN WAJIB PAJAK</option>
+                                        <option>PENGURANGAN ATAS BESARNYA PAJAK TERHUBUNG</option>
+                                        <option>RESTITUSI DAN KOMPENSASI</option>
+                                        <option>PENGURANGAN DENDA ADMINISTRASI</option>
+                                        <option>PENENTUAN KEMBALI TANGGAL JATUH TEMPO</option>
+                                        <option>VERIFIKASI NOP BPHTB</option>
+                                        <option>PEMBERIAN INFORMASI PBB</option>
+                                        <option>PEMBETULAN SK KEBERATAN</option>
+                                        <option>MUTASI PEMECAHAN</option>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        Isi kolom ini terlebih dahulu!
+                                    </div>
                                 </div>
                                 <div class="col-md-12">
                                     <label for="StatusPelayanan" class="form-label">Status Pelayanan</label>
-                                    <input type="text" class="form-control" id="StatusPelayanan" name="StatusPelayanan" >
+                                    <select class="form-select" id="StatusPelayanan" name="StatusPelayanan" required>
+                                        <option selected disabled value="">Choose...</option>
+                                        <option>Berkas Masuk</option>
+                                        <option>BAP/LHP Kasubid & Kabid</option>
+                                        <option>Pemetaan</option>
+                                        <option>Permohonan Ditolak</option>
+                                        <option>Update spop</option>
+                                        <option>Pengesahan SPOP</option>
+                                        <option>Berkas Selesai</option>
+                                        <option>Diterima WP</option>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        Isi kolom ini terlebih dahulu!
+                                    </div>
                                 </div>
                             
                                 <div class="col-md-12 text-center">
