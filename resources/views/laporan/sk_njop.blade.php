@@ -57,17 +57,17 @@
                             <input type="number" class="form-control" id="Tahun" name="Tahun" placeholder="Tahun Pajak" value="<?= date('Y') ?>">
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-12 d-flex ">
+                            <div class="me-2">
+                                <input class="form-check-input border border-primary " type="checkbox" name="baru" id="baru" />
+                            </div>
                             <label for="baru" class="form-label">Baru</label>
-                            <div>
-                                <input type="checkbox" name="baru" id="baru" />
-                            </div>
                         </div>
-                        <div class="col-md-6">
-                            <label for="ttd" class="form-label">Tanda Tangan</label>
-                            <div>
-                                <input type="checkbox" name="ttd" id="ttd" />
+                        <div class="col-md-12 d-flex mt-1">
+                            <div class="me-2">
+                                <input class="form-check-input border border-primary" type="checkbox" name="ttd" id="ttd" />
                             </div>
+                            <label for="ttd" class="form-label">Tanda Tangan</label>
                         </div>
                         <!-- <div class="col-md-6 d-flex justify-content-end ms-auto">
                             <label for="baru" class="form-label">Baru</label>

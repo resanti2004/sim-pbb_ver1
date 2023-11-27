@@ -40,11 +40,11 @@
                         </div>
                         <div class="col-md-6">
                             <label for="NoPelayanan" class="form-label">No Pelayanan</label>
-                            <input type="text" class="form-control" id="NoPelayanan" name="NoPelayanan">
+                            <input type="text" class="form-control" id="NoPelayanan" name="NoPelayanan" placeholder="Ketik No Pelayanan">
                         </div>
                         <div class="col-md-12">
                             <label for="Tahun" class="form-label">Tahun</label>
-                            <input type="text" class="form-control" id="Tahun" name="Tahun">
+                            <input type="number" class="form-control" id="Tahun" name="Tahun" placeholder="Tahun Pajak" value="<?= date('Y') ?>">
                         </div>
 
                         <div class="col-md-6 d-flex justify-content-end ms-auto">
