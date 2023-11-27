@@ -90,37 +90,6 @@ class RealisasiKelurahanController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function storage(Request $request)
-    {
-        $data_user = DB::table('users');
-        $user = $data_user->where('id', Auth()->user()->id)->first();
-        $fullname = $user->fullname;
-        $username = $user->username;
-
-        $tahun = $request->input('Tahun');
-        $pbb_minimum = $request->input('PBBMinimum');
-        $pbb_maximum = $request->input('PBBMaximum');
-        $tanggal_realisasi = $request->input('TanggalRealisasi');
-
-        $val = DB::table('spop')
-            ->join('pelayanan', 'spop.id', '=', 'pelayanan.id_spop')
-            ->join('ref_kelurahan', 'spop.id_kelurahan', '=', 'kelurahan.kd_kelurahan')
-            ->join('ref_kecamatan', 'ref_kelurahan.kd_kecamatan', '=', 'kecamatan.kd_kecamatan')
-            ->join('ref_dati2', 'ref_kecamatan.kd_dati2', '=', 'kabupaten.kd_dati2')
-            ->join('ref_propinsi', 'ref_dati2.kd_propinsi', '=', 'propinsi.kd_propinsi ')
-            ->where('pelayanan.tanggal_realisasi', '<=', $tanggal_realisasi)
-            ->where('pelayanan.tanggal_realisasi', '!=', null)
-            ->where('pelayanan.tahun', '=', $tahun)
-            ->where('pelayanan.status', '=', '1')
-            ->where('pelayanan.pbb_terhutang', '>=', $pbb_minimum)
-            ->where('pelayanan.pbb_terhutang', '<=', $pbb_maximum)
-            ->select('ref_propinsi.nm_propinsi', 'ref_dati2.nm_dati2', 'ref_kecamatan.nm_kecamatan', 'ref_kelurahan.nm_kelurahan', 'pelayanan.pbb_terhutang', 'pelayanan.pbb_yang_dibayar', 'pelayanan.denda', 'pelayanan.tgl_realisasi')
-            ->get();
-
-        $no = 1;
-
-        return view('laporan.realisasi_kelurahan', compact('no', 'fullname', 'username', 'val', 'total_pokok', 'total_pokok_dibayar', 'total_denda_dibayar', 'total_dibayar', 'total_kurang_bayar', 'total_lebih_bayar', 'tahun', 'pbb_minimum', 'pbb_maximum', 'tanggal_realisasi'));
-    }
 
     /**
      * Display the specified resource.

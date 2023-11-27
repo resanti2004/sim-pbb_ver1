@@ -127,4 +127,24 @@ class Sppt extends Model
 		'TGL_CETAK_SPPT',
 		'NIP_PENCETAK_SPPT'
 	];
+
+	public function pembayaran_sppt()
+	{
+		return $this->hasMany(PembayaranSppt::class, 'KD_PROPINSI', 'KD_PROPINSI')
+					->where('KD_DATI2', '=', 'KD_DATI2')
+					->where('KD_KECAMATAN', '=', 'KD_KECAMATAN')
+					->where('KD_KELURAHAN', '=', 'KD_KELURAHAN')
+					->where('KD_BLOK', '=', 'KD_BLOK')
+					->where('NO_URUT', '=', 'NO_URUT')
+					->where('KD_JNS_OP', '=', 'KD_JNS_OP')
+					->where('THN_PAJAK_SPPT', '=', 'THN_PAJAK_SPPT');
+	}
+
+	public function getSkNjop($nop, $tahun) {
+		$nop = str_replace('.', '', $nop);
+		$data = Sppt::where('NOP', $nop)
+			->where('TAHUN', $tahun)
+			->first();
+		return $data;
+	}
 }
