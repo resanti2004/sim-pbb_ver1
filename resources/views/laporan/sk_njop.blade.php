@@ -60,7 +60,7 @@
                             </form>
                         </div>
 
-                        <div class="filterBox" style="overflow-x: auto;">
+                        <div class="DataBox" style="overflow-x: auto;">
                             <table>
                                 <thead>
                                     <tr>
