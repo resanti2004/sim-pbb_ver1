@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,11 +19,12 @@
 
 	<title>@yield('title')</title>
 </head>
+
 <body>
-	
+
 	<!-- SIDEBAR -->
 	<section id="sidebar">
-	@include('include.sidebar');
+		@include('include.sidebar');
 	</section>
 	<!-- SIDEBAR -->
 
@@ -35,7 +37,7 @@
 		<div class="bg">
 			<img src="{{ asset('image/bg.svg') }}" alt="bg">
 		</div>
-	
+
 		<!-- MAIN -->
 		<main>
 			@yield('content')
@@ -52,7 +54,12 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 	<script src="{{ asset('js/script.js') }}"></script>
+	<!-- Include jQuery -->
+	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 	<script src="js/pagination.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js"></script>
+
 
 </body>
+
 </html>

@@ -10,13 +10,14 @@ class HasilInputPelayananController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         $data_user = DB::table('users');
         $user = $data_user->where('id', Auth()->user()->id)->first();
         $fullname = $user->fullname;
         $username = $user->username;
         return view('laporan.hasil_input_pelayanan', compact('fullname', 'username'));
+        
 
     }
 
@@ -40,8 +41,8 @@ class HasilInputPelayananController extends Controller
      * Display the specified resource.
      */
     public function show(string $id)
-    {
-        //
+    {//
+        
     }
 
     /**
