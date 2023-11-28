@@ -298,4 +298,34 @@ main .content-data .chart::-webkit-scrollbar {
 	}
 }
 
+@media print {
+    body * {
+        visibility: hidden;
+
+    }
+	#sidebar {
+        display: none !important;
+    }
+    .print-section,
+    .print-section * {
+        /* display: block !important; */
+		visibility: visible;
+		color: black;
+    }
+    .print-section {
+        position: absolute;
+		/* display: block !important; */
+        left: 0;
+        top: 0;
+    }
+	table {
+		overflow: visible;
+	}
+	
+	/* Atau untuk setiap elemen yang perlu diatur */
+	th, td {
+		overflow: visible;
+	}
+}
+
 

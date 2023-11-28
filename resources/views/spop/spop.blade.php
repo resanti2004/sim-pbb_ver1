@@ -62,7 +62,7 @@
 							<td>{{ $spop->LUAS_BUMI }}</td>
 							<td>
 								<ul class="list-inline">
-									<li class="list-inline-item"><a href="{{ route('spop.show') }}" class="active"><i class='bx bxs-show'></i></a></li>
+									<li class="list-inline-item"><a href="{{ route('spop.show', ['NOP' => $spop->nop]) }}" class="active"><i class='bx bxs-show'></i></a></li>
 									<li class="list-inline-item"><a href="{{ route('spop.edit') }}" class="active"><i class='bx bxs-edit'></i></a></li>
 									<li class="list-inline-item">
 										<form id="deleteForm_{{ $spop->nop }}" action="{{ route('spop.destroy', ['spop' => $spop->nop]) }}" method="POST">

@@ -31,7 +31,8 @@
                             </div>
 						</div>
 						
-                        <form class="row g-4 p-5 needs-validation" novalidate>
+                        <form method="POST" action="{{ route('spop.store') }}" class="row g-4 p-5 needs-validation" novalidate>
+                            @csrf
                             <div class="col-md-6">
                                 <label for="kd_prov" class="form-label">Kode Provinsi</label>
                                 <input type="text" class="form-control" id="kd_prov" name="kd_prov" required>
@@ -69,7 +70,7 @@
                             </div>
                             <div class="col-md-6">
                                 <label for="no_urut" class="form-label">No Urut</label>
-                                <input type="text" class="form-control" id="no_urut" name="no_urut" required>
+                                <input type="text" class="form-control" id="no_urut" name="NO_URUT" required>
                                 <div class="invalid-feedback">
 									Isi kolom ini terlebih dahulu!
 								</div>

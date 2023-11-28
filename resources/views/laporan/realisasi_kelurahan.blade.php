@@ -59,7 +59,7 @@
 
                     <div class="pencarian d-flex justify-content-between align-items-end">
                         <p class="m-0">Menampilkan <b>{{ $val->count() }}</b> data</p>
-                        <button type="button">Cetak</button>
+                        <a href="{{ route('realisasiKel.create') }}"><button type="button">Cetak</button></a>
                     </div>
 
                     <?php $total_pokok = 0;

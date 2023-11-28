@@ -37,48 +37,48 @@
 
                                     <div class="col-md-12">
                                         <label for="kd_prov" class="form-label">Kode Provinsi</label>
-                                        <input type="text" class="form-control" id="kd_prov" name="kd_prov" >
+                                        <input type="text" class="form-control" id="kd_prov" name="kd_prov" value="{{ $result->KD_PROPINSI ?? '' }}">
                                     </div>
                                     <div class="col-md-12">
                                         <label for="kd_dati" class="form-label">Kode Dati 2</label>
-                                        <input type="text" class="form-control" id="kd_dati" name="kd_dati" >
+                                        <input type="text" class="form-control" id="kd_dati" name="kd_dati" value="{{ $result->KD_DATI2 ?? ''}}">
                                     </div>
                                     <div class="col-md-12">
                                         <label for="kd_kec" class="form-label">Kode Kecamatan</label>
-                                        <input type="text" class="form-control" id="kd_kec" name="kd_kec" >
+                                        <input type="text" class="form-control" id="kd_kec" name="kd_kec" value="{{ $result->KD_KECAMATAN ?? '' }}">
                                     </div>
                                     <div class="col-md-12">
                                         <label for="kd_kel" class="form-label">Kode Kelurahan</label>
-                                        <input type="text" class="form-control" id="kd_kel" name="kd_kel" >
+                                        <input type="text" class="form-control" id="kd_kel" name="kd_kel" value="{{ $result->KD_KECAMATAN ?? '' }}">
                                     </div>
                                     <div class="col-md-12">
                                         <label for="kd_blok" class="form-label">Kode Blok</label>
-                                        <input type="text" class="form-control" id="kd_blok" name="kd_blok" >
+                                        <input type="text" class="form-control" id="kd_blok" name="kd_blok" value="{{ $result->KD_KECAMATAN ?? '' }}">
                                     </div>
                                     <div class="col-md-12">
                                         <label for="no_urut" class="form-label">No Urut</label>
-                                        <input type="text" class="form-control" id="no_urut" name="no_urut" >
+                                        <input type="text" class="form-control" id="no_urut" name="no_urut" value="{{ $result->KD_KECAMATAN ?? '' }}">
                                     </div>
                                     <div class="col-md-12">
                                         <label for="kd_jenisOp" class="form-label">Kode Jenis Op</label>
-                                        <input type="text" class="form-control" id="kd_jenis" name="kd_jenis" >
+                                        <input type="text" class="form-control" id="kd_jenis" name="kd_jenis" value="{{ $result->KD_KECAMATAN ?? '' }}">
                                     </div>
                                     <div class="col-md-12">
                                         <label for="kd_jenisTransaksi" class="form-label">Jenis Transaksi Op</label>
-                                        <input type="text" class="form-control" id="kd_jenisTransaksi" name="kd_jenisTransaksi" >
+                                        <input type="text" class="form-control" id="kd_jenisTransaksi" name="kd_jenisTransaksi" value="{{ $result->KD_KECAMATAN ?? '' }}">
                                     </div>
                                     <div class="col-md-12">
                                         <label for="no_spptLama" class="form-label">No Sppt Lama</label>
-                                        <input type="text" class="form-control" id="no_spptLama" name="no_spptLama" >
+                                        <input type="text" class="form-control" id="no_spptLama" name="no_spptLama" value="{{ $result->KD_KECAMATAN ?? '' }}">
                                     </div>
                                     <div class="col-md-12">
                                         <label for="sbj_pajak" class="form-label">Subjek Pajak ID</label>
-                                        <input type="text" class="form-control" id="sbj_pajak" name="sbj_pajak" >
+                                        <input type="text" class="form-control" id="sbj_pajak" name="sbj_pajak" value="{{ $result->KD_KECAMATAN ?? '' }}">
                                     </div>
                                 </form>
                             </div>
                             <div class="Box2">
-                                <form method="POST" action="{{ route('provinsi.store') }}" enctype="multipart/form-data" class="row g-4 p-3">
+                                <form enctype="multipart/form-data" class="row g-4 p-3">
                                     @csrf
                                     <div class="col-md-12 d-flex justify-content-center">
                                         <b>DATA LETAK OBJEK PAJAK</b>
@@ -86,19 +86,19 @@
 
                                     <div class="col-md-12 ">
                                         <label for="NOP" class="form-label">NOP</label>
-                                        <input type="text" class="form-control" id="NOP" name="NOP" >
+                                        <input type="text" class="form-control" id="NOP" name="NOP" value="{{ $result->KD_KECAMATAN ?? '' }}">
                                     </div>
                                     <div class="col-md-12">
                                         <label for="NoPelayanan" class="form-label">No Pelayanan</label>
-                                        <input type="text" class="form-control" id="NoPelayanan" name="NoPelayanan">
+                                        <input type="text" class="form-control" id="NoPelayanan" name="NoPelayanan" value="{{ $result->KD_KECAMATAN ?? '' }}">
                                     </div>
                                     <div class="col-md-12">
                                         <label for="Tahun" class="form-label">Tahun</label>
-                                        <input type="text" class="form-control" id="Tahun" name="Tahun" >
+                                        <input type="text" class="form-control" id="Tahun" name="Tahun" value="{{ $result->KD_KECAMATAN ?? '' }}">
                                     </div>
                                     <div class="col-md-12 ">
                                         <label for="NOP" class="form-label">NOP</label>
-                                        <input type="text" class="form-control" id="NOP" name="NOP" >
+                                        <input type="text" class="form-control" id="NOP" name="NOP" value="{{ $result->KD_KECAMATAN ?? '' }}">
                                     </div>
                                     <div class="col-md-12">
                                         <label for="NoPelayanan" class="form-label">No Pelayanan</label>

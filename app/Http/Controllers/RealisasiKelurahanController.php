@@ -71,9 +71,13 @@ class RealisasiKelurahanController extends Controller
             ->groupBy('ref_kecamatan.NM_KECAMATAN', 'ref_kelurahan.NM_KELURAHAN')
             ->get();
 
-
-
         $no = 1;
+        session(['cetak_realisasi_kelurahan_data' => [
+            'tahun' => $THN_PAJAK_SPPT,
+            'data' => $val,
+            'tanggal_realisasi' => $TGL_REALISASI,
+        ]]);
+
 
         return view('laporan.realisasi_kelurahan', compact('no', 'fullname', 'username', 'val'));
     }
@@ -83,8 +87,20 @@ class RealisasiKelurahanController extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
+
     {
-        //
+        $val = session('cetak_realisasi_kelurahan_data');
+        $no = 1;
+
+        $tahun = $val['tahun'];
+        $tanggal_realisasi = $val['tanggal_realisasi'];
+        $val = $val['data'];
+
+        $data_user = DB::table('users');
+        $user = $data_user->where('id', Auth()->user()->id)->first();
+        $fullname = $user->fullname;
+        $username = $user->username;
+        return view('laporan.realisasi_kelurahan_cetak', compact('val', 'no', 'tahun', 'tanggal_realisasi', 'fullname', 'username'));
     }
 
     /**
