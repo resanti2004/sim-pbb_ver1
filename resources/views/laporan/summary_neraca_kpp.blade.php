@@ -35,16 +35,20 @@
                             <form method="POST" action="{{ route('provinsi.store') }}" enctype="multipart/form-data" class="row g-4 p-3">
                                 @csrf
                                 <div class="col-md-6 ">
-                                    <label for="TahunAwal" class="form-label">Tahun Awal</label>
-                                    <input type="text" class="form-control" id="TahunAwal" name="TahunAwal" >
+                                    <label for="TahunAwal" class="form-label">Tahun Neraca</label>
+                                    <input type="number" class="form-control" id="TahunAwal" name="TahunAwal" value="{{ date('Y') }}">
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="TahunAkhir" class="form-label">Tahun Akhir</label>
-                                    <input type="text" class="form-control" id="TahunAkhir" name="TahunAkhir">
+                                    <label for="TahunAkhir" class="form-label">Tahun Piutang Awal</label>
+                                    <input type="number" class="form-control" id="TahunAkhir" name="TahunAkhir" value="{{ date('Y') }}">
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <label for="TahunAkhir" class="form-label">Tahun Piutang Akhir</label>
+                                    <input type="number" class="form-control" id="TahunAkhir" name="TahunAkhir" value="{{ date('Y') }}">
+                                </div>
+                                <div class="col-md-6">
                                     <label for="PerTanggalBayar" class="form-label">Per Tanggal Bayar</label>
-                                    <input type="text" class="form-control" id="PerTanggalBayar" name="PerTanggalBayar" >
+                                    <input type="date" class="form-control" id="PerTanggalBayar" name="PerTanggalBayar" value="{{ date('Y').'-12-31' }}" >
                                 </div>
                             
                                 <div class="col-md-6 d-flex justify-content-end ms-auto">
@@ -56,7 +60,7 @@
                             </form>
                         </div>
 
-                        <div class="dataBox" style="overflow-x: auto;">
+                        <!-- <div class="dataBox" style="overflow-x: auto;">
 
                         <div class="pencarian d-flex justify-content-between align-items-end">
 							<p class="m-0">Menampilkan <b>2</b> data dari total <b>2</b> </p>
@@ -103,10 +107,7 @@
                                     </tr>
                                 </tbody>
                             </table>
-                            <!-- <div class="d-flex justify-content-center">
-                               
-                            </div> -->
-                        </div>
+                        </div> -->
 
 					</div>
 				</div>
