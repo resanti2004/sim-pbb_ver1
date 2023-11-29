@@ -41,7 +41,12 @@
                             </div>
                             <div class="col-md-6">
                                 <label for="kd_kec" class="form-label">Kode Kecamatan</label>
-                                <input type="text" class="form-control" id="kd_kec" name="KD_KECAMATAN" required>
+                                <!-- <input type="text" class="form-control" id="kd_jenisTransaksi" name="kd_jenisTransaksi" required> -->
+                                <select class="form-select" id="kd_kec" name="KD_KECAMATAN" required>
+                                    <option selected disabled value="">Choose...</option>
+                                    <option value="1">[010] WAKANDA SELATAN</option>
+                                    <option value="2">[020] WAKANDA TIMUR </option>
+                                </select>
                                 <div class="invalid-feedback">
 									Isi kolom ini terlebih dahulu!
 								</div>
@@ -95,15 +100,22 @@
 								</div>
                             </div>
                             <div class="col-md-6">
-                                <label for="no_spptLama" class="form-label">No Sppt Lama</label>
-                                <input type="text" class="form-control" id="no_spptLama" name="NO_SPPT_LAMA" required>
+                                <label for="no_formulir_spop" class="form-label">NO Formulir SPOP</label>
+                                <input type="text" class="form-control" id="no_formulir_spop" name="NO_FORMULIR_SPOP" required>
                                 <div class="invalid-feedback">
 									Isi kolom ini terlebih dahulu!
 								</div>
                             </div>
                             <div class="col-md-6">
-                                <label for="sbj_pajak" class="form-label">Subjek Pajak ID</label>
-                                <input type="text" class="form-control" id="sbj_pajak" name="SUBJEK_PAJAK_ID" required>
+                                <label for="nop_asal" class="form-label">NOP Asal</label>
+                                <input type="text" class="form-control" id="nop_asal" name="NOP_ASAL" required>
+                                <div class="invalid-feedback">
+									Isi kolom ini terlebih dahulu!
+								</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="no_spptLama" class="form-label">No Sppt Lama</label>
+                                <input type="text" class="form-control" id="no_spptLama" name="NO_SPPT_LAMA" required>
                                 <div class="invalid-feedback">
 									Isi kolom ini terlebih dahulu!
 								</div>
@@ -118,13 +130,6 @@
                             <div class="col-md-6">
                                 <label for="blok_kav" class="form-label">Blok Kav No Op</label>
                                 <input type="text" class="form-control" id="blok_kav" name="BLOK_KAV_NO_OP" required>
-                                <div class="invalid-feedback">
-									Isi kolom ini terlebih dahulu!
-								</div>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="kel_op" class="form-label">Kelurahan Op</label>
-                                <input type="text" class="form-control" id="kel_op" name="KELURAHAN_OP" required>
                                 <div class="invalid-feedback">
 									Isi kolom ini terlebih dahulu!
 								</div>
@@ -159,6 +164,98 @@
 								</div>
                             </div>
                             <div class="col-md-6">
+                                <label for="sbj_pajak" class="form-label">Subjek Pajak ID</label>
+                                <input type="text" class="form-control" id="sbj_pajak" name="SUBJEK_PAJAK_ID" required>
+                                <div class="invalid-feedback">
+									Isi kolom ini terlebih dahulu!
+								</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="nama_wp" class="form-label">Nama Wajib Pajak</label>
+                                <input type="text" class="form-control" id="nama_wp" name="NAMA_WP" required>
+                                <div class="invalid-feedback">
+									Isi kolom ini terlebih dahulu!
+								</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="jln_wp" class="form-label">Jalan Wajib Pajak</label>
+                                <input type="text" class="form-control" id="jln_wp" name="JLN_WP" required>
+                                <div class="invalid-feedback">
+									Isi kolom ini terlebih dahulu!
+								</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="blok_kav_wp" class="form-label">Blok Kav No Wajib Pajak</label>
+                                <input type="text" class="form-control" id="blok_kav_wp" name="BLOK_KAV_WP" required>
+                                <div class="invalid-feedback">
+									Isi kolom ini terlebih dahulu!
+								</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="rw_wp" class="form-label">RW Wajib Pajak</label>
+                                <input type="text" class="form-control" id="rw_wp" name="RW_WP" required>
+                                <div class="invalid-feedback">
+									Isi kolom ini terlebih dahulu!
+								</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="rt_wp" class="form-label">RT Wajib Pajak</label>
+                                <input type="text" class="form-control" id="rt_wp" name="RT_WP" required>
+                                <div class="invalid-feedback">
+									Isi kolom ini terlebih dahulu!
+								</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="kelurahan_wp" class="form-label">Kelurahan Wajib Pajak</label>
+                                <input type="text" class="form-control" id="kelurahan_wp" name="KELURAHAN_WP" required>
+                                <div class="invalid-feedback">
+									Isi kolom ini terlebih dahulu!
+								</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="kota_wp" class="form-label">Kota Wajib Pajak</label>
+                                <input type="text" class="form-control" id="kota_wp" name="KOTA_WP" required>
+                                <div class="invalid-feedback">
+									Isi kolom ini terlebih dahulu!
+								</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="kd_pos_wp" class="form-label">Kode Pos Wajib Pajak</label>
+                                <input type="text" class="form-control" id="kd_pos_wp" name="KD_POS_WP" required>
+                                <div class="invalid-feedback">
+									Isi kolom ini terlebih dahulu!
+								</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="tlp_wp" class="form-label">Telepon Wajib Pajak</label>
+                                <input type="text" class="form-control" id="tlp_wp" name="TELEPON_WP" required>
+                                <div class="invalid-feedback">
+									Isi kolom ini terlebih dahulu!
+								</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="npwp" class="form-label">NPWP</label>
+                                <input type="text" class="form-control" id="npwp" name="NPWP" required>
+                                <div class="invalid-feedback">
+									Isi kolom ini terlebih dahulu!
+								</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="status_pekerjaan_wp" class="form-label">Status Pekerjaan Wajib Pajak</label>
+                                <!-- <input type="text" class="form-control" id="kd_statusWp" name="kd_statusWp" required> -->
+                                <select class="form-select" id="status_pekerjaan_wp" name="STATUS_PEKERJAAN_WP" required>
+                                    <option selected disabled value="">Choose...</option>
+                                    <option value="1">PNS</option>
+                                    <option value="2">ABRI</option>
+                                    <option value="3">PENSIUNAN</option>
+                                    <option value="4">Badan</option>
+                                    <option value="5">Lainnya..</option>
+                                </select>
+                                <div class="invalid-feedback">
+									Isi kolom ini terlebih dahulu!
+								</div>
+                            </div>
+                            <div class="col-md-6">
                                 <label for="luas_bumi" class="form-label">Luas Bumi</label>
                                 <input type="text" class="form-control" id="luas_bumi" name="LUAS_BUMI" required>
                                 <div class="invalid-feedback">
@@ -174,7 +271,14 @@
                             </div>
                             <div class="col-md-6">
                                 <label for="jns_bumi" class="form-label">Jenis Bumi</label>
-                                <input type="text" class="form-control" id="jns_bumi" name="JNS_BUMI" required>
+                                <!-- <input type="text" class="form-control" id="kd_statusWp" name="kd_statusWp" required> -->
+                                <select class="form-select" id="jns_bumi" name="JENIS_WP" required>
+                                    <option selected disabled value="">Choose...</option>
+                                    <option value="1">Tanah + Bangunan</option>
+                                    <option value="2">Kavling Siap Bangun</option>
+                                    <option value="3">Tanah Kosong</option>
+                                    <option value="4">Fasilitas Umum</option>
+                                </select>
                                 <div class="invalid-feedback">
 									Isi kolom ini terlebih dahulu!
 								</div>
@@ -187,113 +291,8 @@
 								</div>
                             </div>
                             <div class="col-md-6">
-                                <label for="kd_provBersama" class="form-label">Kode Provinsi Bersama</label>
-                                <input type="text" class="form-control" id="kd_provBersama" name="KD_PROPINSI_BERSAMA" required>
-                                <div class="invalid-feedback">
-									Isi kolom ini terlebih dahulu!
-								</div>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="kd_datiBersama" class="form-label">Kode Dati 2 Bersama</label>
-                                <input type="text" class="form-control" id="kd_datiBersama" name="KD_DATI2_BERSAMA" required>
-                                <div class="invalid-feedback">
-									Isi kolom ini terlebih dahulu!
-								</div>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="kd_kecBersama" class="form-label">Kode Kecamatan Bersama</label>
-                                <input type="text" class="form-control" id="kd_kecBersama" name="KD_KECAMATAN_BERSAMA" required>
-                                <div class="invalid-feedback">
-									Isi kolom ini terlebih dahulu!
-								</div>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="kd_kelBersama" class="form-label">Kode Kelurahan Bersama</label>
-                                <input type="text" class="form-control" id="kd_kelBersama" name="KD_KELURAHAN_BERSAMA" required>
-                                <div class="invalid-feedback">
-									Isi kolom ini terlebih dahulu!
-								</div>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="kd_blokBersama" class="form-label">Kode Blok Bersama</label>
-                                <input type="text" class="form-control" id="kd_blokBersama" name="KD_BLOK_BERSAMA" required>
-                                <div class="invalid-feedback">
-									Isi kolom ini terlebih dahulu!
-								</div>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="no_urutBersama" class="form-label">No Urut Bersama</label>
-                                <input type="text" class="form-control" id="no_urutBersama" name="NO_URUT_BERSAMA" required>
-                                <div class="invalid-feedback">
-									Isi kolom ini terlebih dahulu!
-								</div>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="kd_jnsOpBersama" class="form-label">Kode Jenis Op Bersama</label>
-                                <input type="text" class="form-control" id="kd_jnsOpBersama" name="KD_JNS_OP_BERSAMA" required>
-                                <div class="invalid-feedback">
-									Isi kolom ini terlebih dahulu!
-								</div>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="kd_provAsal" class="form-label">Kode Provinsi Asal</label>
-                                <input type="text" class="form-control" id="kd_provAsal" name="KD_PROPINSI_ASAL" required>
-                                <div class="invalid-feedback">
-									Isi kolom ini terlebih dahulu!
-								</div>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="kd_datiAsal" class="form-label">Kode Dati 2 Asal</label>
-                                <input type="text" class="form-control" id="kd_datiAsal" name="KD_DATI2_ASAL" required>
-                                <div class="invalid-feedback">
-									Isi kolom ini terlebih dahulu!
-								</div>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="kd_kecAsal" class="form-label">Kode Kecamatan Asal</label>
-                                <input type="text" class="form-control" id="kd_kecAsal" name="KD_KECAMATAN_ASAL" required>
-                                <div class="invalid-feedback">
-									Isi kolom ini terlebih dahulu!
-								</div>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="kd_kelAsal" class="form-label">Kode Kelurahan Asal</label>
-                                <input type="text" class="form-control" id="kd_kelAsal" name="KD_KELURAHAN_ASAL" required> 
-                                <div class="invalid-feedback">
-									Isi kolom ini terlebih dahulu!
-								</div>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="kd_blokAsal" class="form-label">Kode Blok Asal</label>
-                                <input type="text" class="form-control" id="kd_blokAsal" name="KD_BLOK_ASAL" required>
-                                <div class="invalid-feedback">
-									Isi kolom ini terlebih dahulu!
-								</div>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="no_urutAsal" class="form-label">No Urut Asal</label>
-                                <input type="text" class="form-control" id="no_urutAsal" name="NO_URUT_ASAL" required>
-                                <div class="invalid-feedback">
-									Isi kolom ini terlebih dahulu!
-								</div>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="Kd_jenisOpAsal" class="form-label">Kode Jenis Op Asal</label>
-                                <input type="text" class="form-control" id="Kd_jenisOpAsal" name="KD_JNS_OP_ASAL" required>
-                                <div class="invalid-feedback">
-									Isi kolom ini terlebih dahulu!
-								</div>
-                            </div>
-                            <div class="col-md-6">
                                 <label for="tgl_pendataanOp" class="form-label">Tanggal Pendataan Op</label>
                                 <input type="text" class="form-control" id="tgl_pendataanOp" name="TGL_PENDATAAN_OP" required>
-                                <div class="invalid-feedback">
-									Isi kolom ini terlebih dahulu!
-								</div>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="nm_pendataOp" class="form-label">Nama Pendata Op</label>
-                                <input type="text" class="form-control" id="nm_pendataOp" name="NM_PENDATAAN_OP" required>
                                 <div class="invalid-feedback">
 									Isi kolom ini terlebih dahulu!
 								</div>
@@ -308,13 +307,6 @@
                             <div class="col-md-6">
                                 <label for="tgl_pemeriksaanOp" class="form-label">Tanggal Pemeriksaan Op</label>
                                 <input type="text" class="form-control" id="tgl_pemeriksaanOp" name="TGL_PEMERIKSAAN_OP" required>
-                                <div class="invalid-feedback">
-									Isi kolom ini terlebih dahulu!
-								</div>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="nm_pemeriksaOp" class="form-label">Nama Pemeriksa Op</label>
-                                <input type="text" class="form-control" id="nm_pemeriksaOp" name="NM_PEMERIKSAAN_OP" required>
                                 <div class="invalid-feedback">
 									Isi kolom ini terlebih dahulu!
 								</div>

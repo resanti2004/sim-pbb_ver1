@@ -160,13 +160,13 @@ class LspopController extends Controller
     public function show()
     {
         // Fetch user data
-        // $no = $no;
+        $no = $no;
         $data_user = DB::table('users');
         $user = $data_user->where('id', Auth()->user()->id)->first();
         $fullname = $user->fullname;
         $username = $user->username;
 
         // Return the view with the user and Kelurahan data
-        return view('lspop.detail_lspop', compact('fullname', 'username'));
+        return view('lspop.detail_lspop', compact('fullname', 'username', 'no'));
     }
 }
