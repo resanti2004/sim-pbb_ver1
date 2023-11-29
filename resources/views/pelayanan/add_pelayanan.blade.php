@@ -12,7 +12,7 @@
 				<div class="detail">
 					<div class="recentOrders">
 						<div class="cardHeader">
-							<h3>Pelayanan</h3>
+							<h3>Tambah Data Pelayanan</h3>
 							<!-- <div aria-label="breadcrumb">
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="#">Beranda</a></li>
@@ -200,7 +200,7 @@
                             </div>
 
                             <div class="col-md-12 text-center">
-                                <button type="submit" class="btn btn-primary" style="width:150px;">Tambah</button>
+                                <button type="submit" class="btn btn-primary" style="width:150px;">Simpan</button>
                             </div>
                         </form>
 

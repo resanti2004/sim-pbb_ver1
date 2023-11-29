@@ -48,6 +48,13 @@
 								</div>
                             </div>
                             <div class="col-md-6">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="text" class="form-control" id="password" name="password" required >
+								<div class="invalid-feedback">
+									Isi kolom ini terlebih dahulu!
+								</div>
+                            </div>
+                            <div class="col-md-6">
                                 <label for="status" class="form-label">Status</label>
                                 <input type="text" class="form-control" id="status" name="status" required>
 								<div class="invalid-feedback">

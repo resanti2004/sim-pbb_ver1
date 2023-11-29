@@ -13,14 +13,6 @@
 					<div class="recentOrders">
 						<div class="cardHeader">
 							<h3>Tambah Data SPOP</h3>
-							<!-- <div aria-label="breadcrumb">
-							<ol class="breadcrumb">
-								<li class="breadcrumb-item"><a href="#">Beranda</a></li>
-								<li class="breadcrumb-item"><a href="#">Laporan</a></li>
-								<li class="breadcrumb-item"><a href="{{ route('spop.index') }}">SPOP</a></li>
-								<li class="breadcrumb-item active" aria-current="page">Tambah Data SPOP</li>
-							</ol>
-							</div> -->
                             <div class=" p-0 d-flex align-items-start" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="#">Beranda</a></li>
@@ -91,6 +83,13 @@
                                     <option>Pemutakhiran Data</option>
                                     <option>Penghapusan Data</option>
                                 </select>
+                                <div class="invalid-feedback">
+									Isi kolom ini terlebih dahulu!
+								</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="nop_bersama" class="form-label">NOP Bersama</label>
+                                <input type="text" class="form-control" id="nop_bersama" name="nop_bersama" required>
                                 <div class="invalid-feedback">
 									Isi kolom ini terlebih dahulu!
 								</div>

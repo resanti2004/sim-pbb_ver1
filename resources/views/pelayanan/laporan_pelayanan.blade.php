@@ -25,7 +25,7 @@
                             <div class=" p-0 d-flex align-items-start" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="#">Beranda</a></li>
-                                    <li class="breadcrumb-item"><a href="#">Pelayanan</a></li>
+                                    <li class="breadcrumb-item"><a href=" {{ route('pelayanan.index') }}">Pelayanan</a></li>
                                     <li class="breadcrumb-item active" aria-current="page">Laporan Pelayanan</li>
                                 </ol>
                             </div>
@@ -87,6 +87,7 @@
                                         Isi kolom ini terlebih dahulu!
                                     </div>
                                 </div>
+
                                 <div class="col-md-12">
                                     <label for="StatusPelayanan" class="form-label">Status Pelayanan</label>
                                     <select class="form-select" id="StatusPelayanan" name="StatusPelayanan" required>
