@@ -49,7 +49,7 @@
                             </div>
                             <div class="col-md-6">
                                 <label for="password" class="form-label">Password</label>
-                                <input type="text" class="form-control" id="password" name="password" required >
+                                <input type="password" class="form-control" id="password" name="password" required >
 								<div class="invalid-feedback">
 									Isi kolom ini terlebih dahulu!
 								</div>

@@ -80,8 +80,7 @@ Route::controller(LspopController::class)->group(function () {
     Route::get('/lspop/edit/', 'edit')->name('lspop.edit');
 });
 Route::controller(SpopController::class)->group(function () {
-    Route::get('/spop/detail/{NOP}', 'show')->name('spop.show');
-    Route::get('/spop/edit/', 'edit')->name('spop.edit');   
+    Route::get('/spop/detail/{NOP}', 'show')->name('spop.show'); 
 });
 Route::controller(PelayananController::class)->group(function () {
     Route::get('/pelayanan/detail', 'show')->name('pelayanan.show');

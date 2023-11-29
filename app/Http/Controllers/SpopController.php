@@ -99,63 +99,63 @@ class SpopController extends Controller
             'NO_SPPT_LAMA' => 'nullable|string|max:30',
             'NOP' => 'nullable|string|max:18',
         ]);
-        
-        // Ambil data yang dikirim dari form
-            $model = new Spop();
-            $modelWp = new DatSubjekPajak();
 
-            // dd($request->all());
-    
-            $propinsis = RefPropinsi::pluck('NM_PROPINSI', 'KD_PROPINSI');
-    
-            $model->KD_PROPINSI = '51';
-            $model->KD_DATI2 = '71';
-            $model->KD_KECAMATAN = '010';
-            $model->KD_KELURAHAN = '001';
-            $model->KD_BLOK = '001';
-            $model->KD_JNS_OP = '0';
-            $model->LUAS_BUMI = 0;
-            // $model->NO_URUT = $request->NO_URUT;
-            $model->NILAI_SISTEM_BUMI = 0;
-            $model->TGL_PENDATAAN_OP = now()->toDateString();
-            $model->TGL_PEMERIKSAAN_OP = now()->toDateString();
-            $model->NIP_PENDATA = 9009090;
-            $model->NIP_PEMERIKSA_OP = 9000900;
-    
-            if ($request->isMethod('post') && $model->fill($request->all())->save()) {
-                // Hapus data sebelumnya jika ada
-                $wp = DatSubjekPajak::find($model->SUBJEK_PAJAK_ID);
-                if (!is_null($wp)) {
-                    $wp->delete();
-                }
-    
-                $modelWp->fill($request->all());
-                $modelWp->SUBJEK_PAJAK_ID = $model->SUBJEK_PAJAK_ID;
-                $modelWp->save();
-    
-                return redirect()->route('spop.index', [
-                    'KD_PROPINSI' => $model->KD_PROPINSI,
-                    'KD_DATI2' => $model->KD_DATI2,
-                    'KD_KECAMATAN' => $model->KD_KECAMATAN,
-                    'KD_KELURAHAN' => $model->KD_KELURAHAN,
-                    'KD_BLOK' => $model->KD_BLOK,
-                    'NO_URUT' => $model->NO_URUT,
-                    'KD_JNS_OP' => $model->KD_JNS_OP,
-                ]);
+        // Ambil data yang dikirim dari form
+        $model = new Spop();
+        $modelWp = new DatSubjekPajak();
+
+        // dd($request->all());
+
+        $propinsis = RefPropinsi::pluck('NM_PROPINSI', 'KD_PROPINSI');
+
+        $model->KD_PROPINSI = '51';
+        $model->KD_DATI2 = '71';
+        $model->KD_KECAMATAN = '010';
+        $model->KD_KELURAHAN = '001';
+        $model->KD_BLOK = '001';
+        $model->KD_JNS_OP = '0';
+        $model->LUAS_BUMI = 0;
+        // $model->NO_URUT = $request->NO_URUT;
+        $model->NILAI_SISTEM_BUMI = 0;
+        $model->TGL_PENDATAAN_OP = now()->toDateString();
+        $model->TGL_PEMERIKSAAN_OP = now()->toDateString();
+        $model->NIP_PENDATA = 9009090;
+        $model->NIP_PEMERIKSA_OP = 9000900;
+
+        if ($request->isMethod('post') && $model->fill($request->all())->save()) {
+            // Hapus data sebelumnya jika ada
+            $wp = DatSubjekPajak::find($model->SUBJEK_PAJAK_ID);
+            if (!is_null($wp)) {
+                $wp->delete();
             }
-    
-            $kelas['KELAS_BUMI'] = "-";
-            $kelas['NJOP_BUMI'] = 0;
-    
-            return view('spop.create', [
-                'model' => $model,
-                'modelWp' => $modelWp,
-                'propinsis' => $propinsis,
-                'action' => 'add',
-                'kelas' => $kelas,
+
+            $modelWp->fill($request->all());
+            $modelWp->SUBJEK_PAJAK_ID = $model->SUBJEK_PAJAK_ID;
+            $modelWp->save();
+
+            return redirect()->route('spop.index', [
+                'KD_PROPINSI' => $model->KD_PROPINSI,
+                'KD_DATI2' => $model->KD_DATI2,
+                'KD_KECAMATAN' => $model->KD_KECAMATAN,
+                'KD_KELURAHAN' => $model->KD_KELURAHAN,
+                'KD_BLOK' => $model->KD_BLOK,
+                'NO_URUT' => $model->NO_URUT,
+                'KD_JNS_OP' => $model->KD_JNS_OP,
             ]);
-        
-    
+        }
+
+        $kelas['KELAS_BUMI'] = "-";
+        $kelas['NJOP_BUMI'] = 0;
+
+        return view('spop.create', [
+            'model' => $model,
+            'modelWp' => $modelWp,
+            'propinsis' => $propinsis,
+            'action' => 'add',
+            'kelas' => $kelas,
+        ]);
+
+
         // Respon berhasil atau alihkan pengguna ke halaman yang sesuai
         return redirect()->route('spop.index')
             ->with('success', 'SPOP berhasil ditambah.');
@@ -172,15 +172,10 @@ class SpopController extends Controller
         // $data_spop->where('nop', $spop);
         return view('spop.edit_spop', compact('data_spop', 'fullname', 'username'));
     }
-    public function update(Request $request)
-    {
-        //
-    }
 
     public function destroy($spop)
     {
 
-        
         $KD_PROPINSI = substr($spop, 0, 2);
         $KD_DATI2 = substr($spop, 2, 2);
         $KD_KECAMATAN = substr($spop, 4, 3);
@@ -192,7 +187,7 @@ class SpopController extends Controller
         try {
             $deleted = $this->findModel($KD_PROPINSI, $KD_DATI2, $KD_KECAMATAN, $KD_KELURAHAN, $KD_BLOK, $NO_URUT, $KD_JNS_OP);
             $deleted->delete();
-            
+
             return redirect()->route('spop.index')->with('success', 'Data berhasil dihapus.');
         } catch (ModelNotFoundException $e) {
             return redirect()->route('spop.index')->with('error', 'Data tidak ditemukan.');
@@ -219,7 +214,62 @@ class SpopController extends Controller
         }
     }
 
+    protected function findModelWp($SUBJEK_PAJAK_ID)
+    {
+        $model_wp = DatSubjekPajak::where('SUBJEK_PAJAK_ID', $SUBJEK_PAJAK_ID)->first();
 
+        if ($model_wp) {
+            return $model_wp;
+        }
+
+        abort(404, 'The requested page does not exist.');
+    }
+
+
+    public function update($spop)
+    {
+        $KD_PROPINSI = substr($spop, 0, 2);
+        $KD_DATI2 = substr($spop, 2, 2);
+        $KD_KECAMATAN = substr($spop, 4, 3);
+        $KD_KELURAHAN = substr($spop, 7, 3);
+        $KD_BLOK = substr($spop, 10, 3);
+        $NO_URUT = substr($spop, 13, 4);
+        $KD_JNS_OP = substr($spop, 17, 1);
+
+        $model = $this->findModel($KD_PROPINSI, $KD_DATI2, $KD_KECAMATAN, $KD_KELURAHAN, $KD_BLOK, $NO_URUT, $KD_JNS_OP);
+        $model_wp = $this->findModelWp($model->SUBJEK_PAJAK_ID);
+
+        $propinsis = RefPropinsi::pluck('NM_PROPINSI', 'KD_PROPINSI');
+
+        if (
+            $model->fill(request()->input()) && $model->save() &&
+            $model_wp->fill(request()->input()) && $model_wp->save()
+        ) {
+            return redirect()->route('view', [
+                'KD_PROPINSI' => $model->KD_PROPINSI,
+                'KD_DATI2' => $model->KD_DATI2,
+                'KD_KECAMATAN' => $model->KD_KECAMATAN,
+                'KD_KELURAHAN' => $model->KD_KELURAHAN,
+                'KD_BLOK' => $model->KD_BLOK,
+                'NO_URUT' => $model->NO_URUT,
+                'KD_JNS_OP' => $model->KD_JNS_OP,
+            ]);
+        }
+
+        $kelas = DB::select(
+            "
+        SELECT KELAS_BUMI, NJOP_BUMI FROM kelas_bumi WHERE :nilai_sistem / :luas BETWEEN NILAI_MINIMUM+0.01 AND NILAI_MAKSIMUM",
+            [':nilai_sistem' => $model->NILAI_SISTEM_BUMI, ':luas' => $model->LUAS_BUMI]
+        )[0];
+
+        return view('update', [
+            'model' => $model,
+            'model_wp' => $model_wp,
+            'propinsis' => $propinsis,
+            'action' => 'edit',
+            'kelas' => $kelas,
+        ]);
+    }
 
 
     public function show($NOP)
@@ -238,7 +288,7 @@ class SpopController extends Controller
         $NO_URUT = substr($NOP, 13, 4);
         $KD_JNS_OP = substr($NOP, 17, 1);
 
-        
+
         // Query menggunakan Query Builder
         $result = DB::table('spop')
             ->select('spop.*', DB::raw('SUM(dat_op_bangunan.LUAS_BNG) as LUAS_BNG'), DB::raw('COUNT(*) as JML_BNG'))
@@ -270,7 +320,7 @@ class SpopController extends Controller
             // Jika ya, kirim respons JSON
             return response()->json($result);
         } else {
-            
+
             // Jika tidak, tampilkan view HTML
             return view('spop.detail_spop', compact('fullname', 'username', 'result'));
         }

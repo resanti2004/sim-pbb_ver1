@@ -63,7 +63,7 @@
 							<td>
 								<ul class="list-inline">
 									<li class="list-inline-item"><a href="{{ route('spop.show', ['NOP' => $spop->nop]) }}" class="active"><i class='bx bxs-show'></i></a></li>
-									<li class="list-inline-item"><a href="{{ route('spop.edit') }}" class="active"><i class='bx bxs-edit'></i></a></li>
+									<li class="list-inline-item"><a href="{{ route('spop.edit', ['spop' => $spop->nop]) }}" class="active"><i class='bx bxs-edit'></i></a></li>
 									<li class="list-inline-item">
 										<form id="deleteForm_{{ $spop->KD_PROPINSI }}_{{ $spop->KD_DATI2 }}_{{ $spop->KD_KECAMATAN }}_{{ $spop->KD_KELURAHAN }}_{{ $spop->KD_BLOK }}_{{ $spop->NO_URUT }}_{{ $spop->KD_JNS_OP }}" action="{{ route('spop.destroy', ['spop' => $spop->nop]) }}" method="POST">
 											@csrf
