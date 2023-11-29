@@ -157,10 +157,10 @@ class LspopController extends Controller
             ->with('success', 'LSPOP berhasil dihapus.');
     }
 
-    public function show()
+    public function show($no)
     {
         // Fetch user data
-        // $no = $no;
+        $no = $no;
         $data_user = DB::table('users');
         $user = $data_user->where('id', Auth()->user()->id)->first();
         $fullname = $user->fullname;

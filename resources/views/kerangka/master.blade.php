@@ -17,14 +17,14 @@
 	<link rel="stylesheet" href="{{ asset('css/spop.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/lspop.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/login.css') }}">
-	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" integrity="sha384-MdN4viGQhL9RvZpctU5AyBQKM8tKfhgLApff2OpMW+dpj3dJMyqz0mEScFEmWIlA" crossorigin="anonymous">
+	<!-- Bootstrap CSS
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" integrity="sha384-MdN4viGQhL9RvZpctU5AyBQKM8tKfhgLApff2OpMW+dpj3dJMyqz0mEScFEmWIlA" crossorigin="anonymous"> -->
 
-	<!-- jQuery -->
-	<script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha384-o5+OtszQ4WWMpNcZKSnbOuNAiwnkWHTzRnV5c2UUvIq2fk6b4F9oC58vcyIuAuFz" crossorigin="anonymous"></script>
+
+	<!-- <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha384-o5+OtszQ4WWMpNcZKSnbOuNAiwnkWHTzRnV5c2UUvIq2fk6b4F9oC58vcyIuAuFz" crossorigin="anonymous"></script> -->
 
 	<!-- Bootstrap JS (optional, but needed for certain features) -->
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-EV6hIZe3V0Pz6Ii6fu8VEeSXeLNO1Mz3i3B7fN02h+sHM+0UOV85KlU5DDMNlZfY" crossorigin="anonymous"></script>
+	<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-EV6hIZe3V0Pz6Ii6fu8VEeSXeLNO1Mz3i3B7fN02h+sHM+0UOV85KlU5DDMNlZfY" crossorigin="anonymous"></script> -->
 
 
 	<title>@yield('title')</title>

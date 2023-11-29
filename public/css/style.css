@@ -300,12 +300,10 @@ main .content-data .chart::-webkit-scrollbar {
 
 @media print {
     body * {
-        visibility: hidden;
+        visibility: visible;
 
     }
-	#sidebar {
-        display: none !important;
-    }
+	
     .print-section,
     .print-section * {
         /* display: block !important; */

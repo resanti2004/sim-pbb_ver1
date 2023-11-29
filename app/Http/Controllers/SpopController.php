@@ -62,9 +62,9 @@ class SpopController extends Controller
             'KD_BLOK' => 'required|string|max:3',
             'NO_URUT' => 'required|string|max:4',
             'KD_JNS_OP' => 'required|string|max:1',
-            'SUBJEK_PAJAK_ID' => 'required|string|max:30',
+          -  'SUBJEK_PAJAK_ID' => 'required|string|max:30',
             'JNS_TRANSAKSI_OP' => 'required|string|max:1',
-            'JALAN_OP' => 'required|string|max:30',
+          -  'JALAN_OP' => 'required|string|max:30',
             'KD_STATUS_WP' => 'required|string|max:1',
             'LUAS_BUMI' => 'required|integer',
             'JNS_BUMI' => 'required|string|max:1',
@@ -115,7 +115,6 @@ class SpopController extends Controller
         $model->KD_BLOK = '001';
         $model->KD_JNS_OP = '0';
         $model->LUAS_BUMI = 0;
-        // $model->NO_URUT = $request->NO_URUT;
         $model->NILAI_SISTEM_BUMI = 0;
         $model->TGL_PENDATAAN_OP = now()->toDateString();
         $model->TGL_PEMERIKSAAN_OP = now()->toDateString();
