@@ -85,11 +85,11 @@
                                     </div>
 
                                     <div class="col-md-12 ">
-                                        <label for="NOP" class="form-label">NOP</label>
+                                        <label for="NOP" class="form-label">Jalan OP</label>
                                         <input type="text" class="form-control" id="NOP" name="JALAN_OP" value="{{ $result->JALAN_OP ?? '' }}">
                                     </div>
                                     <div class="col-md-12">
-                                        <label for="NoPelayanan" class="form-label">No Pelayanan</label>
+                                        <label for="NoPelayanan" class="form-label">Blok Kav No OP</label>
                                         <input type="text" class="form-control" id="NoPelayanan" name="NoPelayanan" value="{{ $result->KD_KECAMATAN ?? '' }}">
                                     </div>
                                     <div class="col-md-12">
