@@ -311,7 +311,7 @@ class SpopController extends Controller
                 'spop.NO_URUT' => $NO_URUT,
                 'spop.KD_JNS_OP' => $KD_JNS_OP,
             ])
-            ->groupBy('spop.KD_PROPINSI', 'spop.KD_DATI2', 'spop.KD_KECAMATAN', 'spop.KD_KELURAHAN', 'spop.KD_BLOK', 'spop.NO_URUT', 'spop.KD_JNS_OP')
+            ->groupBy('spop.KD_PROPINSI', 'spop.KD_DATI2', 'spop.KD_KECAMATAN', 'spop.KD_KELURAHAN', 'spop.KD_BLOK', 'spop.NO_URUT', 'spop.KD_JNS_OP', 'spop.SUBJEK_PAJAK_ID')
             ->first(); // Ambil hanya satu record
 
 
