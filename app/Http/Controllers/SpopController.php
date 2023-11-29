@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\BerhakNjoptkp;
 use App\Models\DatSubjekPajak;
 use App\Models\RefPropinsi;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class SpopController extends Controller
 {
@@ -52,8 +54,7 @@ class SpopController extends Controller
     public function store(Request $request)
     {
         // Validate the request...
-
-
+        $request->validate($this->rules());
         // Ambil data yang dikirim dari form
             $model = new Spop();
             $modelWp = new DatSubjekPajak();
@@ -69,6 +70,7 @@ class SpopController extends Controller
             $model->KD_BLOK = '001';
             $model->KD_JNS_OP = '0';
             $model->LUAS_BUMI = 0;
+            // $model->NO_URUT = $request->NO_URUT;
             $model->NILAI_SISTEM_BUMI = 0;
             $model->TGL_PENDATAAN_OP = now()->toDateString();
             $model->TGL_PEMERIKSAAN_OP = now()->toDateString();
@@ -128,14 +130,36 @@ class SpopController extends Controller
     public function update(Request $request)
     {
     }
-    public function destroy($spop)
+    public function destroy($KD_PROPINSI, $KD_DATI2, $KD_KECAMATAN, $KD_KELURAHAN, $KD_BLOK, $NO_URUT, $KD_JNS_OP)
     {
-        $data_spop = DB::table('pbb.berhak_njoptkp');
-        $data_spop->where('nop', $spop);
-        $data_spop->delete();
-        return redirect()->route('spop.index')
-            ->with('success', 'SPOP berhasil dihapus.');
+        try {
+            $this->findModel($KD_PROPINSI, $KD_DATI2, $KD_KECAMATAN, $KD_KELURAHAN, $KD_BLOK, $NO_URUT, $KD_JNS_OP)->delete();
+            
+            return redirect()->route('index')->with('success', 'Data berhasil dihapus.');
+        } catch (ModelNotFoundException $e) {
+            return redirect()->route('index')->with('error', 'Data tidak ditemukan.');
+        }
     }
+
+    protected function findModel($KD_PROPINSI, $KD_DATI2, $KD_KECAMATAN, $KD_KELURAHAN, $KD_BLOK, $NO_URUT, $KD_JNS_OP)
+    {
+        try {
+            return Spop::where([
+                'KD_PROPINSI' => $KD_PROPINSI,
+                'KD_DATI2' => $KD_DATI2,
+                'KD_KECAMATAN' => $KD_KECAMATAN,
+                'KD_KELURAHAN' => $KD_KELURAHAN,
+                'KD_BLOK' => $KD_BLOK,
+                'NO_URUT' => $NO_URUT,
+                'KD_JNS_OP' => $KD_JNS_OP,
+            ])->firstOrFail();
+        } catch (ModelNotFoundException $e) {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+    }
+
+
+
 
     public function show($NOP)
     {
@@ -153,6 +177,7 @@ class SpopController extends Controller
         $NO_URUT = substr($NOP, 13, 4);
         $KD_JNS_OP = substr($NOP, 17, 1);
 
+        
         // Query menggunakan Query Builder
         $result = DB::table('spop')
             ->select('spop.*', DB::raw('SUM(dat_op_bangunan.LUAS_BNG) as LUAS_BNG'), DB::raw('COUNT(*) as JML_BNG'))
@@ -184,6 +209,7 @@ class SpopController extends Controller
             // Jika ya, kirim respons JSON
             return response()->json($result);
         } else {
+            
             // Jika tidak, tampilkan view HTML
             return view('spop.detail_spop', compact('fullname', 'username', 'result'));
         }

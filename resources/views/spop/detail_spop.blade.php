@@ -49,31 +49,31 @@
                                     </div>
                                     <div class="col-md-12">
                                         <label for="kd_kel" class="form-label">Kode Kelurahan</label>
-                                        <input type="text" class="form-control" id="kd_kel" name="kd_kel" value="{{ $result->KD_KECAMATAN ?? '' }}">
+                                        <input type="text" class="form-control" id="kd_kel" name="kd_kel" value="{{ $result->KD_KELURAHAN ?? '' }}">
                                     </div>
                                     <div class="col-md-12">
                                         <label for="kd_blok" class="form-label">Kode Blok</label>
-                                        <input type="text" class="form-control" id="kd_blok" name="kd_blok" value="{{ $result->KD_KECAMATAN ?? '' }}">
+                                        <input type="text" class="form-control" id="kd_blok" name="kd_blok" value="{{ $result->KD_BLOK ?? '' }}">
                                     </div>
                                     <div class="col-md-12">
                                         <label for="no_urut" class="form-label">No Urut</label>
-                                        <input type="text" class="form-control" id="no_urut" name="no_urut" value="{{ $result->KD_KECAMATAN ?? '' }}">
+                                        <input type="text" class="form-control" id="no_urut" name="no_urut" value="{{ $result->NO_URUT ?? '' }}">
                                     </div>
                                     <div class="col-md-12">
                                         <label for="kd_jenisOp" class="form-label">Kode Jenis Op</label>
-                                        <input type="text" class="form-control" id="kd_jenis" name="kd_jenis" value="{{ $result->KD_KECAMATAN ?? '' }}">
+                                        <input type="text" class="form-control" id="kd_jenis" name="kd_jenis" value="{{ $result->KD_JNS_OP ?? '' }}">
                                     </div>
                                     <div class="col-md-12">
                                         <label for="kd_jenisTransaksi" class="form-label">Jenis Transaksi Op</label>
-                                        <input type="text" class="form-control" id="kd_jenisTransaksi" name="kd_jenisTransaksi" value="{{ $result->KD_KECAMATAN ?? '' }}">
+                                        <input type="text" class="form-control" id="kd_jenisTransaksi" name="kd_jenisTransaksi" value="{{ $result->JNS_TRANSAKSI_OP ?? '' }}">
                                     </div>
                                     <div class="col-md-12">
                                         <label for="no_spptLama" class="form-label">No Sppt Lama</label>
-                                        <input type="text" class="form-control" id="no_spptLama" name="no_spptLama" value="{{ $result->KD_KECAMATAN ?? '' }}">
+                                        <input type="text" class="form-control" id="no_spptLama" name="no_spptLama" value="{{ $result->NO_SPPT_LAMA ?? '' }}">
                                     </div>
                                     <div class="col-md-12">
                                         <label for="sbj_pajak" class="form-label">Subjek Pajak ID</label>
-                                        <input type="text" class="form-control" id="sbj_pajak" name="sbj_pajak" value="{{ $result->KD_KECAMATAN ?? '' }}">
+                                        <input type="text" class="form-control" id="sbj_pajak" name="sbj_pajak" value="{{ $result->SUBJEK_PAJAK_ID ?? '' }}">
                                     </div>
                                 </form>
                             </div>
@@ -86,7 +86,7 @@
 
                                     <div class="col-md-12 ">
                                         <label for="NOP" class="form-label">NOP</label>
-                                        <input type="text" class="form-control" id="NOP" name="NOP" value="{{ $result->KD_KECAMATAN ?? '' }}">
+                                        <input type="text" class="form-control" id="NOP" name="JALAN_OP" value="{{ $result->JALAN_OP ?? '' }}">
                                     </div>
                                     <div class="col-md-12">
                                         <label for="NoPelayanan" class="form-label">No Pelayanan</label>
