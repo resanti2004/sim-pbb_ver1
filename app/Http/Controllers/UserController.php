@@ -72,13 +72,15 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit()
+    public function edit($user, $no)
     {
         $data_user = DB::table('users');
         $user = $data_user->where('id', Auth()->user()->id)->first();
         $fullname = $user->fullname;
         $username = $user->username;
-        return (view('pengguna.edit_pengguna', compact('fullname', 'username')));}
+
+        return (view('pengguna.edit_pengguna', compact('fullname', 'username',  'user', 'no')));
+    }
     
     
 

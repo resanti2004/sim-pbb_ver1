@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class TarifController extends Controller
 {
@@ -11,7 +12,11 @@ class TarifController extends Controller
      */
     public function index()
     {
-        //
+        $data_user = DB::table('users');
+        $user = $data_user->where('id', Auth()->user()->id)->first();
+        $fullname = $user->fullname;
+        $username = $user->username;
+        return view('keuangan.tarif', compact('fullname', 'username'));
     }
 
     /**

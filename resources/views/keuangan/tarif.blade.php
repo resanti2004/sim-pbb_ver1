@@ -37,7 +37,7 @@
 								</div>
 						</form> -->
 				<div class="pencarian d-flex justify-content-between align-items-end">
-					<p class="m-0">Menampilkan <b>{{ $data_provinsi->count() }}</b> data dari total <b>{{ $data_provinsi->total() }}</b> </p>
+					<p class="m-0">Menampilkan <b></b> data dari total <b></b> </p>
 					<a href="{{ route('provinsi.create') }}"><button type="button">+ Buat Baru</button></a>
 				</div>
 				<table>
@@ -56,33 +56,28 @@
 					</thead>
 
 					<tbody>
-						@foreach($data_provinsi as $provinsi)
+						
 						<tr>
-							<td>{{ $no++ }}</td>
-							<td>{{ $provinsi->KD_PROPINSI }}</td>
-							<td>{{ $provinsi->NM_PROPINSI }}</td>
-							<td>{{ $provinsi->NM_PROPINSI }}</td>
-							<td>{{ $provinsi->NM_PROPINSI }}</td>
-							<td>{{ $provinsi->NM_PROPINSI }}</td>
-							<td>{{ $provinsi->NM_PROPINSI }}</td>
-							<td>{{ $provinsi->NM_PROPINSI }}</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
 							<td>
 								<ul class="list-inline">
-									<li class="list-inline-item"><a href="
-											{{ route('provinsi.show', [
-										'kdPropinsi' => $provinsi->KD_PROPINSI,
-										'no' => $no-1
-									]) }}" class="active"><i class='bx bxs-show'></i></a></li>
+									<li class="list-inline-item"><a href="#" class="active"><i class='bx bxs-show'></i></a></li>
 									<li class="list-inline-item"><a href="#" class="active"><i class='bx bxs-edit'></i></a></li>
 									<li class="list-inline-item"><a href="#" class="active"><i class='bx bxs-trash'></i></a></li>
 								</ul>
 							</td>
 						</tr>
-						@endforeach
+						
 					</tbody>
 				</table>
 				<div class="d-flex justify-content-center">
-					{{ $data_provinsi->links() }}
+					
 				</div>
 
 			</div>
