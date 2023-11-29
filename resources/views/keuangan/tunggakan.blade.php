@@ -34,31 +34,36 @@
                                 @csrf
                                 <div class="col-md-6">
                                     <label for="NOP" class="form-label">NOP</label>
-                                    <input type="text" class="form-control" id="NOP" name="NOP" >
-                                </div>
-                                <div class="col-md-6 ">
-                                    <label for="TahunAwal" class="form-label">Tahun Awal</label>
-                                    <input type="text" class="form-control" id="TahunAwal" name="TahunAwal" >
+                                    <input type="text" class="form-control" id="NOP" name="NOP" data-inputmask="'mask': '99.99.999.999.999.9999.9'">
+                                    <script>
+                                        $(document).ready(function() {
+                                            $('#NOP').inputmask();
+                                        });
+                                    </script>
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="TahunAkhir" class="form-label">Tahun Akhir</label>
-                                    <input type="text" class="form-control" id="TahunAkhir" name="TahunAkhir">
+                                    <label for="TanggalRealisasi" class="form-label">Tanggal Awal</label>
+                                    <input type="date" class="form-control" id="TanggalRealisasi" name="TGL_REALISASI" value="{{ date('Y').'-12-31' }}">
                                 </div>
-                                <div class="form-check col-md-12">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        Hanya yang belum lunas
-                                    </label>
+                                <div class="col-md-6">
+                                    <label for="TanggalRealisasi" class="form-label">Tanggal Akhir</label>
+                                    <input type="date" class="form-control" id="TanggalRealisasi" name="TGL_REALISASI" value="{{ date('Y').'-12-31' }}">
                                 </div>
-                                <div class="form-check col-md-12">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-                                    <label class="form-check-label" for="flexCheckChecked">
-                                        Tanda tangan
-                                    </label>
+                                <div class="col-md-12 d-flex ">
+                                    <div class="me-2">
+                                        <input class="form-check-input border border-primary " type="checkbox" name="baru" id="baru" />
+                                    </div>
+                                    <label for="baru" class="form-label">Hanya yang belum lunas</label>
+                                </div>
+                                <div class="col-md-12 d-flex mt-1">
+                                    <div class="me-2">
+                                        <input class="form-check-input border border-primary" type="checkbox" name="ttd" id="ttd" />
+                                    </div>
+                                    <label for="ttd" class="form-label">Tanda Tangan</label>
                                 </div>
                             
                                 <div class="col-md-12 text-center">
-                                    <button type="submit" class="btn btn-primary" style="width:150px;">Lihat Tunggakan</button>
+                                    <button type="submit" class="btn btn-primary" style="width:200px;">Lihat Tunggakan</button>
                                 </div>
                             </form>
                         </div>

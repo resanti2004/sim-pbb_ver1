@@ -292,7 +292,7 @@
                             </div>
                             <div class="col-md-6">
                                 <label for="tgl_pendataanOp" class="form-label">Tanggal Pendataan Op</label>
-                                <input type="text" class="form-control" id="tgl_pendataanOp" name="TGL_PENDATAAN_OP" required>
+                                <input type="date" class="form-control" id="tgl_pendataanOp" name="TGL_PENDATAAN_OP" value="{{ date('Y').'-12-31' }}" required>
                                 <div class="invalid-feedback">
 									Isi kolom ini terlebih dahulu!
 								</div>
@@ -306,7 +306,7 @@
                             </div>
                             <div class="col-md-6">
                                 <label for="tgl_pemeriksaanOp" class="form-label">Tanggal Pemeriksaan Op</label>
-                                <input type="text" class="form-control" id="tgl_pemeriksaanOp" name="TGL_PEMERIKSAAN_OP" required>
+                                <input type="date" class="form-control" id="tgl_pemeriksaanOp" name="TGL_PEMERIKSAAN_OP" value="{{ date('Y').'-12-31' }}" required>
                                 <div class="invalid-feedback">
 									Isi kolom ini terlebih dahulu!
 								</div>

@@ -65,6 +65,7 @@
 							<td></td>
 							<td></td>
 							<td></td>
+							<td></td>
 							<td>
 								<ul class="list-inline">
 									<li class="list-inline-item"><a href="#" class="active"><i class='bx bxs-show'></i></a></li>
