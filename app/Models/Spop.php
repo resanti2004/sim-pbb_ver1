@@ -8,6 +8,11 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Support\Facades\DB;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Thiagoprz\CompositeKey\HasCompositeKey;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Class Spop
@@ -59,9 +64,14 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Spop extends Model
 {
+	use HasCompositeKey;
+
+	
 	protected $table = 'spop';
 	public $incrementing = false;
 	public $timestamps = false;
+
+	protected $primaryKey = ['KD_PROPINSI', 'KD_DATI2', 'KD_KECAMATAN', 'KD_KELURAHAN', 'KD_BLOK', 'NO_URUT', 'KD_JNS_OP'];
 
 	protected $casts = [
 		'LUAS_BUMI' => 'int',
