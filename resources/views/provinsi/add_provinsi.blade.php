@@ -28,7 +28,7 @@
                                     <li class="breadcrumb-item"><a href="#">Beranda</a></li>
                                     <li class="breadcrumb-item"><a href="#">Daerah</a></li>
 									<li class="breadcrumb-item"><a href=" {{ route('provinsi.index') }}">Provinsi</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Tambah Data Kelurahan</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Tambah Data Provinsi</li>
                                 </ol>
                             </div>
 						</div>

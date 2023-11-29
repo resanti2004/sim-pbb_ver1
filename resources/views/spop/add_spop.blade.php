@@ -305,8 +305,8 @@
 								</div>
                             </div>
                             <div class="col-md-6">
-                                <label for="tgl_pemeriksaanOp" class="form-label">Tanggal Pemeriksaan Op</label>
-                                <input type="text" class="form-control" id="tgl_pemeriksaanOp" name="TGL_PEMERIKSAAN_OP" required>
+                                <label for="tgl_pemeriksaanOp" class="form-label">Tahun Pemeriksaan OP</label>
+                                <input type="number" class="form-control" id="tgl_pemeriksaanOp" name="TGL_PEMERIKSAAN_OP" value="{{ date('Y') }}" required>
                                 <div class="invalid-feedback">
 									Isi kolom ini terlebih dahulu!
 								</div>

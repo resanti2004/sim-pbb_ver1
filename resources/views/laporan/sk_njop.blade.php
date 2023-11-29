@@ -42,7 +42,6 @@
                                     $('#NOP').inputmask();
                                 });
                             </script>
-
                         </div>
                         <div class="col-md-6">
                             <label for="NoSurat" class="form-label">No Surat</label>

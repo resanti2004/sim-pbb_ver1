@@ -35,45 +35,86 @@
                                         <b>DETAIL</b>
                                     </div>
 
-                                    <div class="col-md-12">
+                                    <div class="col-md-6">
                                         <label for="kd_prov" class="form-label">Kode Provinsi</label>
-                                        <input type="text" class="form-control" id="kd_prov" name="kd_prov" value="{{ $result->KD_PROPINSI ?? '' }}">
+                                        <input type="text" class="form-control" id="kd_prov" name="KD_PROPINSI" required>
+                                        <div class="invalid-feedback">
+                                            Isi kolom ini terlebih dahulu!
+                                        </div>
                                     </div>
-                                    <div class="col-md-12">
+                                    <div class="col-md-6">
                                         <label for="kd_dati" class="form-label">Kode Dati 2</label>
-                                        <input type="text" class="form-control" id="kd_dati" name="kd_dati" value="{{ $result->KD_DATI2 ?? ''}}">
+                                        <input type="text" class="form-control" id="kd_dati" name="KD_DATI2" required>
+                                        <div class="invalid-feedback">
+                                            Isi kolom ini terlebih dahulu!
+                                        </div>
                                     </div>
-                                    <div class="col-md-12">
+                                    <div class="col-md-6">
                                         <label for="kd_kec" class="form-label">Kode Kecamatan</label>
-                                        <input type="text" class="form-control" id="kd_kec" name="kd_kec" value="{{ $result->KD_KECAMATAN ?? '' }}">
+                                        <!-- <input type="text" class="form-control" id="kd_jenisTransaksi" name="kd_jenisTransaksi" required> -->
+                                        <select class="form-select" id="kd_kec" name="KD_KECAMATAN" required>
+                                            <option selected disabled value="">Choose...</option>
+                                            <option value="1">[010] WAKANDA SELATAN</option>
+                                            <option value="2">[020] WAKANDA TIMUR </option>
+                                        </select>
+                                        <div class="invalid-feedback">
+                                            Isi kolom ini terlebih dahulu!
+                                        </div>
                                     </div>
-                                    <div class="col-md-12">
+                                    <div class="col-md-6">
                                         <label for="kd_kel" class="form-label">Kode Kelurahan</label>
-                                        <input type="text" class="form-control" id="kd_kel" name="kd_kel" value="{{ $result->KD_KELURAHAN ?? '' }}">
+                                        <input type="text" class="form-control" id="kd_kel" name="KD_KELURAHAN" required>
+                                        <div class="invalid-feedback">
+                                            Isi kolom ini terlebih dahulu!
+                                        </div>
                                     </div>
-                                    <div class="col-md-12">
+                                    <div class="col-md-6">
                                         <label for="kd_blok" class="form-label">Kode Blok</label>
-                                        <input type="text" class="form-control" id="kd_blok" name="kd_blok" value="{{ $result->KD_BLOK ?? '' }}">
+                                        <input type="text" class="form-control" id="kd_blok" name="KD_BLOK" required>
+                                        <div class="invalid-feedback">
+                                            Isi kolom ini terlebih dahulu!
+                                        </div>
                                     </div>
-                                    <div class="col-md-12">
+                                    <div class="col-md-6">
                                         <label for="no_urut" class="form-label">No Urut</label>
-                                        <input type="text" class="form-control" id="no_urut" name="no_urut" value="{{ $result->NO_URUT ?? '' }}">
+                                        <input type="text" class="form-control" id="no_urut" name="NO_URUT" required>
+                                        <div class="invalid-feedback">
+                                            Isi kolom ini terlebih dahulu!
+                                        </div>
                                     </div>
-                                    <div class="col-md-12">
+                                    <div class="col-md-6">
                                         <label for="kd_jenisOp" class="form-label">Kode Jenis Op</label>
-                                        <input type="text" class="form-control" id="kd_jenis" name="kd_jenis" value="{{ $result->KD_JNS_OP ?? '' }}">
+                                        <input type="text" class="form-control" id="kd_jenis" name="KD_JNS_OP" required>
+                                        <div class="invalid-feedback">
+                                            Isi kolom ini terlebih dahulu!
+                                        </div>
                                     </div>
-                                    <div class="col-md-12">
+                                    <div class="col-md-6">
                                         <label for="kd_jenisTransaksi" class="form-label">Jenis Transaksi Op</label>
-                                        <input type="text" class="form-control" id="kd_jenisTransaksi" name="kd_jenisTransaksi" value="{{ $result->JNS_TRANSAKSI_OP ?? '' }}">
+                                        <!-- <input type="text" class="form-control" id="kd_jenisTransaksi" name="kd_jenisTransaksi" required> -->
+                                        <select class="form-select" id="kd_jenisTransaksi" name="JNS_TRANSAKSI_OP" required>
+                                            <option selected disabled value="">Choose...</option>
+                                            <option value="1">Perekaman Data</option>
+                                            <option value="2">Pemutakhiran Data</option>
+                                            <option value="3">Penghapusan Data</option>
+                                        </select>
+                                        <div class="invalid-feedback">
+                                            Isi kolom ini terlebih dahulu!
+                                        </div>
                                     </div>
-                                    <div class="col-md-12">
+                                    <div class="col-md-6">
                                         <label for="no_spptLama" class="form-label">No Sppt Lama</label>
-                                        <input type="text" class="form-control" id="no_spptLama" name="no_spptLama" value="{{ $result->NO_SPPT_LAMA ?? '' }}">
+                                        <input type="text" class="form-control" id="no_spptLama" name="NO_SPPT_LAMA" required>
+                                        <div class="invalid-feedback">
+                                            Isi kolom ini terlebih dahulu!
+                                        </div>
                                     </div>
-                                    <div class="col-md-12">
+                                    <div class="col-md-6">
                                         <label for="sbj_pajak" class="form-label">Subjek Pajak ID</label>
-                                        <input type="text" class="form-control" id="sbj_pajak" name="sbj_pajak" value="{{ $result->SUBJEK_PAJAK_ID ?? '' }}">
+                                        <input type="text" class="form-control" id="sbj_pajak" name="SUBJEK_PAJAK_ID" required>
+                                        <div class="invalid-feedback">
+                                            Isi kolom ini terlebih dahulu!
+                                        </div>
                                     </div>
                                 </form>
                             </div>
@@ -84,46 +125,60 @@
                                         <b>DATA LETAK OBJEK PAJAK</b>
                                     </div>
 
-                                    <div class="col-md-12 ">
-                                        <label for="NOP" class="form-label">Jalan OP</label>
-                                        <input type="text" class="form-control" id="NOP" name="JALAN_OP" value="{{ $result->JALAN_OP ?? '' }}">
+                                    <div class="col-md-6">
+                                        <label for="jalan_op" class="form-label">Jalan Op</label>
+                                        <input type="text" class="form-control" id="jalan_op" name="JALAN_OP" >
                                     </div>
-                                    <div class="col-md-12">
-                                        <label for="NoPelayanan" class="form-label">Blok Kav No OP</label>
-                                        <input type="text" class="form-control" id="NoPelayanan" name="NoPelayanan" value="{{ $result->KD_KECAMATAN ?? '' }}">
+                                    <div class="col-md-6">
+                                        <label for="blok_kav" class="form-label">Blok Kav No Op</label>
+                                        <input type="text" class="form-control" id="blok_kav" name="BLOK_KAV_NO_OP" >
                                     </div>
-                                    <div class="col-md-12">
-                                        <label for="Tahun" class="form-label">Tahun</label>
-                                        <input type="text" class="form-control" id="Tahun" name="Tahun" value="{{ $result->KD_KECAMATAN ?? '' }}">
+                                    <div class="col-md-6">
+                                        <label for="kel_op" class="form-label">Kelurahan Op</label>
+                                        <input type="text" class="form-control" id="kel_op" name="KEL_OP" >
                                     </div>
-                                    <div class="col-md-12 ">
-                                        <label for="NOP" class="form-label">NOP</label>
-                                        <input type="text" class="form-control" id="NOP" name="NOP" value="{{ $result->KD_KECAMATAN ?? '' }}">
+                                    <div class="col-md-6">
+                                        <label for="rw_op" class="form-label">RW Op</label>
+                                        <input type="text" class="form-control" id="rw_op" name="RW_OP" >
                                     </div>
-                                    <div class="col-md-12">
-                                        <label for="NoPelayanan" class="form-label">No Pelayanan</label>
-                                        <input type="text" class="form-control" id="NoPelayanan" name="NoPelayanan">
+                                    <div class="col-md-6">
+                                        <label for="rt_op" class="form-label">RT Op</label>
+                                        <input type="text" class="form-control" id="rt_op" name="RT_OP" >
                                     </div>
-                                    <div class="col-md-12">
-                                        <label for="Tahun" class="form-label">Tahun</label>
-                                        <input type="text" class="form-control" id="Tahun" name="Tahun" >
+                                    <div class="col-md-6">
+                                        <label for="kd_statusWp" class="form-label">Kode Status Wp</label>
+                                        <select class="form-select" id="kd_statusWp" name="KD_STATUS_WP" >
+                                            <option selected disabled value="">Choose...</option>
+                                            <option value="1">PEMILIK</option>
+                                            <option value="2">PENYEWA</option>
+                                            <option value="3">PENGELOLA</option>
+                                            <option value="4">PEMAKAI</option>
+                                            <option value="5">SENGKETA</option>
+                                        </select>
                                     </div>
-                                    <div class="col-md-12 ">
-                                        <label for="NOP" class="form-label">NOP</label>
-                                        <input type="text" class="form-control" id="NOP" name="NOP" >
+                                    <div class="col-md-6">
+                                        <label for="luas_bumi" class="form-label">Luas Bumi</label>
+                                        <input type="text" class="form-control" id="luas_bumi" name="LUAS_BUMI" >
                                     </div>
-                                    <div class="col-md-12">
-                                        <label for="NoPelayanan" class="form-label">No Pelayanan</label>
-                                        <input type="text" class="form-control" id="NoPelayanan" name="NoPelayanan">
+                                    <div class="col-md-6">
+                                        <label for="kd_znt" class="form-label">Kode Znt</label>
+                                        <input type="text" class="form-control" id="kd_znt" name="KD_ZNT" >
                                     </div>
-                                    <div class="col-md-12">
-                                        <label for="Tahun" class="form-label">Tahun</label>
-                                        <input type="text" class="form-control" id="Tahun" name="Tahun" >
+                                    <div class="col-md-6">
+                                        <label for="jns_bumi" class="form-label">Jenis Bumi</label>
+                                        <select class="form-select" id="jns_bumi" name="JENIS_WP" required>
+                                            <option selected disabled value="">Choose...</option>
+                                            <option value="1">Tanah + Bangunan</option>
+                                            <option value="2">Kavling Siap Bangun</option>
+                                            <option value="3">Tanah Kosong</option>
+                                            <option value="4">Fasilitas Umum</option>
+                                        </select>
                                     </div>
-                                    <div class="col-md-12">
-                                        <label for="Tahun" class="form-label">Tahun</label>
-                                        <input type="text" class="form-control" id="Tahun" name="Tahun" >
+                                    <div class="col-md-6">
+                                        <label for="hsl_stmBumi" class="form-label">Nilai Sistem Bumi</label>
+                                        <input type="text" class="form-control" id="hsl_stmBumi" name="NILAI_SISTEM_BUMI">
                                     </div>
+
                                 </form>
                             </div>
                             <div class="Box3">
@@ -134,32 +189,32 @@
                                     </div>
 
                                     <div class="col-md-12 ">
-                                        <label for="NOP" class="form-label">NOP</label>
-                                        <input type="text" class="form-control" id="NOP" name="NOP" >
+                                        <label for="kd_prov_bersama" class="form-label">Kode Provinsi Bersama</label>
+                                        <input type="text" class="form-control" id="kd_prov_bersama" name="KD_PROV_BERSAMA" >
                                     </div>
                                     <div class="col-md-12">
-                                        <label for="NoPelayanan" class="form-label">No Pelayanan</label>
-                                        <input type="text" class="form-control" id="NoPelayanan" name="NoPelayanan">
+                                        <label for="kd_dati2_bersama" class="form-label">Kode Dati2 Bersama</label>
+                                        <input type="text" class="form-control" id="kd_dati2_bersama" name="KD_DATI2_BERSAMA">
                                     </div>
                                     <div class="col-md-12">
-                                        <label for="Tahun" class="form-label">Tahun</label>
-                                        <input type="text" class="form-control" id="Tahun" name="Tahun" >
+                                        <label for="kd_kec_bersama" class="form-label">Kode Kecamatan Bersama</label>
+                                        <input type="text" class="form-control" id="kd_kec_bersama" name="KD_KEC_BERSAMA" >
                                     </div>
                                     <div class="col-md-12 ">
-                                        <label for="NOP" class="form-label">NOP</label>
-                                        <input type="text" class="form-control" id="NOP" name="NOP" >
+                                        <label for="kd_kel_bersama" class="form-label">Kode Kelurahan Bersama</label>
+                                        <input type="text" class="form-control" id="kd_kel_bersama" name="KD_KEL_BERSAMA" >
                                     </div>
                                     <div class="col-md-12">
-                                        <label for="NoPelayanan" class="form-label">No Pelayanan</label>
-                                        <input type="text" class="form-control" id="NoPelayanan" name="NoPelayanan">
+                                        <label for="kd_blok_bersama" class="form-label">Kode Blok Bersama</label>
+                                        <input type="text" class="form-control" id="kd_blok_bersama" name="KD_BLOK_BERSAMA">
                                     </div>
                                     <div class="col-md-12">
-                                        <label for="Tahun" class="form-label">Tahun</label>
-                                        <input type="text" class="form-control" id="Tahun" name="Tahun" >
+                                        <label for="no_urut_bersama" class="form-label">No Urut Bersama</label>
+                                        <input type="text" class="form-control" id="no_urut_bersama" name="NO_URUT_BERSAMA" >
                                     </div>
                                     <div class="col-md-12">
-                                        <label for="Tahun" class="form-label">Tahun</label>
-                                        <input type="text" class="form-control" id="Tahun" name="Tahun" >
+                                        <label for="kd_jns_op_bersama" class="form-label">Kode Jenis OP Bersama</label>
+                                        <input type="text" class="form-control" id="kd_jns_op_bersama" name="KD_JENIS_OP_BERSAMA" >
                                     </div>
                                 </form>
                             </div>
@@ -174,32 +229,32 @@
                                     </div>
 
                                     <div class="col-md-12 ">
-                                        <label for="NOP" class="form-label">NOP</label>
-                                        <input type="text" class="form-control" id="NOP" name="NOP" >
+                                        <label for="kd_prov_asal" class="form-label">Kode Provinsi Asal</label>
+                                        <input type="text" class="form-control" id="kd_prov_asal" name="NO_PROV_ASAL" >
                                     </div>
                                     <div class="col-md-12">
-                                        <label for="NoPelayanan" class="form-label">No Pelayanan</label>
-                                        <input type="text" class="form-control" id="NoPelayanan" name="NoPelayanan">
+                                        <label for="kd_dati2_asal" class="form-label">Kode Dati2 Asal</label>
+                                        <input type="text" class="form-control" id="kd_dati2_asal" name="KD_DATI2_ASAL">
                                     </div>
                                     <div class="col-md-12">
-                                        <label for="Tahun" class="form-label">Tahun</label>
-                                        <input type="text" class="form-control" id="Tahun" name="Tahun" >
+                                        <label for="kd_kec_asal" class="form-label">Kode Kecamatan Asal</label>
+                                        <input type="text" class="form-control" id="kd_kec_asal" name="KD_KEC_ASAL" >
                                     </div>
                                     <div class="col-md-12 ">
-                                        <label for="NOP" class="form-label">NOP</label>
-                                        <input type="text" class="form-control" id="NOP" name="NOP" >
+                                        <label for="kd_kel_asal" class="form-label">Kode Kelurahan Asal</label>
+                                        <input type="text" class="form-control" id="kd_kel_asal" name="KD_KEL_ASAL" >
                                     </div>
                                     <div class="col-md-12">
-                                        <label for="NoPelayanan" class="form-label">No Pelayanan</label>
-                                        <input type="text" class="form-control" id="NoPelayanan" name="NoPelayanan">
+                                        <label for="kd_blok_asal" class="form-label">Kode Blok Asal</label>
+                                        <input type="text" class="form-control" id="kd_blok_asal" name="KD_BLOK_ASAL">
                                     </div>
                                     <div class="col-md-12">
-                                        <label for="Tahun" class="form-label">Tahun</label>
-                                        <input type="text" class="form-control" id="Tahun" name="Tahun" >
+                                        <label for="no_urut_asal" class="form-label">No Urut Asal</label>
+                                        <input type="text" class="form-control" id="no_urut_asal" name="NO_URUT_ASAL" >
                                     </div>
                                     <div class="col-md-12 ">
-                                        <label for="NOP" class="form-label">NOP</label>
-                                        <input type="text" class="form-control" id="NOP" name="NOP" >
+                                        <label for="kd_jns_op_asal" class="form-label">Kode Jenis OP Asal</label>
+                                        <input type="text" class="form-control" id="kd_jns_op_asal" name="KD_JNS_OP_ASAL" >
                                     </div>
                                 </form>
                             </div>
@@ -210,17 +265,17 @@
                                         <b>DETAIL PENDATAAN OP</b>
                                     </div>
 
-                                    <div class="col-md-12 ">
-                                        <label for="NOP" class="form-label">NOP</label>
-                                        <input type="text" class="form-control" id="NOP" name="NOP" >
+                                    <div class="col-md-6">
+                                        <label for="tgl_pendataanOp" class="form-label">Tanggal Pendataan OP</label>
+                                        <input type="text" class="form-control" id="tgl_pendataanOp" name="TGL_PENDATAAN_OP">
                                     </div>
                                     <div class="col-md-12">
-                                        <label for="NoPelayanan" class="form-label">No Pelayanan</label>
-                                        <input type="text" class="form-control" id="NoPelayanan" name="NoPelayanan">
+                                        <label for="nm_pendataOp" class="form-label">Nama Pendata OP</label>
+                                        <input type="text" class="form-control" id="nm_pendataOp" name="NM_PENDATAOP" >
                                     </div>
-                                    <div class="col-md-12">
-                                        <label for="Tahun" class="form-label">Tahun</label>
-                                        <input type="text" class="form-control" id="Tahun" name="Tahun" >
+                                    <div class="col-md-6">
+                                        <label for="nip_pendata" class="form-label">NIP Pendata</label>
+                                        <input type="text" class="form-control" id="nip_pendata" name="NIP_PENDATA">
                                     </div>
                                 </form>
                             </div>
@@ -231,21 +286,21 @@
                                         <b>DETAIL PEMERIKSAAN OP</b>
                                     </div>
 
-                                    <div class="col-md-12 ">
-                                        <label for="NOP" class="form-label">NOP</label>
-                                        <input type="text" class="form-control" id="NOP" name="NOP" >
+                                    <div class="col-md-6">
+                                        <label for="tgl_pemeriksaanOp" class="form-label">Tanggal Pemeriksaan Op</label>
+                                        <input type="text" class="form-control" id="tgl_pemeriksaanOp" name="TGL_PEMERIKSAAN_OP" >
                                     </div>
                                     <div class="col-md-12">
-                                        <label for="NoPelayanan" class="form-label">No Pelayanan</label>
-                                        <input type="text" class="form-control" id="NoPelayanan" name="NoPelayanan">
+                                        <label for="nm_pemeriksaOp" class="form-label">Nama Pemeriksa OP</label>
+                                        <input type="text" class="form-control" id="nm_pemeriksaOp" name="NM_PEMERIKSAOP" >
                                     </div>
-                                    <div class="col-md-12">
-                                        <label for="Tahun" class="form-label">Tahun</label>
-                                        <input type="text" class="form-control" id="Tahun" name="Tahun" >
+                                    <div class="col-md-6">
+                                        <label for="nip_pemeriksaOp" class="form-label">NIP Pemeriksa Op</label>
+                                        <input type="text" class="form-control" id="nip_pemeriksaOp" name="NIP_PEMERIKSA_OP" >
                                     </div>
-                                    <div class="col-md-12 ">
-                                        <label for="NOP" class="form-label">NOP</label>
-                                        <input type="text" class="form-control" id="NOP" name="NOP" >
+                                    <div class="col-md-6">
+                                        <label for="no_persil" class="form-label">No Persil</label>
+                                        <input type="text" class="form-control" id="no_persil" name="NO_PERSIL" >
                                     </div>
                                 </form>
                             </div>
