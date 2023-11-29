@@ -21,12 +21,12 @@
 						</ol>
 					</div> -->
 					<div class=" p-0 d-flex align-items-start" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">Beranda</a></li>
-                            <li class="breadcrumb-item"><a href="#">Dokumen</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">SPOP</li>
-                        </ol>
-                    </div>
+						<ol class="breadcrumb">
+							<li class="breadcrumb-item"><a href="#">Beranda</a></li>
+							<li class="breadcrumb-item"><a href="#">Dokumen</a></li>
+							<li class="breadcrumb-item active" aria-current="page">SPOP</li>
+						</ol>
+					</div>
 				</div>
 				<!-- <form action="#">
 								<div class="form-group">
@@ -65,22 +65,23 @@
 									<li class="list-inline-item"><a href="{{ route('spop.show', ['NOP' => $spop->nop]) }}" class="active"><i class='bx bxs-show'></i></a></li>
 									<li class="list-inline-item"><a href="{{ route('spop.edit') }}" class="active"><i class='bx bxs-edit'></i></a></li>
 									<li class="list-inline-item">
-										<form id="deleteForm_{{ $spop->nop }}" action="{{ route('spop.destroy', ['spop' => $spop->nop]) }}" method="POST">
+										<form id="deleteForm_{{ $spop->KD_PROPINSI }}_{{ $spop->KD_DATI2 }}_{{ $spop->KD_KECAMATAN }}_{{ $spop->KD_KELURAHAN }}_{{ $spop->KD_BLOK }}_{{ $spop->NO_URUT }}_{{ $spop->KD_JNS_OP }}" action="{{ route('spop.destroy', ['spop' => $spop->nop]) }}" method="POST">
 											@csrf
 											@method('DELETE')
 										</form>
 
-										<a href="#" onclick="deleteConfirmation('{{ $spop->nop }}')">
+										<a href="#" onclick="deleteConfirmation('{{ $spop->KD_PROPINSI }}', '{{ $spop->KD_DATI2 }}', '{{ $spop->KD_KECAMATAN }}', '{{ $spop->KD_KELURAHAN }}', '{{ $spop->KD_BLOK }}', '{{ $spop->NO_URUT }}', '{{ $spop->KD_JNS_OP }}')">
 											<i class='bx bxs-trash'></i>
 										</a>
 
 										<script>
-											function deleteConfirmation(nop) {
+											function deleteConfirmation(KD_PROPINSI, KD_DATI2, KD_KECAMATAN, KD_KELURAHAN, KD_BLOK, NO_URUT, KD_JNS_OP) {
 												if (confirm('Anda yakin untuk menghapus?')) {
-													document.getElementById('deleteForm_' + nop).submit();
+													document.getElementById('deleteForm_' + KD_PROPINSI + '_' + KD_DATI2 + '_' + KD_KECAMATAN + '_' + KD_KELURAHAN + '_' + KD_BLOK + '_' + NO_URUT + '_' + KD_JNS_OP).submit();
 												}
 											}
 										</script>
+
 									</li>
 								</ul>
 							</td>

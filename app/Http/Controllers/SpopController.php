@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\BerhakNjoptkp;
 use App\Models\DatSubjekPajak;
 use App\Models\RefPropinsi;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class SpopController extends Controller
 {
@@ -52,8 +54,52 @@ class SpopController extends Controller
     public function store(Request $request)
     {
         // Validate the request...
-
-
+        $request->validate([
+            'KD_PROPINSI' => 'required|string|max:2',
+            'KD_DATI2' => 'required|string|max:2',
+            'KD_KECAMATAN' => 'required|string|max:3',
+            'KD_KELURAHAN' => 'required|string|max:3',
+            'KD_BLOK' => 'required|string|max:3',
+            'NO_URUT' => 'required|string|max:4',
+            'KD_JNS_OP' => 'required|string|max:1',
+            'SUBJEK_PAJAK_ID' => 'required|string|max:30',
+            'JNS_TRANSAKSI_OP' => 'required|string|max:1',
+            'JALAN_OP' => 'required|string|max:30',
+            'KD_STATUS_WP' => 'required|string|max:1',
+            'LUAS_BUMI' => 'required|integer',
+            'JNS_BUMI' => 'required|string|max:1',
+            'TGL_PENDATAAN_OP' => 'required|date',
+            'TGL_PEMERIKSAAN_OP' => 'required|date',
+            'KD_PROPINSI_BERSAMA' => 'nullable|string|max:2',
+            'KD_DATI2_BERSAMA' => 'nullable|string|max:2',
+            'KD_KECAMATAN_BERSAMA' => 'nullable|string|max:3',
+            'KD_KELURAHAN_BERSAMA' => 'nullable|string|max:3',
+            'KD_BLOK_BERSAMA' => 'nullable|string|max:3',
+            'NO_URUT_BERSAMA' => 'nullable|string|max:4',
+            'KD_JNS_OP_BERSAMA' => 'nullable|string|max:1',
+            'KD_PROPINSI_ASAL' => 'nullable|string|max:2',
+            'KD_DATI2_ASAL' => 'nullable|string|max:2',
+            'KD_KECAMATAN_ASAL' => 'nullable|string|max:3',
+            'KD_KELURAHAN_ASAL' => 'nullable|string|max:3',
+            'KD_BLOK_ASAL' => 'nullable|string|max:3',
+            'NO_URUT_ASAL' => 'nullable|string|max:4',
+            'KD_JNS_OP_ASAL' => 'nullable|string|max:1',
+            'NO_SPPT_LAMA' => 'nullable|string|max:30',
+            'RW_OP' => 'nullable|string|max:2',
+            'RT_OP' => 'nullable|string|max:3',
+            'KD_ZNT' => 'nullable|string|max:2',
+            'NO_FORMULIR_SPOP' => 'nullable|string|max:11',
+            'BLOK_KAV_NO_OP' => 'nullable|string|max:15',
+            'NIP_PENDATA' => 'nullable|string|max:20',
+            'NIP_PEMERIKSA_OP' => 'nullable|string|max:20',
+            'NO_PERSIL' => 'nullable|string|max:5',
+            'NO_URUT' => 'nullable|string|max:4',
+            'NO_URUT_BERSAMA' => 'nullable|string|max:4',
+            'NO_URUT_ASAL' => 'nullable|string|max:4',
+            'NO_SPPT_LAMA' => 'nullable|string|max:30',
+            'NOP' => 'nullable|string|max:18',
+        ]);
+        
         // Ambil data yang dikirim dari form
             $model = new Spop();
             $modelWp = new DatSubjekPajak();
@@ -69,6 +115,7 @@ class SpopController extends Controller
             $model->KD_BLOK = '001';
             $model->KD_JNS_OP = '0';
             $model->LUAS_BUMI = 0;
+            // $model->NO_URUT = $request->NO_URUT;
             $model->NILAI_SISTEM_BUMI = 0;
             $model->TGL_PENDATAAN_OP = now()->toDateString();
             $model->TGL_PEMERIKSAAN_OP = now()->toDateString();
@@ -127,15 +174,53 @@ class SpopController extends Controller
     }
     public function update(Request $request)
     {
+        //
     }
+
     public function destroy($spop)
     {
-        $data_spop = DB::table('pbb.berhak_njoptkp');
-        $data_spop->where('nop', $spop);
-        $data_spop->delete();
-        return redirect()->route('spop.index')
-            ->with('success', 'SPOP berhasil dihapus.');
+
+        
+        $KD_PROPINSI = substr($spop, 0, 2);
+        $KD_DATI2 = substr($spop, 2, 2);
+        $KD_KECAMATAN = substr($spop, 4, 3);
+        $KD_KELURAHAN = substr($spop, 7, 3);
+        $KD_BLOK = substr($spop, 10, 3);
+        $NO_URUT = substr($spop, 13, 4);
+        $KD_JNS_OP = substr($spop, 17, 1);
+
+        try {
+            $deleted = $this->findModel($KD_PROPINSI, $KD_DATI2, $KD_KECAMATAN, $KD_KELURAHAN, $KD_BLOK, $NO_URUT, $KD_JNS_OP);
+            $deleted->delete();
+            
+            return redirect()->route('spop.index')->with('success', 'Data berhasil dihapus.');
+        } catch (ModelNotFoundException $e) {
+            return redirect()->route('spop.index')->with('error', 'Data tidak ditemukan.');
+        }
     }
+
+    protected function findModel($KD_PROPINSI, $KD_DATI2, $KD_KECAMATAN, $KD_KELURAHAN, $KD_BLOK, $NO_URUT, $KD_JNS_OP)
+    {
+        try {
+
+            $got = Spop::where([
+                'KD_PROPINSI' => $KD_PROPINSI,
+                'KD_DATI2' => $KD_DATI2,
+                'KD_KECAMATAN' => $KD_KECAMATAN,
+                'KD_KELURAHAN' => $KD_KELURAHAN,
+                'KD_BLOK' => $KD_BLOK,
+                'NO_URUT' => $NO_URUT,
+                'KD_JNS_OP' => $KD_JNS_OP,
+            ])->firstOrFail();
+
+            return $got;
+        } catch (ModelNotFoundException $e) {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+    }
+
+
+
 
     public function show($NOP)
     {
@@ -153,6 +238,7 @@ class SpopController extends Controller
         $NO_URUT = substr($NOP, 13, 4);
         $KD_JNS_OP = substr($NOP, 17, 1);
 
+        
         // Query menggunakan Query Builder
         $result = DB::table('spop')
             ->select('spop.*', DB::raw('SUM(dat_op_bangunan.LUAS_BNG) as LUAS_BNG'), DB::raw('COUNT(*) as JML_BNG'))
@@ -184,6 +270,7 @@ class SpopController extends Controller
             // Jika ya, kirim respons JSON
             return response()->json($result);
         } else {
+            
             // Jika tidak, tampilkan view HTML
             return view('spop.detail_spop', compact('fullname', 'username', 'result'));
         }
