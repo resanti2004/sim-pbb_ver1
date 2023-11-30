@@ -96,14 +96,38 @@ Route::controller(UserController::class)->group(function () {
 });
 
 Route::resource('pelayananLap', PelayananLaporanController::class);
-Route::resource('hasilInputPelayanan', HasilInputPelayananController::class);
-Route::resource('informasiPbb', InformasiPBBController::class);
-Route::resource('neracaBpk', NeracaBPKController::class);
-Route::resource('neracaKpp', NeracaKPPController::class);
+Route::controller(HasilInputPelayananController::class)->group(function () {
+    Route::get('/hasilinput', 'index')->name('hasilInputPelayanan.index');
+    Route::post('/hasilinput/cetak', 'print')->name('hasilInputPelayanan.cetak');
+});
+Route::controller(InformasiPBBController::class)->group(function () {
+    Route::get('/informasiPbb', 'index')->name('informasiPbb.index');
+    Route::post('/informasiPbb/cetak', 'print')->name('informasiPbb.cetak');
+});
+Route::controller(NeracaBPKController::class)->group(function () {
+    Route::get('/neracaBpk', 'index')->name('neracaBpk.index');
+    Route::post('/neracaBpk/cetak', 'print')->name('neracaBpk.cetak');
+});
+Route::controller(NeracaKPPController::class)->group(function () {
+    Route::get('/neracaKpp', 'index')->name('neracaKpp.index');
+    Route::post('/neracaKpp/cetak', 'print')->name('neracaKpp.cetak');
+});
 Route::resource('realisasiKel', RealisasiKelurahanController::class);
-Route::resource('skNjop', SKNJOPController::class);
-Route::resource('summaryNerBpk', SummaryNeracaBPKController::class);
-Route::resource('summaryNerKPP', SummaryNeracaKPPController::class);
+
+Route::controller(SKNJOPController::class)->group(function () {
+    Route::get('/skNjop', 'index')->name('skNjop.index');
+    Route::post('/skNjop/cetak', 'print')->name('skNjop.cetak');
+});
+
+Route::controller(SummaryNeracaBPKController::class)->group(function () {
+    Route::get('/summaryBPK', 'index')->name('summaryNerBPK.index');
+    Route::post('/summaryBPK/cetak', 'print')->name('summaryNerBPK.cetak');
+});
+
+Route::controller(SummaryNeracaKPPController::class)->group(function () {
+    Route::get('/summaryKPP', 'index')->name('summaryNerKPP.index');
+    Route::post('/summaryKPP/cetak', 'print')->name('summaryNerKPP.cetak');
+});
 Route::resource('validasi', ValidasiController::class);
 
 Route::resource('njoptkp', NJOPTKPController::class);

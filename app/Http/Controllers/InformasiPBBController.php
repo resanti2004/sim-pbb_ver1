@@ -23,20 +23,9 @@ class InformasiPBBController extends Controller
         return view('laporan.informasi_pbb', compact('fullname', 'username'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    
+    public function print(Request $request)
     {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-       
         $post_data = $request->input();
         
         if (!empty($post_data)) {
@@ -47,10 +36,10 @@ class InformasiPBBController extends Controller
             
             if (empty($pelayanan) || empty($data)) {
                 Session::flash('error', 'Tidak Ada Data');
-                return redirect()->route('info-pbb');
+                return redirect()->route('laporan.informasi_pbb');
             }
 
-            $report_file = 'cetak_info_pbb';
+            $report_file = 'laporan.cetak_info_pbb';
             return view($report_file, [
                 'data' => $data,
                 'no_pelayanan' => $post_data['no_pelayanan'],
@@ -59,39 +48,7 @@ class InformasiPBBController extends Controller
             ])->with('layout', 'report');
         }
 
-        return view('info_pbb');
+        return view('laporan.informasi_pbb');
     }
     
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
 }

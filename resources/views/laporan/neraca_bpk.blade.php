@@ -55,8 +55,9 @@
                                 </div>
                             </form>
                         </div>
-
-                        <!-- <div class="dataBox" style="overflow-x: auto;">
+                        
+                        <!-- @if (isset($data))
+                        <div class="dataBox" style="overflow-x: auto;">
 
                         <div class="pencarian d-flex justify-content-between align-items-end">
 							<p class="m-0">Menampilkan <b>2</b> data dari total <b>2</b> </p>

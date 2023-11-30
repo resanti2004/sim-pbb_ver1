@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Sppt;
 
 class NeracaBPKController extends Controller
 {
@@ -22,48 +23,21 @@ class NeracaBPKController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function print()
     {
-        //
+        $post_data = request()->post();
+
+        if (!empty($post_data)) {
+            $model = new Sppt();
+            $model->neracaBpk($post_data['tahun_awal'], $post_data['tahun_akhir'], $post_data['per_tanggal']);
+            return redirect()->route('laporan.cetak_neraca_bpk');
+        }
+
+        return view('laporan.neraca_bpk', [
+            'tahun_awal' => date('Y'),
+            'tahun_akhir' => date('Y'),
+            'per_tanggal' => date('Y-m-d')
+    ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
 }

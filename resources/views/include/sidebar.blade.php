@@ -27,7 +27,7 @@
 					<li><a href="{{ route('neracaKpp.index') }}"><i class='bx bxs-circle icon-dot' ></i>Neraca KPP</a></li>
 					<li><a href="{{ route('summaryNerKPP.index') }}"><i class='bx bxs-circle icon-dot' ></i>Total Neraca KPP</a></li>
 					<li><a href="{{ route('neracaBpk.index') }}"><i class='bx bxs-circle icon-dot' ></i>Neraca BPK</a></li>
-					<li><a href="{{ route('summaryNerBpk.index') }}"><i class='bx bxs-circle icon-dot' ></i>Total Neraca BPK</a></li>
+					<li><a href="{{ route('summaryNerBPK.index') }}"><i class='bx bxs-circle icon-dot' ></i>Total Neraca BPK</a></li>
 					<li><a href="{{ route('validasi.index') }}"><i class='bx bxs-circle icon-dot' ></i>Validasi</a></li>
 					<li><a href="{{ route('hasilInputPelayanan.index') }}"><i class='bx bxs-circle icon-dot' ></i>Hasil Input Pelayanan</a></li>
 				</ul>

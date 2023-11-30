@@ -39,19 +39,19 @@
                 </div>
 
                 <div class="filterBox">
-                    <form method="POST" action="{{ route('hasilInputPelayanan.index') }}" enctype="multipart/form-data" class="row g-4 p-3">
+                    <form method="POST" action="{{ route('hasilInputPelayanan.cetak') }}" enctype="multipart/form-data" class="row g-4 p-3">
                         @csrf
                         <div class="col-md-6 ">
                             <label for="NOP" class="form-label">NOP</label>
-                            <input type="text" class="form-control" id="NOP" name="NOP" data-inputmask="'mask': '99.99.999.999.999.9999.9'">
+                            <input type="text" class="form-control" id="NOP" name="nop" data-inputmask="'mask': '99.99.999.999.999.9999.9'">
                         </div>
                         <div class="col-md-6">
                             <label for="NoPelayanan" class="form-label">No Pelayanan</label>
-                            <input type="text" class="form-control" id="NoPelayanan" placeholder="Ketik No Pelayanan" name="NoPelayanan">
+                            <input type="text" class="form-control" id="no_pelayanan" placeholder="Ketik No Pelayanan" name="NoPelayanan">
                         </div>
                         <div class="col-md-6">
                             <label for="Tahun" class="form-label">Tahun</label>
-                            <input type="number" class="form-control" id="Tahun" name="THN_PAJAK_SPPT" value="{{ date('Y') }}">
+                            <input type="number" class="form-control" id="tahun" name="THN_PAJAK_SPPT" value="{{ date('Y') }}">
                         </div>
                         <div class="col-md-12 d-flex ">
                             <div class="me-2">

@@ -32,7 +32,7 @@
                 </div>
 
                 <div class="filterBox">
-                    <form method="POST" action="{{ route('provinsi.store') }}" enctype="multipart/form-data" class="row g-4 p-3">
+                    <form method="POST" action="{{ route('skNjop.cetak') }}" enctype="multipart/form-data" class="row g-4 p-3">
                         @csrf
                         <div class="col-md-6">
                             <label for="NOP" class="form-label">NOP</label>
@@ -45,11 +45,11 @@
                         </div>
                         <div class="col-md-6">
                             <label for="NoSurat" class="form-label">No Surat</label>
-                            <input type="text" class="form-control" id="NoSurat" name="NoSurat" placeholder="Ketik No Surat">
+                            <input type="text" class="form-control" id="NoSurat" name="no_surat" placeholder="Ketik No Surat">
                         </div>
                         <div class="col-md-6">
                             <label for="NoPelayanan" class="form-label">No Pelayanan</label>
-                            <input type="text" class="form-control" id="NoPelayanan" name="NoPelayanan" placeholder="Ketik No Pelayanan">
+                            <input type="text" class="form-control" id="NoPelayanan" name="no_pelayanan" placeholder="Ketik No Pelayanan">
                         </div>
                         <div class="col-md-6">
                             <label for="Tahun" class="form-label">Tahun</label>
