@@ -36,7 +36,7 @@ class InformasiPBBController extends Controller
             
             if (empty($pelayanan) || empty($data)) {
                 Session::flash('error', 'Tidak Ada Data');
-                return redirect()->route('laporan.informasi_pbb');
+                return redirect()->route('informasiPbb.index');
             }
 
             $report_file = 'laporan.cetak_info_pbb';

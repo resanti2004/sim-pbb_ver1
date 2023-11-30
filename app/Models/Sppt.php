@@ -141,14 +141,128 @@ class Sppt extends Model
 			->where('THN_PAJAK_SPPT', '=', 'THN_PAJAK_SPPT');
 	}
 
-	public function getSkNjop($nop, $tahun)
-	{
-		$nop = str_replace('.', '', $nop);
-		$data = Sppt::where('NOP', $nop)
-			->where('TAHUN', $tahun)
-			->first();
-		return $data;
-	}
+	public function getSkNjop($NOP, $TAHUN)
+    {
+        $model = DB::select("
+            SELECT 
+                a.KD_PROPINSI AS KD_PROPINSI,
+                a.KD_DATI2 AS KD_DATI2,
+                a.KD_KECAMATAN AS KD_KECAMATAN,
+                a.KD_KELURAHAN AS KD_KELURAHAN,
+                a.KD_BLOK AS KD_BLOK,
+                a.NO_URUT AS NO_URUT,
+                a.KD_JNS_OP AS KD_JNS_OP,
+                CONCAT(IFNULL(a.JALAN_OP,'-'),', ',IFNULL(a.BLOK_KAV_NO_OP,'-')) AS JALAN_OP_BARU,
+                dat_subjek_pajak.`NM_WP` AS NAMA_BARU,
+                dat_subjek_pajak.`JALAN_WP` AS JALAN_WP_BARU,
+                CONCAT(IFNULL(dat_subjek_pajak.JALAN_WP,'-'),', ',IFNULL(dat_subjek_pajak.BLOK_KAV_NO_WP,'-')) AS JALAN_WP_BARU,
+                a.`LUAS_BUMI` AS LUAS_BUMI_BARU,
+                d.LUAS_BNG AS LUAS_BNG_BARU,
+                kelas_bumi.NJOP_BUMI * a.LUAS_BUMI * 1000 AS NJOP_BUMI_TOTAL_BARU,
+                d.NJOP_BNG_TOTAL AS NJOP_BNG_TOTAL_BARU,
+                b.NM_WP_SPPT AS NAMA_LAMA,
+                CONCAT(IFNULL(b.JLN_WP_SPPT,'-'),', ',IFNULL(b.BLOK_KAV_NO_WP_SPPT,'-')) AS JALAN_WP_LAMA,
+                LUAS_BUMI_SPPT AS LUAS_BUMI_LAMA,
+                LUAS_BNG_SPPT AS LUAS_BNG_LAMA,
+                NJOP_BUMI_SPPT AS NJOP_BUMI_TOTAL_LAMA,
+                NJOP_BNG_SPPT AS NJOP_BNG_TOTAL_LAMA 
+            FROM
+                spop a 
+                LEFT JOIN sppt b 
+                    ON a.`KD_PROPINSI` = b.`KD_PROPINSI` 
+                    AND a.`KD_DATI2` = b.`KD_DATI2` 
+                    AND a.`KD_KECAMATAN` = b.`KD_KECAMATAN` 
+                    AND a.`KD_KELURAHAN` = b.`KD_KELURAHAN` 
+                    AND a.`KD_BLOK` = b.`KD_BLOK` 
+                    AND a.`NO_URUT` = b.`NO_URUT` 
+                    AND a.`KD_JNS_OP` = b.`KD_JNS_OP` 
+                    AND $TAHUN = b.THN_PAJAK_SPPT
+                JOIN dat_subjek_pajak c 
+                    ON c.`SUBJEK_PAJAK_ID` = a.`SUBJEK_PAJAK_ID` 
+                LEFT JOIN 
+                    (SELECT 
+                        KD_PROPINSI,
+                        KD_DATI2,
+                        KD_KECAMATAN,
+                        KD_KELURAHAN,
+                        KD_BLOK,
+                        NO_URUT,
+                        KD_JNS_OP,
+                        IF(
+                            NILAI_SISTEM_BNG > 0 
+                            AND (
+                                NJOP_BANGUNAN IS NULL 
+                                OR NJOP_BANGUNAN = 0
+                            ),
+                            NILAI_SISTEM_BNG,
+                            NJOP_BANGUNAN * LUAS_BNG
+                        ) * 1000 AS NJOP_BNG_TOTAL,
+                        LUAS_BNG 
+                    FROM
+                        (SELECT 
+                            KD_PROPINSI,
+                            KD_DATI2,
+                            KD_KECAMATAN,
+                            KD_KELURAHAN,
+                            KD_BLOK,
+                            NO_URUT,
+                            KD_JNS_OP,
+                            SUM(
+                                IF(
+                                    NILAI_INDIVIDU > 0,
+                                    NILAI_INDIVIDU,
+                                    NILAI_SISTEM_BNG
+                                )
+                            ) AS NILAI_SISTEM_BNG,
+                            SUM(LUAS_BNG) AS LUAS_BNG 
+                        FROM
+                            lspop 
+                        WHERE KD_PROPINSI = SUBSTRING($NOP, 1, 2) 
+                            AND KD_DATI2 = SUBSTRING($NOP, 3, 2) 
+                            AND KD_KECAMATAN = SUBSTRING($NOP, 5, 3) 
+                            AND KD_KELURAHAN = SUBSTRING($NOP, 8, 3) 
+                            AND KD_BLOK = SUBSTRING($NOP, 11, 3) 
+                            AND NO_URUT = SUBSTRING($NOP, 14, 4) 
+                            AND KD_JNS_OP = SUBSTRING($NOP, 18, 1) 
+                        GROUP BY KD_PROPINSI,
+                            KD_DATI2,
+                            KD_KECAMATAN,
+                            KD_KELURAHAN,
+                            KD_BLOK,
+                            NO_URUT,
+                            KD_JNS_OP) t1 
+                    LEFT OUTER JOIN kelas_bangunan 
+                        ON (
+                            (
+                                t1.NILAI_SISTEM_BNG / t1.LUAS_BNG
+                            ) BETWEEN kelas_bangunan.NILAI_MINIMUM + 0.01 
+                            AND kelas_bangunan.NILAI_MAKSIMUM
+                        )) d 
+                    ON a.`KD_PROPINSI` = d.`KD_PROPINSI` 
+                    AND a.`KD_DATI2` = d.`KD_DATI2` 
+                    AND a.`KD_KECAMATAN` = d.`KD_KECAMATAN` 
+                    AND a.`KD_KELURAHAN` = d.`KD_KELURAHAN` 
+                    AND a.`KD_BLOK` = d.`KD_BLOK` 
+                    AND a.`NO_URUT` = d.`NO_URUT` 
+                    AND a.`KD_JNS_OP` = d.`KD_JNS_OP` 
+                LEFT JOIN dat_subjek_pajak 
+                    ON a.SUBJEK_PAJAK_ID = dat_subjek_pajak.SUBJEK_PAJAK_ID 
+                LEFT JOIN kelas_bumi 
+                    ON (
+                        a.NILAI_SISTEM_BUMI / a.LUAS_BUMI BETWEEN kelas_bumi.NILAI_MINIMUM + 0.01 
+                        AND kelas_bumi.NILAI_MAKSIMUM
+                    ) 
+            WHERE a.KD_PROPINSI = SUBSTRING($NOP, 1, 2) 
+                AND a.KD_DATI2 = SUBSTRING($NOP, 3, 2) 
+                AND a.KD_KECAMATAN = SUBSTRING($NOP, 5, 3) 
+                AND a.KD_KELURAHAN = SUBSTRING($NOP, 8, 3) 
+                AND a.KD_BLOK = SUBSTRING($NOP, 11, 3) 
+                AND a.NO_URUT = SUBSTRING($NOP, 14, 4) 
+                AND a.KD_JNS_OP = SUBSTRING($NOP, 18, 1) 
+        ");
+
+        return empty($model) ? null : $model[0];
+    }
 
 	public function neracaKpp($thn_awal, $thn_akhir, $per_tanggal)
 	{
