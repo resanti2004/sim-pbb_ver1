@@ -38,7 +38,7 @@
 						</form> -->
 				<div class="pencarian d-flex justify-content-between align-items-end">
 					<p class="m-0">Menampilkan <b></b> data dari total <b></b> </p>
-					<a href="{{ route('provinsi.create') }}"><button type="button">+ Buat Baru</button></a>
+					<!-- <a href="{{ route('provinsi.create') }}"><button type="button">+ Buat Baru</button></a> -->
 				</div>
 				<table>
 					<thead>
@@ -59,14 +59,12 @@
 							<td></td>
 							<td></td>
 							<td></td>
-							
-							<td></td>
 							<td></td>
 							<td>
 								<ul class="list-inline">
-									<li class="list-inline-item"><a href="#" class="active"><i class='bx bxs-show'></i></a></li>
+									<!-- <li class="list-inline-item"><a href="#" class="active"><i class='bx bxs-show'></i></a></li> -->
 									<li class="list-inline-item"><a href="#" class="active"><i class='bx bxs-edit'></i></a></li>
-									<li class="list-inline-item"><a href="#" class="active"><i class='bx bxs-trash'></i></a></li>
+									<!-- <li class="list-inline-item"><a href="#" class="active"><i class='bx bxs-trash'></i></a></li> -->
 								</ul>
 							</td>
 						</tr>

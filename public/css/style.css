@@ -300,7 +300,7 @@ main .content-data .chart::-webkit-scrollbar {
 
 @media print {
     body * {
-        visibility: visible;
+        visibility:hidden; 
 
     }
 	

@@ -1,6 +1,6 @@
 @extends('kerangka.master')
 
-@section('title', 'Edit Data Provinsi')
+@section('title', 'Edit Data Pengguna')
 
 @section('content')
 
