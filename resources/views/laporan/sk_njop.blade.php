@@ -36,7 +36,7 @@
                         @csrf
                         <div class="col-md-6">
                             <label for="NOP" class="form-label">NOP</label>
-                            <input type="text" class="form-control" id="NOP" name="NOP" data-inputmask="'mask': '99.99.999.999.999.9999.9'">
+                            <input type="text" class="form-control" id="NOP" name="nop" data-inputmask="'mask': '99.99.999.999.999.9999.9'">
                             <script>
                                 $(document).ready(function() {
                                     $('#NOP').inputmask();
@@ -53,12 +53,12 @@
                         </div>
                         <div class="col-md-6">
                             <label for="Tahun" class="form-label">Tahun</label>
-                            <input type="number" class="form-control" id="Tahun" name="Tahun" placeholder="Tahun Pajak" value="<?= date('Y') ?>">
+                            <input type="number" class="form-control" id="Tahun" name="tahun" placeholder="Tahun Pajak" value="<?= date('Y') ?>">
                         </div>
 
                         <div class="col-md-12 d-flex ">
                             <div class="me-2">
-                                <input class="form-check-input border border-primary " type="checkbox" name="baru" id="baru" />
+                                <input class="form-check-input border border-primary" type="checkbox" name="baru" id="baru" />
                             </div>
                             <label for="baru" class="form-label">Baru</label>
                         </div>

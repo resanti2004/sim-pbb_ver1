@@ -108,7 +108,7 @@ class PelayananController extends Controller
         }
 
         $data = $request->all();
-
+        
     }
 
     /**

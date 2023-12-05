@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Sppt;
 use App\Models\Pelayanan;
 use Illuminate\Support\Facades\Session;
+use App\Services\DateHelper;
 
 class SKNJOPController extends Controller
 {
@@ -51,6 +52,8 @@ class SKNJOPController extends Controller
                 $report_file = 'cetak_sknjop_baru';
             }
 
+            $formattedDate = DateHelper::tglIndo(date("Y-m-d"));
+
             return view('laporan.' . $report_file, [
                 'data' => $data,
                 'no_surat' => $post_data['no_surat'],
@@ -58,6 +61,9 @@ class SKNJOPController extends Controller
                 'no_pelayanan' => $post_data['no_pelayanan'],
                 'tanggal_pelayanan' => $pelayanan->TANGGAL_PELAYANAN,
                 'tahun' => $post_data['tahun'],
+                'formattedDate' => $formattedDate,
+                'fullname' => $fullname,
+                'username' => $username,
             ])->with('layout', 'report');
             }
 
