@@ -46,7 +46,6 @@ Route::controller(AuthController::class)->group(function () {
     Route::get('/', 'dashboard')->name('dashboard');
     Route::post('/logout', 'logout')->name('logout');
 });
-Route::resource('pelayanan', PelayananController::class);
 Route::resource('lspop', LspopController::class);
 Route::resource('spop', SpopController::class);
 Route::controller(LspopController::class)->group(function () {
@@ -74,11 +73,13 @@ Route::controller(ProvinsiController::class)->group(function () {
     Route::get('/provinsi/{kdPropinsi}/{no}', 'show')->name('provinsi.show');
 });
 
-
+Route::resource('pelayanan', PelayananController::class);
 Route::controller(PelayananController::class)->group(function () {
     Route::get('/pelayanan/detail', 'show')->name('pelayanan.show');
-    Route::get('/pelayanan/laporan', 'laporan')->name('pelayanan.lap');
+    Route::get('/pelayanan-laporan', 'laporan')->name('pelayanan.laporan');
+
 });
+
 Route::resource('user', UserController::class);
 Route::controller(UserController::class)->group(function () {
     Route::get('/user/{user}/{no}', 'show')->name('user.show');

@@ -35,9 +35,10 @@
 								</div>
 						</form> -->
 				<div class="pencarian">
-					<a href="{{ route('pelayanan.lap') }}"><button class="bg-success" type="button">Laporan Pelayanan</button></a>
+					<a href="{{ route('pelayanan.laporan') }}"><button class="bg-success" type="button">Laporan Pelayanan</button></a>
 					<a href="{{ route('pelayanan.create') }}"><button type="button">+ Buat Baru</button></a>
 				</div>
+
 				<table>
 					<thead>
 						<tr>
