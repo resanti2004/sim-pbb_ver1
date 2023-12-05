@@ -69,18 +69,8 @@
 
 
                         <div class="col-md-12">
-                            <label for="StatusPelayanan" class="form-label">Status Pelayanan</label>
-                            <select class="form-select" id="StatusPelayanan" name="StatusPelayanan" required>
-                                <option selected disabled value="">Choose...</option>
-                                <option>Berkas Masuk</option>
-                                <option>BAP/LHP Kasubid & Kabid</option>
-                                <option>Pemetaan</option>
-                                <option>Permohonan Ditolak</option>
-                                <option>Update spop</option>
-                                <option>Pengesahan SPOP</option>
-                                <option>Berkas Selesai</option>
-                                <option>Diterima WP</option>
-                            </select>
+                            <label for="Tahun" class="form-label">Tahun</label>
+                            <input type="number" class="form-control" id="Tahun" name="tahun" value="{{ date('Y')}}">
                             <div class="invalid-feedback">
                                 Isi kolom ini terlebih dahulu!
                             </div>

@@ -63,87 +63,87 @@ use Illuminate\Support\Facades\DB;
  */
 class Sppt extends Model
 {
-	protected $table = 'sppt';
-	public $incrementing = false;
-	public $timestamps = false;
+  protected $table = 'sppt';
+  public $incrementing = false;
+  public $timestamps = false;
 
-	protected $casts = [
-		'SIKLUS_SPPT' => 'int',
-		'THN_AWAL_KLS_TANAH' => 'datetime',
-		'THN_AWAL_KLS_BNG' => 'datetime',
-		'TGL_JATUH_TEMPO_SPPT' => 'datetime',
-		'LUAS_BUMI_SPPT' => 'int',
-		'LUAS_BNG_SPPT' => 'int',
-		'NJOP_BUMI_SPPT' => 'int',
-		'NJOP_BNG_SPPT' => 'int',
-		'NJOP_SPPT' => 'int',
-		'NJOPTKP_SPPT' => 'int',
-		'NJKP_SPPT' => 'int',
-		'PBB_TERHUTANG_SPPT' => 'int',
-		'FAKTOR_PENGURANG_SPPT' => 'int',
-		'PBB_YG_HARUS_DIBAYAR_SPPT' => 'int',
-		'STATUS_PEMBAYARAN_SPPT' => 'bool',
-		'STATUS_TAGIHAN_SPPT' => 'bool',
-		'STATUS_CETAK_SPPT' => 'bool',
-		'TGL_TERBIT_SPPT' => 'datetime',
-		'TGL_CETAK_SPPT' => 'datetime'
-	];
+  protected $casts = [
+    'SIKLUS_SPPT' => 'int',
+    'THN_AWAL_KLS_TANAH' => 'datetime',
+    'THN_AWAL_KLS_BNG' => 'datetime',
+    'TGL_JATUH_TEMPO_SPPT' => 'datetime',
+    'LUAS_BUMI_SPPT' => 'int',
+    'LUAS_BNG_SPPT' => 'int',
+    'NJOP_BUMI_SPPT' => 'int',
+    'NJOP_BNG_SPPT' => 'int',
+    'NJOP_SPPT' => 'int',
+    'NJOPTKP_SPPT' => 'int',
+    'NJKP_SPPT' => 'int',
+    'PBB_TERHUTANG_SPPT' => 'int',
+    'FAKTOR_PENGURANG_SPPT' => 'int',
+    'PBB_YG_HARUS_DIBAYAR_SPPT' => 'int',
+    'STATUS_PEMBAYARAN_SPPT' => 'bool',
+    'STATUS_TAGIHAN_SPPT' => 'bool',
+    'STATUS_CETAK_SPPT' => 'bool',
+    'TGL_TERBIT_SPPT' => 'datetime',
+    'TGL_CETAK_SPPT' => 'datetime'
+  ];
 
-	protected $fillable = [
-		'SIKLUS_SPPT',
-		'KD_KANWIL_BANK',
-		'KD_KPPBB_BANK',
-		'KD_BANK_TUNGGAL',
-		'KD_BANK_PERSEPSI',
-		'KD_TP',
-		'NM_WP_SPPT',
-		'JLN_WP_SPPT',
-		'BLOK_KAV_NO_WP_SPPT',
-		'RW_WP_SPPT',
-		'RT_WP_SPPT',
-		'KELURAHAN_WP_SPPT',
-		'KOTA_WP_SPPT',
-		'KD_POS_WP_SPPT',
-		'NPWP_SPPT',
-		'NO_PERSIL_SPPT',
-		'KD_KLS_TANAH',
-		'THN_AWAL_KLS_TANAH',
-		'KD_KLS_BNG',
-		'THN_AWAL_KLS_BNG',
-		'TGL_JATUH_TEMPO_SPPT',
-		'LUAS_BUMI_SPPT',
-		'LUAS_BNG_SPPT',
-		'NJOP_BUMI_SPPT',
-		'NJOP_BNG_SPPT',
-		'NJOP_SPPT',
-		'NJOPTKP_SPPT',
-		'NJKP_SPPT',
-		'PBB_TERHUTANG_SPPT',
-		'FAKTOR_PENGURANG_SPPT',
-		'PBB_YG_HARUS_DIBAYAR_SPPT',
-		'STATUS_PEMBAYARAN_SPPT',
-		'STATUS_TAGIHAN_SPPT',
-		'STATUS_CETAK_SPPT',
-		'TGL_TERBIT_SPPT',
-		'TGL_CETAK_SPPT',
-		'NIP_PENCETAK_SPPT'
-	];
+  protected $fillable = [
+    'SIKLUS_SPPT',
+    'KD_KANWIL_BANK',
+    'KD_KPPBB_BANK',
+    'KD_BANK_TUNGGAL',
+    'KD_BANK_PERSEPSI',
+    'KD_TP',
+    'NM_WP_SPPT',
+    'JLN_WP_SPPT',
+    'BLOK_KAV_NO_WP_SPPT',
+    'RW_WP_SPPT',
+    'RT_WP_SPPT',
+    'KELURAHAN_WP_SPPT',
+    'KOTA_WP_SPPT',
+    'KD_POS_WP_SPPT',
+    'NPWP_SPPT',
+    'NO_PERSIL_SPPT',
+    'KD_KLS_TANAH',
+    'THN_AWAL_KLS_TANAH',
+    'KD_KLS_BNG',
+    'THN_AWAL_KLS_BNG',
+    'TGL_JATUH_TEMPO_SPPT',
+    'LUAS_BUMI_SPPT',
+    'LUAS_BNG_SPPT',
+    'NJOP_BUMI_SPPT',
+    'NJOP_BNG_SPPT',
+    'NJOP_SPPT',
+    'NJOPTKP_SPPT',
+    'NJKP_SPPT',
+    'PBB_TERHUTANG_SPPT',
+    'FAKTOR_PENGURANG_SPPT',
+    'PBB_YG_HARUS_DIBAYAR_SPPT',
+    'STATUS_PEMBAYARAN_SPPT',
+    'STATUS_TAGIHAN_SPPT',
+    'STATUS_CETAK_SPPT',
+    'TGL_TERBIT_SPPT',
+    'TGL_CETAK_SPPT',
+    'NIP_PENCETAK_SPPT'
+  ];
 
-	public function pembayaran_sppt()
-	{
-		return $this->hasMany(PembayaranSppt::class, 'KD_PROPINSI', 'KD_PROPINSI')
-			->where('KD_DATI2', '=', 'KD_DATI2')
-			->where('KD_KECAMATAN', '=', 'KD_KECAMATAN')
-			->where('KD_KELURAHAN', '=', 'KD_KELURAHAN')
-			->where('KD_BLOK', '=', 'KD_BLOK')
-			->where('NO_URUT', '=', 'NO_URUT')
-			->where('KD_JNS_OP', '=', 'KD_JNS_OP')
-			->where('THN_PAJAK_SPPT', '=', 'THN_PAJAK_SPPT');
-	}
+  public function pembayaran_sppt()
+  {
+    return $this->hasMany(PembayaranSppt::class, 'KD_PROPINSI', 'KD_PROPINSI')
+      ->where('KD_DATI2', '=', 'KD_DATI2')
+      ->where('KD_KECAMATAN', '=', 'KD_KECAMATAN')
+      ->where('KD_KELURAHAN', '=', 'KD_KELURAHAN')
+      ->where('KD_BLOK', '=', 'KD_BLOK')
+      ->where('NO_URUT', '=', 'NO_URUT')
+      ->where('KD_JNS_OP', '=', 'KD_JNS_OP')
+      ->where('THN_PAJAK_SPPT', '=', 'THN_PAJAK_SPPT');
+  }
 
-	public function getSkNjop($NOP, $TAHUN)
-    {
-        $model = DB::select("
+  public function getSkNjop($NOP, $TAHUN)
+  {
+    $model = DB::select("
             SELECT 
                 a.KD_PROPINSI AS KD_PROPINSI,
                 a.KD_DATI2 AS KD_DATI2,
@@ -261,29 +261,29 @@ class Sppt extends Model
                 AND a.KD_JNS_OP = SUBSTRING($NOP, 18, 1) 
         ");
 
-        return empty($model) ? null : $model[0];
+    return empty($model) ? null : $model[0];
+  }
+
+  public function neracaKpp($thn_awal, $thn_akhir, $per_tanggal)
+  {
+    $persen_penyisihan = 0;
+
+    if ($thn_akhir - $thn_awal == 0) {
+      //Lancar 0.5%
+      $persen_penyisihan = 0.005;
+    } elseif ($thn_akhir - $thn_awal == 1 || $thn_akhir - $thn_awal == 2) {
+      //kurang lancar 10%
+      $persen_penyisihan = 0.1;
+    } elseif ($thn_akhir - $thn_awal > 2 && $thn_akhir - $thn_awal <= 5) {
+      //diragukan 50%
+      $persen_penyisihan = 0.5;
+    } elseif ($thn_akhir - $thn_awal > 5) {
+      //macet 100%
+      $persen_penyisihan = 1;
     }
 
-	public function neracaKpp($thn_awal, $thn_akhir, $per_tanggal)
-	{
-		$persen_penyisihan = 0;
-
-		if ($thn_akhir - $thn_awal == 0) {
-			//Lancar 0.5%
-			$persen_penyisihan = 0.005;
-		} elseif ($thn_akhir - $thn_awal == 1 || $thn_akhir - $thn_awal == 2) {
-			//kurang lancar 10%
-			$persen_penyisihan = 0.1;
-		} elseif ($thn_akhir - $thn_awal > 2 && $thn_akhir - $thn_awal <= 5) {
-			//diragukan 50%
-			$persen_penyisihan = 0.5;
-		} elseif ($thn_akhir - $thn_awal > 5) {
-			//macet 100%
-			$persen_penyisihan = 1;
-		}
-
-		$sql1 = "DROP TABLE IF EXISTS temp_neraca_kpp";
-		$sql2 = "CREATE TABLE temp_neraca_kpp AS
+    $sql1 = "DROP TABLE IF EXISTS temp_neraca_kpp";
+    $sql2 = "CREATE TABLE temp_neraca_kpp AS
                 SELECT 
                   CONCAT(a.KD_PROPINSI,
                   a.KD_DATI2,
@@ -356,14 +356,14 @@ class Sppt extends Model
                   a.THN_PAJAK_SPPT 
                 HAVING SISA_PIUTANG > 0 ";
 
-		DB::statement($sql1);
-		DB::statement($sql2);
-	}
+    DB::statement($sql1);
+    DB::statement($sql2);
+  }
 
-	public function neracaKppSummary($thn_awal, $thn_akhir, $per_tanggal, $tahun_neraca)
-	{
-		$sql1 = "SELECT * FROM sisa_piutang WHERE thn_neraca=" . ($tahun_neraca - 1);
-		$sql2 = "SELECT 
+  public function neracaKppSummary($thn_awal, $thn_akhir, $per_tanggal, $tahun_neraca)
+  {
+    $sql1 = "SELECT * FROM sisa_piutang WHERE thn_neraca=" . ($tahun_neraca - 1);
+    $sql2 = "SELECT 
                     THN_PAJAK_SPPT,
                     SUM(IFNULL(JML_SPPT_YG_DIBAYAR, 0)) AS TOTAL,
                     SUM(IFNULL(DENDA_SPPT, 0)) AS DENDA 
@@ -382,39 +382,39 @@ class Sppt extends Model
                     )
                   GROUP BY THN_PAJAK_SPPT";
 
-		$sisa = DB::select($sql1);
-		$pembayaran = DB::select($sql2);
+    $sisa = DB::select($sql1);
+    $pembayaran = DB::select($sql2);
 
-		$data = [];
+    $data = [];
 
-		foreach ($sisa as $key => $value) {
-			$data[$value->THN_PIUTANG]['SISA'] = $value->TOTAL;
-			$data[$value->THN_PIUTANG]['TOTAL'] = 0;
-			$data[$value->THN_PIUTANG]['DENDA'] = 0;
-			$data[$value->THN_PIUTANG]['POKOK'] = 0;
-		}
+    foreach ($sisa as $key => $value) {
+      $data[$value->THN_PIUTANG]['SISA'] = $value->TOTAL;
+      $data[$value->THN_PIUTANG]['TOTAL'] = 0;
+      $data[$value->THN_PIUTANG]['DENDA'] = 0;
+      $data[$value->THN_PIUTANG]['POKOK'] = 0;
+    }
 
-		foreach ($pembayaran as $key => $value) {
-			$data[$value->THN_PAJAK_SPPT]['TOTAL'] = $value->TOTAL;
-			$data[$value->THN_PAJAK_SPPT]['DENDA'] = $value->DENDA;
-			$data[$value->THN_PAJAK_SPPT]['POKOK'] = $value->TOTAL - $value->DENDA;
-		}
+    foreach ($pembayaran as $key => $value) {
+      $data[$value->THN_PAJAK_SPPT]['TOTAL'] = $value->TOTAL;
+      $data[$value->THN_PAJAK_SPPT]['DENDA'] = $value->DENDA;
+      $data[$value->THN_PAJAK_SPPT]['POKOK'] = $value->TOTAL - $value->DENDA;
+    }
 
-		foreach ($data as $thn => $value) {
-			$data[$thn]['PENYISIHAN'] = $tahun_neraca - $thn <= 5 ? ($value['SISA'] - $value['POKOK']) * 0.5 : ($value['SISA'] - $value['POKOK']) * 1;
-		}
+    foreach ($data as $thn => $value) {
+      $data[$thn]['PENYISIHAN'] = $tahun_neraca - $thn <= 5 ? ($value['SISA'] - $value['POKOK']) * 0.5 : ($value['SISA'] - $value['POKOK']) * 1;
+    }
 
-		return $data;
-	}
+    return $data;
+  }
 
-	public function neracaBpk()
-	{
-		//
-	}
+  public function neracaBpk()
+  {
+    //
+  }
 
-	public function neracaBpkSummary($thn_awal, $thn_akhir, $per_tanggal)
-	{
-		$sql1 = "SELECT 
+  public function neracaBpkSummary($thn_awal, $thn_akhir, $per_tanggal)
+  {
+    $sql1 = "SELECT 
                   THN_PAJAK_SPPT,
                   SUM(PBB_YG_HARUS_DIBAYAR_SPPT) AS KETETAPAN
                 FROM
@@ -424,7 +424,7 @@ class Sppt extends Model
                 GROUP BY THN_PAJAK_SPPT 
                 ORDER BY THN_PAJAK_SPPT DESC";
 
-		$sql2 = "SELECT 
+    $sql2 = "SELECT 
 				  THN_PAJAK_SPPT,
 				  SUM(
 					IF(
@@ -464,7 +464,7 @@ class Sppt extends Model
 					THN_PAJAK_SPPT) AS a 
 				GROUP BY THN_PAJAK_SPPT ";
 
-		$sql3 = "SELECT 
+    $sql3 = "SELECT 
                   THN_PAJAK_SPPT,
                   SUM(IF(JML_SPPT_YG_DIBAYAR-DENDA_SPPT<0,0,JML_SPPT_YG_DIBAYAR-DENDA_SPPT)) AS POKOK,
                   SUM(DENDA_SPPT) AS DENDA 
@@ -477,55 +477,216 @@ class Sppt extends Model
                 GROUP BY THN_PAJAK_SPPT
                 ORDER BY THN_PAJAK_SPPT DESC ";
 
-		$ketetapan = DB::select($sql1);
-		$byr_before = DB::select($sql2);
-		$byr_now = DB::select($sql3);
+    $ketetapan = DB::select($sql1);
+    $byr_before = DB::select($sql2);
+    $byr_now = DB::select($sql3);
 
-		$data = [];
+    $data = [];
 
-		foreach ($ketetapan as $key => $value) {
-			$data[$value->THN_PAJAK_SPPT]['KETETAPAN'] = $value->KETETAPAN;
-		}
+    foreach ($ketetapan as $key => $value) {
+      $data[$value->THN_PAJAK_SPPT]['KETETAPAN'] = $value->KETETAPAN;
+    }
 
-		foreach ($byr_before as $key => $value) {
-			$data[$value->THN_PAJAK_SPPT]['POKOK_SEBELUM'] = $value->POKOK;
-			$data[$value->THN_PAJAK_SPPT]['DENDA_SEBELUM'] = $value->DENDA;
-		}
+    foreach ($byr_before as $key => $value) {
+      $data[$value->THN_PAJAK_SPPT]['POKOK_SEBELUM'] = $value->POKOK;
+      $data[$value->THN_PAJAK_SPPT]['DENDA_SEBELUM'] = $value->DENDA;
+    }
 
-		foreach ($byr_now as $key => $value) {
-			$data[$value->THN_PAJAK_SPPT]['POKOK_NOW'] = $value->POKOK;
-			$data[$value->THN_PAJAK_SPPT]['DENDA_NOW'] = $value->DENDA;
-		}
+    foreach ($byr_now as $key => $value) {
+      $data[$value->THN_PAJAK_SPPT]['POKOK_NOW'] = $value->POKOK;
+      $data[$value->THN_PAJAK_SPPT]['DENDA_NOW'] = $value->DENDA;
+    }
 
-		foreach ($data as $thn => $value) {
-			$persen_penyisihan = 0;
+    foreach ($data as $thn => $value) {
+      $persen_penyisihan = 0;
 
-			if ($thn_akhir - $thn == 0) {
-				//Lancar 0.5%
-				$persen_penyisihan = 0.005;
-				$data[$thn]['SISA_AWAL'] = $value['KETETAPAN'];
-				$data[$thn]['SISA'] = $value['KETETAPAN'] - $value['POKOK_NOW'];
-			} elseif ($thn_akhir - $thn == 1 || $thn_akhir - $thn == 2) {
-				//kurang lancar 10%
-				$persen_penyisihan = 0.1;
-				$data[$thn]['SISA_AWAL'] = $value['KETETAPAN'] - $value['POKOK_SEBELUM'];
-				$data[$thn]['SISA'] = $value['KETETAPAN'] - $value['POKOK_SEBELUM'] - $value['POKOK_NOW'];
-			} elseif ($thn_akhir - $thn > 2 && $thn_akhir - $thn <= 5) {
-				//diragukan 50%
-				$persen_penyisihan = 0.5;
-				$data[$thn]['SISA_AWAL'] = $value['KETETAPAN'] - $value['POKOK_SEBELUM'];
-				$data[$thn]['SISA'] = $value['KETETAPAN'] - $value['POKOK_SEBELUM'] - $value['POKOK_NOW'];
-			} elseif ($thn_akhir - $thn > 5) {
-				//macet 100%
-				$persen_penyisihan = 1;
-				$data[$thn]['SISA_AWAL'] = $value['KETETAPAN'] - $value['POKOK_SEBELUM'];
-				$data[$thn]['SISA'] = $value['KETETAPAN'] - $value['POKOK_SEBELUM'] - $value['POKOK_NOW'];
-			}
+      if ($thn_akhir - $thn == 0) {
+        //Lancar 0.5%
+        $persen_penyisihan = 0.005;
+        $data[$thn]['SISA_AWAL'] = $value['KETETAPAN'];
+        $data[$thn]['SISA'] = $value['KETETAPAN'] - $value['POKOK_NOW'];
+      } elseif ($thn_akhir - $thn == 1 || $thn_akhir - $thn == 2) {
+        //kurang lancar 10%
+        $persen_penyisihan = 0.1;
+        $data[$thn]['SISA_AWAL'] = $value['KETETAPAN'] - $value['POKOK_SEBELUM'];
+        $data[$thn]['SISA'] = $value['KETETAPAN'] - $value['POKOK_SEBELUM'] - $value['POKOK_NOW'];
+      } elseif ($thn_akhir - $thn > 2 && $thn_akhir - $thn <= 5) {
+        //diragukan 50%
+        $persen_penyisihan = 0.5;
+        $data[$thn]['SISA_AWAL'] = $value['KETETAPAN'] - $value['POKOK_SEBELUM'];
+        $data[$thn]['SISA'] = $value['KETETAPAN'] - $value['POKOK_SEBELUM'] - $value['POKOK_NOW'];
+      } elseif ($thn_akhir - $thn > 5) {
+        //macet 100%
+        $persen_penyisihan = 1;
+        $data[$thn]['SISA_AWAL'] = $value['KETETAPAN'] - $value['POKOK_SEBELUM'];
+        $data[$thn]['SISA'] = $value['KETETAPAN'] - $value['POKOK_SEBELUM'] - $value['POKOK_NOW'];
+      }
 
-			$data[$thn]['PENYISIHAN_PIUTANG'] = $data[$thn]['SISA'] * $persen_penyisihan;
-			$data[$thn]['NETTO'] = $data[$thn]['SISA'] - $data[$thn]['PENYISIHAN_PIUTANG'];
-		}
+      $data[$thn]['PENYISIHAN_PIUTANG'] = $data[$thn]['SISA'] * $persen_penyisihan;
+      $data[$thn]['NETTO'] = $data[$thn]['SISA'] - $data[$thn]['PENYISIHAN_PIUTANG'];
+    }
 
-		return $data;
-	}
+    return $data;
+  }
+
+
+  public function prepareDataBaru($start_date, $end_date)
+  {
+    // Use Laravel's DB facade to execute SQL queries
+    DB::statement("DROP TABLE IF EXISTS temp_histori_mutasi");
+    DB::statement("
+            CREATE TABLE temp_histori_mutasi AS 
+            SELECT 
+                SUBSTRING(nop_sesudah, 1, 2) AS KD_PROPINSI,
+                SUBSTRING(nop_sesudah, 3, 2) AS KD_DATI2,
+                SUBSTRING(nop_sesudah, 5, 3) AS KD_KECAMATAN,
+                SUBSTRING(nop_sesudah, 8, 3) AS KD_KELURAHAN,
+                SUBSTRING(nop_sesudah, 11, 3) AS KD_BLOK,
+                SUBSTRING(nop_sesudah, 14, 4) AS NO_URUT,
+                SUBSTRING(nop_sesudah, 18, 1) AS KD_JNS_OP,
+                pelayanan.TANGGAL_PELAYANAN,
+                no_pelayanan,
+                nop_sebelum,
+                nama_sebelum,
+                lt_sebelum,
+                lb_sebelum,
+                pbb_sebelum,
+                nop_sesudah,
+                nama_sesudah,
+                lt_sesudah,
+                lb_sesudah,
+                pbb_sesudah,
+                KETERANGAN,
+                CATATAN
+            FROM
+                histori_mutasi 
+                JOIN pelayanan USING (no_pelayanan) 
+            WHERE KD_JNS_PELAYANAN = '01' 
+                AND pelayanan.TANGGAL_PELAYANAN BETWEEN '$start_date' AND '$end_date'
+        ");
+
+    DB::statement("
+            ALTER TABLE temp_histori_mutasi 
+            ADD FULLTEXT INDEX (
+                KD_PROPINSI,
+                KD_DATI2,
+                KD_KECAMATAN,
+                KD_KELURAHAN,
+                KD_BLOK,
+                NO_URUT,
+                KD_JNS_OP
+            ),
+            ENGINE = MYISAM 
+        ");
+  }
+  
+  public function laporanPelayanan($thn_awal, $jns_pelayanan, $start_date, $end_date)
+  {
+    $data_baru = false;
+
+    if (($key = array_search('01', $jns_pelayanan)) !== false) {
+      $data_baru = true;
+      unset($jns_pelayanan[$key]);
+    }
+
+    $jns_pelayanan = implode(',', $jns_pelayanan);
+
+    // Use Laravel's DB facade to execute SQL queries
+    DB::statement("DELETE FROM temp_pelayanan");
+
+    if (!empty($jns_pelayanan)) {
+      DB::statement("
+              INSERT IGNORE INTO temp_pelayanan (NOP, KD, KETERANGAN, CATATAN, NO_PELAYANAN, TGL)
+              SELECT 
+                  CONCAT(KD_PROPINSI, KD_DATI2, KD_KECAMATAN, KD_KELURAHAN, KD_BLOK, NO_URUT, KD_JNS_OP) AS NOP,
+                  KD_JNS_PELAYANAN AS KD,
+                  pelayanan.KETERANGAN,
+                  pelayanan.CATATAN,
+                  pelayanan.NO_PELAYANAN,
+                  pelayanan.TANGGAL_PELAYANAN
+              FROM pelayanan 
+              WHERE TANGGAL_PELAYANAN BETWEEN '$start_date' AND '$end_date' 
+                  AND KD_PROPINSI <> '00' 
+                  AND KD_JNS_PELAYANAN IN ($jns_pelayanan)
+          ");
+    }
+
+    DB::statement("DROP TABLE IF EXISTS temp_laporan_pelayanan");
+    DB::statement("
+          CREATE TABLE temp_laporan_pelayanan AS
+          SELECT 
+              temp_pelayanan.NO_PELAYANAN,
+              temp_pelayanan.KD,
+              temp_pelayanan.KETERANGAN,
+              temp_pelayanan.CATATAN,
+              temp_pelayanan.TGL,
+              dhkp.NM_WP_SPPT AS NAMA_SEBELUM,
+              CONCAT(
+                  dhkp.KD_PROPINSI, '.', dhkp.KD_DATI2, '.', dhkp.KD_KECAMATAN, '.',
+                  dhkp.KD_KELURAHAN, '.', dhkp.KD_BLOK, '-', dhkp.NO_URUT, '.', dhkp.KD_JNS_OP
+              ) AS NOP_SEBELUM,
+              dhkp.LUAS_BUMI_SPPT AS LT_SEBELUM,
+              dhkp.LUAS_BNG_SPPT AS LB_SEBELUM,
+              dhkp.PBB_TERHUTANG AS KETETAPAN_LAMA,
+              sppt.NM_WP_SPPT AS NAMA_BARU,
+              CONCAT(
+                  sppt.KD_PROPINSI, '.', sppt.KD_DATI2, '.', sppt.KD_KECAMATAN, '.',
+                  sppt.KD_KELURAHAN, '.', sppt.KD_BLOK, '-', sppt.NO_URUT, '.', sppt.KD_JNS_OP
+              ) AS NOP_BARU,
+              sppt.LUAS_BUMI_SPPT AS LT_BARU,
+              sppt.LUAS_BNG_SPPT AS LB_BARU,
+              sppt.PBB_YG_HARUS_DIBAYAR_SPPT AS KETETAPAN_BARU,
+              sppt.PBB_YG_HARUS_DIBAYAR_SPPT - dhkp.PBB_TERHUTANG AS SELISIH_KETETAPAN 
+          FROM
+              temp_pelayanan 
+              LEFT JOIN dhkp ON CONCAT(
+                  dhkp.KD_PROPINSI, dhkp.KD_DATI2, dhkp.KD_KECAMATAN, dhkp.KD_KELURAHAN,
+                  dhkp.KD_BLOK, dhkp.NO_URUT, dhkp.KD_JNS_OP
+              ) = temp_pelayanan.NOP 
+              LEFT JOIN sppt USING (
+                  KD_PROPINSI, KD_DATI2, KD_KECAMATAN, KD_KELURAHAN, KD_BLOK, NO_URUT,
+                  KD_JNS_OP, THN_PAJAK_SPPT
+              ) 
+          WHERE dhkp.THN_PAJAK_SPPT = $thn_awal
+      ");
+
+    if ($data_baru) {
+      $this->prepareDataBaru($start_date, $end_date);
+
+      DB::statement("
+              INSERT INTO temp_laporan_pelayanan (
+                  NO_PELAYANAN, KD, TGL, KETERANGAN, CATATAN, NAMA_SEBELUM, NOP_SEBELUM,
+                  LT_SEBELUM, LB_SEBELUM, KETETAPAN_LAMA, NAMA_BARU, NOP_BARU, LT_BARU,
+                  LB_BARU, KETETAPAN_BARU, SELISIH_KETETAPAN
+              ) 
+              SELECT 
+                  temp_histori_mutasi.no_pelayanan,
+                  '01',
+                  TANGGAL_PELAYANAN,
+                  KETERANGAN,
+                  CATATAN,
+                  nama_sebelum,
+                  nop_sebelum,
+                  lt_sebelum,
+                  lb_sebelum,
+                  pbb_sebelum,
+                  nama_sesudah,
+                  nop_sesudah,
+                  lt_sesudah,
+                  lb_sesudah,
+                  pbb_sesudah,
+                  pbb_sesudah - pbb_sebelum 
+              FROM
+                  temp_histori_mutasi 
+                  LEFT JOIN sppt ON sppt.KD_PROPINSI = temp_histori_mutasi.KD_PROPINSI 
+                      AND sppt.KD_DATI2 = temp_histori_mutasi.KD_DATI2 
+                      AND sppt.KD_KECAMATAN = temp_histori_mutasi.KD_KECAMATAN 
+                      AND sppt.KD_KELURAHAN = temp_histori_mutasi.KD_KELURAHAN 
+                      AND sppt.KD_BLOK = temp_histori_mutasi.KD_BLOK 
+                      AND sppt.NO_URUT = temp_histori_mutasi.NO_URUT 
+                      AND sppt.KD_JNS_OP = temp_histori_mutasi.KD_JNS_OP 
+                      AND sppt.THN_PAJAK_SPPT = $thn_awal
+          ");
+    }
+  }
 }

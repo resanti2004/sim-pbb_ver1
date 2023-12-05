@@ -89,6 +89,7 @@ Route::controller(UserController::class)->group(function () {
 Route::controller(PelayananLaporanController::class)->group(function () {
     Route::get('/pelayananLap', 'index')->name('pelayananLap.index');
     Route::post('/pelayananLap/cetak', 'print')->name('pelayananLap.cetak');
+    Route::post('/pelayanan/lihat', 'look')->name('pelayananLap.lihat');
 });
 Route::controller(HasilInputPelayananController::class)->group(function () {
     Route::get('/hasilinput', 'index')->name('hasilInputPelayanan.index');

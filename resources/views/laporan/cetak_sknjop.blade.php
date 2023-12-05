@@ -65,6 +65,35 @@
                     <td>&emsp; &emsp; Luas Bangunan</td>
                     <td colspan="5">: {{ number_format($data->LUAS_BNG_BARU,0,'','.') }} m<sup>2</sup></td>
                 </tr>
+                @if($data->LUAS_BUMI_LAMA > 0)
+                    <tr>
+                        <td>&emsp; &emsp; NJOP Bumi (Rp.)</td>
+                        <td>: <?= number_format($data->LUAS_BUMI_LAMA, 0, '', '.') ?> m<sup>2</sup> </td>
+                        <td>x</td>
+                        <td> <?= number_format($data->NJOP_BUMI_TOTAL_LAMA / $data->LUAS_BUMI_LAMA, 0, '', '.') ?> </td>
+                        <td>=</td>
+                        <td><?= number_format($data->NJOP_BUMI_TOTAL_LAMA, 0, '', '.') ?></td>
+                    </tr>
+                @else
+                    <tr>
+                        <td>&emsp; &emsp; NJOP Bumi (Rp.)</td>
+                        <td>: <?= number_format($data->LUAS_BUMI_LAMA, 0, '', '.') ?> m<sup>2</sup> </td>
+                        <td>x</td>
+                        <td> </td>
+                        <td>=</td>
+                        <td><?= number_format($data->NJOP_BUMI_TOTAL_LAMA, 0, '', '.') ?></td>
+                    </tr>
+                @endif
+                <tr>
+                    <td>&emsp; &emsp; NJOP Bangunan (Rp.)</td>
+                    <td>: <?= number_format($data->LUAS_BNG_LAMA, 0, '', '.') ?> m<sup>2</sup>
+                    <td>x</td>
+                    </td>
+                    <td><?= $data->LUAS_BNG_LAMA != 0 ? number_format($data->NJOP_BNG_TOTAL_LAMA / $data->LUAS_BNG_LAMA, 0, '', '.') : 0 ?> </td>
+                    <td>=</td>
+                    <td><?= number_format($data->NJOP_BNG_TOTAL_LAMA, 0, '', '.') ?></td>
+                </tr>
+
             </table>
         </div>
         <br />
