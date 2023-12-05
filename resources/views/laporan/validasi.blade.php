@@ -82,8 +82,8 @@
                             <div class="pencarian d-flex justify-content-between align-items-end">
                                 <p class="m-0">Menampilkan <b>2</b> data dari total <b>2</b> </p>
                                 <div class="tombol">
-                                    <a href="#"><button class="bg-success" type="button">Assign NOP</button></a>
-                                    <a href="#"><button class="bg-warning" type="button">Laporan</button></a>
+                                    <a href="{{ route('validasi.assign') }}"><button class="bg-success" type="button">Assign NOP</button></a>
+                                    <a href="{{ route('validasi.laporan') }}"><button class="bg-warning" type="button">Laporan</button></a>
                                 </div>
                             </div>
                             

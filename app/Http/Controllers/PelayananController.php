@@ -19,10 +19,6 @@ class PelayananController extends Controller
         $fullname = $user->fullname;
         $username = $user->username;
 
-
-
-
-
         $data_pelayanan = Pelayanan::paginate(25);
         $no = ($data_pelayanan->currentPage() - 1) * $data_pelayanan->perPage() + 1;
         return(view('pelayanan.pelayanan', compact('fullname', 'username', 'data_pelayanan', 'no')));
@@ -150,4 +146,14 @@ class PelayananController extends Controller
     {
         //
     }
+
+    public function laporan()
+    {
+        $data_user = DB::table('users');
+        $user = $data_user->where('id', Auth()->user()->id)->first();
+        $fullname = $user->fullname;
+        $username = $user->username;
+
+        return view('pelayanan.laporan_pelayanan', compact('fullname', 'username'));
+    }   
 }

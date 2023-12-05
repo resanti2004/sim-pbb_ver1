@@ -77,6 +77,7 @@ Route::controller(ProvinsiController::class)->group(function () {
 
 Route::controller(PelayananController::class)->group(function () {
     Route::get('/pelayanan/detail', 'show')->name('pelayanan.show');
+    Route::get('/pelayanan/laporan', 'laporan')->name('pelayanan.lap');
 });
 Route::resource('user', UserController::class);
 Route::controller(UserController::class)->group(function () {
@@ -124,7 +125,13 @@ Route::controller(SummaryNeracaKPPController::class)->group(function () {
     Route::get('/summaryKPP', 'index')->name('summaryNerKPP.index');
     Route::post('/summaryKPP/cetak', 'print')->name('summaryNerKPP.cetak');
 });
-Route::resource('validasi', ValidasiController::class);
+Route::controller(ValidasiController::class)->group(function () {
+    Route::get('/validasi', 'index')->name('validasi.index');
+    Route::post('/validasi/cetak', 'export')->name('validasi.export');
+    Route::post('/validasi/lihat', 'look')->name('validasi.lihat');
+    Route::get('/validasi/assign', 'assign')->name('validasi.assign');
+    Route::get('/validasi/laporan', 'laporan')->name('validasi.laporan');
+});
 
 Route::resource('njoptkp', NJOPTKPController::class);
 Route::resource('tunggakan', TunggakanController::class);
