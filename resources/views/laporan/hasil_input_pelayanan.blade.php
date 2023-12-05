@@ -47,11 +47,11 @@
                         </div>
                         <div class="col-md-6">
                             <label for="NoPelayanan" class="form-label">No Pelayanan</label>
-                            <input type="text" class="form-control" id="no_pelayanan" placeholder="Ketik No Pelayanan" name="NoPelayanan">
+                            <input type="text" class="form-control" id="no_pelayanan" placeholder="Ketik No Pelayanan" name="no_pelayanan">
                         </div>
                         <div class="col-md-6">
                             <label for="Tahun" class="form-label">Tahun</label>
-                            <input type="number" class="form-control" id="tahun" name="THN_PAJAK_SPPT" value="{{ date('Y') }}">
+                            <input type="number" class="form-control" id="tahun" name="tahun" value="{{ date('Y') }}">
                         </div>
                         <div class="col-md-12 d-flex ">
                             <div class="me-2">

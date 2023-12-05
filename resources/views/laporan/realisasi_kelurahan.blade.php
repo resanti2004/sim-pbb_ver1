@@ -26,7 +26,7 @@
                 </div>
 
                 <div class="filterBox">
-                    <form method="POST" action="{{ route('realisasiKel.store') }}" enctype="multipart/form-data" class="row g-4 p-3">
+                    <form method="POST" action="{{ route('realisasiKel.lihat') }}" enctype="multipart/form-data" class="row g-4 p-3">
                         @csrf
                         <div class="col-md-6">
                             <label for="Tahun" class="form-label">Tahun</label>
@@ -46,7 +46,9 @@
                         </div>
 
                         <div class="col-md-6 d-flex justify-content-end ms-auto">
-                            <button class="btn btn-primary" style="width:150px;">Batal</button>
+                            <a href="{{ route('realisasiKel.index') }}">
+                                <button type="button" class="btn btn-primary" style="width:150px;">Batal</button>
+                            </a>
                         </div>
                         <div class="col-md-6 d-flex justify-content-start me-auto">
                             <button type="submit" class="btn btn-primary" style="width:150px;">Lihat</button>
@@ -54,20 +56,15 @@
                     </form>
                 </div>
 
-                @if (isset($val))
-                <div class="dataBox" style="overflow-x: auto;">
 
+                <div class="dataBox" style="overflow-x: auto;">
+                    @if (isset($val))
                     <div class="pencarian d-flex justify-content-between align-items-end">
                         <p class="m-0">Menampilkan <b>{{ $val->count() }}</b> data</p>
-                        <a href="{{ route('realisasiKel.create') }}"><button type="button">Cetak</button></a>
+                        <a href="{{ route('realisasiKel.cetak') }}"><button type="button">Cetak</button></a>
                     </div>
+                    @endif
 
-                    <?php $total_pokok = 0;
-                    $total_pokok_dibayar = 0;
-                    $total_denda_dibayar = 0;
-                    $total_dibayar = 0;
-                    $total_kurang_bayar = 0;
-                    $total_lebih_bayar = 0; ?>
                     <table>
                         <thead>
                             <tr>
@@ -86,27 +83,34 @@
                         </thead>
 
                         <tbody>
+                            <?php $total_pokok = 0;
+                            $total_pokok_dibayar = 0;
+                            $total_denda_dibayar = 0;
+                            $total_dibayar = 0;
+                            $total_kurang_bayar = 0;
+                            $total_lebih_bayar = 0; ?>
+                            @if (isset($val))
+
                             @foreach ($val as $item)
-                            <?php
-                            $total_pokok += $item->POKOK_TERHUTANG;
+                            <?php $total_pokok += $item->POKOK_TERHUTANG;
                             $total_pokok_dibayar += $item->POKOK_BAYAR;
                             $total_denda_dibayar += $item->DENDA_BAYAR;
                             $total_dibayar += $item->JUMLAH_BAYAR;
                             $total_kurang_bayar += $item->KURANG_BAYAR;
-                            $total_lebih_bayar += $item->LEBIH_BAYAR;
-                            ?>
+                            $total_lebih_bayar += $item->LEBIH_BAYAR; ?>
+                            
                             <tr>
                                 <td>{{ $no++ }}</td>
                                 <td>{{ $item->NM_KECAMATAN }}</td>
                                 <td>{{ $item->NM_KELURAHAN }}</td>
-                                <td>{{ number_format($total_pokok,0,'','.') }}</td>
-                                <td>{{ number_format($total_pokok_dibayar,0,'','.') }}</td>
-                                <td>{{ number_format($total_denda_dibayar,0,'','.') }}</td>
-                                <td>{{ number_format($total_dibayar,0,'','.') }}</td>
-                                <td>{{ number_format($total_kurang_bayar,0,'','.') }}</td>
-                                <td>{{ number_format($total_lebih_bayar,0,'','.') }}</td>
+                                <td>{{ number_format($item->POKOK_TERHUTANG,0,'','.') }}</td>
+                                <td>{{ number_format($item->POKOK_BAYAR,0,'','.') }}</td>
+                                <td>{{ number_format($item->DENDA_BAYAR,0,'','.') }}</td>
+                                <td>{{ number_format($item->JUMLAH_BAYAR,0,'','.') }}</td>
+                                <td>{{ number_format($item->KURANG_BAYAR,0,'','.') }}</td>
+                                <td>{{ number_format($item->LEBIH_BAYAR,0,'','.') }}</td>
                                 <td>{{ $item->POKOK_TERHUTANG > 0 ? number_format(($item->POKOK_BAYAR / $item->POKOK_TERHUTANG) * 100, 2, ',', '.') : 0 }} %</td>
-                            <!-- <td>
+                                <!-- <td>
                                     <ul class="list-inline">
                                         <li class="list-inline-item"><a href="#" class="active"><i class='bx bxs-show'></i></a></li>
                                         <li class="list-inline-item"><a href="#" class="active"><i class='bx bxs-edit'></i></a></li>
@@ -115,7 +119,7 @@
                                 </td> -->
                             </tr>
                             @endforeach
-
+                            @endif
                             <tr>
                                 <td colspan="3">Total</td>
                                 <td><?= number_format($total_pokok, 0, '', '.') ?></td>
@@ -132,7 +136,7 @@
                                
                             </div> -->
                 </div>
-                @endif
+
 
             </div>
         </div>

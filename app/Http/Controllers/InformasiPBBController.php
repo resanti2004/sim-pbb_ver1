@@ -28,6 +28,11 @@ class InformasiPBBController extends Controller
     {
         $post_data = $request->input();
         
+        $data_user = DB::table('users');
+        $user = $data_user->where('id', Auth()->user()->id)->first();
+        $fullname = $user->fullname;
+        $username = $user->username;
+
         if (!empty($post_data)) {
             $model = new Sppt();
             $nop = str_replace('.', '', $post_data['nop']);
@@ -38,13 +43,16 @@ class InformasiPBBController extends Controller
                 Session::flash('error', 'Tidak Ada Data');
                 return redirect()->route('informasiPbb.index');
             }
-
+            
+          
             $report_file = 'laporan.cetak_info_pbb';
             return view($report_file, [
                 'data' => $data,
                 'no_pelayanan' => $post_data['no_pelayanan'],
                 'tanggal_pelayanan' => $pelayanan->TANGGAL_PELAYANAN,
-                'tahun' => $post_data['tahun']
+                'tahun' => $post_data['tahun'],
+                'fullname' => $fullname,
+                'username' => $username
             ])->with('layout', 'report');
         }
 

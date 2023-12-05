@@ -38,14 +38,6 @@ use App\Http\Controllers\ValidasiController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('kerangka.master');
-// });
-
-Route::get('/laravel', function () {
-    return view('provinsi.detail_provinsi');
-});
-
 Route::controller(AuthController::class)->group(function () {
     Route::get('/register', 'register')->name('register');
     Route::post('/store', 'store')->name('store');
@@ -54,11 +46,17 @@ Route::controller(AuthController::class)->group(function () {
     Route::get('/', 'dashboard')->name('dashboard');
     Route::post('/logout', 'logout')->name('logout');
 });
-
-
 Route::resource('pelayanan', PelayananController::class);
 Route::resource('lspop', LspopController::class);
 Route::resource('spop', SpopController::class);
+Route::controller(LspopController::class)->group(function () {
+    Route::get('/lspop/detail/', 'show')->name('lspop.show');
+    Route::get('/lspop/edit/', 'edit')->name('lspop.edit');
+});
+Route::controller(SpopController::class)->group(function () {
+    Route::get('/spop/detail/{NOP}', 'show')->name('spop.show'); 
+});
+
 Route::resource('provinsi', ProvinsiController::class);
 Route::resource('kabupaten', KabupatenController::class);
 Route::resource('kecamatan', KecamatanController::class);
@@ -75,19 +73,11 @@ Route::controller(KabupatenController::class)->group(function () {
 Route::controller(ProvinsiController::class)->group(function () {
     Route::get('/provinsi/{kdPropinsi}/{no}', 'show')->name('provinsi.show');
 });
-Route::controller(LspopController::class)->group(function () {
-    Route::get('/lspop/detail/', 'show')->name('lspop.show');
-    Route::get('/lspop/edit/', 'edit')->name('lspop.edit');
-});
-Route::controller(SpopController::class)->group(function () {
-    Route::get('/spop/detail/{NOP}', 'show')->name('spop.show'); 
-});
+
+
 Route::controller(PelayananController::class)->group(function () {
     Route::get('/pelayanan/detail', 'show')->name('pelayanan.show');
 });
-
-
-
 Route::resource('user', UserController::class);
 Route::controller(UserController::class)->group(function () {
     Route::get('/user/{user}/{no}', 'show')->name('user.show');
@@ -95,7 +85,11 @@ Route::controller(UserController::class)->group(function () {
     
 });
 
-Route::resource('pelayananLap', PelayananLaporanController::class);
+
+Route::controller(PelayananLaporanController::class)->group(function () {
+    Route::get('/pelayananLap', 'index')->name('pelayananLap.index');
+    Route::post('/pelayananLap/cetak', 'print')->name('pelayananLap.cetak');
+});
 Route::controller(HasilInputPelayananController::class)->group(function () {
     Route::get('/hasilinput', 'index')->name('hasilInputPelayanan.index');
     Route::post('/hasilinput/cetak', 'print')->name('hasilInputPelayanan.cetak');
@@ -112,18 +106,19 @@ Route::controller(NeracaKPPController::class)->group(function () {
     Route::get('/neracaKpp', 'index')->name('neracaKpp.index');
     Route::post('/neracaKpp/cetak', 'print')->name('neracaKpp.cetak');
 });
-Route::resource('realisasiKel', RealisasiKelurahanController::class);
-
+Route::controller(RealisasiKelurahanController::class)->group(function () {
+    Route::get('/realisasiKel', 'index')->name('realisasiKel.index');
+    Route::post('/realisasiKel/cetak', 'print')->name('realisasiKel.cetak');
+    Route::post('/realisasiKel/lihat', 'look')->name('realisasiKel.lihat');
+});
 Route::controller(SKNJOPController::class)->group(function () {
     Route::get('/skNjop', 'index')->name('skNjop.index');
     Route::post('/skNjop/cetak', 'print')->name('skNjop.cetak');
 });
-
 Route::controller(SummaryNeracaBPKController::class)->group(function () {
     Route::get('/summaryBPK', 'index')->name('summaryNerBPK.index');
     Route::post('/summaryBPK/cetak', 'print')->name('summaryNerBPK.cetak');
 });
-
 Route::controller(SummaryNeracaKPPController::class)->group(function () {
     Route::get('/summaryKPP', 'index')->name('summaryNerKPP.index');
     Route::post('/summaryKPP/cetak', 'print')->name('summaryNerKPP.cetak');

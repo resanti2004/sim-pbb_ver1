@@ -20,7 +20,7 @@ class RealisasiKelurahanController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function look(Request $request)
     {
         $THN_PAJAK_SPPT = $request->input('THN_PAJAK_SPPT');
         $PBB_MIN = $request->input('PBB_MIN');
@@ -40,8 +40,8 @@ class RealisasiKelurahanController extends Controller
                 DB::raw('SUM(IFNULL(DENDA_SPPT, 0)) AS DENDA_BAYAR'),
                 DB::raw('SUM(IFNULL(JML_SPPT_YG_DIBAYAR, 0)) AS JUMLAH_BAYAR'),
                 DB::raw('SUM(IFNULL(JML_SPPT_YG_DIBAYAR, 0) - IFNULL(DENDA_SPPT, 0)) AS POKOK_BAYAR'),
-                DB::raw('SUM(PBB_YG_HARUS_DIBAYAR_SPPT - IFNULL(JML_SPPT_YG_DIBAYAR, 0) + IFNULL(DENDA_SPPT, 0)) AS KURANG_BAYAR'),
-                DB::raw('SUM(IFNULL(JML_SPPT_YG_DIBAYAR, 0) - IFNULL(DENDA_SPPT, 0) - PBB_YG_HARUS_DIBAYAR_SPPT) AS LEBIH_BAYAR')
+                DB::raw('CASE WHEN SUM(PBB_YG_HARUS_DIBAYAR_SPPT - IFNULL(JML_SPPT_YG_DIBAYAR, 0) + IFNULL(DENDA_SPPT, 0)) < 0 THEN 0 ELSE SUM(PBB_YG_HARUS_DIBAYAR_SPPT - IFNULL(JML_SPPT_YG_DIBAYAR, 0) + IFNULL(DENDA_SPPT, 0)) END AS KURANG_BAYAR'),
+                DB::raw('CASE WHEN SUM(IFNULL(JML_SPPT_YG_DIBAYAR, 0) - IFNULL(DENDA_SPPT, 0) - PBB_YG_HARUS_DIBAYAR_SPPT) < 0 THEN 0 ELSE SUM(IFNULL(JML_SPPT_YG_DIBAYAR, 0) - IFNULL(DENDA_SPPT, 0) - PBB_YG_HARUS_DIBAYAR_SPPT) END AS LEBIH_BAYAR')
 
             )
             ->leftJoin('pembayaran_sppt', function ($join) use ($TGL_REALISASI) {
@@ -86,7 +86,7 @@ class RealisasiKelurahanController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function print()
 
     {
         $val = session('cetak_realisasi_kelurahan_data');

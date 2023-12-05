@@ -24,9 +24,14 @@ class HasilInputPelayananController extends Controller
     }
 
     public function print()
-    {
+    {   
+        $data_user = DB::table('users');
+        $user = $data_user->where('id', Auth()->user()->id)->first();
+        $fullname = $user->fullname;
+        $username = $user->username;
         $post_data = request()->post();
 
+        // dd($post_data);
         if (!empty($post_data)) {
             $model = new Sppt();
             $nop = str_replace('.', '', $post_data['nop']);
@@ -48,7 +53,9 @@ class HasilInputPelayananController extends Controller
                 'data' => $data,
                 'no_pelayanan' => $post_data['no_pelayanan'],
                 'tanggal_pelayanan' => $pelayanan->TANGGAL_PELAYANAN,
-                'tahun' => $post_data['tahun']
+                'tahun' => $post_data['tahun'],
+                'fullname' => $fullname,
+                'username' => $username
             ])->with('layout', 'report');
         }
     
