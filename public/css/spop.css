@@ -482,3 +482,10 @@
     overflow-y: auto !important;
 }
 
+.list-inline-item a.active i.bx.bxs-trash {
+	color: rgb(182, 6, 6);
+  }
+.list-inline-item a.active i.bx.bxs-edit {
+	color: rgb(2, 122, 2);
+  }
+
