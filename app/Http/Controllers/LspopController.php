@@ -166,6 +166,8 @@ class LspopController extends Controller
         $fullname = $user->fullname;
         $username = $user->username;
 
+        
+
         // Return the view with the user and Kelurahan data
         return view('lspop.detail_lspop', compact('fullname', 'username', 'no'));
     }

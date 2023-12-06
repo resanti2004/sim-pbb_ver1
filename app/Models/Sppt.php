@@ -579,7 +579,7 @@ class Sppt extends Model
             ENGINE = MYISAM 
         ");
   }
-  
+
   public function laporanPelayanan($thn_awal, $jns_pelayanan, $start_date, $end_date)
   {
     $data_baru = false;
@@ -688,5 +688,48 @@ class Sppt extends Model
                       AND sppt.THN_PAJAK_SPPT = $thn_awal
           ");
     }
+  }
+
+  public function getDataByNOPTahun($NOP, $tahun_awal, $tahun_akhir)
+  {
+    return $this->where([
+      'KD_PROPINSI' => $NOP[0],
+      'KD_DATI2' => $NOP[1],
+      'KD_KECAMATAN' => $NOP[2],
+      'KD_KELURAHAN' => $NOP[3],
+      'KD_BLOK' => $NOP[4],
+      'NO_URUT' => $NOP[5],
+      'KD_JNS_OP' => $NOP[6],
+    ])
+      ->whereBetween('THN_PAJAK_SPPT', [$tahun_awal, $tahun_akhir])
+      ->orderBy('THN_PAJAK_SPPT')
+      ->get()
+      ->toArray();
+  }
+  public function hitungDenda($tanggal_tempo, $pbb, $diff = 'bulan')
+  {
+    if ($diff == 'hari') {
+      $tgl = $tanggal_tempo['year'] . '-' . $tanggal_tempo['month'] . '-' . $tanggal_tempo['day'];
+
+      $tanggal_awal = date_create($tgl);
+      $tanggal_akhir = date_create(date('Y-m-d'));
+
+      $interval = date_diff($tanggal_akhir, $tanggal_awal);
+      $tahun = $interval->format('%y');
+      $bulan = $tahun * 12 + $interval->format('%m');
+    } elseif ($diff == 'bulan') {
+      if ($tanggal_tempo['year'] == date('Y')) {
+        $bulan = date('m') - $tanggal_tempo['month'];
+        if ($bulan < 0) $bulan = 0;
+      } elseif ($tanggal_tempo['year'] < date('Y')) {
+        $bulan = (date('Y') - $tanggal_tempo['year']) * 12 + (date('m') - $tanggal_tempo['month']);
+      } else {
+        $bulan = 0;
+      }
+    }
+
+    if ($bulan > 24) $bulan = 24;
+    $denda = (0.02 * $bulan) * $pbb;
+    return $denda;
   }
 }

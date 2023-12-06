@@ -8,6 +8,8 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Class PembayaranSppt
@@ -57,4 +59,44 @@ class PembayaranSppt extends Model
 		'NIP_REKAM_BYR_SPPT',
 		'NO_BUKTI'
 	];
+
+	public function getDataByNOPTahun($NOP, $tahun_awal, $tahun_akhir)
+    {
+        return $this->select([
+                'KD_PROPINSI',
+                'KD_DATI2',
+                'KD_KECAMATAN',
+                'KD_KELURAHAN',
+                'KD_BLOK',
+                'NO_URUT',
+                'KD_JNS_OP',
+                'THN_PAJAK_SPPT',
+                'TGL_PEMBAYARAN_SPPT',
+                DB::raw('SUM(DENDA_SPPT) AS DENDA_SPPT'),
+                DB::raw('SUM(JML_SPPT_YG_DIBAYAR) AS JML_BAYAR')
+            ])
+            ->where([
+                'KD_PROPINSI' => $NOP[0],
+                'KD_DATI2' => $NOP[1],
+                'KD_KECAMATAN' => $NOP[2],
+                'KD_KELURAHAN' => $NOP[3],
+                'KD_BLOK' => $NOP[4],
+                'NO_URUT' => $NOP[5],
+                'KD_JNS_OP' => $NOP[6],
+            ])
+            ->whereBetween('THN_PAJAK_SPPT', [$tahun_awal, $tahun_akhir])
+            ->groupBy('KD_PROPINSI', 'KD_DATI2', 'KD_KECAMATAN', 'KD_KELURAHAN', 'TGL_PEMBAYARAN_SPPT', 'KD_BLOK', 'NO_URUT', 'KD_JNS_OP', 'THN_PAJAK_SPPT')
+            ->orderBy('THN_PAJAK_SPPT')
+            ->get()
+            ->toArray();
+    }
+
+	public function formatKeyTahun($data)
+    {
+        $new_data = [];
+        foreach ($data as $key => $value) {
+            $new_data[$value['THN_PAJAK_SPPT']] = $value;
+        }
+        return $new_data;
+    }
 }

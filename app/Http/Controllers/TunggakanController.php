@@ -4,6 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
+use App\Models\Sppt;
+use App\Models\DatObjekPajak;
+use App\Models\DatSubjekPajak;
+use App\Models\RefKelurahan;
+use App\Models\PembayaranSppt;
+use App\Models\Spop;
 
 class TunggakanController extends Controller
 {
@@ -19,51 +26,78 @@ class TunggakanController extends Controller
         return view('keuangan.tunggakan', compact('fullname', 'username'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function print(Request $request)
     {
-        //
-    }
+        $data_user = DB::table('users');
+        $user = $data_user->where('id', Auth()->user()->id)->first();
+        $fullname = $user->fullname;
+        $username = $user->username;
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+        if ($request->hasAny(['nop', 'tahun_awal', 'tahun_akhir'])) {
+            $post_data = $request->all();
+            $model_sppt = new Sppt();
+            $model_pembayaran = new PembayaranSppt();
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
+            if (isset($post_data['simpbb'])) {
+                $view = 'keuangan.cetak_tunggakan_simpbb';
+                $model_objek = new Spop();
+            } else {
+                $view = 'keuangan.cetak_tunggakan';
+            }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
+            $model_subjek = new DatSubjekPajak();
+            $model_kelurahan = new RefKelurahan();
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
+            $data_sppt = $model_sppt->getDataByNOPTahun(
+                explode('.', $post_data['nop']),
+                $post_data['tahun_awal'],
+                $post_data['tahun_akhir']
+            );
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+            if (empty($data_sppt)) {
+                return view('keuangan.tunggakan');
+            }
+
+            $data_pembayaran = $model_pembayaran->getDataByNOPTahun(
+                explode('.', $post_data['nop']),
+                $post_data['tahun_awal'],
+                $post_data['tahun_akhir']
+            );
+
+            $data_pembayaran = $model_pembayaran->formatKeyTahun($data_pembayaran);
+
+            $data_objek = $model_objek->getDataByNOP(
+                explode('.', $post_data['nop'])
+            );
+
+            $data_subjek = $model_subjek->getDataBySubjekId(
+                $data_objek[0]['SUBJEK_PAJAK_ID']
+            );
+
+            $kelurahan = $model_kelurahan->getKelurahanGroup();
+
+            $show_all = true;
+            if (isset($post_data['only_tunggakan'])) {
+                $show_all = false;
+            }
+
+            $model_sppt =new Sppt();
+
+            return view($view, [
+                'data_sppt' => $data_sppt,
+                'data_pembayaran' => $data_pembayaran,
+                'data_objek' => $data_objek[0],
+                'data_subjek' => $data_subjek[0],
+                'show_all' => $show_all,
+                'kelurahan' => $kelurahan,
+                'post_data' => $post_data,
+                'fullname' => $fullname,
+                'username' => $username,
+                'model_sppt' => $model_sppt,
+
+            ])->with('layout', 'report');
+        }
+
+        return view('keuangan.tunggakan');
     }
 }

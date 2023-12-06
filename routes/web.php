@@ -133,7 +133,10 @@ Route::controller(ValidasiController::class)->group(function () {
 });
 
 Route::resource('njoptkp', NJOPTKPController::class);
-Route::resource('tunggakan', TunggakanController::class);
+Route::controller(TunggakanController::class)->group(function () {
+    Route::get('/tunggakan', 'index')->name('tunggakan.index');
+    Route::post('/tunggakan/cetak', 'print')->name('tunggakan.cetak');
+});
 Route::resource('tarif', TarifController::class);
 
 

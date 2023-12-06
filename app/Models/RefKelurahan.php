@@ -38,4 +38,17 @@ class RefKelurahan extends Model
 		'NO_KELURAHAN',
 		'KD_POS_KELURAHAN'
 	];
+
+
+	public function getKelurahanGroup()
+    {
+        $kelurahan = $this->select("KD_KECAMATAN", "KD_KELURAHAN", "NM_KELURAHAN")->get()->toArray();
+        $new_kelurahan = [];
+
+        foreach ($kelurahan as $key => $value) {
+            $new_kelurahan[$value['KD_KECAMATAN']][$value['KD_KELURAHAN']] = $value['NM_KELURAHAN'];
+        }
+
+        return $new_kelurahan;
+    }
 }

@@ -137,4 +137,25 @@ class Spop extends Model
             [['NOP'], 'string', 'max' => 18],
         ];
     }
+	public function getDataBySubjekId($SUBJEK_PAJAK_ID)
+    {
+        return $this->where('SUBJEK_PAJAK_ID', $SUBJEK_PAJAK_ID)
+            ->get()
+            ->toArray();
+    }
+
+	public function getDataByNOP($NOP)
+    {
+        return $this->where([
+                'KD_PROPINSI' => $NOP[0],
+                'KD_DATI2' => $NOP[1],
+                'KD_KECAMATAN' => $NOP[2],
+                'KD_KELURAHAN' => $NOP[3],
+                'KD_BLOK' => $NOP[4],
+                'NO_URUT' => $NOP[5],
+                'KD_JNS_OP' => $NOP[6],
+            ])
+            ->get()
+            ->toArray();
+    }
 }

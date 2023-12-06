@@ -48,4 +48,11 @@ class DatSubjekPajak extends Model
 		'STATUS_PEKERJAAN_WP',
 		'EMAIL_WP'
 	];
+
+	public function getDataBySubjekId($SUBJEK_PAJAK_ID)
+    {
+        return $this->where('SUBJEK_PAJAK_ID', $SUBJEK_PAJAK_ID)
+            ->get()
+            ->toArray();
+    }
 }
