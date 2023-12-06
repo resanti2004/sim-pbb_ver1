@@ -320,6 +320,8 @@ class SpopController extends Controller
             return response()->json($result);
         } else {
 
+            // dd($result);
+
             // Jika tidak, tampilkan view HTML
             return view('spop.detail_spop', compact('fullname', 'username', 'result'));
         }
