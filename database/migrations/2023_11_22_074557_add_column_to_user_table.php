@@ -12,11 +12,12 @@ return new class extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('status')->default('active');
-            $table->string('role')->default('user');
+            $table->string('status')->default('Aktif');
+            $table->string('role')->default('Admin');
             $table->string('jabatan')->nullable();
             $table->string('nip')->nullable();
             $table->string('nomor_ponsel')->nullable();
+            $table->string('email')->unique()->nullable();
         });
     }
 
@@ -28,6 +29,7 @@ return new class extends Migration
             $table->dropColumn('jabatan');
             $table->dropColumn('nip');
             $table->dropColumn('nomor_ponsel');
+            $table->dropColumn('email');
         });
     }
 };

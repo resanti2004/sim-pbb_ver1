@@ -83,8 +83,6 @@ Route::controller(PelayananController::class)->group(function () {
 Route::resource('user', UserController::class);
 Route::controller(UserController::class)->group(function () {
     Route::get('/user/{user}/{no}', 'show')->name('user.show');
-    Route::get('/user/edit', 'edit')->name('user.edit');
-    
 });
 
 

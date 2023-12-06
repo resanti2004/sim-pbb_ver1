@@ -1,6 +1,6 @@
 @extends('kerangka.master')
 
-@section('title', 'Tambah Data Provinsi')
+@section('title', 'Tambah Data Pengguna')
 
 @section('content')
 
@@ -24,7 +24,7 @@
 					</div>
 				</div>
 
-				<form method="POST" action="{{ route('provinsi.store') }}" enctype="multipart/form-data" class="row g-4 p-5 needs-validation" novalidate>
+				<form method="POST" action="{{ route('user.store') }}" enctype="multipart/form-data" class="row g-4 p-5 needs-validation" novalidate>
 					@csrf
 					<div class="col-md-6">
 						<label for="username" class="form-label">Username</label>
@@ -34,7 +34,7 @@
 						</div>
 					</div>
 					<div class="col-md-6">
-						<label for="fullname" class="form-label">Fullname</label>
+						<label for="fullname" class="form-label">Nama Lengkap</label>
 						<input type="text" class="form-control" id="fullname" name="fullname" required>
 						<div class="invalid-feedback">
 							Isi kolom ini terlebih dahulu!
@@ -77,7 +77,7 @@
 					</div>
 					<div class="col-md-6">
 						<label for="nomorponsel" class="form-label">Nomor Ponsel</label>
-						<input type="text" class="form-control" id="nomorponsel" name="nomorponsel" required>
+						<input type="text" class="form-control" id="nomorponsel" name="nomor_ponsel" required>
 						<div class="invalid-feedback">
 							Isi kolom ini terlebih dahulu!
 						</div>

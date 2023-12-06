@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -43,8 +44,39 @@ class UserController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        //
+    {  
+        $request->validate([
+            'username' => 'required|unique:users',
+            'fullname' => 'required',
+            'password' => 'required',
+            'status' => 'required',
+            'role' => 'required',
+            'email' => 'required|email|unique:users',
+            'jabatan' => 'required',
+            'nip' => 'required',
+            'nomor_ponsel' => 'nullable',
+        ]);
+
+        
+        
+        User::create([
+            'username' => $request->username,
+            'fullname' => $request->fullname,
+            'password' => Hash::make($request->password),
+            'status' => $request->status,
+            'role' => $request->role,
+            'email' => $request->email,
+            'jabatan' => $request->jabatan,
+            'nip' => $request->nip,
+            'nomor_ponsel' => $request->nomor_ponsel,
+
+        ]);
+
+        
+
+
+
+        return redirect()->route('user.index')->with('success', 'Data pengguna berhasil ditambahkan');
     }
 
     /**
@@ -57,7 +89,7 @@ class UserController extends Controller
         $username = $authenticatedUser->username;
 
         // Fetch all users ordered by ID
-        $data_users = Users::where([
+        $data_user = User::where([
             'id' => $user,
             
         ])->first();
@@ -66,20 +98,26 @@ class UserController extends Controller
 
         // dd($data_users );
         // Pass the necessary data to the view
-        return view('pengguna.detail_pengguna', compact('fullname', 'username', 'data_users', 'no'));
+        return view('pengguna.detail_pengguna', compact('fullname', 'username', 'data_user', 'no'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit($user, $no)
+    public function edit($user)
     {
-        $data_user = DB::table('users');
-        $user = $data_user->where('id', Auth()->user()->id)->first();
-        $fullname = $user->fullname;
-        $username = $user->username;
+        $authenticatedUser = Auth::user();
+        $fullname = $authenticatedUser->fullname;
+        $username = $authenticatedUser->username;
 
-        return (view('pengguna.edit_pengguna', compact('fullname', 'username',  'user', 'no')));
+        // Fetch all users ordered by ID
+        $data_user = User::where([
+            'id' => $user,
+            
+        ])->first();
+
+
+        return (view('pengguna.edit_pengguna', compact('fullname', 'username',  'data_user')));
     }
     
     
@@ -87,16 +125,44 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update()
-    {
-        //
+    public function update(Request $request, $user)
+        {   
+            $id = $user;
+            $user = User::find($id);
+
+        if (!$user) {
+            // Handle the case where the model is not found
+            abort(404);
+        }
+
+        if ($user->fill(request()->all())->save()) {
+            return redirect()->route('user.index', ['id' => $user->id]);
+            // Replace 'your.route.name' with the actual name of the route you want to redirect to
+        }
+
+        return view('pengguna.edit_pengguna', ['user' => $user]);
+
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($user)
     {
-        //
+        $id = $user;
+        $user = User::find($id);
+
+        if (!$user) {
+            // Handle the case where the model is not found
+            abort(404);
+        }
+
+        if ($user->delete()) {
+            return redirect()->route('user.index');
+            // Replace 'your.route.name' with the actual name of the route you want to redirect to
+        }
+
+        return view('pengguna.pengguna', ['user' => $user]);
     }
+    
 }

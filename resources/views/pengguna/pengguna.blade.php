@@ -36,7 +36,7 @@
 						<tr>
 							<td>No</td>
 							<td>Username</td>
-							<td>Fullname</td>
+							<td>Nama Lengkap</td>
 							<td>Opsi</td>
 						</tr>
 					</thead>
@@ -56,10 +56,26 @@
 
 									<li class="list-inline-item"><a href="{{ route('user.edit', [
 										'user' => $user->id,
-										'no' => $no-1
 									]) }}" class="active"><i class='bx bxs-edit'></i></a></li>
 									
-									<li class="list-inline-item"><a href="#" class="active"><i class='bx bxs-trash'></i></a></li>
+									<li class="list-inline-item">
+									<form id="deleteForm_{{ $user->id }}" action="{{ route('user.destroy', ['user' => $user->id]) }}" method="POST">
+											@csrf
+											@method('DELETE')
+										</form>
+
+										<a href="#" onclick="deleteConfirmation('{{ $user->id }}')">
+											<i class='bx bxs-trash'></i>
+										</a>
+
+										<script>
+											function deleteConfirmation( user_id ) {
+												if (confirm('Anda yakin untuk menghapus?')) {
+													document.getElementById('deleteForm_' + user_id).submit();
+												}
+											}
+										</script>
+									</li>
 								</ul>
 							</td>
 						</tr>
