@@ -54,10 +54,10 @@
 									</tr>
 								</tbody>
 							</table>
-							<div class="tombol d-flex justify-content-center align-items-center gap-2">
+							<!-- <div class="tombol d-flex justify-content-center align-items-center gap-2">
 								<a href="#"><button type="button">Update</button></a>
 								<a href="#"><button type="button" class="bg-danger">Delete</button></a>
-							</div>
+							</div> -->
 						</div>
 
 					</div>
