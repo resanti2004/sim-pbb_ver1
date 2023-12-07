@@ -43,8 +43,8 @@
                             <input type="date" class="form-control" id="TanggalRealisasi" name="TGL_REALISASI" value="{{ date('Y').'-12-31' }}">
                         </div>
                         <div class="col-md-12">
-                            <label for="select2Multiple">Jenis Pelayanan</label>
-                            <select class="select2-multiple form-control" name="jns_pelayanan[]" multiple="multiple" id="select2Multiple">
+                            <label for="select2Multiple" class="form-label">Jenis Pelayanan</label>
+                            <select class="form-control" name="jns_pelayanan[]" multiple="multiple" id="select2Multiple" >
                                 <option>PENDAFTARAN DATA BARU</option>
                                 <option>MUTASI OBJEK/SUBJEK</option>
                                 <option>PEMBETULAN SPPT/SKP/STP</option>
@@ -85,18 +85,5 @@
         </div>
     </div>
 
-
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-
-    <script>
-        $(document).ready(function() {
-            // Select2 Multiple
-            $('.select2-multiple').select2({
-                placeholder: "Select",
-                allowClear: true
-            });
-
-        });
-    </script>
 
     @endsection

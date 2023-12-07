@@ -66,23 +66,23 @@
                                 </div> -->
                                 <div class="col-md-12">
                                     <label for="JenisPelayanan" class="form-label">Jenis Pelayanan</label>
-                                    <select class="form-select" id="JenisPelayanan" name="JenisPelayanan" required>
-                                        <option selected disabled value="">Choose...</option>
-                                        <option>PENDAFTARAN DATA BARU</option>
-                                        <option>MUTASI OBJEK/SUBJEK</option>
-                                        <option>PEMBETULAN SPPT/SKP/STP</option>
-                                        <option>PEMBATALAN SPPT/SKP</option>
-                                        <option>SALINAN SPPT/SKP</option>
-                                        <option>KEBERATAN PENUNJUKAN WAJIB PAJAK</option>
-                                        <option>PENGURANGAN ATAS BESARNYA PAJAK TERHUBUNG</option>
-                                        <option>RESTITUSI DAN KOMPENSASI</option>
-                                        <option>PENGURANGAN DENDA ADMINISTRASI</option>
-                                        <option>PENENTUAN KEMBALI TANGGAL JATUH TEMPO</option>
-                                        <option>VERIFIKASI NOP BPHTB</option>
-                                        <option>PEMBERIAN INFORMASI PBB</option>
-                                        <option>PEMBETULAN SK KEBERATAN</option>
-                                        <option>MUTASI PEMECAHAN</option>
-                                    </select>
+                                        <select class="form-select" id="JenisPelayanan" name="JenisPelayanan" required>
+                                            <option selected disabled value="">Choose...</option>
+                                            <option>PENDAFTARAN DATA BARU</option>
+                                            <option>MUTASI OBJEK/SUBJEK</option>
+                                            <option>PEMBETULAN SPPT/SKP/STP</option>
+                                            <option>PEMBATALAN SPPT/SKP</option>
+                                            <option>SALINAN SPPT/SKP</option>
+                                            <option>KEBERATAN PENUNJUKAN WAJIB PAJAK</option>
+                                            <option>PENGURANGAN ATAS BESARNYA PAJAK TERHUBUNG</option>
+                                            <option>RESTITUSI DAN KOMPENSASI</option>
+                                            <option>PENGURANGAN DENDA ADMINISTRASI</option>
+                                            <option>PENENTUAN KEMBALI TANGGAL JATUH TEMPO</option>
+                                            <option>VERIFIKASI NOP BPHTB</option>
+                                            <option>PEMBERIAN INFORMASI PBB</option>
+                                            <option>PEMBETULAN SK KEBERATAN</option>
+                                            <option>MUTASI PEMECAHAN</option>
+                                        </select>
                                     <div class="invalid-feedback">
                                         Isi kolom ini terlebih dahulu!
                                     </div>

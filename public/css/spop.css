@@ -266,6 +266,9 @@
 	.pencarian .form-group input:focus {
 		box-shadow: 0 0 0 1px var(--blue), 0 0 0 4px var(--light-blue);
 	}
+	.filterBox .form-group input:focus {
+		box-shadow: 0 0 0 1px var(--blue), 0 0 0 4px var(--light-blue);
+	}
 	.pencarian .form-group .icon {
 		position: absolute;
 		top: 50%;
@@ -351,6 +354,10 @@
 .form-control {
 	border-color: var(--blue);
   }
+.filterBox .form-control {
+	border-color: var(--blue);
+  }
+
 .form-select {
 	border-color: var(--blue);
   }
