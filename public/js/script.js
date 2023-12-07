@@ -1,14 +1,115 @@
+// // SIDEBAR DROPDOWN
+// const allDropdown = document.querySelectorAll('#sidebar .side-dropdown');
+// const sidebar = document.getElementById('sidebar');
+
+// allDropdown.forEach(item=> {
+// 	const a = item.parentElement.querySelector('a:first-child');
+// 	a.addEventListener('click', function (e) {
+// 		e.preventDefault();
+
+// 		if(!this.classList.contains('active')) {
+// 			allDropdown.forEach(i=> {
+// 				const aLink = i.parentElement.querySelector('a:first-child');
+
+// 				aLink.classList.remove('active');
+// 				i.classList.remove('show');
+// 			})
+// 		}
+
+// 		this.classList.toggle('active');
+// 		item.classList.toggle('show');
+
+// 	})
+
+// 	// Menambahkan event listener ke setiap elemen <li> di dalam dropdown
+// })
+
+
+
+
+
+// // SIDEBAR COLLAPSE
+// const toggleSidebar = document.querySelector('nav .toggle-sidebar');
+// const allSideDivider = document.querySelectorAll('#sidebar .divider');
+
+// if(sidebar.classList.contains('hide')) {
+// 	allSideDivider.forEach(item=> {
+// 		item.textContent = '-'
+// 	})
+// 	allDropdown.forEach(item=> {
+// 		const a = item.parentElement.querySelector('a:first-child');
+// 		a.classList.remove('active');
+// 		item.classList.remove('show');
+// 	})
+// } else {
+// 	allSideDivider.forEach(item=> {
+// 		item.textContent = item.dataset.text;
+// 	})
+// }
+
+// toggleSidebar.addEventListener('click', function () {
+// 	sidebar.classList.toggle('hide');
+
+// 	if(sidebar.classList.contains('hide')) {
+// 		allSideDivider.forEach(item=> {
+// 			item.textContent = '-'
+// 		})
+
+// 		allDropdown.forEach(item=> {
+// 			const a = item.parentElement.querySelector('a:first-child');
+// 			a.classList.remove('active');
+// 			item.classList.remove('show');
+// 		})
+// 	} else {
+// 		allSideDivider.forEach(item=> {
+// 			item.textContent = item.dataset.text;
+// 		})
+// 	}
+// })
+
+
+
+
+// sidebar.addEventListener('mouseleave', function () {
+// 	if(this.classList.contains('hide')) {
+// 		allDropdown.forEach(item=> {
+// 			const a = item.parentElement.querySelector('a:first-child');
+// 			a.classList.remove('active');
+// 			item.classList.remove('show');
+// 		})
+// 		allSideDivider.forEach(item=> {
+// 			item.textContent = '-'
+// 		})
+// 	}
+// })
+
+
+
+// sidebar.addEventListener('mouseenter', function () {
+// 	if(this.classList.contains('hide')) {
+// 		allDropdown.forEach(item=> {
+// 			const a = item.parentElement.querySelector('a:first-child');
+// 			a.classList.remove('active');
+// 			item.classList.remove('show');
+// 		})
+// 		allSideDivider.forEach(item=> {
+// 			item.textContent = item.dataset.text;
+// 		})
+// 	}
+// })
+
+
 // SIDEBAR DROPDOWN
 const allDropdown = document.querySelectorAll('#sidebar .side-dropdown');
 const sidebar = document.getElementById('sidebar');
 
-allDropdown.forEach(item=> {
+allDropdown.forEach(item => {
 	const a = item.parentElement.querySelector('a:first-child');
 	a.addEventListener('click', function (e) {
 		e.preventDefault();
 
-		if(!this.classList.contains('active')) {
-			allDropdown.forEach(i=> {
+		if (!this.classList.contains('active')) {
+			allDropdown.forEach(i => {
 				const aLink = i.parentElement.querySelector('a:first-child');
 
 				aLink.classList.remove('active');
@@ -18,86 +119,86 @@ allDropdown.forEach(item=> {
 
 		this.classList.toggle('active');
 		item.classList.toggle('show');
-
-	})
-
-	// Menambahkan event listener ke setiap elemen <li> di dalam dropdown
-})
-
-
-
-
+	});
+});
 
 // SIDEBAR COLLAPSE
 const toggleSidebar = document.querySelector('nav .toggle-sidebar');
 const allSideDivider = document.querySelectorAll('#sidebar .divider');
 
-if(sidebar.classList.contains('hide')) {
-	allSideDivider.forEach(item=> {
-		item.textContent = '-'
-	})
-	allDropdown.forEach(item=> {
-		const a = item.parentElement.querySelector('a:first-child');
-		a.classList.remove('active');
-		item.classList.remove('show');
-	})
-} else {
-	allSideDivider.forEach(item=> {
-		item.textContent = item.dataset.text;
-	})
+function handleSidebarState() {
+	if (window.innerWidth <= 780) {
+		sidebar.classList.add('hide');
+
+		allSideDivider.forEach(item => {
+			item.textContent = '-';
+		});
+
+		allDropdown.forEach(item => {
+			const a = item.parentElement.querySelector('a:first-child');
+			a.classList.remove('active');
+			item.classList.remove('show');
+		});
+	} else {
+		sidebar.classList.remove('hide');
+
+		allSideDivider.forEach(item => {
+			item.textContent = item.dataset.text;
+		});
+	}
 }
+
+handleSidebarState(); // Panggil fungsi untuk menangani status sidebar saat halaman dimuat
+
+window.addEventListener('resize', function () {
+	handleSidebarState(); // Panggil fungsi saat ukuran layar berubah
+});
+
+sidebar.addEventListener('mouseleave', function () {
+	if (this.classList.contains('hide')) {
+		allDropdown.forEach(item => {
+			const a = item.parentElement.querySelector('a:first-child');
+			a.classList.remove('active');
+			item.classList.remove('show');
+		});
+		allSideDivider.forEach(item => {
+			item.textContent = '-';
+		});
+	}
+});
+
+sidebar.addEventListener('mouseenter', function () {
+	if (this.classList.contains('hide')) {
+		allDropdown.forEach(item => {
+			const a = item.parentElement.querySelector('a:first-child');
+			a.classList.remove('active');
+			item.classList.remove('show');
+		});
+		allSideDivider.forEach(item => {
+			item.textContent = item.dataset.text;
+		});
+	}
+});
 
 toggleSidebar.addEventListener('click', function () {
 	sidebar.classList.toggle('hide');
 
-	if(sidebar.classList.contains('hide')) {
-		allSideDivider.forEach(item=> {
-			item.textContent = '-'
-		})
+	if (sidebar.classList.contains('hide')) {
+		allSideDivider.forEach(item => {
+			item.textContent = '-';
+		});
 
-		allDropdown.forEach(item=> {
+		allDropdown.forEach(item => {
 			const a = item.parentElement.querySelector('a:first-child');
 			a.classList.remove('active');
 			item.classList.remove('show');
-		})
+		});
 	} else {
-		allSideDivider.forEach(item=> {
+		allSideDivider.forEach(item => {
 			item.textContent = item.dataset.text;
-		})
+		});
 	}
-})
-
-
-
-
-sidebar.addEventListener('mouseleave', function () {
-	if(this.classList.contains('hide')) {
-		allDropdown.forEach(item=> {
-			const a = item.parentElement.querySelector('a:first-child');
-			a.classList.remove('active');
-			item.classList.remove('show');
-		})
-		allSideDivider.forEach(item=> {
-			item.textContent = '-'
-		})
-	}
-})
-
-
-
-sidebar.addEventListener('mouseenter', function () {
-	if(this.classList.contains('hide')) {
-		allDropdown.forEach(item=> {
-			const a = item.parentElement.querySelector('a:first-child');
-			a.classList.remove('active');
-			item.classList.remove('show');
-		})
-		allSideDivider.forEach(item=> {
-			item.textContent = item.dataset.text;
-		})
-	}
-})
-
+});
 
 
 

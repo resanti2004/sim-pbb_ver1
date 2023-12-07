@@ -91,7 +91,7 @@
                                 <table>
                                     <thead>
                                         <tr>
-                                            <td>No</td>
+                                            <td width="50px">No</td>
                                             <td>Validasi Ke</td>
                                             <td>Kecamatan</td>
                                             <td>Kelurahan</td>
@@ -107,7 +107,7 @@
                                             <td>Kelompok</td>
                                             <td>Kategori</td>
                                             <td>Modified</td>
-                                            <td>Opsi</td>
+                                            <td width="100px">Opsi</td>
                                         </tr>
                                     </thead>
 
@@ -132,8 +132,8 @@
                                             <td>20</td>
                                             <td>
                                                 <ul class="list-inline">									
-                                                    <li class="list-inline-item"><a class="active" id="showModalButton"><i class='bx bxs-show' ></i></a></li>
-                                                    <li class="list-inline-item"><a href="#" class="active" id="delete"><i class='bx bxs-trash' ></i></a></li>
+                                                    <li class="list-inline-item"><a class="active" id="showModalButton"><i class='bx bx-show' ></i></a></li>
+                                                    <li class="list-inline-item"><a href="#" class="active" id="delete"><i class='bx bx-trash' ></i></a></li>
                                                     <li class="list-inline-item"><a href="#" class="active" id="info"><i class='bx bxs-printer' ></i></a></li>
                                                 </ul>
 

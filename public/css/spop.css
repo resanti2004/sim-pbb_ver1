@@ -352,14 +352,16 @@
 /* PADA TAMBAH DATA */
 /* Ganti warna border input menjadi biru */
 .form-control {
-	border-color: var(--blue);
+	/* border-color: var(--blue); */
+	border: 1px solid #aaa;
   }
-.filterBox .form-control {
-	border-color: var(--blue);
-  }
+/* .filterBox .form-control {
+	border-color: var(--blue) !important; 
+  } */
 
 .form-select {
-	border-color: var(--blue);
+	/* border-color: var(--blue); */
+	border: 1px solid #aaa;
   }
 
 /*================ CONTAINER FILTER ===============*/

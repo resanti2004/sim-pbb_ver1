@@ -44,7 +44,7 @@
                         </div>
                         <div class="col-md-12">
                             <label for="select2Multiple" class="form-label">Jenis Pelayanan</label>
-                            <select class="form-control" name="jns_pelayanan[]" multiple="multiple" id="select2Multiple" >
+                            <select class="form-select border border-primary" name="jns_pelayanan[]" multiple="multiple" id="select2Multiple" >
                                 <option>PENDAFTARAN DATA BARU</option>
                                 <option>MUTASI OBJEK/SUBJEK</option>
                                 <option>PEMBETULAN SPPT/SKP/STP</option>
