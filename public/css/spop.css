@@ -79,6 +79,19 @@
   .detail .recentOrders table tr td {
 	padding: 15px;
   }
+  .detail .recentOrders .modal-body table tr td {
+	padding: 5px 5px 5px 20px;
+	font-size: 16px;
+  }
+  .detail .recentOrders .modal-body{
+	width: 100%;
+	overflow-x: auto;
+  }
+  .detail .recentOrders .modal-body table tr th {
+	padding: 5px 20px 5px 20px;
+	width: 112px;
+	font-size: 16px;
+  }
   .detail .recentOrders table tr td ul {
 	display: flex;
 	margin: 0px;
@@ -359,10 +372,10 @@
 	position: relative;
 	/* display: grid; */
 	/* min-height: 400px; */
-	max-width: 1100px;
+	max-width: 1150px;
 	background: var(--light);
 	padding: 20px;
-	margin: 20px;
+	/* margin: 10px; */
 	box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
 	border-radius: 10px;
   }
@@ -489,3 +502,11 @@
 	color: rgb(2, 122, 2);
   }
 
+
+  .modal-dialog {
+    max-width: 600px; /* Hapus batasan lebar maksimum */
+  }
+
+  .modal-content {
+    width: 100%; /* Pastikan konten modal mengisi lebar modal */
+  }

@@ -78,6 +78,37 @@
 	<script src="js/pagination.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js"></script>
 
+	<!-- delete confirm -->
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<script>
+		$ (function(){
+			$(document).on('click', '#delete', function(e){
+				e.preventDefault();
+				var link = $(this).attr("href");
+
+				Swal.fire({
+					title: 'Apakah Anda Yakin?',
+					text: "Anda tidak akan bisa memulihkannya!",
+					icon: 'warning',
+					showCancelButton: true,
+					confirmButtonColor: '#3085d6',
+					cancelButtonColor: '#d33',
+					confirmButtonText: 'Ya, hapus!'
+					}).then((result) => {
+					if (result.isConfirmed) {
+						Swal.fire(
+						'Terhapus!',
+						'Data Anda berhasil dihapus!',
+						'success'
+						)
+					}
+					})
+
+			});
+		});
+	</script>
+
+
 
 </body>
 
