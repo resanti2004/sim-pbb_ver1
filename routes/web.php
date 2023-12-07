@@ -118,7 +118,7 @@ Route::controller(SKNJOPController::class)->group(function () {
 });
 Route::controller(SummaryNeracaBPKController::class)->group(function () {
     Route::get('/summaryBPK', 'index')->name('summaryNerBPK.index');
-    Route::post('/summaryBPK/cetak', 'print')->name('summaryNerBPK.cetak');
+    Route::post('/summaryBPK', 'print')->name('summaryNerBPK.cetak');
 });
 Route::controller(SummaryNeracaKPPController::class)->group(function () {
     Route::get('/summaryKPP', 'index')->name('summaryNerKPP.index');
@@ -132,7 +132,12 @@ Route::controller(ValidasiController::class)->group(function () {
     Route::get('/validasi/laporan', 'laporan')->name('validasi.laporan');
 });
 
-Route::resource('njoptkp', NJOPTKPController::class);
+Route::controller(NJOPTKPController::class)->group(function () {
+    Route::get('/njoptkp', 'index')->name('njoptkp.index');
+    Route::get('/njoptkp/{subjek_pajak_id}', 'edit')->name('njoptkp.edit');
+    Route::post('/njoptkp/{kdPropinsi}/{kdDati2}/{kdKecamatan}/{kdKelurahan}/{kdBlok}/{noUrut}/{kdJenisOp}/{thnPajakSppt}', 'update')->name('njoptkp.update');
+});
+
 Route::controller(TunggakanController::class)->group(function () {
     Route::get('/tunggakan', 'index')->name('tunggakan.index');
     Route::post('/tunggakan/cetak', 'print')->name('tunggakan.cetak');

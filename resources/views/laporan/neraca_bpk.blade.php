@@ -56,7 +56,7 @@
                             </form>
                         </div>
                         
-                        <!-- @if (isset($data))
+                        <!-- 
                         <div class="dataBox" style="overflow-x: auto;">
 
                         <div class="pencarian d-flex justify-content-between align-items-end">

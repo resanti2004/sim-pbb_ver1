@@ -37,7 +37,7 @@
 								</div>
 						</form> -->
 				<div class="pencarian d-flex justify-content-between align-items-end">
-					<p class="m-0">Menampilkan <b></b> data dari total <b></b> </p>
+					<p class="m-0">Menampilkan <b>{{ $results->count() }} </b> data dari total <b>{{ $results->total() }}</b> </p>
 					<!-- <a href="{{ route('provinsi.create') }}"><button type="button">+ Buat Baru</button></a> -->
 				</div>
 				<table>
@@ -47,35 +47,60 @@
 							<td>Nama Wajib Pajak</td>
 							<td>Subjek Pajak ID</td>
 							<td>NOP</td>
-							<td>NJOP SPPT</td>
-							<td>Opsi</td>
+							<td>MAX NJOP SPPT</td>
+							<td>NJOPTKP</td>
 						</tr>
 					</thead>
 
 					<tbody>
-						
+						@foreach($results as $result)
 						<tr>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
+							<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+							<td>{{ $no++ }}</td>
+							<td>{{ $result->NM_WP_SPPT }}</td>
+							<td>{{ $result->subjek_pajak_id }}</td>
+							<td>{{ $result->KD_PROPINSI.$result->KD_DATI2.$result->KD_KECAMATAN.$result->KD_KELURAHAN.$result->KD_BLOK.$result->NO_URUT.$result->KD_JNS_OP }}</td>
+							<td>{{ number_format($result->max_NJOP_SPPT,0,'','.') }}</td>
 							<td>
-								<ul class="list-inline">
-									<!-- <li class="list-inline-item"><a href="#" class="active"><i class='bx bxs-show'></i></a></li> -->
-									<li class="list-inline-item"><a href="#" class="active"><i class='bx bxs-edit'></i></a></li>
-									<!-- <li class="list-inline-item"><a href="#" class="active"><i class='bx bxs-trash'></i></a></li> -->
-								</ul>
+								<span class="display-mode">{{ number_format($result->NJOPTKP_SPPT, 0, '', '.') }}</span>
+								<a href="#" class="edit-btn active" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"><i class='bx bxs-edit'></i></a>
+								<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+									<div class="modal-dialog modal-dialog-centered">
+										<div class="modal-content">
+											<form method="POST" action="{{ route('njoptkp.update', ['kdPropinsi' => $result->KD_PROPINSI, 'kdDati2' => $result->KD_DATI2, 'kdKecamatan' => $result->KD_KECAMATAN, 'kdKelurahan' => $result->KD_KELURAHAN, 'kdBlok' => $result->KD_BLOK, 'noUrut' => $result->NO_URUT, 'kdJenisOp' => $result->KD_JNS_OP, 'thnPajakSppt' => $result->THN_PAJAK_SPPT]) }}" enctype="multipart/form-data">
+												@csrf
+												<div class="modal-header">
+													<h1 class="modal-title fs-5" id="exampleModalLabel">Ubah Nilai NJOPTKP SPPT</h1>
+													<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+												</div>
+												<div class="modal-body">
+
+													<div class="mb-3">
+														<label for="njoptkp" class="col-form-label">NJOPTKP SPPT:</label>
+														<input type="text" class="form-control" id="njoptkp" value="{{ $result->NJOPTKP_SPPT }}" name="NJOPTKP_SPPT">
+													</div>
+												</div>
+												<div class="modal-footer">
+													<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+													<button type="submit" class="btn btn-primary">Simpan</button>
+												</div>
+											</form>
+										</div>
+									</div>
+								</div>
 							</td>
+
 						</tr>
-					
+						@endforeach
 					</tbody>
 				</table>
 				<div class="d-flex justify-content-center">
-					
+					{{ $results->links() }}
 				</div>
 
 			</div>
 		</div>
 	</div>
+
 	@endsection

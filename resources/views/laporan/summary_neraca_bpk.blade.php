@@ -32,7 +32,7 @@
 						</div>
 						
                         <div class="filterBox">
-                            <form method="POST" action="{{ route('summaryNerBpk.cetak') }}" enctype="multipart/form-data" class="row g-4 p-3">
+                            <form method="POST" action="{{ route('summaryNerBPK.cetak') }}" enctype="multipart/form-data" class="row g-4 p-3">
                                 @csrf
                                 <div class="col-md-6 ">
                                     <label for="TahunAwal" class="form-label">Tahun Awal</label>

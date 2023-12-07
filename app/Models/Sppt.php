@@ -9,6 +9,7 @@ namespace App\Models;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Thiagoprz\CompositeKey\HasCompositeKey;
 
 /**
  * Class Sppt
@@ -63,9 +64,14 @@ use Illuminate\Support\Facades\DB;
  */
 class Sppt extends Model
 {
+
+  use HasCompositeKey;
   protected $table = 'sppt';
   public $incrementing = false;
   public $timestamps = false;
+
+  protected $primaryKey = ['KD_PROPINSI', 'KD_DATI2', 'KD_KECAMATAN', 'KD_KELURAHAN', 'KD_BLOK', 'NO_URUT', 'KD_JNS_OP', 'THN_PAJAK_SPPT'];
+
 
   protected $casts = [
     'SIKLUS_SPPT' => 'int',
