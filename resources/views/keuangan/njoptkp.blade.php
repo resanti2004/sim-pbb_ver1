@@ -75,10 +75,9 @@
 													<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 												</div>
 												<div class="modal-body">
-
 													<div class="mb-3">
 														<label for="njoptkp" class="col-form-label">NJOPTKP SPPT:</label>
-														<input type="text" class="form-control" id="njoptkp" value="{{ $result->NJOPTKP_SPPT }}" name="NJOPTKP_SPPT">
+														<input type="text" class="form-control" id="njoptkp" name="NJOPTKP_SPPT">
 													</div>
 												</div>
 												<div class="modal-footer">

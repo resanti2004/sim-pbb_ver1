@@ -7,6 +7,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Thiagoprz\CompositeKey\HasCompositeKey;
 
 /**
  * Class Tarif
@@ -23,9 +24,11 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Tarif extends Model
 {
+	use HasCompositeKey;
 	protected $table = 'tarif';
 	public $incrementing = false;
 	public $timestamps = false;
+	public $primaryKey = ['KD_PROPINSI', 'KD_DATI2', 'THN_AWAL', 'THN_AKHIR', 'NJOP_MIN'];
 
 	protected $casts = [
 		'NJOP_MIN' => 'float',

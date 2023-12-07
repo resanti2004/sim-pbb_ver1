@@ -142,7 +142,15 @@ Route::controller(TunggakanController::class)->group(function () {
     Route::get('/tunggakan', 'index')->name('tunggakan.index');
     Route::post('/tunggakan/cetak', 'print')->name('tunggakan.cetak');
 });
-Route::resource('tarif', TarifController::class);
 
+
+Route::controller(TarifController::class)->group(function () {
+    Route::get('/tarif/create', 'create')->name('tarif.create');
+    Route::post('/tarif', 'store')->name('tarif.store');
+    Route::get('/tarif', 'index')->name('tarif.index');
+    Route::get('/tarif/{KD_PROPINSI}/{KD_DATI2}/{THN_AWAL}/{THN_AKHIR}/{NJOP_MIN}', 'edit')->name('tarif.edit');
+    Route::post('/tarif/update', 'update')->name('tarif.update');
+    Route::delete('/tarif/{KD_PROPINSI}/{KD_DATI2}/{THN_AWAL}/{THN_AKHIR}/{NJOP_MIN}', 'destroy')->name('tarif.destroy');
+});
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

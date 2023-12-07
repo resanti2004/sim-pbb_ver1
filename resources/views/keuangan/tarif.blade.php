@@ -37,8 +37,8 @@
 								</div>
 						</form> -->
 				<div class="pencarian d-flex justify-content-between align-items-end">
-					<p class="m-0">Menampilkan <b></b> data dari total <b></b> </p>
-					<a href="{{ route('provinsi.create') }}"><button type="button">+ Buat Baru</button></a>
+					<p class="m-0">Menampilkan <b>{{ $data_tarif->count()}}</b> data dari total <b>{{ $data_tarif->total()}} </b> </p>
+					<a href="{{ route('tarif.create') }}"><button type="button">+ Buat Baru</button></a>
 				</div>
 				<table>
 					<thead>
@@ -56,29 +56,46 @@
 					</thead>
 
 					<tbody>
-						
+						@foreach($data_tarif as $tarif)
 						<tr>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
+							<td>{{ $no++ }}</td>
+							<td>{{ $tarif->KD_PROPINSI }}</td>
+							<td>{{ $tarif->KD_DATI2 }}</td>
+							<td>{{ $tarif->THN_AWAL }}</td>
+							<td>{{ $tarif->THN_AKHIR }}</td>
+							<td>{{ $tarif->NJOP_MIN }}</td>
+							<td>{{ $tarif->NJOP_MAX }}</td>
+							<td>{{ $tarif->NILAI_TARIF }}</td>
 							<td>
 								<ul class="list-inline">
-									<li class="list-inline-item"><a href="#" class="active"><i class='bx bxs-show'></i></a></li>
-									<li class="list-inline-item"><a href="#" class="active"><i class='bx bxs-edit'></i></a></li>
-									<li class="list-inline-item"><a href="#" class="active"><i class='bx bxs-trash'></i></a></li>
+									<li class="list-inline-item"><a href="{{ route('tarif.edit', ['KD_PROPINSI' => $tarif->KD_PROPINSI, 'KD_DATI2' => $tarif->KD_DATI2, 'THN_AWAL' => $tarif->THN_AWAL, 'THN_AKHIR' => $tarif->THN_AKHIR, 'NJOP_MIN' => $tarif->NJOP_MIN]) }}" class="active"><i class='bx bxs-edit'></i></a></li>
+									<li class="list-inline-item">
+
+										<form id="deleteForm_{{ $tarif->KD_PROPINSI,$tarif->KD_DATI2,$tarif->THN_AWAL,$tarif->THN_AKHIR,$tarif->NJOP_MIN }}" action="{{ route('tarif.destroy', ['KD_PROPINSI' => $tarif->KD_PROPINSI, 'KD_DATI2' => $tarif->KD_DATI2, 'THN_AWAL' => $tarif->THN_AWAL, 'THN_AKHIR' => $tarif->THN_AKHIR, 'NJOP_MIN' => $tarif->NJOP_MIN]) }}" method="POST">
+											@csrf
+											@method('DELETE')
+										</form>
+
+										<a href="#" onclick="deleteConfirmation('{{ $tarif->KD_PROPINSI,$tarif->KD_DATI2,$tarif->THN_AWAL,$tarif->THN_AKHIR,$tarif->NJOP_MIN }}')">
+											<i class='bx bxs-trash'></i>
+										</a>
+
+										<script>
+											function deleteConfirmation(tarif_id) {
+												if (confirm('Anda yakin untuk menghapus?')) {
+													document.getElementById('deleteForm_' + tarif_id).submit();
+												}
+											}
+										</script>
+									</li>
 								</ul>
 							</td>
 						</tr>
-						
+						@endforeach
 					</tbody>
 				</table>
 				<div class="d-flex justify-content-center">
-					
+
 				</div>
 
 			</div>
