@@ -78,8 +78,9 @@
 	<script src="js/pagination.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js"></script>
 
-	<!-- delete confirm -->
+	<!-- popup/alert -->
 	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<!-- delete confirm alert -->
 	<script>
 		$ (function(){
 			$(document).on('click', '#delete', function(e){
@@ -103,10 +104,24 @@
 						)
 					}
 					})
-
 			});
 		});
 	</script>
+	<!-- alert info -->
+	<script>
+		$ (function(){
+			$(document).on('click', '#info', function(e){
+				e.preventDefault();
+				var link = $(this).attr("href");
+
+				Swal.fire(
+					'Informasi',
+					'Anda tidak bisa melakukan aksi ini!',
+					'info'
+					)
+			});
+		});
+	</script>	
 
 
 

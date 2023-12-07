@@ -34,68 +34,74 @@
 									<i class='bx bx-search icon' ></i>
 								</div>
 						</form> -->
-				<div class="pencarian">
-					<a href="{{ route('pelayanan.laporan') }}"><button class="bg-success" type="button">Laporan Pelayanan</button></a>
-					<a href="{{ route('pelayanan.create') }}"><button type="button">+ Buat Baru</button></a>
+				<div class="pencarian d-flex justify-content-between align-items-end">
+					<p class="m-0">Menampilkan <b>2</b> data dari total <b>2</b> </p>
+					<div class="tombol">
+						<a href="{{ route('pelayanan.laporan') }}"><button class="bg-success" type="button">Laporan Pelayanan</button></a>
+						<a href="{{ route('pelayanan.create') }}"><button type="button">+ Buat Baru</button></a>
+					</div>
 				</div>
 
-				<table>
-					<thead>
-						<tr>
-							<td>No</td>
-							<td>No Pelayanan</td>
-							<td>Nama Pemohon</td>
-							<td>Tanggal Pelayanan</td>
-							<td>Kecamatan</td>
-							<td>Kelurahan</td>
-							<td>Blok</td>
-							<td>No Urut</td>
-							<td>Kode Jenis Pelayanan</td>
-							<td>Status Pelayanan</td>
-							<td>Keterangan Berkas</td>
-							<td>Opsi</td>
-						</tr>
-					</thead>
+				<div class="dataTable2" style="overflow-x: auto;">
+					<table>
+						<thead>
+							<tr>
+								<td>No</td>
+								<td>No Pelayanan</td>
+								<td>Nama Pemohon</td>
+								<td>Tanggal Pelayanan</td>
+								<td>Kecamatan</td>
+								<td>Kelurahan</td>
+								<td>Blok</td>
+								<td>No Urut</td>
+								<td>Kode Jenis Pelayanan</td>
+								<td>Status Pelayanan</td>
+								<td>Keterangan Berkas</td>
+								<td>Opsi</td>
+							</tr>
+						</thead>
 
-					<tbody>
-						@foreach($data_pelayanan as $pelayanan)
-						<tr>
-							<td>{{ $no++ }} </td>
-							<td>{{ $pelayanan->NO_PELAYANAN }}</td>
-							<td>{{ $pelayanan->NAMA_PEMOHON }}</td>
-							<td>{{ $pelayanan->TANGGAL_PELAYANAN }}</td>
-							<td>{{ $pelayanan->KECAMATAN }}</td>
-							<td>{{ $pelayanan->KELURAHAN}}</td>
-							<td>{{ $pelayanan->KD_BLOK }}</td>
-							<td>{{ $pelayanan->NO_URUT }}</td>
-							<td><?php
-								$kd = \App\Models\RefJnsPelayanan::all()->pluck('NM_JENIS_PELAYANAN', 'KD_JNS_PELAYANAN')->toArray();
-								echo $kd[$pelayanan->KD_JNS_PELAYANAN] ?? '';
-								?>
-							</td>
-							<td>
-								<?php
-								$status = \App\Models\StatusPelayanan::orderBy('urutan')->pluck('nama', 'id')->toArray();
-								if (!isset($pelayanan->STATUS_PELAYANAN)) {
-									echo $status[1];
-								} else {
-									echo $status[$pelayanan->STATUS_PELAYANAN];
-								}
-								?>
-							</td>
-							<td>{{ $pelayanan->KETERANGAN_BERKAS }}</td>
-							<td>
-								<ul class="list-inline">
-									<li class="list-inline-item"><a href="{{ route('pelayanan.show') }}" class="active"><i class='bx bxs-show'></i></a></li>
-									<li class="list-inline-item"><a href="#" class="active"><i class='bx bxs-edit'></i></a></li>
-									<li class="list-inline-item"><a href="#" class="active"><i class='bx bxs-trash'></i></a></li>
-								</ul>
-							</td>
-						</tr>
-						@endforeach
-					</tbody>
-				</table>
-				<div class="d-flex justify-content-center">
+						<tbody>
+							@foreach($data_pelayanan as $pelayanan)
+							<tr>
+								<td>{{ $no++ }} </td>
+								<td>{{ $pelayanan->NO_PELAYANAN }}</td>
+								<td>{{ $pelayanan->NAMA_PEMOHON }}</td>
+								<td>{{ $pelayanan->TANGGAL_PELAYANAN }}</td>
+								<td>{{ $pelayanan->KECAMATAN }}</td>
+								<td>{{ $pelayanan->KELURAHAN}}</td>
+								<td>{{ $pelayanan->KD_BLOK }}</td>
+								<td>{{ $pelayanan->NO_URUT }}</td>
+								<td><?php
+									$kd = \App\Models\RefJnsPelayanan::all()->pluck('NM_JENIS_PELAYANAN', 'KD_JNS_PELAYANAN')->toArray();
+									echo $kd[$pelayanan->KD_JNS_PELAYANAN] ?? '';
+									?>
+								</td>
+								<td>
+									<?php
+									$status = \App\Models\StatusPelayanan::orderBy('urutan')->pluck('nama', 'id')->toArray();
+									if (!isset($pelayanan->STATUS_PELAYANAN)) {
+										echo $status[1];
+									} else {
+										echo $status[$pelayanan->STATUS_PELAYANAN];
+									}
+									?>
+								</td>
+								<td>{{ $pelayanan->KETERANGAN_BERKAS }}</td>
+								<td>
+									<ul class="list-inline">
+										<li class="list-inline-item"><a href="{{ route('pelayanan.show') }}" class="active"><i class='bx bxs-show'></i></a></li>
+										<li class="list-inline-item"><a href="#" class="active"><i class='bx bxs-edit'></i></a></li>
+										<li class="list-inline-item"><a href="#" class="active"><i class='bx bxs-trash'></i></a></li>
+									</ul>
+								</td>
+							</tr>
+							@endforeach
+						</tbody>
+					</table>
+				</div>
+
+				<div class="d-flex justify-content-center mt-3">
 					{{ $data_pelayanan->links() }}
 				</div>
 

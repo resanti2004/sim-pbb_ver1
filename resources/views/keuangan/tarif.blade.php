@@ -43,7 +43,7 @@
 				<table>
 					<thead>
 						<tr>
-							<td>No</td>
+							<td width="50px">No</td>
 							<td>Kode Provinsi</td>
 							<td>Kode Dati2</td>
 							<td>Tahun Awal</td>
@@ -51,7 +51,7 @@
 							<td>NJOP Minimal</td>
 							<td>NJOP Maximal</td>
 							<td>Nilai Tarif</td>
-							<td>Opsi</td>
+							<td width="100px">Opsi</td>
 						</tr>
 					</thead>
 
@@ -68,6 +68,7 @@
 							<td>{{ $tarif->NILAI_TARIF }}</td>
 							<td>
 								<ul class="list-inline">
+									<li class="list-inline-item"><a class="active" id="info"><i class='bx bx-show' ></i></a></li>
 									<li class="list-inline-item"><a href="{{ route('tarif.edit', ['KD_PROPINSI' => $tarif->KD_PROPINSI, 'KD_DATI2' => $tarif->KD_DATI2, 'THN_AWAL' => $tarif->THN_AWAL, 'THN_AKHIR' => $tarif->THN_AKHIR, 'NJOP_MIN' => $tarif->NJOP_MIN]) }}" class="active"><i class='bx bxs-edit'></i></a></li>
 									<li class="list-inline-item">
 
@@ -77,7 +78,7 @@
 										</form>
 
 										<a href="#" onclick="deleteConfirmation('{{ $tarif->KD_PROPINSI,$tarif->KD_DATI2,$tarif->THN_AWAL,$tarif->THN_AKHIR,$tarif->NJOP_MIN }}')">
-											<i class='bx bxs-trash'></i>
+											<i class='bx bx-trash'></i>
 										</a>
 
 										<script>
@@ -94,8 +95,9 @@
 						@endforeach
 					</tbody>
 				</table>
-				<div class="d-flex justify-content-center">
 
+				<div class="d-flex justify-content-center mt-3">
+					{{ $data_tarif->links() }}
 				</div>
 
 			</div>

@@ -134,7 +134,7 @@
                                                 <ul class="list-inline">									
                                                     <li class="list-inline-item"><a class="active" id="showModalButton"><i class='bx bxs-show' ></i></a></li>
                                                     <li class="list-inline-item"><a href="#" class="active" id="delete"><i class='bx bxs-trash' ></i></a></li>
-                                                    <li class="list-inline-item"><a href="#" class="active"><i class='bx bxs-printer' ></i></a></li>
+                                                    <li class="list-inline-item"><a href="#" class="active" id="info"><i class='bx bxs-printer' ></i></a></li>
                                                 </ul>
 
                                                 <div class="modal fade " id="staticBackdrop" aria-hidden="true" aria-labelledby="staticBackdropLabel" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">

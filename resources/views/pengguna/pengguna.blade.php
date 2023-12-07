@@ -28,16 +28,17 @@
 									<i class='bx bx-search icon' ></i>
 								</div>
 						</form> -->
-				<div class="pencarian">
+				<div class="pencarian d-flex justify-content-between align-items-end">
+					<p class="m-0">Menampilkan <b>{{ $data_users->count() }}</b> data dari total <b>{{ $data_users->total() }}</b> </p>
 					<a href="{{ route('user.create') }}"><button type="button">+ Buat Baru</button></a>
 				</div>
 				<table>
 					<thead>
 						<tr>
-							<td>No</td>
+							<td width="50px">No</td>
 							<td>Username</td>
 							<td>Nama Lengkap</td>
-							<td>Opsi</td>
+							<td width="100px">Opsi</td>
 						</tr>
 					</thead>
 
@@ -52,7 +53,7 @@
 									<li class="list-inline-item"><a href="{{ route('user.show', [
 										'user' => $user->id,
 										'no' => $no-1
-									]) }}" class="active"><i class='bx bxs-show'></i></a></li>
+									]) }}" class="active"><i class='bx bx-show'></i></a></li>
 
 									<li class="list-inline-item"><a href="{{ route('user.edit', [
 										'user' => $user->id,
@@ -65,7 +66,7 @@
 										</form>
 
 										<a href="#" onclick="deleteConfirmation('{{ $user->id }}')">
-											<i class='bx bxs-trash'></i>
+											<i class='bx bx-trash'></i>
 										</a>
 
 										<script>
@@ -82,7 +83,8 @@
 						@endforeach
 					</tbody>
 				</table>
-				<div class="d-flex justify-content-center">
+
+				<div class="d-flex justify-content-center mt-3">
 					{{ $data_users->links() }}
 				</div>
 

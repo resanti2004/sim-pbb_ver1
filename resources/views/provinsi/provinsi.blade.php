@@ -43,10 +43,10 @@
 				<table>
 					<thead>
 						<tr>
-							<td>No</td>
+							<td width="50px">No</td>
 							<td>Kode Provinsi</td>
 							<td>Nama Provinsi</td>
-							<td>Opsi</td>
+							<td width="100px">Opsi</td>
 						</tr>
 					</thead>
 
@@ -62,9 +62,9 @@
 											{{ route('provinsi.show', [
 										'kdPropinsi' => $provinsi->KD_PROPINSI,
 										'no' => $no-1
-									]) }}" class="active"><i class='bx bxs-show'></i></a></li>
-									<!-- <li class="list-inline-item"><a href="#" class="active"><i class='bx bxs-edit'></i></a></li>
-									<li class="list-inline-item"><a href="#" class="active"><i class='bx bxs-trash'></i></a></li> -->
+									]) }}" class="active"><i class='bx bx-show'></i></a></li>
+									<li class="list-inline-item"><a href="#" class="active" id="info"><i class='bx bxs-edit'></i></a></li>
+									<li class="list-inline-item"><a href="#" class="active" id="info"><i class='bx bx-trash'></i></a></li>
 								</ul>
 							</td>
 						</tr>

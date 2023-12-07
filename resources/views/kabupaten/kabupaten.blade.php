@@ -39,14 +39,14 @@
 					<a href="{{ route('kabupaten.create') }}"><button type="button">+ Buat Baru</button></a>
 				</div>
 
-				<table>
+				<table >
 					<thead>
 						<tr>
-							<td>No</td>
+							<td width="50px">No</td>
 							<td>Kode Provinsi</td>
 							<td>Kode Dati II</td>
 							<td>Nama Dati II</td>
-							<td>Opsi</td>
+							<td width="100px">Opsi</td>
 						</tr>
 					</thead>
 
@@ -63,9 +63,9 @@
 										'kdPropinsi' => $kab->KD_PROPINSI,
 										'kdDati2' => $kab->KD_DATI2,
 										'no' => $no-1
-									]) }}" class="active"><i class='bx bxs-show'></i></a></li>
-									<!-- <li class="list-inline-item"><a href="#" class="active"><i class='bx bxs-edit'></i></a></li>
-									<li class="list-inline-item"><a href="#" class="active"><i class='bx bxs-trash'></i></a></li> -->
+									]) }}" class="active"><i class='bx bx-show'></i></a></li>
+									<li class="list-inline-item"><a href="#" class="active" id="info"><i class='bx bxs-edit'></i></a></li>
+									<li class="list-inline-item"><a href="#" class="active" id="info"><i class='bx bx-trash'></i></a></li>
 								</ul>
 							</td>
 						</tr>

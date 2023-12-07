@@ -43,7 +43,7 @@
 				<table>
 					<thead>
 						<tr>
-							<td>No</td>
+							<td width="50px">No</td>
 							<td>Nama Wajib Pajak</td>
 							<td>Subjek Pajak ID</td>
 							<td>NOP</td>
@@ -94,7 +94,8 @@
 						@endforeach
 					</tbody>
 				</table>
-				<div class="d-flex justify-content-center">
+
+				<div class="d-flex justify-content-center mt-3">
 					{{ $results->links() }}
 				</div>
 

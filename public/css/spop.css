@@ -434,8 +434,23 @@
 	border-radius: 10px;
 	flex: 1;
   }
+.detail .recentOrders .dataTable2 {
+	position: relative;
+	/* display: grid; */
+	/* min-height: 400px; */
+	max-width: 1150px;
+	background: var(--light);
+	/* padding: 0 10px 10px 10px; */
+	/* margin: 20px; */
+	/* box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08); */
+	border-radius: 10px;
+	flex: 1;
+  }
 
 .dataTable table{
+	white-space: nowrap;
+}
+.dataTable2 table{
 	white-space: nowrap;
 }
 
@@ -495,11 +510,20 @@
     overflow-y: auto !important;
 }
 
-.list-inline-item a.active i.bx.bxs-trash {
+.list-inline-item a.active i.bx.bx-show {
+	color: rgb(6, 50, 182);
+  }
+.list-inline-item a.active i.bx.bx-trash {
+	color: rgb(182, 6, 6);
+  }
+.list-inline-item a i.bx.bx-trash {
 	color: rgb(182, 6, 6);
   }
 .list-inline-item a.active i.bx.bxs-edit {
-	color: rgb(2, 122, 2);
+	color: rgb(90, 2, 122);
+  }
+.bx.bxs-edit {
+	color: rgb(90, 2, 122);
   }
 
 

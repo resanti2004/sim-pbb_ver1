@@ -34,7 +34,8 @@
 									<i class='bx bx-search icon' ></i>
 								</div>
 						</form> -->
-				<div class="pencarian">
+				<div class="pencarian d-flex justify-content-between align-items-end">
+					<p class="m-0">Menampilkan <b>{{ $data_lspop->count() }}</b> data dari total <b>{{ $data_lspop->total() }}</b> </p>
 					<a href="{{ route('lspop.create')}}"><button type="button">Buat Baru</button></a>
 				</div>
 
@@ -87,7 +88,8 @@
 						@endforeach
 					</tbody>
 				</table>
-				<div class="d-flex justify-content-center">
+
+				<div class="d-flex justify-content-center mt-3">
 					{{ $data_lspop->links() }}
 				</div>
 
