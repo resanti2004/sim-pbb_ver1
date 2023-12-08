@@ -368,7 +368,7 @@ class Sppt extends Model
 
   public function neracaKppSummary($thn_awal, $thn_akhir, $per_tanggal, $tahun_neraca)
   {
-    $sql1 = "SELECT * FROM sisa_piutang WHERE thn_neraca=" . ($tahun_neraca - 1);
+    $sql1 = "SELECT * FROM sisa_piutang WHERE thn_neraca=" . ($tahun_neraca);
     $sql2 = "SELECT 
                     THN_PAJAK_SPPT,
                     SUM(IFNULL(JML_SPPT_YG_DIBAYAR, 0)) AS TOTAL,
@@ -389,8 +389,9 @@ class Sppt extends Model
                   GROUP BY THN_PAJAK_SPPT";
 
     $sisa = DB::select($sql1);
+    
     $pembayaran = DB::select($sql2);
-
+    // dd($pembayaran);
     $data = [];
 
     foreach ($sisa as $key => $value) {
@@ -407,8 +408,11 @@ class Sppt extends Model
     }
 
     foreach ($data as $thn => $value) {
-      $data[$thn]['PENYISIHAN'] = $tahun_neraca - $thn <= 5 ? ($value['SISA'] - $value['POKOK']) * 0.5 : ($value['SISA'] - $value['POKOK']) * 1;
-    }
+      // Use consistent keys for the calculations
+      $sisa = isset($value['SISA']) ? $value['SISA'] : 0;
+      $pokok = isset($value['POKOK']) ? $value['POKOK'] : 0;
+
+      $data[$thn]['PENYISIHAN'] = $tahun_neraca - $thn <= 5 ? ($sisa - $pokok) * 0.5 : ($sisa - $pokok) * 1;    }
 
     return $data;
   }
