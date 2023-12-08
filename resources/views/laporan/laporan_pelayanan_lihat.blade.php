@@ -89,7 +89,6 @@
 				</div>
 
 				<div class="d-flex justify-content-center mt-3">
-					{{ $data_pelayanan->links() }}
 				</div>
 
 			</div>

@@ -32,15 +32,15 @@
                 </div>
 
                 <div class="filterBox">
-                    <form method="POST" action="{{ route('pelayananLap.cetak') }}" enctype="multipart/form-data" class="row g-4 p-3">
+                    <form method="POST" action="{{ route('pelayananLap.look') }}" enctype="multipart/form-data" class="row g-4 p-3">
                         @csrf
                         <div class="col-md-6">
                             <label for="TanggalRealisasi" class="form-label">Tanggal Awal</label>
-                            <input type="date" class="form-control" id="TanggalRealisasi" name="TGL_REALISASI" value="{{ date('Y').'-12-31' }}">
+                            <input type="date" class="form-control" id="TanggalRealisasi" name="tgl_awal" value="{{ date('Y').'-12-31' }}">
                         </div>
                         <div class="col-md-6">
                             <label for="TanggalRealisasi" class="form-label">Tanggal Akhir</label>
-                            <input type="date" class="form-control" id="TanggalRealisasi" name="TGL_REALISASI" value="{{ date('Y').'-12-31' }}">
+                            <input type="date" class="form-control" id="TanggalRealisasi" name="tgl_akhir" value="{{ date('Y').'-12-31' }}">
                         </div>
                         <div class="col-md-12">
                             <label for="select2Multiple" class="form-label">Jenis Pelayanan</label>
@@ -70,7 +70,7 @@
 
                         <div class="col-md-12">
                             <label for="Tahun" class="form-label">Tahun</label>
-                            <input type="number" class="form-control" id="Tahun" name="tahun" value="{{ date('Y')}}">
+                            <input type="number" class="form-control" id="Tahun" name="thn_awal" value="{{ date('Y')}}">
                             <div class="invalid-feedback">
                                 Isi kolom ini terlebih dahulu!
                             </div>

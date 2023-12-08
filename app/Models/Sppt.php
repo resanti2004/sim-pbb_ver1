@@ -613,7 +613,7 @@ class Sppt extends Model
               FROM pelayanan 
               WHERE TANGGAL_PELAYANAN BETWEEN '$start_date' AND '$end_date' 
                   AND KD_PROPINSI <> '00' 
-                  AND KD_JNS_PELAYANAN IN ($jns_pelayanan)
+                  AND KD_JNS_PELAYANAN IN ('$jns_pelayanan')
           ");
     }
 
