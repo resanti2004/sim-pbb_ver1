@@ -25,7 +25,7 @@
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="#">Beranda</a></li>
 							<li class="breadcrumb-item"><a href="#">Laporan</a></li>
-							<li class="breadcrumb-item"><a href="#">Summary Neraca KPP</a></li>
+							<li class="breadcrumb-item"><a href="{{ route('summaryNerKPP.index') }}">Summary Neraca KPP</a></li>
 							<li class="breadcrumb-item active" aria-current="page">Lihat Summary Neraca</li>
 						</ol>
 					</div>

@@ -122,7 +122,7 @@ Route::controller(SummaryNeracaBPKController::class)->group(function () {
 });
 Route::controller(SummaryNeracaKPPController::class)->group(function () {
     Route::get('/summaryKPP', 'index')->name('summaryNerKPP.index');
-    Route::post('/summaryKPP/cetak', 'print')->name('summaryNerKPP.cetak');
+    Route::post('/summaryKPP/lihat', 'look')->name('summaryNerKPP.look');
 });
 Route::controller(ValidasiController::class)->group(function () {
     Route::get('/validasi', 'index')->name('validasi.index');
