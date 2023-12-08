@@ -178,7 +178,7 @@
 #sidebar.hide:hover .ads {
 	display: block;
 } */
-/* #sidebar .ads .wrapper {
+#sidebar .ads .wrapper {
 	background: var(--grey);
 	padding: 20px;
 	border-radius: 10px;
@@ -206,5 +206,5 @@
 }
 #sidebar .ads .wrapper p span {
 	font-weight: 700;
-} */
+}
 /* SIDEBAR */
