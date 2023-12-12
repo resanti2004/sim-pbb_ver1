@@ -57,7 +57,7 @@
 						<tr>
 							<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
-							<td>{{ $no++ }}</td>
+							<td class="text-center">{{ $no++ }}</td>
 							<td>{{ $result->NM_WP_SPPT }}</td>
 							<td>{{ $result->subjek_pajak_id }}</td>
 							<td>{{ $result->KD_PROPINSI.$result->KD_DATI2.$result->KD_KECAMATAN.$result->KD_KELURAHAN.$result->KD_BLOK.$result->NO_URUT.$result->KD_JNS_OP }}</td>

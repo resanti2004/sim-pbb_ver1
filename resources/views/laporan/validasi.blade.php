@@ -107,14 +107,14 @@
                                             <td>Kelompok</td>
                                             <td>Kategori</td>
                                             <td>Modified</td>
-                                            <td width="100px">Opsi</td>
+                                            <td width="100px" class="text-center">Opsi</td>
                                         </tr>
                                     </thead>
 
                                     <tbody>
 
                                         <tr>
-                                            <td>No</td>
+                                            <td class="text-center">1</td>
                                             <td>Wates</td>
                                             <td>Bendungan</td>
                                             <td>20</td>

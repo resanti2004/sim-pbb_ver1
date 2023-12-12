@@ -51,14 +51,14 @@
 							<td>Nama Kelurahan</td>
 							<td>Nomor Kelurahan</td>
 							<td>Kode Pos Kelurahan</td>
-							<td width="100px">Opsi</td>
+							<td width="100px" class="text-center">Opsi</td>
 						</tr>
 					</thead>
 
 					<tbody>
 						@foreach($data_kelurahan as $kelurahan)
 						<tr>
-							<td>{{ $no++ }}</td>
+							<td class="text-center">{{ $no++ }}</td>
 							<td>{{ $kelurahan->KD_PROPINSI }}</td>
 							<td>{{ $kelurahan->KD_DATI2 }}</td>
 							<td>{{ $kelurahan->KD_KECAMATAN }}</td>

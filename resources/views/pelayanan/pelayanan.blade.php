@@ -46,7 +46,7 @@
 					<table>
 						<thead>
 							<tr>
-								<td>No</td>
+								<td width="50px">No</td>
 								<td>No Pelayanan</td>
 								<td>Nama Pemohon</td>
 								<td>Tanggal Pelayanan</td>
@@ -57,14 +57,14 @@
 								<td>Kode Jenis Pelayanan</td>
 								<td>Status Pelayanan</td>
 								<td>Keterangan Berkas</td>
-								<td>Opsi</td>
+								<td width="100px" class="text-center">Opsi</td>
 							</tr>
 						</thead>
 
 						<tbody>
 							@foreach($data_pelayanan as $pelayanan)
 							<tr>
-								<td>{{ $no++ }} </td>
+								<td  class="text-center">{{ $no++ }} </td>
 								<td>{{ $pelayanan->NO_PELAYANAN }}</td>
 								<td>{{ $pelayanan->NAMA_PEMOHON }}</td>
 								<td>{{ $pelayanan->TANGGAL_PELAYANAN }}</td>

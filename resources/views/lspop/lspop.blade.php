@@ -42,26 +42,26 @@
 				<table>
 					<thead>
 						<tr>
-							<td>No</td>
+							<td width="50px">No</td>
 							<td>NOP</td>
 							<td>Nomor Bangunan</td>
 							<td>Luas Bangunan</td>
 							<td>Jumlah Lantai Bangunan</td>
-							<td>Opsi</td>
+							<td width="100px" class="text-center">Opsi</td>
 						</tr>
 					</thead>
 
 					<tbody>
 						@foreach($data_lspop as $lspop)
 						<tr>
-							<td>{{ $no++ }}</td>
+							<td class="text-center">{{ $no++ }}</td>
 							<td>{{ $lspop->nop }}</td>
 							<td>{{ $lspop->NO_BNG }}</td>
 							<td>{{ $lspop->LUAS_BNG }}</td>
 							<td>{{ $lspop->JML_LANTAI_BNG }}</td>
 							<td>
 								<ul class="list-inline">
-									<li class="list-inline-item"><a href="{{ route('lspop.show') }}" class="active"><i class='bx bxs-show'></i></a></li>
+									<li class="list-inline-item"><a href="{{ route('lspop.show') }}" class="active"><i class='bx bx-show'></i></a></li>
 									<li class="list-inline-item"><a href="{{ route('lspop.edit') }}" class="active"><i class='bx bxs-edit'></i></a></li>
 									<li class="list-inline-item">
 
@@ -71,7 +71,7 @@
 										</form>
 
 										<a href="#" onclick="deleteConfirmation('{{ $lspop->nop }}')">
-											<i class='bx bxs-trash'></i>
+											<i class='bx bx-trash'></i>
 										</a>
 
 										<script>

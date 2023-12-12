@@ -47,14 +47,14 @@
 							<td>Kode Dati II</td>
 							<td>Kode Kecamatan</td>
 							<td>Nama Kecamatan</td>
-							<td width="100px">Opsi</td>
+							<td width="100px" class="text-center">Opsi</td>
 						</tr>
 					</thead>
 
 					<tbody>
 						@foreach($data_kecamatan as $kecamatan)
 						<tr>
-							<td>{{ $no++ }}</td>
+							<td class="text-center">{{ $no++ }}</td>
 							<td>{{ $kecamatan->KD_PROPINSI }}</td>
 							<td>{{ $kecamatan->KD_DATI2 }}</td>
 							<td>{{ $kecamatan->KD_KECAMATAN }}</td>
