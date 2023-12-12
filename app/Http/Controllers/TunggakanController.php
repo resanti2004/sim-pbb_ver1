@@ -98,6 +98,9 @@ class TunggakanController extends Controller
             ])->with('layout', 'report');
         }
 
-        return view('keuangan.tunggakan');
+        return redirect()->route('tunggakan.index', [
+            'fullname' => $fullname,
+            'username' => $username,
+        ]);
     }
 }
