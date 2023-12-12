@@ -78,7 +78,7 @@
                                     <td>Total Dibayar</td>
                                     <td>Kurang Bayar</td>
                                     <td>Lebih Bayar</td>
-                                    <td width="100px">%</td>
+                                    <td width="100px" class="text-center">%</td>
                                     <!-- <td>Opsi</td> -->
                                 </tr>
                             </thead>
@@ -101,7 +101,7 @@
                                 $total_lebih_bayar += $item->LEBIH_BAYAR; ?>
                                 
                                 <tr>
-                                    <td>{{ $no++ }}</td>
+                                    <td class="text-center">{{ $no++ }}</td>
                                     <td>{{ $item->NM_KECAMATAN }}</td>
                                     <td>{{ $item->NM_KELURAHAN }}</td>
                                     <td>{{ number_format($item->POKOK_TERHUTANG,0,'','.') }}</td>

@@ -43,26 +43,26 @@
 				<table>
 					<thead>
 						<tr>
-							<td>No</td>
+							<td width="50px">No</td>
 							<td>NOP</td>
 							<td>Subjek Pajak ID</td>
 							<td>Jalan Objek Pajak</td>
 							<td>Luas Bumi</td>
-							<td>Opsi</td>
+							<td width="100px" class="text-center">Opsi</td>
 						</tr>
 					</thead>
 
 					<tbody>
 						@foreach($data_spop as $spop)
 						<tr>
-							<td>{{ $no++ }}</td>
+							<td class="text-center">{{ $no++ }}</td>
 							<td>{{ $spop->nop }}</td>
 							<td>{{ $spop->SUBJEK_PAJAK_ID }}</td>
 							<td>{{ $spop->JALAN_OP }}</td>
 							<td>{{ $spop->LUAS_BUMI }}</td>
 							<td>
 								<ul class="list-inline">
-									<li class="list-inline-item"><a href="{{ route('spop.show', ['NOP' => $spop->nop]) }}" class="active"><i class='bx bxs-show'></i></a></li>
+									<li class="list-inline-item"><a href="{{ route('spop.show', ['NOP' => $spop->nop]) }}" class="active"><i class='bx bx-show'></i></a></li>
 									<li class="list-inline-item"><a href="{{ route('spop.edit', ['spop' => $spop->nop]) }}" class="active"><i class='bx bxs-edit'></i></a></li>
 									<li class="list-inline-item">
 										<form id="deleteForm_{{ $spop->KD_PROPINSI }}_{{ $spop->KD_DATI2 }}_{{ $spop->KD_KECAMATAN }}_{{ $spop->KD_KELURAHAN }}_{{ $spop->KD_BLOK }}_{{ $spop->NO_URUT }}_{{ $spop->KD_JNS_OP }}" action="{{ route('spop.destroy', ['spop' => $spop->nop]) }}" method="POST">
@@ -71,7 +71,7 @@
 										</form>
 
 										<a href="#" onclick="deleteConfirmation('{{ $spop->KD_PROPINSI }}', '{{ $spop->KD_DATI2 }}', '{{ $spop->KD_KECAMATAN }}', '{{ $spop->KD_KELURAHAN }}', '{{ $spop->KD_BLOK }}', '{{ $spop->NO_URUT }}', '{{ $spop->KD_JNS_OP }}')">
-											<i class='bx bxs-trash'></i>
+											<i class='bx bx-trash'></i>
 										</a>
 
 										<script>

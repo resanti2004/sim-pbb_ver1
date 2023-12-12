@@ -51,14 +51,14 @@
 							<td>NJOP Minimal</td>
 							<td>NJOP Maximal</td>
 							<td>Nilai Tarif</td>
-							<td width="100px">Opsi</td>
+							<td width="100px" class="text-center">Opsi</td>
 						</tr>
 					</thead>
 
 					<tbody>
 						@foreach($data_tarif as $tarif)
 						<tr>
-							<td>{{ $no++ }}</td>
+							<td class="text-center">{{ $no++ }}</td>
 							<td>{{ $tarif->KD_PROPINSI }}</td>
 							<td>{{ $tarif->KD_DATI2 }}</td>
 							<td>{{ $tarif->THN_AWAL }}</td>

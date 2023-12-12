@@ -46,14 +46,14 @@
 							<td width="50px">No</td>
 							<td>Kode Provinsi</td>
 							<td>Nama Provinsi</td>
-							<td width="100px">Opsi</td>
+							<td width="100px" class="text-center">Opsi</td>
 						</tr>
 					</thead>
 
 					<tbody>
 						@foreach($data_provinsi as $provinsi)
 						<tr>
-							<td>{{ $no++ }}</td>
+							<td class="text-center">{{ $no++ }}</td>
 							<td>{{ $provinsi->KD_PROPINSI }}</td>
 							<td>{{ $provinsi->NM_PROPINSI }}</td>
 							<td>
