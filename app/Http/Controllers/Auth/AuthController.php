@@ -70,8 +70,8 @@ class AuthController extends Controller
         }
 
         return back()->withErrors([
-            'username' => 'Your provided credentials do not match our records.',
-        ])->onlyInput('username');
+            'eror' => 'Username atau password salah'
+        ])->onlyInput('username', 'remember', 'password');
     }
 
     public function dashboard()
@@ -85,10 +85,7 @@ class AuthController extends Controller
             return view('auth.dashboard', compact('fullname', 'username'));
         }
 
-        return redirect()->route('login')
-            ->withErrors([
-                'username' => 'Please login to access this page.',
-            ])->onlyInput('username');
+        return redirect()->route('login');
     }
 
     public function logout(Request $request)

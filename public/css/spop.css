@@ -447,7 +447,7 @@
 	position: relative;
 	/* display: grid; */
 	/* min-height: 400px; */
-	max-width: 1150px;
+	/* max-width: 1150px; */
 	background: var(--light);
 	/* padding: 0 10px 10px 10px; */
 	/* margin: 20px; */
@@ -459,9 +459,9 @@
 .dataTable table{
 	white-space: nowrap;
 }
-.dataTable2 table{
-	white-space: nowrap;
-}
+/* .dataTable2 table{
+	 white-space: nowrap; 
+} */
 
 
 /*============= TABLE DETAIL DATA =============*/
