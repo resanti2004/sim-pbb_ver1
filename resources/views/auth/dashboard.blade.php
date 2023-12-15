@@ -38,7 +38,7 @@
 							</div> -->
 							<div>
 								<p>Wajib Pajak Terdaftar</p>
-								<h2>Rp3.500.000</h2>
+								<h4>Rp 3.500.000</h4>
 							</div>
 						</div>
 					</div>
@@ -50,8 +50,8 @@
 								</svg>
 							</div> -->
 							<div>
-								<p>Object Pajak Terdaftar</p>
-								<h2>Rp3.500.000</h2>
+								<p>Objek Pajak Terdaftar</p>
+								<h4>Rp 3.500.000</h4>
 							</div>
 						</div>
 					</div>
@@ -68,9 +68,9 @@
 								<thead>
 									<tr>
 										<td>Name</td>
-										<td>Alamat</td>
+										<td>Tanggal Pelayanan</td>
 										<td>NOP</td>
-										<td>Status</td>
+										<!-- <td>Status</td> -->
 									</tr>
 								</thead>
 
@@ -79,35 +79,35 @@
 										<td>Star Refrigerator</td>
 										<td>$1200</td>
 										<td>Paid</td>
-										<td><span class="status delivered">Delivered</span></td>
+										<!-- <td><span class="status delivered">Delivered</span></td> -->
 									</tr>
 
 									<tr>
 										<td>Dell Laptop</td>
 										<td>$110</td>
 										<td>Due</td>
-										<td><span class="status pending">Pending</span></td>
+										<!-- <td><span class="status pending">Pending</span></td> -->
 									</tr>
 
 									<tr>
 										<td>Apple Watch</td>
 										<td>$1200</td>
 										<td>Paid</td>
-										<td><span class="status return">Return</span></td>
+										<!-- <td><span class="status return">Return</span></td> -->
 									</tr>
 
 									<tr>
 										<td>Addidas Shoes</td>
 										<td>$620</td>
 										<td>Due</td>
-										<td><span class="status inProgress">In Progress</span></td>
+										<!-- <td><span class="status inProgress">In Progress</span></td> -->
 									</tr>
 
 									<tr>
 										<td>Star Refrigerator</td>
 										<td>$1200</td>
 										<td>Paid</td>
-										<td><span class="status delivered">Delivered</span></td>
+										<!-- <td><span class="status delivered">Delivered</span></td> -->
 									</tr>
 								</tbody>
 							</table>
