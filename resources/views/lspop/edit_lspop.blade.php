@@ -33,7 +33,7 @@
                             </div>
 						</div>
 						
-                        <form method="POST" action="{{ route('kelurahan.store') }}" enctype="multipart/form-data" class="row g-4 p-5">
+                        <form method="POST" action="{{ route('lspop.store') }}" enctype="multipart/form-data" class="row g-4 p-5">
                         @csrf    
                             <div class="col-md-6">
                                 <label for="KodeProvinsi" class="form-label">Kode Provinsi</label>
