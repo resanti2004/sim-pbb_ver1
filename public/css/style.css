@@ -1,7 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
 
 * {
 	font-family: 'Open Sans', sans-serif;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+} */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;1,100&display=swap%27');
+
+* {
+	font-family: 'Poppins', sans-serif;
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
@@ -10,7 +19,9 @@
 :root {
 	--grey: #F1F0F6;
 	--dark-grey: #8D8D8D;
-	--light: #fff;
+	--light-grey: #f0eeee;
+	--dark2-grey: #dcdcdc;
+	--light: #f6f6f6;
 	--dark: #000;
 	--green: #81D43A;
 	--light-green: #E3FFCB;
@@ -58,6 +69,9 @@ li {
 
 /* MAIN */
 main {
+	position: relative;
+  	padding-bottom: 40px;
+	min-height: 86vh;
 	width: 100%;
 	padding: 24px 20px 20px 20px;
 	/* position: relative;
@@ -79,15 +93,15 @@ main {
 
 main .title {
 	/* margin-top: 40px; */
-	padding-top: 20px;
-	font-size: 23px;
+	padding-top: 15px;
+	font-size: 30px;
 	font-weight: 600;
 	margin-bottom: 5px;
 	color: white;
 }
 
 main .greet {
-	font-size: 13px;
+	font-size: 17px;
 	color: white;
 	/* margin-bottom: 50px; */
 }
@@ -110,10 +124,12 @@ main .breadcrumbs li.divider {
 	pointer-events: none;
 }
 main .info-data {
-	margin-top: 36px;
+	/* margin-top: 36px; */
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
 	grid-gap: 20px;
+	grid-column-start: 1;
+	grid-column-end: 2;
 }
 main .info-data .card {
 	padding: 10px;
@@ -126,13 +142,13 @@ main .card .head {
 	display: flex;
 	/* justify-content: space-between; */
 	gap: 10px;
-	width: 150px;
+	width: 200px;
 	align-items: center;
 }
-main .card .head h2 {
+/* main .card .head h4 {
 	font-size: 16px;
 	font-weight: 600;
-}
+} */
 main .card .head p {
 	font-size: 14px;
 }
@@ -171,9 +187,27 @@ main .card .progress::before {
 
 main .data .box-container {
 	display: grid;
+	grid-template-rows: repeat(auto-fit, minmax(100px, 1fr));
+	grid-gap: 20px;
+}
+
+main .data .box-container2 {
+	grid-column-start: 2;
+	grid-row-start: 1;
+	grid-row-end: 4;
+	display: grid;
 	grid-template-rows: repeat(auto-fit, minmax(300px, 1fr));
 	grid-gap: 20px;
 }
+main .data .box-container3 {
+	grid-column-start: 1;
+	grid-column-end: 2;
+	display: grid;
+	grid-template-rows: repeat(auto-fit, minmax(300px, 1fr));
+	grid-gap: 20px;
+}
+
+
 
 main .card .label {
 	font-size: 14px;
@@ -185,6 +219,7 @@ main .data {
 	/* flex-direction: row; */
 	/* grid-template-rows: repeat(auto-fit, minmax(300px, 1fr)); */
 	grid-gap: 20px;
+	grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
 	margin-top: 30px;
 	/* flex-wrap: nowrap; */
 }
@@ -210,7 +245,7 @@ main .content-data .head {
 
 main .content-data .head h3 {
 	font-size: 20px;
-	font-weight: 600;
+	/* font-weight: 600; */
 }
 
 main .content-data .head .menu {
@@ -263,6 +298,7 @@ main .content-data .chart::-webkit-scrollbar {
 	display: none;
 }
 
+
 /* MAIN */
 /* CONTENT */
 
@@ -280,6 +316,34 @@ main .content-data .chart::-webkit-scrollbar {
 	nav .nav-link,
 	nav .divider {
 		display: none;
+	}
+}
+
+@media print {
+    body * {
+        visibility:hidden; 
+
+    }
+	
+    .print-section,
+    .print-section * {
+        /* display: block !important; */
+		visibility: visible;
+		color: black;
+    }
+    .print-section {
+        position: absolute;
+		/* display: block !important; */
+        left: 0;
+        top: 0;
+    }
+	table {
+		overflow: visible;
+	}
+	
+	/* Atau untuk setiap elemen yang perlu diatur */
+	th, td {
+		overflow: visible;
 	}
 }
 

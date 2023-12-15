@@ -89,10 +89,13 @@ class Auth extends Facade
      */
     public static function routes(array $options = [])
     {
+        // Check if the UiServiceProvider is loaded
         if (! static::$app->providerIsLoaded(UiServiceProvider::class)) {
+            // If not, throw an exception
             throw new RuntimeException('In order to use the Auth::routes() method, please install the laravel/ui package.');
         }
 
+        // If the UiServiceProvider is loaded, make the 'router' service and call the auth method on it with the provided options
         static::$app->make('router')->auth($options);
     }
 }

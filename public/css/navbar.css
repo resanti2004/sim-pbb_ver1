@@ -14,6 +14,11 @@ nav {
 nav .toggle-sidebar {
 	font-size: 18px;
 	cursor: pointer;
+	/* background-color: var(--light-blue); 
+    border-radius: 20%; 
+	opacity: 70%;
+    padding: 8px; 
+    display: inline-block;  */
 }
 nav form {
 	max-width: 400px;
@@ -132,7 +137,18 @@ nav .profile .profile-link a {
 	align-items: center;
 	transition: all .3s ease;
 }
+
+/* nav .profile .profile-name {
+	display: flex;
+} */
+
 nav .profile .profile-link a:hover {
 	background: var(--grey);
 }
+
+nav small {
+	color: var(--dark-grey);
+	font-size: 13px;
+}
+
 /* NAVBAR */

@@ -1,14 +1,115 @@
+// // SIDEBAR DROPDOWN
+// const allDropdown = document.querySelectorAll('#sidebar .side-dropdown');
+// const sidebar = document.getElementById('sidebar');
+
+// allDropdown.forEach(item=> {
+// 	const a = item.parentElement.querySelector('a:first-child');
+// 	a.addEventListener('click', function (e) {
+// 		e.preventDefault();
+
+// 		if(!this.classList.contains('active')) {
+// 			allDropdown.forEach(i=> {
+// 				const aLink = i.parentElement.querySelector('a:first-child');
+
+// 				aLink.classList.remove('active');
+// 				i.classList.remove('show');
+// 			})
+// 		}
+
+// 		this.classList.toggle('active');
+// 		item.classList.toggle('show');
+
+// 	})
+
+// 	// Menambahkan event listener ke setiap elemen <li> di dalam dropdown
+// })
+
+
+
+
+
+// // SIDEBAR COLLAPSE
+// const toggleSidebar = document.querySelector('nav .toggle-sidebar');
+// const allSideDivider = document.querySelectorAll('#sidebar .divider');
+
+// if(sidebar.classList.contains('hide')) {
+// 	allSideDivider.forEach(item=> {
+// 		item.textContent = '-'
+// 	})
+// 	allDropdown.forEach(item=> {
+// 		const a = item.parentElement.querySelector('a:first-child');
+// 		a.classList.remove('active');
+// 		item.classList.remove('show');
+// 	})
+// } else {
+// 	allSideDivider.forEach(item=> {
+// 		item.textContent = item.dataset.text;
+// 	})
+// }
+
+// toggleSidebar.addEventListener('click', function () {
+// 	sidebar.classList.toggle('hide');
+
+// 	if(sidebar.classList.contains('hide')) {
+// 		allSideDivider.forEach(item=> {
+// 			item.textContent = '-'
+// 		})
+
+// 		allDropdown.forEach(item=> {
+// 			const a = item.parentElement.querySelector('a:first-child');
+// 			a.classList.remove('active');
+// 			item.classList.remove('show');
+// 		})
+// 	} else {
+// 		allSideDivider.forEach(item=> {
+// 			item.textContent = item.dataset.text;
+// 		})
+// 	}
+// })
+
+
+
+
+// sidebar.addEventListener('mouseleave', function () {
+// 	if(this.classList.contains('hide')) {
+// 		allDropdown.forEach(item=> {
+// 			const a = item.parentElement.querySelector('a:first-child');
+// 			a.classList.remove('active');
+// 			item.classList.remove('show');
+// 		})
+// 		allSideDivider.forEach(item=> {
+// 			item.textContent = '-'
+// 		})
+// 	}
+// })
+
+
+
+// sidebar.addEventListener('mouseenter', function () {
+// 	if(this.classList.contains('hide')) {
+// 		allDropdown.forEach(item=> {
+// 			const a = item.parentElement.querySelector('a:first-child');
+// 			a.classList.remove('active');
+// 			item.classList.remove('show');
+// 		})
+// 		allSideDivider.forEach(item=> {
+// 			item.textContent = item.dataset.text;
+// 		})
+// 	}
+// })
+
+
 // SIDEBAR DROPDOWN
 const allDropdown = document.querySelectorAll('#sidebar .side-dropdown');
 const sidebar = document.getElementById('sidebar');
 
-allDropdown.forEach(item=> {
+allDropdown.forEach(item => {
 	const a = item.parentElement.querySelector('a:first-child');
 	a.addEventListener('click', function (e) {
 		e.preventDefault();
 
-		if(!this.classList.contains('active')) {
-			allDropdown.forEach(i=> {
+		if (!this.classList.contains('active')) {
+			allDropdown.forEach(i => {
 				const aLink = i.parentElement.querySelector('a:first-child');
 
 				aLink.classList.remove('active');
@@ -18,83 +119,86 @@ allDropdown.forEach(item=> {
 
 		this.classList.toggle('active');
 		item.classList.toggle('show');
-	})
-})
-
-
-
-
+	});
+});
 
 // SIDEBAR COLLAPSE
 const toggleSidebar = document.querySelector('nav .toggle-sidebar');
 const allSideDivider = document.querySelectorAll('#sidebar .divider');
 
-if(sidebar.classList.contains('hide')) {
-	allSideDivider.forEach(item=> {
-		item.textContent = '-'
-	})
-	allDropdown.forEach(item=> {
-		const a = item.parentElement.querySelector('a:first-child');
-		a.classList.remove('active');
-		item.classList.remove('show');
-	})
-} else {
-	allSideDivider.forEach(item=> {
-		item.textContent = item.dataset.text;
-	})
+function handleSidebarState() {
+	if (window.innerWidth <= 780) {
+		sidebar.classList.add('hide');
+
+		allSideDivider.forEach(item => {
+			item.textContent = '-';
+		});
+
+		allDropdown.forEach(item => {
+			const a = item.parentElement.querySelector('a:first-child');
+			a.classList.remove('active');
+			item.classList.remove('show');
+		});
+	} else {
+		sidebar.classList.remove('hide');
+
+		allSideDivider.forEach(item => {
+			item.textContent = item.dataset.text;
+		});
+	}
 }
+
+handleSidebarState(); // Panggil fungsi untuk menangani status sidebar saat halaman dimuat
+
+window.addEventListener('resize', function () {
+	handleSidebarState(); // Panggil fungsi saat ukuran layar berubah
+});
+
+sidebar.addEventListener('mouseleave', function () {
+	if (this.classList.contains('hide')) {
+		allDropdown.forEach(item => {
+			const a = item.parentElement.querySelector('a:first-child');
+			a.classList.remove('active');
+			item.classList.remove('show');
+		});
+		allSideDivider.forEach(item => {
+			item.textContent = '-';
+		});
+	}
+});
+
+sidebar.addEventListener('mouseenter', function () {
+	if (this.classList.contains('hide')) {
+		allDropdown.forEach(item => {
+			const a = item.parentElement.querySelector('a:first-child');
+			a.classList.remove('active');
+			item.classList.remove('show');
+		});
+		allSideDivider.forEach(item => {
+			item.textContent = item.dataset.text;
+		});
+	}
+});
 
 toggleSidebar.addEventListener('click', function () {
 	sidebar.classList.toggle('hide');
 
-	if(sidebar.classList.contains('hide')) {
-		allSideDivider.forEach(item=> {
-			item.textContent = '-'
-		})
+	if (sidebar.classList.contains('hide')) {
+		allSideDivider.forEach(item => {
+			item.textContent = '-';
+		});
 
-		allDropdown.forEach(item=> {
+		allDropdown.forEach(item => {
 			const a = item.parentElement.querySelector('a:first-child');
 			a.classList.remove('active');
 			item.classList.remove('show');
-		})
+		});
 	} else {
-		allSideDivider.forEach(item=> {
+		allSideDivider.forEach(item => {
 			item.textContent = item.dataset.text;
-		})
+		});
 	}
-})
-
-
-
-
-sidebar.addEventListener('mouseleave', function () {
-	if(this.classList.contains('hide')) {
-		allDropdown.forEach(item=> {
-			const a = item.parentElement.querySelector('a:first-child');
-			a.classList.remove('active');
-			item.classList.remove('show');
-		})
-		allSideDivider.forEach(item=> {
-			item.textContent = '-'
-		})
-	}
-})
-
-
-
-sidebar.addEventListener('mouseenter', function () {
-	if(this.classList.contains('hide')) {
-		allDropdown.forEach(item=> {
-			const a = item.parentElement.querySelector('a:first-child');
-			a.classList.remove('active');
-			item.classList.remove('show');
-		})
-		allSideDivider.forEach(item=> {
-			item.textContent = item.dataset.text;
-		})
-	}
-})
-
+});
 
 
 
@@ -196,6 +300,46 @@ tooltip: {
 var chart = new ApexCharts(document.querySelector("#chart"), options);
 chart.render();
 
-$("#example").DataTable({
-	responsive: true,
-  });
+
+// VALIDATION FORM
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function () {
+	'use strict'
+  
+	// Fetch all the forms we want to apply custom Bootstrap validation styles to
+	var forms = document.querySelectorAll('.needs-validation')
+  
+	// Loop over them and prevent submission
+	Array.prototype.slice.call(forms)
+	  .forEach(function (form) {
+		form.addEventListener('submit', function (event) {
+		  if (!form.checkValidity()) {
+			event.preventDefault()
+			event.stopPropagation()
+		  }
+  
+		  form.classList.add('was-validated')
+		}, false)
+	  })
+  })()
+
+
+  const getDatePickerTitle = elem => {
+	// From the label or the aria-label
+	const label = elem.nextElementSibling;
+	let titleText = '';
+	if (label && label.tagName === 'LABEL') {
+		titleText = label.textContent;
+	} else {
+		titleText = elem.getAttribute('aria-label') || '';
+	}
+	return titleText;
+	}
+
+	const elems = document.querySelectorAll('.datepicker_input');
+	for (const elem of elems) {
+	const datepicker = new Datepicker(elem, {
+		'format': 'dd/mm/yyyy', // UK format
+		title: getDatePickerTitle(elem)
+	});
+	}

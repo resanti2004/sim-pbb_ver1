@@ -18,16 +18,28 @@
 #sidebar.hide:hover {
 	max-width: 260px;
 }
+
+@media (max-width: 780px) {
+	#sidebar.hide {
+		transition: all .6s ease;
+		max-width: 60px;
+		overflow: hidden;
+	}
+
+	#sidebar.hide:hover {
+		max-width: 269px;
+	}
+}
 #sidebar::-webkit-scrollbar {
 	display: none;
 }
 #sidebar .brand {
-	font-size: 24px;
+	font-size: 30px;
 	display: flex;
 	align-items: center;
 	height: 64px;
 	font-weight: 700;
-	color: var(--blue);
+	color: var(--dark);
 	position: sticky;
 	top: 0;
 	left: 0;
@@ -42,6 +54,29 @@
 	justify-content: center;
 	align-items: center;
 	margin-right: 6px;
+	color: var(--dark-grey);
+	font-size: 18px;
+}
+#sidebar .brand .icon-utama {
+	/* min-width: 48px; */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-right: 6px;
+	margin-left: 6px;
+	color: var(--dark-grey);
+	font-size: 20px;
+	padding: 0 6px;
+}
+
+#sidebar .icon-dot {
+	min-width: 48px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-right: 6px;
+	color: var(--dark-grey);
+	font-size: 10px;
 }
 #sidebar .icon-right {
 	margin-left: auto;
@@ -61,28 +96,45 @@
 #sidebar .side-menu a {
 	display: flex;
 	align-items: center;
-	font-size: 14px;
-	color: var(--dark);
+	font-size: 16px;
+	color: var(--dark-grey);
 	padding: 12px 16px 12px 0;
 	transition: all .3s ease;
 	border-radius: 10px;
 	margin: 4px 0;
-	white-space: nowrap;
+	/* white-space: nowrap; */
 }
 #sidebar .side-menu > li > a:hover {
 	background: var(--grey);
 }
+#sidebar .side-menu > a:active {
+	background: var(--blue);
+}
 #sidebar .side-menu > li > a.active .icon-right {
 	transform: rotateZ(90deg);
 }
-/* #sidebar .side-menu > li > a.active, */
+
+#sidebar .side-menu > li .active .icon,
+#sidebar .side-menu > li .active .icon:hover {
+	/* background: var(--blue); */
+	color: var(--light);
+}
+
+/* #sidebar .side-menu > li > a.active .icon-dot,
+#sidebar .side-menu > li > a.icon-dot:hover {
+	background: var(--blue);
+	color: var(--light);
+} */
+
+#sidebar .side-menu > li > a.active ,
 #sidebar .side-menu > li > a.active:hover {
 	background: var(--blue);
 	color: var(--light);
 }
+
 #sidebar .divider {
 	margin-top: 24px;
-	font-size: 12px;
+	font-size: 14px;
 	text-transform: uppercase;
 	font-weight: 700;
 	color: var(--dark-grey);
@@ -104,11 +156,20 @@
 #sidebar .side-dropdown.show {
 	max-height: 1000px;
 }
+
+/* #sidebar .side-dropdown a.active,
+#sidebar .side-dropdown a.active:hover {
+	background: var(--blue);
+	color: var(--light);
+} */
+
 #sidebar .side-dropdown a:hover {
-	color: var(--blue);
+	background: var(--grey);
 }
-#sidebar .ads {
+
+/* #sidebar .ads {
 	width: 100%;
+	margin-top: 70px;
 	padding: 20px;
 }
 #sidebar.hide .ads {
@@ -116,7 +177,7 @@
 }
 #sidebar.hide:hover .ads {
 	display: block;
-}
+} */
 #sidebar .ads .wrapper {
 	background: var(--grey);
 	padding: 20px;
@@ -133,7 +194,7 @@
 	transition: all .3s ease;
 	border-radius: 5px;
 	font-weight: 600;
-	margin-bottom: 12px;
+	/* margin-bottom: 12px; */
 }
 #sidebar .btn-upgrade:hover {
 	background: var(--dark-blue);
