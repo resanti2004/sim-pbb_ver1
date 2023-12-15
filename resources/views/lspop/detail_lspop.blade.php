@@ -37,132 +37,131 @@
 							<div class="no-detail">
 								<b class="fs-3">-- {{ $no }} --</b>
 							</div>
-							<table class="table table-borderless custom-table">
+							<table class="table table-striped table-hover table-bordered">
 								<tbody>
 									<tr class="mb-3">
-
-										<th width="200" class="align-middle table-primary border-bottom border-top-left ">Kode Provinsi</th>
-										<td class="border-top-right"> {{ $data_users->id }} </td>
+										<th  scope="row" class="align-middle" width="300px">Kode Provinsi</th>
+										<td > 12 </td>
 									</tr>
 									<tr class="mb-3">
-										<th width="200" class="align-middle table-primary border-bottom">Kode Dati2</th>
-										<td>  {{ $data_users->username }}</td>
+										<th width="200" class="align-middle">Kode Dati2</th>
+										<td > </td>
 									</tr>
 									<tr class="mb-3">
-										<th width="200" class="align-middle table-primary border-bottom">Kode Kecamatan</th>
+										<th scope="row" class="align-middle">Kode Kecamatan</th>
 										<td>12</td>
 									</tr>
 									<tr class="mb-3">
-										<th width="200" class="align-middle table-primary border-bottom">Kode Kelurahan</th>
+										<th scope="row" class="align-middle">Kode Kelurahan</th>
 										<td>12</td>
 									</tr>
 									<tr class="mb-3">
-										<th width="200" class="align-middle table-primary border-bottom">Kode Blok</th>
+										<th scope="row" class="align-middle">Kode Blok</th>
 										<td>12</td>
 									</tr>
 									<tr class="mb-3">
-										<th width="200" class="align-middle table-primary border-bottom">No Urut</th>
-										<td> {{ $data_users->email}}</td>
+										<th scope="row" class="align-middle">No Urut</th>
+										<td></td>
 									</tr>
 									<tr class="mb-3">
-										<th width="200" class="align-middle table-primary border-bottom">Kode Jenis Op</th>
-										<td>  {{ $data_users->status }} </td>
+										<th scope="row" class="align-middle">Kode Jenis Op</th>
+										<td>  </td>
 									</tr>
 									<tr class="mb-3">
-										<th width="200" class="align-middle table-primary border-bottom">No Bangunan</th>
-										<td>  {{ $data_users->jabatan }}</td>
+										<th scope="row" class="align-middle">No Bangunan</th>
+										<td> </td>
 									</tr>
 									<tr class="mb-3">
-										<th width="200" class="align-middle table-primary border-bottom">Kode Jpb</th>
-										<td>  {{ $data_users->role }}</td>
+										<th scope="row" class="align-middle">Kode Jpb</th>
+										<td>  </td>
 									</tr>
 									<tr class="mb-3">
-										<th width="200" class="align-middle table-primary border-bottom">No Formulir Lspop</th>
-										<td>  {{ $data_users->fullname }}</td>
+										<th scope="row" class="align-middle">No Formulir Lspop</th>
+										<td>  </td>
 									</tr>
 									<tr class="mb-3">
-										<th width="200" class="align-middle table-primary border-bottom">Tahun Dibangun Bangunan</th>
-										<td>  {{ $data_users->nip }}</td>
+										<th scope="row" class="align-middle">Tahun Dibangun Bangunan</th>
+										<td>  </td>
 									</tr>
 									<tr class="mb-3">
-										<th width="200" class="align-middle table-primary border-bottom">Tahun Renovasi Bangunan</th>
-										<td>  {{ $data_users->nomor_ponsel }}</td>
+										<th scope="row" class="align-middle">Tahun Renovasi Bangunan</th>
+										<td>  </td>
 									</tr>
 									<tr class="mb-3">
-										<th width="200" class="align-middle table-primary border-bottom">Luas Bangunan</th>
-										<td>{{ $data_users->created_at }}</td>
+										<th scope="row" class="align-middle">Luas Bangunan</th>
+										<td></td>
 									</tr>
 									<tr class="mb-3">
-										<th width="200" class="align-middle table-primary border-bottom">Jumlah Lantai Bagunan</th>
-										<td>{{ $data_users->created_at }}</td>
+										<th scope="row" class="align-middle">Jumlah Lantai Bagunan</th>
+										<td></td>
 									</tr>
 									<tr class="mb-3">
-										<th width="200" class="align-middle table-primary border-bottom">Kondisi Bangunan</th>
-										<td>{{ $data_users->created_at }}</td>
+										<th scope="row" class="align-middle">Kondisi Bangunan</th>
+										<td></td>
 									</tr>
 									<tr class="mb-3">
-										<th width="200" class="align-middle table-primary border-bottom">Jenis Konstruksi Bangunan</th>
-										<td>{{ $data_users->created_at }}</td>
+										<th scope="row" class="align-middle">Jenis Konstruksi Bangunan</th>
+										<td></td>
 									</tr>
 									<tr class="mb-3">
-										<th width="200" class="align-middle table-primary border-bottom">Jenis Atap Bangunan</th>
-										<td>{{ $data_users->created_at }}</td>
+										<th scope="row" class="align-middle">Jenis Atap Bangunan</th>
+										<td></td>
 									</tr>
 									<tr class="mb-3">
-										<th width="200" class="align-middle table-primary border-bottom">Kd Dinding</th>
-										<td>{{ $data_users->created_at }}</td>
+										<th scope="row" class="align-middle">Kd Dinding</th>
+										<td></td>
 									</tr>
 									<tr class="mb-3">
-										<th width="200" class="align-middle table-primary border-bottom">Kd Lantai</th>
-										<td>{{ $data_users->created_at }}</td>
+										<th scope="row" class="align-middle">Kd Lantai</th>
+										<td></td>
 									</tr>
 									<tr class="mb-3">
-										<th width="200" class="align-middle table-primary border-bottom">Kd Langit-Langit</th>
-										<td>{{ $data_users->created_at }}</td>
+										<th scope="row" class="align-middle">Kd Langit-Langit</th>
+										<td></td>
 									</tr>
 									<tr class="mb-3">
-										<th width="200" class="align-middle table-primary border-bottom">Nilai Sistem Bangunan</th>
-										<td>{{ $data_users->created_at }}</td>
+										<th scope="row" class="align-middle">Nilai Sistem Bangunan</th>
+										<td></td>
 									</tr>
 									<tr class="mb-3">
-										<th width="200" class="align-middle table-primary border-bottom">Jenis Transaksi Bangunan</th>
-										<td>{{ $data_users->created_at }}</td>
+										<th scope="row" class="align-middle">Jenis Transaksi Bangunan</th>
+										<td></td>
 									</tr>
 									<tr class="mb-3">
-										<th width="200" class="align-middle table-primary border-bottom">Tanggal Pendataan Bangunan</th>
-										<td>{{ $data_users->created_at }}</td>
+										<th scope="row" class="align-middle">Tanggal Pendataan Bangunan</th>
+										<td></td>
 									</tr>
 									<tr class="mb-3">
-										<th width="200" class="align-middle table-primary border-bottom">NIP Pendata Bangunan</th>
-										<td>{{ $data_users->created_at }}</td>
+										<th scope="row" class="align-middle">NIP Pendata Bangunan</th>
+										<td></td>
 									</tr>
 									<tr class="mb-3">
-										<th width="200" class="align-middle table-primary border-bottom">Tanggal Pemeriksaan Bangunan</th>
-										<td>{{ $data_users->created_at }}</td>
+										<th scope="row" class="align-middle">Tanggal Pemeriksaan Bangunan</th>
+										<td></td>
 									</tr>
 									<tr class="mb-3">
-										<th width="200" class="align-middle table-primary border-bottom">NIP Pemeriksa Bangunan</th>
-										<td>{{ $data_users->created_at }}</td>
+										<th scope="row" class="align-middle">NIP Pemeriksa Bangunan</th>
+										<td></td>
 									</tr>
 									<tr class="mb-3">
-										<th width="200" class="align-middle table-primary border-bottom">Tanggal Perekaman Bangunan</th>
-										<td>{{ $data_users->created_at }}</td>
+										<th scope="row" class="align-middle">Tanggal Perekaman Bangunan</th>
+										<td></td>
 									</tr>
 									<tr class="mb-3">
-										<th width="200" class="align-middle table-primary border-bottom">NIP Perekam Bangunan</th>
-										<td>{{ $data_users->created_at }}</td>
+										<th scope="row" class="align-middle">NIP Perekam Bangunan</th>
+										<td></td>
 									</tr>
 									<tr class="mb-3">
-										<th width="200" class="align-middle table-primary border-bottom">Tanggal Kunjungan Kembali</th>
-										<td>{{ $data_users->created_at }}</td>
+										<th scope="row" class="align-middle">Tanggal Kunjungan Kembali</th>
+										<td></td>
 									</tr>
 									<tr class="mb-3">
-										<th width="200" class="align-middle table-primary border-bottom">Nilai Individu</th>
-										<td>{{ $data_users->created_at }}</td>
+										<th scope="row" class="align-middle">Nilai Individu</th>
+										<td></td>
 									</tr>
 									<tr>
-										<th  class="align-middle table-primary border-bottom-left">Aktif</th>
-										<td class="border-bottom-right">{{ $data_users->updated_at }}</td>
+										<th  class="align-middle ">Aktif</th>
+										<td class="border-bottom-right"></td>
 									</tr>
 									</tr>
 								</tbody>

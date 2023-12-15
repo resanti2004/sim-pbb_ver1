@@ -26,9 +26,9 @@
   } */
 
   .cardHeader h3 {
-	font-weight: 600;
-	color: var(--blue);
-	font-size: 28px;
+	/* font-weight: 600;
+	color: var(--blue); */
+	font-size: 20px;
   }
 
   .cardHeader .breadcrumb {

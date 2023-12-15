@@ -38,7 +38,7 @@
 					<p class="m-0">Menampilkan <b>{{ $data_pelayanan->count() }}</b> data dari total <b>{{ $data_pelayanan->total() }}</b> </p>
 					<div class="tombol">
 						<a href="{{ route('pelayanan.laporan') }}"><button class="bg-success" type="button">Laporan Pelayanan</button></a>
-						<a href="{{ route('pelayanan.create') }}"><button type="button">+ Buat Baru</button></a>
+						<a href="{{ route('pelayanan.create') }}"><button type="button">Buat Pelayanan</button></a>
 					</div>
 				</div>
 

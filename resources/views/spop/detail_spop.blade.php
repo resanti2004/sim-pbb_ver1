@@ -35,21 +35,21 @@
                                         <b>DETAIL</b>
                                     </div>
 
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <label for="kd_prov" class="form-label">Kode Provinsi</label>
                                         <input type="text" class="form-control" id="kd_prov" name="KD_PROPINSI" value="{{ $result->KD_PROPINSI }}" readonly>
                                         <div class="invalid-feedback">
                                             Isi kolom ini terlebih dahulu!
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <label for="kd_dati" class="form-label">Kode Dati 2</label>
                                         <input type="text" class="form-control" id="kd_dati" name="KD_DATI2" value="{{ $result->KD_DATI2}}" readonly>
                                         <div class="invalid-feedback">
                                             Isi kolom ini terlebih dahulu!
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <label for="kd_kec" class="form-label">Kode Kecamatan</label>
                                         <!-- <input type="text" class="form-control" id="kd_jenisTransaksi" name="kd_jenisTransaksi" disabled> -->
                                         <input type="text" class="form-control" id="kd_kec" name="KD_KECAMATAN" value="{{ $result->KD_KECAMATAN}}" readonly>
@@ -57,35 +57,35 @@
                                             Isi kolom ini terlebih dahulu!
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <label for="kd_kel" class="form-label">Kode Kelurahan</label>
                                         <input type="text" class="form-control" id="kd_kel" name="KD_KELURAHAN" value="{{ $result->KD_KELURAHAN}}" readonly>
                                         <div class="invalid-feedback">
                                             Isi kolom ini terlebih dahulu!
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <label for="kd_blok" class="form-label">Kode Blok</label>
                                         <input type="text" class="form-control" id="kd_blok" name="KD_BLOK" value="{{ $result->KD_BLOK }}" readonly>
                                         <div class="invalid-feedback">
                                             Isi kolom ini terlebih dahulu!
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <label for="no_urut" class="form-label">No Urut</label>
                                         <input type="text" class="form-control" id="no_urut" name="NO_URUT" value="{{ $result->NO_URUT }}" readonly>
                                         <div class="invalid-feedback">
                                             Isi kolom ini terlebih dahulu!
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <label for="kd_jenisOp" class="form-label">Kode Jenis Op</label>
                                         <input type="text" class="form-control" id="kd_jenis" name="KD_JNS_OP" value="{{ $result->KD_JNS_OP }}" readonly>
                                         <div class="invalid-feedback">
                                             Isi kolom ini terlebih dahulu!
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <label for="kd_jenisTransaksi" class="form-label">Jenis Transaksi Op</label>
                                         <!-- <input type="text" class="form-control" id="kd_jenisTransaksi" name="kd_jenisTransaksi" disabled> -->
                                         <input type="text" class="form-control" id="kd_jenisTransaksi" name="JNS_TRANSAKSI_OP" value="{{ $result->JNS_TRANSAKSI_OP }}" readonly>
@@ -93,14 +93,14 @@
                                             Isi kolom ini terlebih dahulu!
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <label for="no_spptLama" class="form-label">No Sppt Lama</label>
                                         <input type="text" class="form-control" id="no_spptLama" name="NO_SPPT_LAMA" value="{{ $result->NO_SPPT_LAMA }}" readonly>
                                         <div class="invalid-feedback">
                                             Isi kolom ini terlebih dahulu!
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <label for="sbj_pajak" class="form-label">Subjek Pajak ID</label>
                                         <input type="text" class="form-control" id="sbj_pajak" name="SUBJEK_PAJAK_ID" value="{{ $result->SUBJEK_PAJAK_ID }}" readonly>
                                         <div class="invalid-feedback">
@@ -116,45 +116,45 @@
                                         <b>DATA LETAK OBJEK PAJAK</b>
                                     </div>
 
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <label for="jalan_op" class="form-label">Jalan Op</label>
                                         <input type="text" class="form-control" id="jalan_op" name="JALAN_OP" value="{{ $result->JALAN_OP }}" readonly>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <label for="blok_kav" class="form-label">Blok Kav No Op</label>
                                         <input type="text" class="form-control" id="blok_kav" name="BLOK_KAV_NO_OP" value="{{ $result->BLOK_KAV_NO_OP }}" readonly>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <label for="kel_op" class="form-label">Kelurahan Op</label>
                                         <input type="text" class="form-control" id="kel_op" name="KEL_OP" value="{{ $result->KELURAHAN_OP }}" readonly>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <label for="rw_op" class="form-label">RW Op</label>
                                         <input type="text" class="form-control" id="rw_op" name="RW_OP" value="{{ $result->RW_OP }}" readonly>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <label for="rt_op" class="form-label">RT Op</label>
                                         <input type="text" class="form-control" id="rt_op" name="RT_OP" value="{{ $result->RT_OP }}" readonly>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <label for="kd_statusWp" class="form-label">Kode Status Wp</label>
                                         <input type="text" class="form-control" id="kd_statusWp" name="KD_STATUS_WP" value="{{ $result->KD_STATUS_WP }}" readonly>
 
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <label for="luas_bumi" class="form-label">Luas Bumi</label>
                                         <input type="text" class="form-control" id="luas_bumi" name="LUAS_BUMI" value="{{ $result->LUAS_BUMI }}" readonly>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <label for="kd_znt" class="form-label">Kode Znt</label>
                                         <input type="text" class="form-control" id="kd_znt" name="KD_ZNT" value="{{ $result->KD_ZNT }}" readonly>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <label for="jns_bumi" class="form-label">Jenis Bumi</label>
                                         <input type="text" class="form-control" id="jns_bumi" name="JNS_BUMI" value="{{ $result->JNS_BUMI }}" readonly>
 
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <label for="hsl_stmBumi" class="form-label">Nilai Sistem Bumi</label>
                                         <input type="text" class="form-control" id="hsl_stmBumi" name="NILAI_SISTEM_BUMI" value="{{ $result->NILAI_SISTEM_BUMI }}" readonly>
                                     </div>
@@ -245,7 +245,7 @@
                                         <b>DETAIL PENDATAAN OP</b>
                                     </div>
 
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <label for="tgl_pendataanOp" class="form-label">Tanggal Pendataan OP</label>
                                         <input type="text" class="form-control" id="tgl_pendataanOp" name="TGL_PENDATAAN_OP" value="{{ $result->TGL_PENDATAAN_OP }}" readonly>
                                     </div>
@@ -253,7 +253,7 @@
                                         <label for="nm_pendataOp" class="form-label">Nama Pendata OP</label>
                                         <input type="text" class="form-control" id="nm_pendataOp" name="NM_PENDATAAN_OP" value="{{ $result->NM_PENDATAAN_OP }}" readonly>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <label for="nip_pendata" class="form-label">NIP Pendata</label>
                                         <input type="text" class="form-control" id="nip_pendata" name="NIP_PENDATA" value="{{ $result->NIP_PENDATA }}" readonly>
                                     </div>
@@ -266,7 +266,7 @@
                                         <b>DETAIL PEMERIKSAAN OP</b>
                                     </div>
 
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <label for="tgl_pemeriksaanOp" class="form-label">Tanggal Pemeriksaan Op</label>
                                         <input type="text" class="form-control" id="tgl_pemeriksaanOp" name="TGL_PEMERIKSAAN_OP" value="{{ $result->TGL_PEMERIKSAAN_OP }}" readonly>
                                     </div>
@@ -274,11 +274,11 @@
                                         <label for="nm_pemeriksaOp" class="form-label">Nama Pemeriksa OP</label>
                                         <input type="text" class="form-control" id="nm_pemeriksaOp" name="NM_PEMERIKSAAN_OP" value="{{ $result->NM_PEMERIKSAAN_OP }}" readonly>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <label for="nip_pemeriksaOp" class="form-label">NIP Pemeriksa Op</label>
                                         <input type="text" class="form-control" id="nip_pemeriksaOp" name="NIP_PEMERIKSA_OP" value="{{ $result->NIP_PEMERIKSA_OP }}" readonly>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <label for="no_persil" class="form-label">No Persil</label>
                                         <input type="text" class="form-control" id="no_persil" name="NO_PERSIL" value="{{ $result->NO_PERSIL }}" readonly>
                                     </div>

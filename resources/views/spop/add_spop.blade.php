@@ -26,7 +26,7 @@
                         
                             @csrf
                         <div class="row">
-                        <div class="col-md-6">
+                            <div class="col-md-6">
                                 <form method="POST" action="{{ route('spop.store') }}" class="row g-4 p-5 needs-validation" novalidate>
                                     <div class="col-md-12">
                                         <label for="kd_prov" class="form-label">Kode Provinsi</label>
@@ -176,6 +176,7 @@
                             </div>
                             
                             <div class="col-md-6">
+                                <form method="POST" action="{{ route('spop.store') }}" class="row g-4 p-5 needs-validation" novalidate>
                                 <div class="col-md-12">
                                     <label for="sbj_pajak" class="form-label">Subjek Pajak ID</label>
                                     <input type="text" class="form-control" id="sbj_pajak" name="SUBJEK_PAJAK_ID" required>
@@ -271,21 +272,22 @@
                             </div>
                             
                             <div class="col-md-6">
-                                <div class="col-md-6">
+                            <form method="POST" action="{{ route('spop.store') }}" class="row g-4 p-5 needs-validation" novalidate>
+                                <div class="col-md-12">
                                     <label for="luas_bumi" class="form-label">Luas Bumi</label>
                                     <input type="text" class="form-control" id="luas_bumi" name="LUAS_BUMI" required>
                                     <div class="invalid-feedback">
                                         Isi kolom ini terlebih dahulu!
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                     <label for="kd_znt" class="form-label">Kode Znt</label>
                                     <input type="text" class="form-control" id="kd_znt" name="KD_ZNT" required>
                                     <div class="invalid-feedback">
                                         Isi kolom ini terlebih dahulu!
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                     <label for="jns_bumi" class="form-label">Jenis Bumi</label>
                                     <!-- <input type="text" class="form-control" id="kd_statusWp" name="kd_statusWp" required> -->
                                     <select class="form-select" id="jns_bumi" name="JENIS_WP" required>
@@ -299,7 +301,7 @@
                                         Isi kolom ini terlebih dahulu!
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                     <label for="hsl_stmBumi" class="form-label">Nilai Sistem Bumi</label>
                                     <input type="text" class="form-control" id="hsl_stmBumi" name="NILAI_SISTEM_BUMI" required>
                                     <div class="invalid-feedback">
@@ -342,16 +344,11 @@
                                     </div>
                                 </div>
                             </div>
-
                         </div>
-                           
-                            
 
                             <div class="col-md-12 text-center">
                                 <button type="submit" class="btn btn-primary" style="width:150px;">Simpan</button>
                             </div>
-                        
-
 					</div>
 				</div>
 			</div>
