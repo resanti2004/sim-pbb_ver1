@@ -381,7 +381,8 @@
 	position: relative;
 	/* display: grid; */
 	/* min-height: 400px; */
-	max-width: 1150px;
+
+	/* max-width: 1150px; */
 	background: var(--light);
 	padding: 20px;
 	/* margin: 10px; */
@@ -437,6 +438,7 @@
 	/* display: grid; */
 	/* min-height: 400px; */
 	background: var(--light);
+	max-width: 1500px;
 	/* padding: 0 10px 10px 10px; */
 	/* margin: 20px; */
 	/* box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08); */

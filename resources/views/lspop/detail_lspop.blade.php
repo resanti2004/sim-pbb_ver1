@@ -27,7 +27,7 @@
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="#">Beranda</a></li>
                                     <li class="breadcrumb-item"><a href="#">Dokumen</a></li>
-									<li class="breadcrumb-item"><a href=" {{ route('user.index') }}">LSPOP</a></li>
+									<li class="breadcrumb-item"><a href=" {{ route('lspop.index') }}">LSPOP</a></li>
                                     <li class="breadcrumb-item active" aria-current="page">Detail Data LSPOP</li>
                                 </ol>
                             </div>

@@ -87,7 +87,7 @@
                                 </div>
                             </div>
                             
-                            <div class="dataTable" style="overflow-x: auto;">
+                            <div class="dataTable" style="overflow-x: scroll;">
                                 <table>
                                     <thead>
                                         <tr>
