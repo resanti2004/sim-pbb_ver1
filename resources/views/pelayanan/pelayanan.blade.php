@@ -35,14 +35,14 @@
 								</div>
 						</form> -->
 				<div class="pencarian d-flex justify-content-between align-items-end">
-					<p class="m-0">Menampilkan <b>2</b> data dari total <b>2</b> </p>
+					<p class="m-0">Menampilkan <b>{{ $data_pelayanan->count() }}</b> data dari total <b>{{ $data_pelayanan->total() }}</b> </p>
 					<div class="tombol">
 						<a href="{{ route('pelayanan.laporan') }}"><button class="bg-success" type="button">Laporan Pelayanan</button></a>
 						<a href="{{ route('pelayanan.create') }}"><button type="button">Buat Pelayanan</button></a>
 					</div>
 				</div>
 
-				<div class="dataTable2" style="overflow-x: auto;">
+				<div class="dataTable2" style="overflow-x: scroll;">
 					<table>
 						<thead>
 							<tr>
@@ -91,7 +91,7 @@
 								<td>
 									<ul class="list-inline">
 										<li class="list-inline-item"><a href="{{ route('pelayanan.show') }}" class="active"><i class='bx bx-show'></i></a></li>
-										<li class="list-inline-item"><a href="#" class="active"><i class='bx bxs-edit'></i></a></li>
+										<li class="list-inline-item"><a href="{{ route('pelayanan.edit') }}" class="active"><i class='bx bxs-edit'></i></a></li>
 										<li class="list-inline-item"><a href="#" class="active"><i class='bx bx-trash'></i></a></li>
 									</ul>
 								</td>

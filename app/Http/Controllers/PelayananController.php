@@ -133,7 +133,7 @@ class PelayananController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit()
     {
         $data_user = DB::table('users');
         $user = $data_user->where('id', Auth()->user()->id)->first();

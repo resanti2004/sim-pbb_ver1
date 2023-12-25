@@ -57,11 +57,12 @@
                 </div>
 
 
-                <div class="dataBox" style="overflow-x: auto;">
+                <form action="{{ route('realisasiKel.cetak') }}" method="POST" enctype="multipart/form-data" class="dataBox" style="overflow-x: auto;">
+                
                     @if (isset($val))
                     <div class="pencarian d-flex justify-content-between align-items-end">
                         <p class="m-0">Menampilkan <b>{{ $val->count() }}</b> data</p>
-                        <a href="{{ route('realisasiKel.cetak') }}"><button type="button">Cetak</button></a>
+                        <a href="#"><button type="submit">Cetak</button></a>
                     </div>
                     @endif
 
@@ -99,7 +100,7 @@
                                 $total_dibayar += $item->JUMLAH_BAYAR;
                                 $total_kurang_bayar += $item->KURANG_BAYAR;
                                 $total_lebih_bayar += $item->LEBIH_BAYAR; ?>
-                                
+
                                 <tr>
                                     <td class="text-center">{{ $no++ }}</td>
                                     <td>{{ $item->NM_KECAMATAN }}</td>
@@ -137,7 +138,7 @@
                     <!-- <div class="d-flex justify-content-center mt-3">
                                
                     </div> -->
-                </div>
+                </form>
 
 
             </div>
