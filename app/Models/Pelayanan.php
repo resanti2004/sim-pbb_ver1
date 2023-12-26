@@ -63,6 +63,29 @@ class Pelayanan extends Model
 	public $timestamps = false;
 
 
+	/**
+     * Transform the model attributes to a specific JSON format.
+     *
+     * @return array
+     */
+    public function toJsonFormat()
+    {
+        return [
+			'ID' => $this->ID,  // Replace "id" with the actual column name
+			'NO_PELAYANAN' => $this->NO_PELAYANAN,
+			'NAMA_PEMOHON' => $this->NAMA_PEMOHON,
+			'TANGGAL_PELAYANAN' => $this->TANGGAL_PELAYANAN,
+			'KECAMATAN' => $this->KECAMATAN,
+			'KELURAHAN' => $this->KELURAHAN,
+			'KD_BLOK' => $this->KD_BLOK,
+			'NO_URUT' => $this->NO_URUT,
+			'KD_JNS_PELAYANAN' => $this->KD_JNS_PELAYANAN,
+			'STATUS_PELAYANAN' => $this->STATUS_PELAYANAN,
+			'KETERANGAN_BERKAS' => $this->KETERANGAN_BERKAS,
+        ];
+    }
+
+
 	public static $rules = [
         'NO_PELAYANAN' => 'required|string|max:13',
         'TANGGAL_PELAYANAN' => 'sometimes|date',
