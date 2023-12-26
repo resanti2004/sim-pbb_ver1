@@ -35,18 +35,18 @@
 								</div>
 						</form> -->
 				<div class="pencarian d-flex justify-content-between align-items-end">
-					<p class="m-0">Menampilkan <b>{{ $data_kab->count() }}</b> data dari total <b>{{ $data_kab->total() }}</b> </p>
+					<!-- <p class="m-0">Menampilkan <b>{{ $data_kab->count() }}</b> data dari total <b>{{ $data_kab->total() }}</b> </p> -->
 					<a href="{{ route('kabupaten.create') }}"><button type="button">+ Buat Baru</button></a>
 				</div>
 
-				<table >
+				<table id="example" class="table table-striped" style="width:100%">
 					<thead>
 						<tr>
-							<td width="50px">No</td>
+							<td width="30px">No</td>
 							<td>Kode Provinsi</td>
 							<td>Kode Dati II</td>
 							<td>Nama Dati II</td>
-							<td width="100px" class="text-center">Opsi</td>
+							<td width="60px" class="text-center">Opsi</td>
 						</tr>
 					</thead>
 
@@ -72,9 +72,9 @@
 						@endforeach
 					</tbody>
 				</table>
-				<div class="d-flex justify-content-center">
+				<!-- <div class="d-flex justify-content-center">
 					{{ $data_kab->links() }}
-				</div>
+				</div> -->
 
 			</div>
 		</div>

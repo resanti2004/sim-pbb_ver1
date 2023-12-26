@@ -29,23 +29,23 @@
 								</div>
 						</form> -->
 				<div class="pencarian d-flex justify-content-between align-items-end">
-					<p class="m-0">Menampilkan <b>{{ $data_users->count() }}</b> data dari total <b>{{ $data_users->total() }}</b> </p>
+					<!-- <p class="m-0">Menampilkan <b>{{ $data_users->count() }}</b> data dari total <b>{{ $data_users->total() }}</b> </p> -->
 					<a href="{{ route('user.create') }}"><button type="button">+ Buat Baru</button></a>
 				</div>
-				<table>
+
+				<table id="example" class="table table-striped" style="width:100%">
 					<thead>
 						<tr>
-							<td width="50px">No</td>
+							<td width="30px">No</td>
 							<td>Username</td>
 							<td>Nama Lengkap</td>
-							<td width="100px">Opsi</td>
+							<td width="60px" class="text-center">Opsi</td>
 						</tr>
 					</thead>
-
 					<tbody>
 						@foreach($data_users as $user)
 						<tr>
-							<td>{{ $no++ }}</td>
+							<td class="text-center">{{ $no++ }}</td>
 							<td>{{ $user->username }}</td>
 							<td>{{ $user->fullname }}</td>
 							<td>
@@ -83,12 +83,8 @@
 						@endforeach
 					</tbody>
 				</table>
-
-				<div class="d-flex justify-content-center mt-3">
-					{{ $data_users->links() }}
-				</div>
-
 			</div>
 		</div>
 	</div>
-	@endsection
+</div>
+@endsection

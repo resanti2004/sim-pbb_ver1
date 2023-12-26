@@ -2,10 +2,11 @@
 @section('title', 'Pelayanan')
 @section('content')
 
-<div class="bgn">
-	<h1 class="title">Selamat Datang, {{$fullname}}!</h1>
-	<p class="greet">Selamat Datang di Sistem Informasi Pajak Bumi Bangunan</p>
-</div>
+
+	<div class="bgn">
+		<h1 class="title">Selamat Datang, {{$fullname}}!</h1>
+		<p class="greet">Selamat Datang di Sistem Informasi Pajak Bumi Bangunan</p>
+	</div>
 
 <div class="data">
 	<div class="box-container">
@@ -35,34 +36,32 @@
 								</div>
 						</form> -->
 				<div class="pencarian d-flex justify-content-between align-items-end">
-					<p class="m-0">Menampilkan <b>{{ $data_pelayanan->count() }}</b> data dari total <b>{{ $data_pelayanan->total() }}</b> </p>
+					<!-- <p class="m-0">Menampilkan <b>{{ $data_pelayanan->count() }}</b> data dari total <b>{{ $data_pelayanan->total() }}</b> </p> -->
 					<div class="tombol">
 						<a href="{{ route('pelayanan.laporan') }}"><button class="bg-success" type="button">Laporan Pelayanan</button></a>
 						<a href="{{ route('pelayanan.create') }}"><button type="button">Buat Pelayanan</button></a>
 					</div>
 				</div>
 
-				<div class="dataTable2" style="overflow-x: scroll;">
-					<table>
-						<thead>
-							<tr>
-								<td width="50px">No</td>
-								<td>No Pelayanan</td>
-								<td>Nama Pemohon</td>
-								<td>Tanggal Pelayanan</td>
-								<td>Kecamatan</td>
-								<td>Kelurahan</td>
-								<td>Blok</td>
-								<td>No Urut</td>
-								<td>Kode Jenis Pelayanan</td>
-								<td>Status Pelayanan</td>
-								<td>Keterangan Berkas</td>
-								<td width="100px" class="text-center">Opsi</td>
-							</tr>
-						</thead>
-
-						<tbody>
-							@foreach($data_pelayanan as $pelayanan)
+				<table id="example" class="table table-striped" style="width:100%">
+					<thead>
+						<tr>
+							<td width="30px">No</td>
+							<td>No Pelayanan</td>
+							<td>Nama Pemohon</td>
+							<td>Tanggal Pelayanan</td>
+							<td>Kecamatan</td>
+							<td>Kelurahan</td>
+							<td>Blok</td>
+							<td>No Urut</td>
+							<td>Kode Jenis Pelayanan</td>
+							<td>Status Pelayanan</td>
+							<td>Keterangan Berkas</td>
+							<td width="60px" class="text-center">Opsi</td>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach($data_pelayanan as $pelayanan)
 							<tr>
 								<td  class="text-center">{{ $no++ }} </td>
 								<td>{{ $pelayanan->NO_PELAYANAN }}</td>
@@ -96,16 +95,16 @@
 									</ul>
 								</td>
 							</tr>
-							@endforeach
-						</tbody>
-					</table>
-				</div>
+						@endforeach
+				</table>
 
+				
 				<div class="d-flex justify-content-center mt-3">
 					{{ $data_pelayanan->links() }}
 				</div>
-
 			</div>
 		</div>
 	</div>
-	@endsection
+</div> 
+
+@endsection

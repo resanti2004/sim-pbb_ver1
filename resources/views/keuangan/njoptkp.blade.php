@@ -37,10 +37,10 @@
 								</div>
 						</form> -->
 				<div class="pencarian d-flex justify-content-between align-items-end">
-					<p class="m-0">Menampilkan <b>{{ $results->count() }} </b> data dari total <b>{{ $results->total() }}</b> </p>
+					<!-- <p class="m-0">Menampilkan <b>{{ $results->count() }} </b> data dari total <b>{{ $results->total() }}</b> </p> -->
 					<!-- <a href="{{ route('provinsi.create') }}"><button type="button">+ Buat Baru</button></a> -->
 				</div>
-				<table>
+				<table id="example" class="table table-striped" style="width:100%">
 					<thead>
 						<tr>
 							<td width="50px">No</td>
