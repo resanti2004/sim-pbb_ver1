@@ -6,77 +6,95 @@ use App\Models\Pelayanan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use App\Models\PelayananSearch;
+use App\Models\StatusPelayanan;
+use Illuminate\Support\Facades\Auth;
+use Yajra\DataTables\DataTables;
+use Illuminate\Support\Facades\Log;
+
 
 class PelayananController extends Controller
+
+
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
+
         $data_user = DB::table('users');
         $user = $data_user->where('id', Auth()->user()->id)->first();
         $fullname = $user->fullname;
         $username = $user->username;
 
-        $data_pelayanan = Pelayanan::paginate(25);
-        $no = ($data_pelayanan->currentPage() - 1) * $data_pelayanan->perPage() + 1;
-        return(view('pelayanan.pelayanan', compact('fullname', 'username', 'data_pelayanan', 'no')));
+        $searchModel = new PelayananSearch();
+        $status = StatusPelayanan::orderBy('urutan')->pluck('nama', 'id')->toArray();
+
+        $dataProvider = $searchModel->search(request()->all());
+
+        if (request()->has('hasEditable')) {
+            $id = request()->post('editableKey');
+            $model = Pelayanan::findOrFail($id);
+
+            $pelayanan = ['Pelayanan' => current(request()->post('Pelayanan'))];
+            if ($model->fill($pelayanan)->save()) {
+                switch ($model->STATUS_PELAYANAN) {
+                    case 2:
+                        $model->TGL_MASUK_PENILAI = now();
+                        $model->NIP_MASUK_PENILAI = Auth::user()->username;
+                        break;
+                    case 4:
+                        $model->TGL_SELESAI = now();
+                        $model->NIP_SELESAI = Auth::user()->username;
+                        break;
+                    case 5:
+                        $model->TGL_TERKONFIRMASI_WP = now();
+                        $model->NIP_TERKONFIRMASI_WP = Auth::user()->username;
+                        break;
+                    case 3:
+                        $model->TGL_PENETAPAN = now();
+                        $model->NIP_PENETAPAN = Auth::user()->username;
+                        break;
+                    case 6:
+                        $model->TGL_BERKAS_DITUNDA = now();
+                        $model->NIP_BERKAS_DITUNDA = Auth::user()->username;
+                        break;
+                }
+
+                $model->save();
+
+                if (isset($pelayanan['Pelayanan']['STATUS_PELAYANAN'])) {
+                    return response()->json(['output' => $status[$model->STATUS_PELAYANAN], 'message' => '']);
+                } else {
+                    return response()->json(['output' => $model->KETERANGAN_BERKAS, 'message' => '']);
+                }
+            }
+            return response()->json(['output' => '', 'message' => 'Gagal']);
+        }
+
+        return view('pelayanan.pelayanan', compact('searchModel', 'dataProvider', 'status', 'username', 'fullname'));
     }
 
-    // public function index()
-    // {
-    //     $searchModel = new PelayananSearch();
-    //     $status = StatusPelayanan::orderBy('urutan')->pluck('nama', 'id');
 
-    //     $dataProvider = $searchModel->search(request()->query());
 
-    //     if (request()->post('hasEditable')) {
-    //         $id = request()->post('editableKey');
-    //         $model = $this->findModel($id);
 
-    //         $pelayanan = ['Pelayanan' => current(request()->post('Pelayanan'))];
-    //         if ($model->fill($pelayanan)->save()) {
-    //             $this->handleStatusPelayanan($model);
+    public function data()
+    {
+        try {
+            $data = Pelayanan::query()->get();
+    
+            // Convert DataTables instance to JSON before returning
+            return DataTables::of($data)->toJson();
+        } catch (\Exception $e) {
+            Log::error($e->getMessage());
+            return response()->json(['error' => 'An error occurred while fetching data.']);
+        }
+    }
+    
 
-    //             $output = isset($pelayanan['Pelayanan']['STATUS_PELAYANAN'])
-    //                 ? $status[$model->STATUS_PELAYANAN]
-    //                 : $model->KETERANGAN_BERKAS;
 
-    //             return response()->json(['output' => $output, 'message' => '']);
-    //         }
 
-    //         return response()->json(['output' => '', 'message' => 'Gagal']);
-    //     }
-
-    //     return view('your-view-name', compact('searchModel', 'dataProvider', 'status'));
-    // }
-
-    // private function handleStatusPelayanan($model)
-    // {
-    //     switch ($model->STATUS_PELAYANAN) {
-    //         case 2:
-    //             $model->TGL_MASUK_PENILAI = now();
-    //             $model->NIP_MASUK_PENILAI = auth()->user()->username;
-    //             break;
-    //         case 4:
-    //             $model->TGL_SELESAI = now();
-    //             $model->NIP_SELESAI = auth()->user()->username;
-    //             break;
-    //         case 5:
-    //             $model->TGL_TERKONFIRMASI_WP = now();
-    //             $model->NIP_TERKONFIRMASI_WP = auth()->user()->username;
-    //             break;
-    //         case 3:
-    //             $model->TGL_PENETAPAN = now();
-    //             $model->NIP_PENETAPAN = auth()->user()->username;
-    //             break;
-    //         case 6:
-    //             $model->TGL_BERKAS_DITUNDA = now();
-    //             $model->NIP_BERKAS_DITUNDA = auth()->user()->username;
-    //             break;
-    //     }
-    // }
 
     /**
      * Show the form for creating a new resource.
@@ -89,7 +107,7 @@ class PelayananController extends Controller
         $username = $user->username;
 
 
-        return(view('pelayanan.add_pelayanan', compact('fullname', 'username')));
+        return (view('pelayanan.add_pelayanan', compact('fullname', 'username')));
     }
 
     /**
@@ -104,25 +122,24 @@ class PelayananController extends Controller
         }
 
         $data = $request->all();
-        
     }
     public function laporan()
-    {   
-        
+    {
+
         $data_user = DB::table('users');
         $user = $data_user->where('id', Auth()->user()->id)->first();
         $fullname = $user->fullname;
         $username = $user->username;
-        
+
 
         return view('pelayanan.laporan_pelayanan', compact('fullname', 'username'));
-    } 
+    }
 
     /**
      * Display the specified resource.
      */
     public function show()
-    {   
+    {
         $data_user = DB::table('users');
         $user = $data_user->where('id', Auth()->user()->id)->first();
         $fullname = $user->fullname;
@@ -139,7 +156,7 @@ class PelayananController extends Controller
         $user = $data_user->where('id', Auth()->user()->id)->first();
         $fullname = $user->fullname;
         $username = $user->username;
-        return(view('pelayanan.edit_pelayanan', compact('fullname', 'username')));
+        return (view('pelayanan.edit_pelayanan', compact('fullname', 'username')));
     }
 
     /**
@@ -157,6 +174,4 @@ class PelayananController extends Controller
     {
         //
     }
-
-      
 }

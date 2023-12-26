@@ -78,6 +78,7 @@ Route::controller(PelayananController::class)->group(function () {
     Route::get('/pelayanan/detail', 'show')->name('pelayanan.show');
     Route::get('/pelayanan-laporan', 'laporan')->name('pelayanan.laporan');
     Route::get('/pelayanan-laporan/edit', 'edit')->name('pelayanan.edit');
+    Route::get('/pelayanan-data', 'data')->name('pelayanan.data');
 
 });
 

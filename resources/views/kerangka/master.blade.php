@@ -18,7 +18,21 @@
 	<link rel="stylesheet" href="{{ asset('css/spop.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/lspop.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/login.css') }}">
-    
+	<!-- Include jQuery -->
+	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+	
+	<!-- Include DataTables Editor -->
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
+
+	<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.1.1/css/buttons.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/select/1.3.4/css/select.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/datetime/1.1.1/css/dataTables.dateTime.min.css">
+	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/2.1.1/js/dataTables.buttons.min.js"></script>
+	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/select/1.3.4/js/dataTables.select.min.js"></script>
+	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/datetime/1.1.1/js/dataTables.dateTime.min.js"></script>
+
 	<!-- Bootstrap CSS
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" integrity="sha384-MdN4viGQhL9RvZpctU5AyBQKM8tKfhgLApff2OpMW+dpj3dJMyqz0mEScFEmWIlA" crossorigin="anonymous"> -->
 
@@ -83,8 +97,8 @@
 	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<!-- delete confirm alert -->
 	<script>
-		$ (function(){
-			$(document).on('click', '#delete', function(e){
+		$(function() {
+			$(document).on('click', '#delete', function(e) {
 				e.preventDefault();
 				var link = $(this).attr("href");
 
@@ -96,22 +110,22 @@
 					confirmButtonColor: '#3085d6',
 					cancelButtonColor: '#d33',
 					confirmButtonText: 'Ya, hapus!'
-					}).then((result) => {
+				}).then((result) => {
 					if (result.isConfirmed) {
 						Swal.fire(
-						'Terhapus!',
-						'Data Anda berhasil dihapus!',
-						'success'
+							'Terhapus!',
+							'Data Anda berhasil dihapus!',
+							'success'
 						)
 					}
-					})
+				})
 			});
 		});
 	</script>
 	<!-- alert info -->
 	<script>
-		$ (function(){
-			$(document).on('click', '#info', function(e){
+		$(function() {
+			$(document).on('click', '#info', function(e) {
 				e.preventDefault();
 				var link = $(this).attr("href");
 
@@ -119,25 +133,25 @@
 					'Informasi',
 					'Anda tidak bisa melakukan aksi ini!',
 					'info'
-					)
+				)
 			});
 		});
 	</script>
-	
+
 	<!-- multiple select -->
 	<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js" integrity="sha512-2ImtlRlf2VVmiGZsjm9bEyhjGW4dU7B6TNwh/hx/iSByxNENtj3WVE6o/9Lj4TJeVXPi4bnOIMXFIJJAeufa0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js" integrity="sha512-2ImtlRlf2VVmiGZsjm9bEyhjGW4dU7B6TNwh/hx/iSByxNENtj3WVE6o/9Lj4TJeVXPi4bnOIMXFIJJAeufa0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 	<script>
-        $(document).ready(function() {
-            // Select2 Multiple
-            $('#select2Multiple').select2({
-                placeholder: "Pilih jenis pelayanan",
-                allowClear: true
-            });
-        });
-    </script>
+		$(document).ready(function() {
+			// Select2 Multiple
+			$('#select2Multiple').select2({
+				placeholder: "Pilih jenis pelayanan",
+				allowClear: true
+			});
+		});
+	</script>
 
 
 </body>
