@@ -111,6 +111,7 @@
 			$(document).on('click', '#delete', function(e) {
 				e.preventDefault();
 				var link = $(this).attr("href");
+				var url = $(this).data('url');
 
 				Swal.fire({
 					title: 'Apakah Anda Yakin?',
@@ -122,6 +123,9 @@
 					confirmButtonText: 'Ya, hapus!'
 				}).then((result) => {
 					if (result.isConfirmed) {
+						$('#deleteForm_' + id).submit();
+						window.location.href = link;
+
 						Swal.fire(
 							'Terhapus!',
 							'Data Anda berhasil dihapus!',

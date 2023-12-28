@@ -8,6 +8,7 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use DateTimeInterface;
 
 /**
  * Class Pelayanan
@@ -62,6 +63,9 @@ class Pelayanan extends Model
 	public $incrementing = false;
 	public $timestamps = false;
 
+	protected function serializeDate(DateTimeInterface $date){
+		return $date->format('Y-m-d');
+	}
 
 	/**
      * Transform the model attributes to a specific JSON format.

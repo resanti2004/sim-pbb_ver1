@@ -138,8 +138,8 @@ public function data(Request $request)
 
     foreach ($pelayanans->items() as $index => $pelayanan) {
         $pelayanan->DT_RowIndex = $index + 1 + ($page - 1) * $perPage;
-        $pelayanan->TANGGAL_PELAYANAN = Carbon::parse($pelayanan->TANGGAL_PELAYANAN)->format('Y-m-d');
-    }
+    }    
+    
 
     return response()->json([
         'data' => $pelayanans->items(),
@@ -172,14 +172,42 @@ public function data(Request $request)
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), Pelayanan::$rules);
+        $model = new Pelayanan();
+        $dok_pelayanan = \app\models\RefDokumenPelayanan::find()->asArray()->all();
 
-        if ($validator->fails()) {
-            return redirect()->route('pelayanan.create')->withErrors($validator)->withInput();
-        }
+        if (request()->post()) {
 
-        $data = $request->all();
+            $p = request()->post();
+            $nop = explode('.', $p['nop']);
+
+            $model->KD_PROPINSI = $nop[0];
+            $model->KD_DATI2 = $nop[1];
+            $model->KD_KECAMATAN = $nop[2];
+            $model->KD_KELURAHAN = $nop[3];
+            $model->KD_BLOK = $nop[4];
+            $model->NO_URUT = $nop[5];
+            $model->KD_JNS_OP = $nop[6];
+            // echo($p['Pelayanan']['KECAMATAN']);exit;
+            $m_kec = \app\models\RefKecamatan::find()->where(['KD_KECAMATAN' => $p['Pelayanan']['KECAMATAN']])->one();
+            $m_kel = \app\models\RefKelurahan::find()->where(['KD_KECAMATAN' => $p['Pelayanan']['KECAMATAN'], 'KD_KELURAHAN' => $p['Pelayanan']['KELURAHAN']])->one();
+
+            $model->KECAMATAN = $m_kec->NM_KECAMATAN;
+            $model->KELURAHAN = $m_kel->NM_KELURAHAN;
+            $model->save();
+            foreach ($p['pelayanan_dokumen'] as $key => $value) {
+                $m_dok = new \app\models\PelayananDokumen();
+                $m_dok->pelayanan_id = $model->ID;
+                $m_dok->dokumen_id = $key;
+                $m_dok->save();
+            }
+            return $this->redirect(['pelayanan.pelayanan', 'id' => $model->ID]);
+        } else {
+            $model->TANGGAL_PELAYANAN = date('Y-m-d');
+            $model->NO_PELAYANAN =  $model->getNoPelayanan();
+            return $this->render('pelayanan.add_pelayanan', compact('model', 'dok_pelayanan'));
+        };
     }
+
     public function laporan()
     {
 
@@ -188,31 +216,34 @@ public function data(Request $request)
         $fullname = $user->fullname;
         $username = $user->username;
 
-
         return view('pelayanan.laporan_pelayanan', compact('fullname', 'username'));
     }
 
     /**
      * Display the specified resource.
      */
-    public function show()
+    public function show($ID)
     {
         $data_user = DB::table('users');
         $user = $data_user->where('id', Auth()->user()->id)->first();
         $fullname = $user->fullname;
         $username = $user->username;
-        return view('pelayanan.detail_pelayanan', compact('fullname', 'username'));
+        $model = Pelayanan::where(['ID' => $ID])->first();
+        
+        return view('pelayanan.detail_pelayanan', compact('fullname', 'username', 'model'));
+
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit()
+    public function edit($ID)
     {
         $data_user = DB::table('users');
         $user = $data_user->where('id', Auth()->user()->id)->first();
         $fullname = $user->fullname;
         $username = $user->username;
+
         return (view('pelayanan.edit_pelayanan', compact('fullname', 'username')));
     }
 
@@ -227,8 +258,20 @@ public function data(Request $request)
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($pelayanan)
     {
-        //
+        $id = $pelayanan;
+        $data_pelayanan = Pelayanan::where([
+            ['ID', '=', $id]]);
+
+        if (!$data_pelayanan) {
+            // Handle the case where the model is not found
+            abort(404);
+        } else {
+            $data_pelayanan->delete();
+            return redirect()->route('pelayanan.index')->with('success', 'Data berhasil dihapus!');
+            // Replace 'your.route.name' with the actual name of the route you want to redirect to
+        }
     }
+    
 }

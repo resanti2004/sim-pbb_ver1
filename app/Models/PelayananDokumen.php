@@ -9,14 +9,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class PelayananDokuman
+ * Class PelayananDokumen
  * 
  * @property int $pelayanan_id
  * @property int $dokumen_id
  *
  * @package App\Models
  */
-class PelayananDokuman extends Model
+class PelayananDokumen extends Model
 {
 	protected $table = 'pelayanan_dokumen';
 	public $incrementing = false;
