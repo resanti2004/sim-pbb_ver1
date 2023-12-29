@@ -36,7 +36,7 @@
                                 @csrf
                                 <div class="col-md-5 me-0">
                                     <label for="TahunAwal" class="form-label">Range PBB</label>
-                                    <input type="number"  class="form-control" id="TahunAwal" name="tahun_awal" style="border-top-right-radius: 0; border-bottom-right-radius: 0;">
+                                    <input type="number"  class="form-control" id="TahunAwal" name="tahun_awal" style="border-top-right-radius: 0; border-bottom-right-radius: 0;" required>
                                 </div>
                                 <!-- <div class="col-md-2 g-0 mt-auto ">
                                     <input type="number" class="form-control rounded-0" id="TahunAkhir" name="tahun_akhir">
@@ -48,7 +48,7 @@
                                 </div>
                                 <div class="col-md-5 g-0 mt-auto">
                                     <!-- <label for="TahunAkhir" class="form-label"></label> -->
-                                    <input type="number" class="form-control" id="TahunAkhir" name="tahun_akhir" style="border-top-left-radius: 0; border-bottom-left-radius: 0;">
+                                    <input type="number" class="form-control" id="TahunAkhir" name="tahun_akhir" style="border-top-left-radius: 0; border-bottom-left-radius: 0;" required>
                                 </div>
                                 <div class="col-md-12">
                                     <label for="kd_kec" class="form-label">Is Validate</label>
@@ -78,7 +78,7 @@
                             </form>
                         </div>
 
-                        <div class="dataBox" >
+                        <div class="detail" >
                             <div class="pencarian d-flex justify-content-between align-items-end">
                                 <p class="m-0">Menampilkan <b>2</b> data dari total <b>2</b> </p>
                                 <div class="tombol">

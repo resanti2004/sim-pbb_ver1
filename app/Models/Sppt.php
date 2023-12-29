@@ -544,6 +544,8 @@ class Sppt extends Model
   {
     // Use Laravel's DB facade to execute SQL queries
     DB::statement("DROP TABLE IF EXISTS temp_histori_mutasi");
+    DB::statement("ALTER TABLE pelayanan
+    MODIFY COLUMN KD_JNS_PELAYANAN VARCHAR(255) COLLATE utf8mb4_general_ci;");
     DB::statement("
             CREATE TABLE temp_histori_mutasi AS 
             SELECT 
@@ -566,13 +568,13 @@ class Sppt extends Model
                 lt_sesudah,
                 lb_sesudah,
                 pbb_sesudah,
-                KETERANGAN,
-                CATATAN
+                pelayanan.KETERANGAN,
+                pelayanan.CATATAN
             FROM
                 histori_mutasi 
                 JOIN pelayanan USING (no_pelayanan) 
-            WHERE KD_JNS_PELAYANAN = '01' 
-                AND pelayanan.TANGGAL_PELAYANAN BETWEEN '$start_date' AND '$end_date'
+            WHERE KD_JNS_PELAYANAN = '01' COLLATE utf8mb4_general_ci 
+                AND pelayanan.TANGGAL_PELAYANAN  BETWEEN '$start_date' AND '$end_date' COLLATE utf8mb4_general_ci
         ");
 
     DB::statement("
@@ -742,4 +744,8 @@ class Sppt extends Model
     $denda = (0.02 * $bulan) * $pbb;
     return $denda;
   }
+
+  
+
+
 }

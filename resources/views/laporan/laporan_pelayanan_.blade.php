@@ -44,21 +44,10 @@
                         </div>
                         <div class="col-md-12">
                             <label for="select2Multiple" class="form-label">Jenis Pelayanan</label>
-                            <select class="form-select border border-primary" name="jns_pelayanan[]" multiple="multiple" id="select2Multiple" >
-                                <option>PENDAFTARAN DATA BARU</option>
-                                <option>MUTASI OBJEK/SUBJEK</option>
-                                <option>PEMBETULAN SPPT/SKP/STP</option>
-                                <option>PEMBATALAN SPPT/SKP</option>
-                                <option>SALINAN SPPT/SKP</option>
-                                <option>KEBERATAN PENUNJUKAN WAJIB PAJAK</option>
-                                <option>PENGURANGAN ATAS BESARNYA PAJAK TERHUBUNG</option>
-                                <option>RESTITUSI DAN KOMPENSASI</option>
-                                <option>PENGURANGAN DENDA ADMINISTRASI</option>
-                                <option>PENENTUAN KEMBALI TANGGAL JATUH TEMPO</option>
-                                <option>VERIFIKASI NOP BPHTB</option>
-                                <option>PEMBERIAN INFORMASI PBB</option>
-                                <option>PEMBETULAN SK KEBERATAN</option>
-                                <option>MUTASI PEMECAHAN</option>
+                            <select class="form-select border border-primary" name="jns_pelayanan[]" multiple="multiple" id="select2Multiple">
+                                @foreach ($jenis_pelayanan as $value => $label)
+                                <option value="{{ $value }}">{{ $label }}</option>
+                                @endforeach
                             </select>
 
                             <div class="invalid-feedback">
@@ -70,7 +59,7 @@
 
                         <div class="col-md-12">
                             <label for="Tahun" class="form-label">Tahun</label>
-                            <input type="number" class="form-control" id="Tahun" name="thn_awal" value="{{ date('Y')}}">
+                            <input type="number" class="form-control" id="Tahun" name="thn_awal" value="{{ date('Y')}}" required>
                             <div class="invalid-feedback">
                                 Isi kolom ini terlebih dahulu!
                             </div>

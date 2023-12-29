@@ -202,7 +202,7 @@
 
                         <div class="BoxUtama">
                             <div class="Box1">
-                                <form method="POST" action="{{ route('provinsi.store') }}" enctype="multipart/form-data" class="row g-4 p-3">
+                                <form method="POST"  enctype="multipart/form-data" class="row g-4 p-3">
                                     @csrf
                                     <div class="col-md-12 d-flex justify-content-center">
                                         <b>DATA ASAL</b>
@@ -260,7 +260,7 @@
                                 </form>
                             </div>
                             <div class="Box3">
-                                <form method="POST" action="{{ route('provinsi.store') }}" enctype="multipart/form-data" class="row g-4 p-3">
+                                <form method="POST" enctype="multipart/form-data" class="row g-4 p-3">
                                     @csrf
                                     <div class="col-md-12 d-flex justify-content-center">
                                         <b>DETAIL PEMERIKSAAN OP</b>
@@ -287,7 +287,7 @@
                         </div>
 						
                         <div class="tombol d-flex justify-content-center align-items-center gap-2">
-								<a href="#"><button type="button">Update</button></a>
+								<a href="{{ route('spop.edit', $spop) }}"><button type="button">Update</button></a>
 								<a href="#"><button type="button" class="bg-danger">Delete</button></a>
 						</div>
 
