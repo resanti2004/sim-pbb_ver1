@@ -1,4 +1,4 @@
-@extends('kerangka.master')
+@extends('kerangka.print_master')
 
 @section('title', 'Realisasi Kelurahan')
 
@@ -6,8 +6,7 @@
 
 <body>
     <div class="print-section">
-
-        <center style="color: white">
+        <center>
             <h3>SPPT Tahun {{ $tahun }}</h3>
             <h4>Tanggal Realisasi {{ $tanggal_realisasi }}</h4>
         </center>

@@ -88,7 +88,8 @@ class RealisasiKelurahanController extends Controller
      */
     public function print()
 
-    {
+    {   
+        $routeName = 'realisasiKel.index';
         $val = session('cetak_realisasi_kelurahan_data');
         $no = 1;
 
@@ -100,7 +101,7 @@ class RealisasiKelurahanController extends Controller
         $user = $data_user->where('id', Auth()->user()->id)->first();
         $fullname = $user->fullname;
         $username = $user->username;
-        return view('laporan.realisasi_kelurahan_cetak', compact('val', 'no', 'tahun', 'tanggal_realisasi', 'fullname', 'username'));
+        return view('laporan.realisasi_kelurahan_cetak', compact('val', 'no', 'tahun', 'tanggal_realisasi', 'fullname', 'username', 'routeName'));
     }
 
     /**

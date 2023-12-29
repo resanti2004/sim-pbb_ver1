@@ -36,24 +36,20 @@
                         @csrf
                         <div class="col-md-6">
                             <label for="NOP" class="form-label">NOP</label>
-                            <input type="text" class="form-control" id="NOP" name="nop" data-inputmask="'mask': '99.99.999.999.999.9999.9'">
-                            <script>
-                                $(document).ready(function() {
-                                    $('#NOP').inputmask();
-                                });
-                            </script>
+                            <input type="text" class="form-control nop" id="NOP" name="nop" required>
+
                         </div>
                         <div class="col-md-6">
                             <label for="NoSurat" class="form-label">No Surat</label>
-                            <input type="text" class="form-control" id="NoSurat" name="no_surat" placeholder="Ketik No Surat">
+                            <input type="text" class="form-control" id="NoSurat" name="no_surat" placeholder="Ketik No Surat" required>
                         </div>
                         <div class="col-md-6">
                             <label for="NoPelayanan" class="form-label">No Pelayanan</label>
-                            <input type="text" class="form-control" id="NoPelayanan" name="no_pelayanan" placeholder="Ketik No Pelayanan">
+                            <input type="text" class="form-control" id="NoPelayanan" name="no_pelayanan" placeholder="Ketik No Pelayanan" required>
                         </div>
                         <div class="col-md-6">
                             <label for="Tahun" class="form-label">Tahun</label>
-                            <input type="number" class="form-control" id="Tahun" name="tahun" placeholder="Tahun Pajak" value="<?= date('Y') ?>">
+                            <input type="number" class="form-control" id="Tahun" name="tahun" placeholder="Tahun Pajak" value="<?= date('Y') ?>" required>
                         </div>
 
                         <div class="col-md-12 d-flex ">
@@ -133,4 +129,20 @@
             </div>
         </div>
     </div>
+
+    <script>
+        $j = jQuery.noConflict();
+        $j(document).ready(function() {
+            $j(".nop").inputmask("99.99.999.999.999.9999.9");
+            var errorMessage = "{{ session('error') }}";
+
+            if (errorMessage) {
+                Swal.fire({
+                    title: 'Ups!',
+                    text: errorMessage,
+                    icon: 'error'
+                });
+            }
+        });
+    </script>
     @endsection

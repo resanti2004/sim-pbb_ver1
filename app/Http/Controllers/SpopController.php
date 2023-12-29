@@ -23,34 +23,95 @@ class SpopController extends Controller
         $user = $data_user->where('id', Auth()->user()->id)->first();
         $fullname = $user->fullname;
         $username = $user->username;
-        // Eksekusi query SQL menggunakan metode DB
-        $data_spop = DB::table('pbb.spop')
-            ->join('berhak_njoptkp', function ($join) {
-                $join->on('pbb.spop.KD_PROPINSI', '=', 'berhak_njoptkp.KD_PROPINSI')
-                    ->on('pbb.spop.KD_DATI2', '=', 'berhak_njoptkp.KD_DATI2')
-                    ->on('pbb.spop.KD_KECAMATAN', '=', 'berhak_njoptkp.KD_KECAMATAN')
-                    ->on('pbb.spop.KD_KELURAHAN', '=', 'berhak_njoptkp.KD_KELURAHAN')
-                    ->on('pbb.spop.KD_BLOK', '=', 'berhak_njoptkp.KD_BLOK')
-                    ->on('pbb.spop.NO_URUT', '=', 'berhak_njoptkp.NO_URUT')
-                    ->on('pbb.spop.KD_JNS_OP', '=', 'berhak_njoptkp.KD_JNS_OP');
-            })
-            ->select('pbb.spop.*', 'berhak_njoptkp.nop')
-            ->paginate(25);
 
-
-        // Menghitung nomor awal data yang ditampilkan pada halaman
-        $no = ($data_spop->currentPage() - 1) * $data_spop->perPage() + 1;
-
-        return view('spop.spop', compact('data_spop', 'no', 'fullname', 'username'));
+        return view('spop.spop', compact('fullname', 'username'));
     }
+
+
+    public function data(Request $request)
+    {
+        $perPage = $request->input('length', 25);
+        $page = $request->input('start', 0) / $perPage + 1;
+
+        $query = DB::table('pbb.spop')
+        ->join('berhak_njoptkp', function ($join) {
+            $join->on('pbb.spop.KD_PROPINSI', '=', 'berhak_njoptkp.KD_PROPINSI')
+                ->on('pbb.spop.KD_DATI2', '=', 'berhak_njoptkp.KD_DATI2')
+                ->on('pbb.spop.KD_KECAMATAN', '=', 'berhak_njoptkp.KD_KECAMATAN')
+                ->on('pbb.spop.KD_KELURAHAN', '=', 'berhak_njoptkp.KD_KELURAHAN')
+                ->on('pbb.spop.KD_BLOK', '=', 'berhak_njoptkp.KD_BLOK')
+                ->on('pbb.spop.NO_URUT', '=', 'berhak_njoptkp.NO_URUT')
+                ->on('pbb.spop.KD_JNS_OP', '=', 'berhak_njoptkp.KD_JNS_OP');
+        })
+        ->select('pbb.spop.*', 'berhak_njoptkp.nop');
+
+        // Apply additional filters or conditions based on DataTables request
+        // Example: if ($request->has('some_column')) $query->where('some_column', $request->input('some_column'));
+
+        // Handle global search
+        if ($request->filled('search.value')) {
+            $searchValue = $request->input('search.value');
+            $query->where(function ($query) use ($searchValue) {
+                // Adjust column names as per your database schema
+                $query->orWhere('berhak_njoptkp.nop', 'like', "%$searchValue%")
+                    ->orWhere('pbb.spop.SUBJEK_PAJAK_ID', 'like', "%$searchValue%")
+                    ->orWhere('pbb.spop.JALAN_OP', 'like', "%$searchValue%")
+                    ->orWhere('pbb.spop.LUAS_BUMI', 'like', "%$searchValue%");
+            });
+        }
+
+        $spops = $query->paginate($perPage, ['*'], 'page', $page);
+
+
+        foreach ($spops->items() as $index => $spop) {
+            $spop->DT_RowIndex = $index + 1 + ($page - 1) * $perPage;
+        }
+
+
+        return response()->json([
+            'data' => $spops->items(),
+            'draw' => $request->input('draw', 1),
+            'recordsTotal' => $spops->total(),
+            'recordsFiltered' => $spops->total(),
+        ]);
+    }
+
+
+
     public function create()
     {
         $data_user = DB::table('users');
         $user = $data_user->where('id', Auth()->user()->id)->first();
         $fullname = $user->fullname;
         $username = $user->username;
-        return view('spop.add_spop', compact('fullname', 'username'));
+
+        $kecamatanOptions = \App\Models\RefKecamatan::select(['KD_KECAMATAN', DB::raw("CONCAT('[', KD_KECAMATAN, '] ', NM_KECAMATAN) AS full_name")])
+        ->pluck('full_name', 'KD_KECAMATAN')
+        ->toArray();
+        $kelurahanOptions = \App\Models\RefKelurahan::select([
+            'KD_KECAMATAN',
+            'KD_KELURAHAN',
+            'NM_KELURAHAN',
+        ])
+            ->get()
+            ->groupBy('KD_KECAMATAN')
+            ->map(function ($kelurahans) {
+                return $kelurahans->map(function ($kelurahan) {
+                    return [$kelurahan->KD_KELURAHAN, $kelurahan->NM_KELURAHAN];
+                });
+            })
+            ->toArray();
+
+        
+    
+
+        
+        
+
+    
+        return view('spop.add_spop', compact('kelurahanOptions' ,'kecamatanOptions', 'fullname', 'username'));
     }
+
     public function store(Request $request)
     {
         // Validate the request...

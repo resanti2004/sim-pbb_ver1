@@ -32,6 +32,7 @@ class InformasiPBBController extends Controller
         $user = $data_user->where('id', Auth()->user()->id)->first();
         $fullname = $user->fullname;
         $username = $user->username;
+        $routeName = 'informasiPbb.index';
 
         if (!empty($post_data)) {
             $model = new Sppt();
@@ -52,7 +53,8 @@ class InformasiPBBController extends Controller
                 'tanggal_pelayanan' => $pelayanan->TANGGAL_PELAYANAN,
                 'tahun' => $post_data['tahun'],
                 'fullname' => $fullname,
-                'username' => $username
+                'username' => $username,
+                'routeName' => $routeName,
             ])->with('layout', 'report');
         }
 

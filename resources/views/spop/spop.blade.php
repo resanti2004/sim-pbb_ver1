@@ -35,12 +35,11 @@
 								</div>
 						</form> -->
 				<div class="pencarian d-flex justify-content-between align-items-end">
-					<p class="m-0">Menampilkan <b>{{ $data_spop->count() }}</b> data dari total <b>{{ $data_spop->total() }}</b> </p>
 					<a href="{{ route('spop.create') }}"><button type="button">Buat Baru</button></a>
 
 				</div>
 
-				<table>
+				<table id="example" class="table table-striped" style="width:100%">
 					<thead>
 						<tr>
 							<td width="50px">No</td>
@@ -51,52 +50,107 @@
 							<td width="100px" class="text-center">Opsi</td>
 						</tr>
 					</thead>
-
-					<tbody>
-						@foreach($data_spop as $spop)
-						<tr>
-							<td class="text-center">{{ $no++ }}</td>
-							<td>{{ $spop->nop }}</td>
-							<td>{{ $spop->SUBJEK_PAJAK_ID }}</td>
-							<td>{{ $spop->JALAN_OP }}</td>
-							<td>{{ $spop->LUAS_BUMI }}</td>
-							<td>
-								<ul class="list-inline">
-									<li class="list-inline-item"><a href="{{ route('spop.show', ['NOP' => $spop->nop]) }}" class="active"><i class='bx bx-show'></i></a></li>
-									<li class="list-inline-item"><a href="{{ route('spop.edit', ['spop' => $spop->nop]) }}" class="active"><i class='bx bxs-edit'></i></a></li>
-									<li class="list-inline-item">
-										<form id="deleteForm_{{ $spop->KD_PROPINSI }}_{{ $spop->KD_DATI2 }}_{{ $spop->KD_KECAMATAN }}_{{ $spop->KD_KELURAHAN }}_{{ $spop->KD_BLOK }}_{{ $spop->NO_URUT }}_{{ $spop->KD_JNS_OP }}" action="{{ route('spop.destroy', ['spop' => $spop->nop]) }}" method="POST">
-											@csrf
-											@method('DELETE')
-										</form>
-
-										<a href="#" onclick="deleteConfirmation('{{ $spop->KD_PROPINSI }}', '{{ $spop->KD_DATI2 }}', '{{ $spop->KD_KECAMATAN }}', '{{ $spop->KD_KELURAHAN }}', '{{ $spop->KD_BLOK }}', '{{ $spop->NO_URUT }}', '{{ $spop->KD_JNS_OP }}')">
-											<i class='bx bx-trash'></i>
-										</a>
-
-										<script>
-											function deleteConfirmation(KD_PROPINSI, KD_DATI2, KD_KECAMATAN, KD_KELURAHAN, KD_BLOK, NO_URUT, KD_JNS_OP) {
-												if (confirm('Anda yakin untuk menghapus?')) {
-													document.getElementById('deleteForm_' + KD_PROPINSI + '_' + KD_DATI2 + '_' + KD_KECAMATAN + '_' + KD_KELURAHAN + '_' + KD_BLOK + '_' + NO_URUT + '_' + KD_JNS_OP).submit();
-												}
-											}
-										</script>
-
-									</li>
-								</ul>
-							</td>
-						</tr>
-						@endforeach
-					</tbody>
 				</table>
-				
-				<div class="d-flex justify-content-center mt-3">
-					<div class="pagination">
-						{{ $data_spop->links() }}
-					</div>
-				</div>
-
 			</div>
 		</div>
 	</div>
+
+
+	<script>
+    $.noConflict();
+    jQuery(document).ready(function($) {
+        $('#example').DataTable({
+            "processing": true,
+            "serverSide": true,
+            "ajax": "{{ route('spop.data') }}", // Replace with your actual route for server-side processing
+            "columns": [{
+                    "data": "DT_RowIndex"
+                }, // Replace "id" with the actual column name
+                {
+                    "data": "nop"
+                },
+                {
+                    "data": "SUBJEK_PAJAK_ID"
+                },
+                {
+                    "data": "JALAN_OP",
+
+                },
+                {
+                    "data": "LUAS_BUMI"
+                },
+                {
+                    "data": null,
+                    "render": function(data, type, row) {
+                        // Customize the rendering of the "Opsi" column
+                    return `<ul class="list-inline">
+                                <li class="list-inline-item"><a href="#" class="active show-link" data-id="${row.nop}"><i class='bx bx-show'></i></a></li>
+                                <li class="list-inline-item"><a href="#" class="active edit-link" data-id="${row.nop}"><i class='bx bxs-edit'></i></a></li>
+                                <li class="list-inline-item">
+                                    <form id="deleteForm_${row.ID}" action="/spop/${row.nop}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                    </form>
+                                    <a href="#" class="active delete-link" data-id="${row.nop}" id="delete_${row.nop}">
+                                        <i class='bx bx-trash'></i>
+                                    </a>
+
+                                </li>
+                            </ul>`
+                    ;
+                    }
+                }
+
+            ]
+            // Add other DataTables configurations as needed
+        });
+
+        $('#example').on('click', '.show-link', function() {
+            var id = $(this).data('id');
+            window.location.href = "{{ url('/spop/detail') }}/" + id;
+        });
+
+        $('#example').on('click', '.edit-link', function() {
+            var id = $(this).data('id');
+            window.location.href = "{{ url('/spop/edit') }}/" + id;
+        });
+
+        $(document).ready(function() {
+            $('#example').on('click', '.delete-link', function(e) {
+                e.preventDefault();
+
+                var id = $(this).data('id');
+                var link = $(this).attr("href");
+                var form = $('#deleteForm_' + id);
+                
+
+                Swal.fire({
+                    title: 'Apakah Anda Yakin?',
+                    text: "Anda tidak akan bisa memulihkannya!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Ya, hapus!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        form.submit();
+                    }
+                });
+            });
+        });
+        // Listen for the success flash message
+    var successMessage = "{{ session('success') }}";
+
+    if (successMessage) {
+        Swal.fire({
+            title: 'Terhapus!',
+            text: successMessage,
+            icon: 'success'
+        });
+    }
+
+    });
+</script>
+
 	@endsection

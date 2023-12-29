@@ -148,11 +148,6 @@ public function data(Request $request)
         'recordsFiltered' => $pelayanans->total(),
     ]);
 }
-
-
-
-
-
     /**
      * Show the form for creating a new resource.
      */

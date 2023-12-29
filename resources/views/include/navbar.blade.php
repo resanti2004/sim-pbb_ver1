@@ -1,12 +1,12 @@
 		<!-- NAVBAR -->
 		<nav>
 			<i class='bx bx-menu toggle-sidebar' ></i>
-			<form action="#">
+			<!-- <form action="#">
 				<div class="form-group">
 					<input type="text" placeholder="Search...">
 					<i class='bx bx-search icon' ></i>
 				</div>
-			</form>
+			</form> -->
 			<!-- <a href="#" class="nav-link">
 				<i class='bx bxs-bell icon' ></i>
 				<span class="badge">5</span>
@@ -26,7 +26,7 @@
 					<ul class="dropdown-menu">
                 </ul>
 				</div>
-				<ul class="profile-link">
+				<!-- <ul class="profile-link">
 					<li><a href="#"><i class='bx bxs-user-circle icon' ></i> Profile</a></li>
 					<li><a href="#"><i class='bx bxs-cog' ></i> Settings</a></li>
 					<li><a href="{{ route('logout') }}"
@@ -36,7 +36,7 @@
 							@csrf
 						</form>
                     </li>
-				</ul>
+				</ul> -->
 			</div>
 		</nav>
 		<!-- NAVBAR -->

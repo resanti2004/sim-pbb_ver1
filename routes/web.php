@@ -54,6 +54,7 @@ Route::controller(LspopController::class)->group(function () {
 });
 Route::controller(SpopController::class)->group(function () {
     Route::get('/spop/detail/{NOP}', 'show')->name('spop.show'); 
+    Route::get('/spop-data', 'data')->name('spop.data');
 });
 
 Route::resource('provinsi', ProvinsiController::class);

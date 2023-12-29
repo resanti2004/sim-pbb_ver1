@@ -48,7 +48,7 @@
                                 </div>
                             
                                 <div class="col-md-12 d-flex justify-content-center ms-auto">
-                                    <button type="submit" class="btn btn-primary" style="width:150px;">Hitung Ulang</button>
+                                    <button id="info" type="submit" class="btn btn-primary" style="width:150px;">Hitung Ulang</button>
                                 </div>
                             </form>
                         </div>

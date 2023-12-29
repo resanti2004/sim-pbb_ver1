@@ -4,20 +4,6 @@
 
 @section('content')
 
-<script>
-    // Apply Inputmask to the NOP input field
-    $(document).ready(function() {
-        $('#NOP').inputmask('99.99.999.999.999.9999.9');
-    });
-
-    $(":input").inputmask();
-
-    $("#phone").inputmask({
-        "mask": "(999) 999-9999"
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js"></script>
-
 <div class="bgn">
     <h1 class="title">Selamat Datang, {{ $fullname }}!</h1>
     <p class="greet">Selamat Datang di Sistem Informasi Pajak Bumi Bangunan</p>
@@ -43,15 +29,15 @@
                         @csrf
                         <div class="col-md-6 ">
                             <label for="NOP" class="form-label">NOP</label>
-                            <input type="text" class="form-control" id="NOP" name="nop" data-inputmask="'mask': '99.99.999.999.999.9999.9'">
+                            <input type="text" class="form-control" id="NOP" name="nop" required>
                         </div>
                         <div class="col-md-6">
                             <label for="NoPelayanan" class="form-label">No Pelayanan</label>
-                            <input type="text" class="form-control" id="no_pelayanan" placeholder="Ketik No Pelayanan" name="no_pelayanan">
+                            <input type="text" class="form-control" id="no_pelayanan" placeholder="Ketik No Pelayanan" name="no_pelayanan" required>
                         </div>
                         <div class="col-md-6">
                             <label for="Tahun" class="form-label">Tahun</label>
-                            <input type="number" class="form-control" id="tahun" name="tahun" value="{{ date('Y') }}">
+                            <input type="number" class="form-control" id="tahun" name="tahun" value="{{ date('Y') }}" required>
                         </div>
                         <div class="col-md-12 d-flex ">
                             <div class="me-2">
@@ -69,6 +55,20 @@
             </div>
         </div>
     </div>
+    <script>
+        $j = jQuery.noConflict();
+        $j(document).ready(function() {
+            $j("#NOP").inputmask("99.99.999.999.999.9999.9");
+            var errorMessage = "{{ session('error') }}";
 
+            if (errorMessage) {
+                Swal.fire({
+                    title: 'Ups!',
+                    text: errorMessage,
+                    icon: 'error'
+                });
+            }
+        });
+    </script>
 
     @endsection

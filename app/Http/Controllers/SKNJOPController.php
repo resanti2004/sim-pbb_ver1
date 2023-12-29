@@ -32,7 +32,7 @@ class SKNJOPController extends Controller
         $user = $data_user->where('id', Auth()->user()->id)->first();
         $fullname = $user->fullname;
         $username = $user->username;
-        
+        $routeName = 'skNjop.index';
         $post_data = $request->all();
 
         if (!empty($post_data)) {
@@ -42,8 +42,8 @@ class SKNJOPController extends Controller
             $pelayanan = Pelayanan::where('no_pelayanan', $post_data['no_pelayanan'])->first();
 
             if (empty($pelayanan) || empty($data)) {
-                Session::flash('error', 'Tidak Ada Data');
-                return redirect()->route('sk-njop');
+                Session::flash('error', 'Data tidak ditemukan');
+                return redirect()->route('skNjop.index');
             }
 
             $report_file = 'cetak_sknjop';
@@ -64,6 +64,7 @@ class SKNJOPController extends Controller
                 'formattedDate' => $formattedDate,
                 'fullname' => $fullname,
                 'username' => $username,
+                'routeName' => $routeName,
             ])->with('layout', 'report');
             }
 
