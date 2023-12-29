@@ -310,8 +310,12 @@ class SpopController extends Controller
         $KD_JNS_OP = substr($spop, 17, 1);
 
         $model = $this->findModel($KD_PROPINSI, $KD_DATI2, $KD_KECAMATAN, $KD_KELURAHAN, $KD_BLOK, $NO_URUT, $KD_JNS_OP);
-       
-        $model_wp = $this->findModelWp($model->SUBJEK_PAJAK_ID);
+        try {
+            $model_wp = $this->findModelWp($model->SUBJEK_PAJAK_ID);
+        } catch (ModelNotFoundException $e){
+            throw new NotFoundHttpException('The requested page does not exist.');
+        };
+        
         
         $propinsis = RefPropinsi::pluck('NM_PROPINSI', 'KD_PROPINSI');
 
