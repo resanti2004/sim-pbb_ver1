@@ -58,7 +58,7 @@
 
 
                 <form action="{{ route('realisasiKel.cetak') }}" method="POST" enctype="multipart/form-data" class="dataBox" style="overflow-x: auto;">
-                
+                    @csrf
                     @if (isset($val))
                     <div class="pencarian d-flex justify-content-between align-items-end">
                         <p class="m-0">Menampilkan <b>{{ $val->count() }}</b> data</p>

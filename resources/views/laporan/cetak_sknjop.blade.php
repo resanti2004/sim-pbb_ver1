@@ -1,4 +1,4 @@
-@extends('kerangka.master')
+@extends('kerangka.print_master')
 
 @section('title', 'SK NJOP'.$data->KD_PROPINSI.$data->KD_DATI2.$data->KD_KECAMATAN.$data->KD_KELURAHAN.$data->KD_BLOK.$data->NO_URUT.$data->KD_JNS_OP)
 
@@ -8,7 +8,6 @@
 @section('content')
 
 <body>
-    <br /><br /><br /><br /><br /><br />
     <div class="print-section">
         <br />
         <div class="row">

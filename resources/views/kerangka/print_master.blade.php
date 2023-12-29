@@ -26,8 +26,6 @@
 	
 	<!-- Include DataTables Editor -->
 	<link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.1.60/inputmask/jquery.inputmask.js"></script>
 
 	<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.1.1/css/buttons.dataTables.min.css">
@@ -52,24 +50,10 @@
 
 <body>
 
-	<!-- SIDEBAR -->
-	<section id="sidebar">
-		@include('include.sidebar');
-	</section>
-	<!-- SIDEBAR -->
-
-	<section id="content">
-
-		<!-- NAVBAR -->
-		@include('include.navbar')
-		<!-- NAVBAR -->
-
-		<div class="bg">
-			<img src="{{ asset('image/bg.svg') }}" alt="bg">
-		</div>
-
+	<section style="background-color: whitesmoke;">
 		<!-- MAIN -->
-		<main>
+		<a href="{{ route($routeName) }}"><button type="button" class="btn-primary m-4">Kembali</button></a>
+		<main style="margin: 0px 20px 20px 20px">
 			@yield('content')
 		</main>
 		<!-- MAIN -->

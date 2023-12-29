@@ -1,4 +1,4 @@
-@extends('kerangka.master')
+@extends('kerangka.print_master')
 
 @section('title', "Informasi PBB".$data->KD_PROPINSI.$data->KD_DATI2.$data->KD_KECAMATAN.$data->KD_KELURAHAN.$data->KD_BLOK.$data->NO_URUT.$data->KD_JNS_OP)
 
@@ -7,7 +7,6 @@
 @section('content')
 
 <body>
-    <br /><br /><br /><br /><br /><br /><br />
     <div class="print-section">
         <!--<div class="row">
         <div class="col-xs-12">
@@ -32,7 +31,7 @@
         <br />
         <br />
         <div class="row">
-            <p style="font-size:14px;margin:0;padding:0;text-align:justify;">
+            <p style="font-size:14px;margin:0;padding:0;">
                 Sesuai dengan proses pelayanan PBB-P2 dengan No : {{ $no_pelayanan }} Tanggal : {{ substr($tanggal_pelayanan, 8, 2) . '-' . substr($tanggal_pelayanan, 5, 2) . '-' . substr($tanggal_pelayanan, 0, 4) }}
                 akan diterbitkan SPPT untuk Tahun {{ $tahun + 1 }} sebagai berikut:
             </p>
@@ -90,7 +89,7 @@
         </div>
         <br />
         <div class="row">
-            <p style="font-size:14px;margin:0;padding:0;text-align:justify;">
+            <p style="font-size:14px;margin:0;padding:0;">
                 Apabila di kemudian hari terdapat kekeliruan akan dibetulkan dan ditindaklanjuti sesuai dengan ketentuan yang berlaku.<br />
             </p>
         </div>

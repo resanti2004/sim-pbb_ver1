@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('kerangka.master')
 
 @section('title', 'Summary Neraca BPK')
 
@@ -7,7 +7,7 @@
         $title = "NERACA " . $post_data['tahun_awal'] . ' s/d ' . $post_data['tahun_akhir'] . ' (' . $post_data['per_tanggal'] . ')';
     ?>
 
-    <center><h2>{{ $title }}</h2></center>
+    <center><h2 style="color: white;">{{ $title }}</h2></center>
     <br/>
 
     @foreach ($data as $thn => $v)

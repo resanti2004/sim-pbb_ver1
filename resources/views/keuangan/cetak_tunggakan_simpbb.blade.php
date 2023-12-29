@@ -1,4 +1,4 @@
-@extends('kerangka.master')
+@extends('kerangka.print_master')
 
 @section('title', "Tunggakan ")
 
@@ -8,7 +8,6 @@
 @section('content')
 
 <body>
-    <br /><br /><br /><br /><br /><br /><br />
     <div class="print-section">
         <table class="table" style="margin-top: 0px;">
             <tr>

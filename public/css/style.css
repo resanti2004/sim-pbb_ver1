@@ -329,7 +329,6 @@ main .content-data .chart::-webkit-scrollbar {
 		color: black;
     }
     .print-section {
-        position: absolute;
 		/* display: block !important; */
         left: 0;
         top: 0;

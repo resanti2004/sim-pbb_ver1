@@ -30,6 +30,7 @@ class HasilInputPelayananController extends Controller
         $fullname = $user->fullname;
         $username = $user->username;
         $post_data = request()->post();
+        $routeName = 'hasilInputPelayanan.index';
 
         // dd($post_data);
         if (!empty($post_data)) {
@@ -39,7 +40,7 @@ class HasilInputPelayananController extends Controller
             $pelayanan = Pelayanan::where('no_pelayanan', $post_data['no_pelayanan'])->first();
     
             if (empty($pelayanan) || empty($data)) {
-                Session::flash('error', 'Tidak Ada Data');
+                Session::flash('error', 'Data tidak ditemukan');
                 return redirect()->route('hasilInputPelayanan.index');
             }
     
@@ -55,7 +56,8 @@ class HasilInputPelayananController extends Controller
                 'tanggal_pelayanan' => $pelayanan->TANGGAL_PELAYANAN,
                 'tahun' => $post_data['tahun'],
                 'fullname' => $fullname,
-                'username' => $username
+                'username' => $username,
+                'routeName' => $routeName,
             ])->with('layout', 'report');
         }
     

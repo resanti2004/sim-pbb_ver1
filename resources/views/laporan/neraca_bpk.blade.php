@@ -32,7 +32,7 @@
 						</div>
 						
                         <div class="filterBox">
-                            <form method="POST" action="{{ route('provinsi.store') }}" enctype="multipart/form-data" class="row g-4 p-3">
+                            <form method="POST" action="{{ route('neracaBpk.cetak') }}" enctype="multipart/form-data" class="row g-4 p-3">
                                 @csrf
                                 <div class="col-md-6 ">
                                     <label for="TahunAwal" class="form-label">Tahun Awal</label>
@@ -48,10 +48,10 @@
                                 </div>
                             
                                 <div class="col-md-6 d-flex justify-content-end ms-auto">
-                                    <button type="submit" class="btn btn-primary" style="width:150px;">Lihat Neraca</button>
+                                    <button type="submit" class="btn btn-primary" id="info" style="width:150px;">Lihat Neraca</button>
                                 </div>
                                 <div class="col-md-6 d-flex justify-content-start me-auto">
-                                    <button type="submit" class="btn btn-warning" style="width:150px;">Hitung Ulang</button>
+                                    <button type="submit" class="btn btn-warning" id="info" style="width:150px;">Hitung Ulang</button>
                                 </div>
                             </form>
                         </div>

@@ -414,6 +414,7 @@ class Sppt extends Model
 
       $data[$thn]['PENYISIHAN'] = $tahun_neraca - $thn <= 5 ? ($sisa - $pokok) * 0.5 : ($sisa - $pokok) * 1;    }
 
+      
     return $data;
   }
 
@@ -424,6 +425,8 @@ class Sppt extends Model
 
   public function neracaBpkSummary($thn_awal, $thn_akhir, $per_tanggal)
   {
+    set_time_limit(300); // Set to 2 minutes
+
     $sql1 = "SELECT 
                   THN_PAJAK_SPPT,
                   SUM(PBB_YG_HARUS_DIBAYAR_SPPT) AS KETETAPAN
@@ -433,8 +436,7 @@ class Sppt extends Model
                   AND $thn_akhir
                 GROUP BY THN_PAJAK_SPPT 
                 ORDER BY THN_PAJAK_SPPT DESC";
-
-    $sql2 = "SELECT 
+	  $sql2 = "SELECT 
 				  THN_PAJAK_SPPT,
 				  SUM(
 					IF(
@@ -472,9 +474,9 @@ class Sppt extends Model
 					NO_URUT,
 					KD_JNS_OP,
 					THN_PAJAK_SPPT) AS a 
-				GROUP BY THN_PAJAK_SPPT ";
+				GROUP BY THN_PAJAK_SPPT ";      
 
-    $sql3 = "SELECT 
+      $sql3 = "SELECT 
                   THN_PAJAK_SPPT,
                   SUM(IF(JML_SPPT_YG_DIBAYAR-DENDA_SPPT<0,0,JML_SPPT_YG_DIBAYAR-DENDA_SPPT)) AS POKOK,
                   SUM(DENDA_SPPT) AS DENDA 
@@ -486,57 +488,55 @@ class Sppt extends Model
                   AND YEAR(TGL_PEMBAYARAN_SPPT)>=$thn_akhir 
                 GROUP BY THN_PAJAK_SPPT
                 ORDER BY THN_PAJAK_SPPT DESC ";
-
-    $ketetapan = DB::select($sql1);
-    $byr_before = DB::select($sql2);
-    $byr_now = DB::select($sql3);
-
-    $data = [];
-
-    foreach ($ketetapan as $key => $value) {
-      $data[$value->THN_PAJAK_SPPT]['KETETAPAN'] = $value->KETETAPAN;
-    }
-
-    foreach ($byr_before as $key => $value) {
-      $data[$value->THN_PAJAK_SPPT]['POKOK_SEBELUM'] = $value->POKOK;
-      $data[$value->THN_PAJAK_SPPT]['DENDA_SEBELUM'] = $value->DENDA;
-    }
-
-    foreach ($byr_now as $key => $value) {
-      $data[$value->THN_PAJAK_SPPT]['POKOK_NOW'] = $value->POKOK;
-      $data[$value->THN_PAJAK_SPPT]['DENDA_NOW'] = $value->DENDA;
-    }
-
-    foreach ($data as $thn => $value) {
-      $persen_penyisihan = 0;
-
-      if ($thn_akhir - $thn == 0) {
-        //Lancar 0.5%
-        $persen_penyisihan = 0.005;
-        $data[$thn]['SISA_AWAL'] = $value['KETETAPAN'];
-        $data[$thn]['SISA'] = $value['KETETAPAN'] - $value['POKOK_NOW'];
-      } elseif ($thn_akhir - $thn == 1 || $thn_akhir - $thn == 2) {
-        //kurang lancar 10%
-        $persen_penyisihan = 0.1;
-        $data[$thn]['SISA_AWAL'] = $value['KETETAPAN'] - $value['POKOK_SEBELUM'];
-        $data[$thn]['SISA'] = $value['KETETAPAN'] - $value['POKOK_SEBELUM'] - $value['POKOK_NOW'];
-      } elseif ($thn_akhir - $thn > 2 && $thn_akhir - $thn <= 5) {
-        //diragukan 50%
-        $persen_penyisihan = 0.5;
-        $data[$thn]['SISA_AWAL'] = $value['KETETAPAN'] - $value['POKOK_SEBELUM'];
-        $data[$thn]['SISA'] = $value['KETETAPAN'] - $value['POKOK_SEBELUM'] - $value['POKOK_NOW'];
-      } elseif ($thn_akhir - $thn > 5) {
-        //macet 100%
-        $persen_penyisihan = 1;
-        $data[$thn]['SISA_AWAL'] = $value['KETETAPAN'] - $value['POKOK_SEBELUM'];
-        $data[$thn]['SISA'] = $value['KETETAPAN'] - $value['POKOK_SEBELUM'] - $value['POKOK_NOW'];
+      $ketetapan = DB::select($sql1);
+      $ketetapan = json_decode(json_encode($ketetapan), true);
+      $byr_before = DB::select($sql2);
+      $byr_before = json_decode(json_encode($byr_before), true);
+      $byr_now = DB::select($sql3);
+      $byr_now = json_decode(json_encode($byr_now), true);
+      
+      $data = [];
+      foreach ($ketetapan as $key => $value) {
+        $data[$value['THN_PAJAK_SPPT']]['KETETAPAN'] = $value['KETETAPAN'];
       }
 
-      $data[$thn]['PENYISIHAN_PIUTANG'] = $data[$thn]['SISA'] * $persen_penyisihan;
-      $data[$thn]['NETTO'] = $data[$thn]['SISA'] - $data[$thn]['PENYISIHAN_PIUTANG'];
-    }
+      foreach ($byr_before as $key => $value) {
+        $data[$value['THN_PAJAK_SPPT']]['POKOK_SEBELUM'] = $value['POKOK'];
+        $data[$value['THN_PAJAK_SPPT']]['DENDA_SEBELUM'] = $value['DENDA'];
+      }
 
-    return $data;
+      foreach ($byr_now as $key => $value) {
+        $data[$value['THN_PAJAK_SPPT']]['POKOK_NOW'] = $value['POKOK'];
+        $data[$value['THN_PAJAK_SPPT']]['DENDA_NOW'] = $value['DENDA'];
+      }
+      foreach ($data as $thn => $value) {
+        $persen_penyisihan = 0;
+        if($thn_akhir-$thn==0){
+          //Lancar 0.5%
+          $persen_penyisihan = 0.005;
+          $data[$thn]['SISA_AWAL'] = $value['KETETAPAN'];
+          $data[$thn]['SISA'] = $value['KETETAPAN'] - $value['POKOK_NOW'];
+        } elseif($thn_akhir-$thn==1 || $thn_akhir-$thn==2){
+          //kurang lancar 10%
+          $persen_penyisihan = 0.1;
+          $data[$thn]['SISA_AWAL'] = $value['KETETAPAN'] - $value['POKOK_SEBELUM'];
+          $data[$thn]['SISA'] = $value['KETETAPAN'] - $value['POKOK_SEBELUM'] - $value['POKOK_NOW'];
+        } elseif ($thn_akhir-$thn>2 && $thn_akhir-$thn<=5) {
+          //diragukan 50%
+          $persen_penyisihan = 0.5;
+          $data[$thn]['SISA_AWAL'] = $value['KETETAPAN'] - $value['POKOK_SEBELUM'];
+          $data[$thn]['SISA'] = $value['KETETAPAN'] - $value['POKOK_SEBELUM'] - $value['POKOK_NOW'];
+        } elseif ($thn_akhir-$thn>5) {
+          //macet 100%
+          $persen_penyisihan = 1;
+          $data[$thn]['SISA_AWAL'] = $value['KETETAPAN'] - $value['POKOK_SEBELUM'];
+          $data[$thn]['SISA'] = $value['KETETAPAN'] - $value['POKOK_SEBELUM'] - $value['POKOK_NOW'];
+        }
+        $data[$thn]['PENYISIHAN_PIUTANG'] = $data[$thn]['SISA'] * $persen_penyisihan;
+        $data[$thn]['NETTO'] = $data[$thn]['SISA'] - $data[$thn]['PENYISIHAN_PIUTANG'];
+
+      }
+      return $data;
   }
 
 
@@ -544,6 +544,8 @@ class Sppt extends Model
   {
     // Use Laravel's DB facade to execute SQL queries
     DB::statement("DROP TABLE IF EXISTS temp_histori_mutasi");
+    DB::statement("ALTER TABLE pelayanan
+    MODIFY COLUMN KD_JNS_PELAYANAN VARCHAR(255) COLLATE utf8mb4_general_ci;");
     DB::statement("
             CREATE TABLE temp_histori_mutasi AS 
             SELECT 
@@ -566,13 +568,13 @@ class Sppt extends Model
                 lt_sesudah,
                 lb_sesudah,
                 pbb_sesudah,
-                KETERANGAN,
-                CATATAN
+                pelayanan.KETERANGAN,
+                pelayanan.CATATAN
             FROM
                 histori_mutasi 
                 JOIN pelayanan USING (no_pelayanan) 
-            WHERE KD_JNS_PELAYANAN = '01' 
-                AND pelayanan.TANGGAL_PELAYANAN BETWEEN '$start_date' AND '$end_date'
+            WHERE KD_JNS_PELAYANAN = '01' COLLATE utf8mb4_general_ci 
+                AND pelayanan.TANGGAL_PELAYANAN  BETWEEN '$start_date' AND '$end_date' COLLATE utf8mb4_general_ci
         ");
 
     DB::statement("
@@ -742,4 +744,8 @@ class Sppt extends Model
     $denda = (0.02 * $bulan) * $pbb;
     return $denda;
   }
+
+  
+
+
 }

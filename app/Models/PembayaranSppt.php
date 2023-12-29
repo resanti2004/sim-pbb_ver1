@@ -61,7 +61,8 @@ class PembayaranSppt extends Model
 	];
 
 	public function getDataByNOPTahun($NOP, $tahun_awal, $tahun_akhir)
-    {
+    {   
+
         return $this->select([
                 'KD_PROPINSI',
                 'KD_DATI2',

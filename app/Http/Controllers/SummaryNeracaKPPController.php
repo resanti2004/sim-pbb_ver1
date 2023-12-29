@@ -28,7 +28,7 @@ class SummaryNeracaKPPController extends Controller
     public function look(Request $request)
     {
         $post_data = request()->post();
-
+        $routeName = 'summaryNerKPP.index';
         $data_user = DB::table('users');
         $user = $data_user->where('id', Auth()->user()->id)->first();
         $fullname = $user->fullname;
@@ -36,14 +36,15 @@ class SummaryNeracaKPPController extends Controller
         $no = 1;
         if (!empty($post_data)) {
             $model = new Sppt();
-            $model->neracaKppSummary($post_data['tahun_awal'], $post_data['tahun_akhir'], $post_data['per_tanggal'],$post_data['tahun_neraca']);
-            // dd($model->data);
-            return view('laporan.summary_neraca_kpp_lihat', [
-                'data' => $model->data,
+            $data = $model->neracaKppSummary($post_data['tahun_awal'], $post_data['tahun_akhir'], $post_data['per_tanggal'],$post_data['tahun_neraca']);
+            
+            return view('laporan.cetak_neraca_kpp_summary', [
+                'data' => $data,
                 'post_data' => $post_data,
                 'fullname' => $fullname,
                 'username' => $username,
-                'no' => $no
+                'no' => $no,
+                'routeName' => $routeName,
 
             ]);
         }

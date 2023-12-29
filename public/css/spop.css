@@ -5,7 +5,7 @@
 	/* padding: 20px; */
 	display: grid;
 	/* grid-template-columns: 2fr 1fr; */
-	grid-gap: 30px;
+	grid-gap: 0px;
 	/* margin-top: 10px; */
   }
   
@@ -438,7 +438,6 @@
 	/* display: grid; */
 	/* min-height: 400px; */
 	background: var(--light);
-	max-width: 1500px;
 	/* padding: 0 10px 10px 10px; */
 	/* margin: 20px; */
 	/* box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08); */
@@ -459,7 +458,7 @@
   }
 
 .dataTable table{
-	white-space: nowrap;
+	
 }
 /* .dataTable2 table{
 	 white-space: nowrap; 

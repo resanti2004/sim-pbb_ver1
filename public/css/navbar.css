@@ -4,6 +4,7 @@ nav {
 	height: 64px;
 	padding: 0 20px;
 	display: flex;
+	justify-content: space-between;
 	align-items: center;
 	grid-gap: 20px;
 	position: sticky;
@@ -21,7 +22,7 @@ nav .toggle-sidebar {
     display: inline-block;  */
 }
 nav form {
-	max-width: 400px;
+	/* max-width: 400px; */
 	width: 100%;
 	margin-right: auto;
 }

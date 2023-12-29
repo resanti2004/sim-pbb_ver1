@@ -29,15 +29,15 @@
                         @csrf
                         <div class="col-md-6 ">
                             <label for="NOP" class="form-label">NOP</label>
-                            <input type="text" class="form-control" id="NOP" name="nop">
+                            <input type="text" class="form-control" id="NOP" name="nop" required>
                         </div>
                         <div class="col-md-6">
                             <label for="NoPelayanan" class="form-label">No Pelayanan</label>
-                            <input type="text" class="form-control" id="NoPelayanan" name="no_pelayanan" placeholder="Ketik No Pelayanan">
+                            <input type="text" class="form-control" id="NoPelayanan" name="no_pelayanan" placeholder="Ketik No Pelayanan" required>
                         </div>
                         <div class="col-md-12">
                             <label for="Tahun" class="form-label">Tahun</label>
-                            <input type="number" class="form-control" id="Tahun" name="tahun" placeholder="Tahun Pajak" value="<?= date('Y') ?>">
+                            <input type="number" class="form-control" id="Tahun" name="tahun" placeholder="Tahun Pajak" value="<?= date('Y') ?>" required>
                         </div>
 
                         <div class="col-md-6 d-flex justify-content-end ms-auto">
@@ -67,59 +67,24 @@
                     </form>
                 </div>
 
-                <!-- <div class="dataBox" style="overflow-x: auto;">
-
-                    <div class="pencarian d-flex justify-content-between align-items-end">
-                        <p class="m-0">Menampilkan <b>2</b> data dari total <b>2</b> </p>
-                        <button type="button">Cetak</button>
-                    </div>
-
-                    <table>
-                        <thead>
-                            <tr>
-                                <td>No</td>
-                                <td>Kecamatan</td>
-                                <td>Kelurahan</td>
-                                <td>Pokok</td>
-                                <td>Pokok Dibayar</td>
-                                <td>Denda Dibayar</td>
-                                <td>Total Dibayar</td>
-                                <td>Kurang Bayar</td>
-                                <td>Lebih Banyak</td>
-                                <td>%</td>
-                                <td>Opsi</td>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-
-                            <tr>
-                                <td>No</td>
-                                <td>Wates</td>
-                                <td>Bendungan</td>
-                                <td>20</td>
-                                <td>20</td>
-                                <td>20</td>
-                                <td>20</td>
-                                <td>20</td>
-                                <td>20</td>
-                                <td>20</td>
-                                <td>
-                                    <ul class="list-inline">
-                                        <li class="list-inline-item"><a href="#" class="active"><i class='bx bxs-show'></i></a></li>
-                                        <li class="list-inline-item"><a href="#" class="active"><i class='bx bxs-edit'></i></a></li>
-                                        <li class="list-inline-item"><a href="#" class="active"><i class='bx bxs-trash'></i></a></li>
-                                    </ul>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div class="d-flex justify-content-center">
-                               
-                            </div>
-                </div> -->
-
+                
             </div>
         </div>
     </div>
+    <script>
+        $j = jQuery.noConflict();
+        $j(document).ready(function() {
+            $j("#NOP").inputmask("99.99.999.999.999.9999.9");
+            var errorMessage = "{{ session('error') }}";
+
+            if (errorMessage) {
+                Swal.fire({
+                    title: 'Ups!',
+                    text: errorMessage,
+                    icon: 'error'
+                });
+            }
+        });
+    </script>
+
     @endsection

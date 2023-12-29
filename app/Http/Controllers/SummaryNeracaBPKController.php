@@ -32,16 +32,24 @@ class SummaryNeracaBPKController extends Controller
 
         $post_data = $request->all();
         $model = new Sppt();
-        $data = $model->neracaBpkSummary($post_data['tahun_awal'],$post_data['tahun_akhir'],$post_data['per_tanggal']);
+        try {
+            $data = $model->neracaBpkSummary(
+                $request->input('tahun_awal'),
+                $request->input('tahun_akhir'),
+                $request->input('per_tanggal')
+            );
 
-        $report_file = 'cetak_summary_neraca_bpk';
+            $report_file = 'cetak_neraca_bpk_summary';
 
-        return view('laporan.' . $report_file, [
-            'data' => $data,
-            'fullname' => $fullname,
-            'username' => $username,
-        ]);
+            return view('laporan.' . $report_file, [
+                'data' => $data,
+                'post_data' => $request->all(),
+                'fullname' => $fullname, // Ensure $fullname is defined
+                'username' => $username, // Ensure $username is defined
+            ]);
+        } catch (\Exception $e) {
+            return redirect()->route('summaryNerBPK.index', ['fullname', 'username'])->with('error', 'Data tidak ditemukan');
+        }
     }
-
-   
 }
+

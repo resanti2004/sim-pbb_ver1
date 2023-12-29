@@ -54,6 +54,7 @@ Route::controller(LspopController::class)->group(function () {
 });
 Route::controller(SpopController::class)->group(function () {
     Route::get('/spop/detail/{NOP}', 'show')->name('spop.show'); 
+    Route::get('/spop-data', 'data')->name('spop.data');
 });
 
 Route::resource('provinsi', ProvinsiController::class);
@@ -75,9 +76,9 @@ Route::controller(ProvinsiController::class)->group(function () {
 
 Route::resource('pelayanan', PelayananController::class);
 Route::controller(PelayananController::class)->group(function () {
-    Route::get('/pelayanan/detail', 'show')->name('pelayanan.show');
+    Route::get('/pelayanan/detail/{ID}', 'show')->name('pelayanan.show');
     Route::get('/pelayanan-laporan', 'laporan')->name('pelayanan.laporan');
-    Route::get('/pelayanan-laporan/edit', 'edit')->name('pelayanan.edit');
+    Route::get('/pelayanan/edit/{ID}', 'edit')->name('pelayanan.edit');
     Route::get('/pelayanan-data', 'data')->name('pelayanan.data');
 
 });

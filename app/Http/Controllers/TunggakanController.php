@@ -32,6 +32,7 @@ class TunggakanController extends Controller
         $user = $data_user->where('id', Auth()->user()->id)->first();
         $fullname = $user->fullname;
         $username = $user->username;
+        $routeName = 'tunggakan.index';
 
         if ($request->hasAny(['nop', 'tahun_awal', 'tahun_akhir'])) {
             $post_data = $request->all();
@@ -55,7 +56,10 @@ class TunggakanController extends Controller
             );
 
             if (empty($data_sppt)) {
-                return view('keuangan.tunggakan');
+                return redirect()->route('tunggakan.index', [
+                    'fullname' => $fullname,
+                    'username' => $username,
+                ])->with('error', 'Data tidak ditemukan');
             }
 
             $data_pembayaran = $model_pembayaran->getDataByNOPTahun(
@@ -94,6 +98,7 @@ class TunggakanController extends Controller
                 'fullname' => $fullname,
                 'username' => $username,
                 'model_sppt' => $model_sppt,
+                'routeName' => $routeName
 
             ])->with('layout', 'report');
         }

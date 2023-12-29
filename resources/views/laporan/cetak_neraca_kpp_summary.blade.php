@@ -5,6 +5,9 @@
 @section('content')
 
 <body>
+<a href="{{ route($routeName) }}"><button type="button" class="btn-primary m-4">Kembali</button></a>
+
+<div>
     <?php
         $total = [
             'SISA' => 0,
@@ -31,7 +34,7 @@
         <tbody>
             @foreach($data as $thn => $val)
                 <?php
-                    $total['SISA'] += $val['SISA'];
+                    $sisa = $val['SISA'] ?? 0;
                     $total['POKOK'] += $val['POKOK'];
                     $total['DENDA'] += $val['DENDA'];
                     $total['TOTAL'] += $val['TOTAL'];
@@ -39,13 +42,13 @@
                 ?>
                 <tr>
                     <td>{{ $thn }}</td>
-                    <td>{{ number_format($val['SISA'], 0, '', '.') }}</td>
+                    <td>{{ isset($val['SISA']) ? number_format($val['SISA'], 0, '', '.') : 'Data tidak ditemukan' }}</td>
                     <td>{{ number_format($val['POKOK'], 0, '', '.') }}</td>
                     <td>{{ number_format($val['DENDA'], 0, '', '.') }}</td>
                     <td>{{ number_format($val['TOTAL'], 0, '', '.') }}</td>
-                    <td>{{ number_format($val['SISA'] - $val['POKOK'], 0, '', '.') }}</td>
+                    <td>{{ isset($val['SISA'], $val['POKOK']) ? number_format($val['SISA'] - $val['POKOK'], 0, '', '.') : 'Data tidak ditemukan' }}</td>
                     <td>{{ number_format($val['PENYISIHAN'], 0, '', '.') }}</td>
-                    <td>{{ number_format($val['SISA'] - $val['POKOK'] - $val['PENYISIHAN'], 0, '', '.') }}</td>
+                    <td>{{ number_format($val['SISA']?? 0 - $val['POKOK'] - $val['PENYISIHAN'], 0, '', '.') }}</td>
                 </tr>
             @endforeach
             <tr>
@@ -60,13 +63,7 @@
             </tr>
         </tbody>
     </table>
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                window.print();
-            });
-        </script>
-
     </div>
-
+        </div>
 </body>
 @endsection
