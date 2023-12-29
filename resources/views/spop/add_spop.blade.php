@@ -24,10 +24,10 @@
 						</div>
 						
                         
-                            @csrf
-                        <div class="row">
+                        @csrf
+                        <div class="row m-5 ">
                             <div class="col-md-6">
-                                <form method="POST" action="{{ route('spop.store') }}" class="row g-4 p-5 needs-validation" novalidate>
+                                <form method="POST" action="{{ route('spop.store') }}" class="row g-4 p-3 needs-validation" novalidate>
                                     <div class="col-md-12">
                                         <label for="kd_prov" class="form-label">Kode Provinsi</label>
                                         <input type="text" class="form-control" id="kd_prov" name="KD_PROPINSI" required>
@@ -128,7 +128,7 @@
                             
 
                             <div class="col-md-6">
-                                <form method="POST" action="{{ route('spop.store') }}" class="row g-4 p-5 needs-validation" novalidate>
+                                <form method="POST" action="{{ route('spop.store') }}" class="row g-4 p-3 needs-validation" novalidate>
                                 <div class="col-md-12">
                                     <label for="jalan_op" class="form-label">Jalan Op</label>
                                     <input type="text" class="form-control" id="jalan_op" name="JALAN_OP" required>
@@ -176,7 +176,7 @@
                             </div>
                             
                             <div class="col-md-6">
-                                <form method="POST" action="{{ route('spop.store') }}" class="row g-4 p-5 needs-validation" novalidate>
+                                <form method="POST" action="{{ route('spop.store') }}" class="row g-2 p-3 needs-validation" novalidate>
                                 <div class="col-md-12">
                                     <label for="sbj_pajak" class="form-label">Subjek Pajak ID</label>
                                     <input type="text" class="form-control" id="sbj_pajak" name="SUBJEK_PAJAK_ID" required>
@@ -272,83 +272,85 @@
                             </div>
                             
                             <div class="col-md-6">
-                            <form method="POST" action="{{ route('spop.store') }}" class="row g-4 p-5 needs-validation" novalidate>
-                                <div class="col-md-12">
-                                    <label for="luas_bumi" class="form-label">Luas Bumi</label>
-                                    <input type="text" class="form-control" id="luas_bumi" name="LUAS_BUMI" required>
-                                    <div class="invalid-feedback">
-                                        Isi kolom ini terlebih dahulu!
+                                <form method="POST" action="{{ route('spop.store') }}" class="row g-4 p-5  needs-validation" novalidate>
+                                    <div class="col-md-12">
+                                        <label for="luas_bumi" class="form-label">Luas Bumi</label>
+                                        <input type="text" class="form-control" id="luas_bumi" name="LUAS_BUMI" required>
+                                        <div class="invalid-feedback">
+                                            Isi kolom ini terlebih dahulu!
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <label for="kd_znt" class="form-label">Kode Znt</label>
-                                    <input type="text" class="form-control" id="kd_znt" name="KD_ZNT" required>
-                                    <div class="invalid-feedback">
-                                        Isi kolom ini terlebih dahulu!
+                                    <div class="col-md-12">
+                                        <label for="kd_znt" class="form-label">Kode Znt</label>
+                                        <input type="text" class="form-control" id="kd_znt" name="KD_ZNT" required>
+                                        <div class="invalid-feedback">
+                                            Isi kolom ini terlebih dahulu!
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <label for="jns_bumi" class="form-label">Jenis Bumi</label>
-                                    <!-- <input type="text" class="form-control" id="kd_statusWp" name="kd_statusWp" required> -->
-                                    <select class="form-select" id="jns_bumi" name="JENIS_WP" required>
-                                        <option selected disabled value="">Choose...</option>
-                                        <option value="1">Tanah + Bangunan</option>
-                                        <option value="2">Kavling Siap Bangun</option>
-                                        <option value="3">Tanah Kosong</option>
-                                        <option value="4">Fasilitas Umum</option>
-                                    </select>
-                                    <div class="invalid-feedback">
-                                        Isi kolom ini terlebih dahulu!
+                                    <div class="col-md-12">
+                                        <label for="jns_bumi" class="form-label">Jenis Bumi</label>
+                                        <!-- <input type="text" class="form-control" id="kd_statusWp" name="kd_statusWp" required> -->
+                                        <select class="form-select" id="jns_bumi" name="JENIS_WP" required>
+                                            <option selected disabled value="">Choose...</option>
+                                            <option value="1">Tanah + Bangunan</option>
+                                            <option value="2">Kavling Siap Bangun</option>
+                                            <option value="3">Tanah Kosong</option>
+                                            <option value="4">Fasilitas Umum</option>
+                                        </select>
+                                        <div class="invalid-feedback">
+                                            Isi kolom ini terlebih dahulu!
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <label for="hsl_stmBumi" class="form-label">Nilai Sistem Bumi</label>
-                                    <input type="text" class="form-control" id="hsl_stmBumi" name="NILAI_SISTEM_BUMI" required>
-                                    <div class="invalid-feedback">
-                                        Isi kolom ini terlebih dahulu!
+                                    <div class="col-md-12">
+                                        <label for="hsl_stmBumi" class="form-label">Nilai Sistem Bumi</label>
+                                        <input type="text" class="form-control" id="hsl_stmBumi" name="NILAI_SISTEM_BUMI" required>
+                                        <div class="invalid-feedback">
+                                            Isi kolom ini terlebih dahulu!
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="tgl_pendataanOp" class="form-label">Tanggal Pendataan Op</label>
-                                    <input type="text" class="form-control" id="tgl_pendataanOp" name="TGL_PENDATAAN_OP" required>
-                                    <div class="invalid-feedback">
-                                        Isi kolom ini terlebih dahulu!
+                                    <div class="col-md-12">
+                                        <label for="tgl_pendataanOp" class="form-label">Tanggal Pendataan Op</label>
+                                        <input type="text" class="form-control" id="tgl_pendataanOp" name="TGL_PENDATAAN_OP" required>
+                                        <div class="invalid-feedback">
+                                            Isi kolom ini terlebih dahulu!
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="nip_pendata" class="form-label">NIP Pendata</label>
-                                    <input type="text" class="form-control" id="nip_pendata" name="NIP_PENDATA" required>
-                                    <div class="invalid-feedback">
-                                        Isi kolom ini terlebih dahulu!
+                                    <div class="col-md-12">
+                                        <label for="nip_pendata" class="form-label">NIP Pendata</label>
+                                        <input type="text" class="form-control" id="nip_pendata" name="NIP_PENDATA" required>
+                                        <div class="invalid-feedback">
+                                            Isi kolom ini terlebih dahulu!
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="tgl_pemeriksaanOp" class="form-label">Tahun Pemeriksaan OP</label>
-                                    <input type="number" class="form-control" id="tgl_pemeriksaanOp" name="TGL_PEMERIKSAAN_OP" value="{{ date('Y') }}" required>
-                                    <div class="invalid-feedback">
-                                        Isi kolom ini terlebih dahulu!
+                                    <div class="col-md-12">
+                                        <label for="tgl_pemeriksaanOp" class="form-label">Tahun Pemeriksaan OP</label>
+                                        <input type="number" class="form-control" id="tgl_pemeriksaanOp" name="TGL_PEMERIKSAAN_OP" value="{{ date('Y') }}" required>
+                                        <div class="invalid-feedback">
+                                            Isi kolom ini terlebih dahulu!
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="nip_pemeriksaOp" class="form-label">NIP Pemeriksa Op</label>
-                                    <input type="text" class="form-control" id="nip_pemeriksaOp" name="NIP_PEMERIKSA_OP" required>
-                                    <div class="invalid-feedback">
-                                        Isi kolom ini terlebih dahulu!
+                                    <div class="col-md-12">
+                                        <label for="nip_pemeriksaOp" class="form-label">NIP Pemeriksa Op</label>
+                                        <input type="text" class="form-control" id="nip_pemeriksaOp" name="NIP_PEMERIKSA_OP" required>
+                                        <div class="invalid-feedback">
+                                            Isi kolom ini terlebih dahulu!
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="no_persil" class="form-label">No Persil</label>
-                                    <input type="text" class="form-control" id="no_persil" name="NO_PERSIL" required>
-                                    <div class="invalid-feedback">
-                                        Isi kolom ini terlebih dahulu!
+                                    <div class="col-md-12">
+                                        <label for="no_persil" class="form-label">No Persil</label>
+                                        <input type="text" class="form-control" id="no_persil" name="NO_PERSIL" required>
+                                        <div class="invalid-feedback">
+                                            Isi kolom ini terlebih dahulu!
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                            <div class="col-md-12 text-center">
-                                <button type="submit" class="btn btn-primary" style="width:150px;">Simpan</button>
-                            </div>
+                        <div class="col-md-12 text-center">
+                            <button type="submit" class="btn btn-primary" style="width:150px;">Simpan</button>
+                        </div>
+
 					</div>
 				</div>
 			</div>

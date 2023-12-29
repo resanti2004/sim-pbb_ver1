@@ -304,10 +304,7 @@ main .content-data .chart::-webkit-scrollbar {
 
 
 
-
-
-
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 900px) {
 	#content {
 		position: relative;
 		width: calc(100% - 60px);
