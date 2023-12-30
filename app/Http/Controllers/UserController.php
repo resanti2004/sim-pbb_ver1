@@ -70,9 +70,7 @@ class UserController extends Controller
             'nip' => $request->nip,
             'nomor_ponsel' => $request->nomor_ponsel,
 
-        ]);
-
-        
+        ]);       
 
 
 
@@ -136,7 +134,7 @@ class UserController extends Controller
         }
 
         if ($user->fill(request()->all())->save()) {
-            return redirect()->route('user.index', ['id' => $user->id]);
+            return redirect()->route('user.index', ['id' => $user->id])->with('success', 'Data berhasil disimpan');
             // Replace 'your.route.name' with the actual name of the route you want to redirect to
         }
 
@@ -158,7 +156,7 @@ class UserController extends Controller
         }
 
         if ($user->delete()) {
-            return redirect()->route('user.index');
+            return redirect()->route('user.index')->with('success', 'Data berhasil dihapus');
             // Replace 'your.route.name' with the actual name of the route you want to redirect to
         }
 

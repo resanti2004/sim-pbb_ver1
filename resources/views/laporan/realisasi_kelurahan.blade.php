@@ -4,6 +4,12 @@
 
 @section('content')
 
+
+<script>
+        function setAction(formId, action) {
+            $('#' + formId).attr('action', action).submit();
+        }
+    </script>
 <div class="bgn">
     <h1 class="title">Selamat Datang, {{ $fullname }}!</h1>
     <p class="greet">Selamat Datang di Sistem Informasi Pajak Bumi Bangunan</p>
@@ -26,7 +32,7 @@
                 </div>
 
                 <div class="filterBox">
-                    <form method="POST" action="{{ route('realisasiKel.lihat') }}" enctype="multipart/form-data" class="row g-4 p-3">
+                    <form method="POST" id="myForm2" enctype="multipart/form-data" class="row g-4 p-3">
                         @csrf
                         <div class="col-md-6">
                             <label for="Tahun" class="form-label">Tahun</label>
@@ -51,18 +57,20 @@
                             </a>
                         </div>
                         <div class="col-md-6 d-flex justify-content-start me-auto">
-                            <button type="submit" class="btn btn-primary" style="width:150px;">Lihat</button>
+                            <a href="#"><button type="button" onclick="setAction('myForm2', '/realisasiKel/lihat')" class="btn btn-primary" style="width:150px;">Lihat</button></a>
                         </div>
                     </form>
                 </div>
 
-
-                <form action="{{ route('realisasiKel.cetak') }}" method="POST" enctype="multipart/form-data" class="dataBox" style="overflow-x: auto;">
+                <form id="myForm" method="POST" enctype="multipart/form-data" class="dataBox" style="overflow-x: auto;">
                     @csrf
                     @if (isset($val))
                     <div class="pencarian d-flex justify-content-between align-items-end">
                         <p class="m-0">Menampilkan <b>{{ $val->count() }}</b> data</p>
-                        <a href="#"><button type="submit">Cetak</button></a>
+                        <div class="d-flex justify-content-end gap-2">
+                            <a href="#"><button type="button" onclick="setAction('myForm', '/realisasiKel/cetak')">Cetak</button></a>
+                            <a href="#"><button type="button" onclick="setAction('myForm2', '/realisasiKel/export_excel')">Ekspor Excel</button></a>
+                        </div>
                     </div>
                     @endif
 
@@ -144,4 +152,5 @@
             </div>
         </div>
     </div>
+  
     @endsection

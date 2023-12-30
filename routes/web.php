@@ -49,8 +49,8 @@ Route::controller(AuthController::class)->group(function () {
 Route::resource('lspop', LspopController::class);
 Route::resource('spop', SpopController::class);
 Route::controller(LspopController::class)->group(function () {
-    Route::get('/lspop/detail/', 'show')->name('lspop.show');
-    Route::get('/lspop/edit/', 'edit')->name('lspop.edit');
+    Route::get('/lspop/detail/{lspop}', 'show')->name('lspop.show');
+    Route::get('/lspop-data', 'data')->name('lspop.data');
 });
 Route::controller(SpopController::class)->group(function () {
     Route::get('/spop/detail/{NOP}', 'show')->name('spop.show'); 
@@ -80,6 +80,7 @@ Route::controller(PelayananController::class)->group(function () {
     Route::get('/pelayanan-laporan', 'laporan')->name('pelayanan.laporan');
     Route::get('/pelayanan/edit/{ID}', 'edit')->name('pelayanan.edit');
     Route::get('/pelayanan-data', 'data')->name('pelayanan.data');
+    Route::post('/pelayanan/export_excel', 'export')->name('pelayanan.excel');
 
 });
 
@@ -114,6 +115,7 @@ Route::controller(RealisasiKelurahanController::class)->group(function () {
     Route::get('/realisasiKel', 'index')->name('realisasiKel.index');
     Route::post('/realisasiKel/cetak', 'print')->name('realisasiKel.cetak');
     Route::post('/realisasiKel/lihat', 'look')->name('realisasiKel.lihat');
+    Route::post('/realisasiKel/export_excel', 'export')->name('realisasiKel.excel');
 });
 Route::controller(SKNJOPController::class)->group(function () {
     Route::get('/skNjop', 'index')->name('skNjop.index');

@@ -16,7 +16,7 @@
                     <div class=" p-0 d-flex align-items-start" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#">Beranda</a></li>
-                            <li class="breadcrumb-item"><a href="#">Laporan</a></li>
+                            <li class="breadcrumb-item"><a href="#">Dokumen</a></li>
                             <li class="breadcrumb-item"><a href="{{ route('spop.index') }}">SPOP</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Edit Data SPOP</li>
                         </ol>

@@ -46,7 +46,7 @@
 							<td>Kode Provinsi</td>
 							<td>Kode Dati II</td>
 							<td>Nama Dati II</td>
-							<td width="60px" class="text-center">Opsi</td>
+							<td width="200px" class="text-center">Opsi</td>
 						</tr>
 					</thead>
 
@@ -57,16 +57,14 @@
 							<td>{{ $kab->KD_PROPINSI }}</td>
 							<td>{{ $kab->KD_DATI2 }}</td>
 							<td>{{ $kab->NM_DATI2 }}</td>
-							<td>
-								<ul class="list-inline">
-									<li class="list-inline-item"><a href="{{ route('kabupaten.show', [
+							<td class="text-center">
+								<a href="{{ route('kabupaten.show', [
 										'kdPropinsi' => $kab->KD_PROPINSI,
 										'kdDati2' => $kab->KD_DATI2,
 										'no' => $no-1
-									]) }}" class="active"><i class='bx bx-show'></i></a></li>
-									<li class="list-inline-item"><a href="#" class="active" id="info"><i class='bx bxs-edit'></i></a></li>
-									<li class="list-inline-item"><a href="#" class="active" id="info"><i class='bx bx-trash'></i></a></li>
-								</ul>
+									]) }}" class="text-center" style="display: inline;">Lihat detail</a>
+									<!-- <li class="list-inline-item"><a href="#" class="active" id="info"><i class='bx bxs-edit'></i></a></li>
+									<li class="list-inline-item"><a href="#" class="active" id="info"><i class='bx bx-trash'></i></a></li> -->
 							</td>
 						</tr>
 						@endforeach

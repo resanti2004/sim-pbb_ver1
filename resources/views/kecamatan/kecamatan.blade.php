@@ -47,7 +47,7 @@
 							<td>Kode Dati II</td>
 							<td>Kode Kecamatan</td>
 							<td>Nama Kecamatan</td>
-							<td width="60px" class="text-center">Opsi</td>
+							<td width="200px" class="text-center">Opsi</td>
 						</tr>
 					</thead>
 
@@ -59,17 +59,14 @@
 							<td>{{ $kecamatan->KD_DATI2 }}</td>
 							<td>{{ $kecamatan->KD_KECAMATAN }}</td>
 							<td>{{ $kecamatan->NM_KECAMATAN }}</td>
-							<td>
-								<ul class="list-inline">
-									<li class="list-inline-item"><a href="{{ route('kecamatan.show', [
+							<td class="text-center">
+								<a href="{{ route('kecamatan.show', [
 										'kdPropinsi' => $kecamatan->KD_PROPINSI,
 										'kdDati2' => $kecamatan->KD_DATI2,
 										'kdKecamatan' => $kecamatan->KD_KECAMATAN,
 										'no' => $no-1
-									]) }}" class="active"><i class='bx bx-show'></i></a></li>
-									<li class="list-inline-item"><a href="#" class="active" id="info"><i class='bx bxs-edit'></i></a></li>
-									<li class="list-inline-item"><a href="#" class="active" id="info"><i class='bx bx-trash'></i></a></li>
-								</ul>
+									]) }}" class="active">Lihat detail</a>
+									
 							</td>
 						</tr>
 						@endforeach

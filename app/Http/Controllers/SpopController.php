@@ -369,18 +369,51 @@ class SpopController extends Controller
         $NO_URUT = substr($NOP, 13, 4);
         $KD_JNS_OP = substr($NOP, 17, 1);
         
-        // Query menggunakan Query Builder
-        $result = DB::table('spop')->where([
-                'spop.KD_PROPINSI' => $KD_PROPINSI,
-                'spop.KD_DATI2' => $KD_DATI2,
-                'spop.KD_KECAMATAN' => $KD_KECAMATAN,
-                'spop.KD_KELURAHAN' => $KD_KELURAHAN,
-                'spop.KD_BLOK' => $KD_BLOK,
-                'spop.NO_URUT' => $NO_URUT,
-                'spop.KD_JNS_OP' => $KD_JNS_OP,
-            ])
-            ->groupBy('spop.KD_PROPINSI', 'spop.KD_DATI2', 'spop.KD_KECAMATAN', 'spop.KD_KELURAHAN', 'spop.KD_BLOK', 'spop.NO_URUT', 'spop.KD_JNS_OP')
-            ->first(); // Ambil hanya satu record
+        $result = DB::table('spop')
+        ->leftJoin('dat_subjek_pajak', 'spop.SUBJEK_PAJAK_ID', '=', 'dat_subjek_pajak.SUBJEK_PAJAK_ID')
+        ->leftJoin(DB::raw("(SELECT
+                KD_PROPINSI,
+                KD_DATI2,
+                KD_KECAMATAN,
+                KD_KELURAHAN,
+                KD_BLOK,
+                NO_URUT,
+                KD_JNS_OP,
+                SUM(LUAS_BNG) as LUAS_BNG,
+                COUNT(1) as JML_BNG
+            FROM dat_op_bangunan
+            WHERE
+                KD_PROPINSI = $KD_PROPINSI AND
+                KD_DATI2 = $KD_DATI2 AND
+                KD_KECAMATAN = $KD_KECAMATAN AND
+                KD_KELURAHAN = $KD_KELURAHAN AND
+                KD_BLOK = $KD_BLOK AND
+                NO_URUT = $NO_URUT AND
+                KD_JNS_OP = $KD_JNS_OP
+            GROUP BY KD_PROPINSI, KD_DATI2, KD_KECAMATAN, KD_KELURAHAN, KD_BLOK, NO_URUT, KD_JNS_OP) as dat_op_bangunan"),
+            function ($join) {
+                $join->on('spop.KD_PROPINSI', '=', 'dat_op_bangunan.KD_PROPINSI');
+                $join->on('spop.KD_DATI2', '=', 'dat_op_bangunan.KD_DATI2');
+                $join->on('spop.KD_KECAMATAN', '=', 'dat_op_bangunan.KD_KECAMATAN');
+                $join->on('spop.KD_KELURAHAN', '=', 'dat_op_bangunan.KD_KELURAHAN');
+                $join->on('spop.KD_BLOK', '=', 'dat_op_bangunan.KD_BLOK');
+                $join->on('spop.NO_URUT', '=', 'dat_op_bangunan.NO_URUT');
+                $join->on('spop.KD_JNS_OP', '=', 'dat_op_bangunan.KD_JNS_OP');
+            })
+        ->where([
+            ['spop.KD_PROPINSI', '=', substr($NOP, 0, 2)],
+            ['spop.KD_DATI2', '=', substr($NOP, 2, 2)],
+            ['spop.KD_KECAMATAN', '=', substr($NOP, 4, 3)],
+            ['spop.KD_KELURAHAN', '=', substr($NOP, 7, 3)],
+            ['spop.KD_BLOK', '=', substr($NOP, 10, 3)],
+            ['spop.NO_URUT', '=', substr($NOP, 13, 4)],
+            ['spop.KD_JNS_OP', '=', substr($NOP, 17, 1)],
+        ])
+        ->groupBy('spop.KD_PROPINSI', 'spop.KD_DATI2', 'spop.KD_KECAMATAN', 'spop.KD_KELURAHAN', 'spop.KD_BLOK', 'spop.NO_URUT', 'spop.KD_JNS_OP')
+        ->get()
+        ->first();
+        // dd($result);
+
         $spop = $NOP;
         
         // Periksa apakah permintaan datang dari AJAX

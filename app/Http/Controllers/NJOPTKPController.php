@@ -23,6 +23,7 @@ class NJOPTKPController extends Controller
         $username = $user->username;
 
         DB::statement("SET SESSION sql_mode = ''");
+        DB::statement("SET max_execution_time = 3000000");
         $results = Sppt::select(
             'dat_subjek_pajak.SUBJEK_PAJAK_ID as subjek_pajak_id',
             'sppt.NM_WP_SPPT as NM_WP_SPPT',

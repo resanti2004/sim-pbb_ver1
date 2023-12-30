@@ -57,25 +57,19 @@
 
 									<li class="list-inline-item"><a href="{{ route('user.edit', [
 										'user' => $user->id,
-									]) }}" class="active"><i class='bx bxs-edit'></i></a></li>
-									
+									]) }}" class="active"><i class='bx bxs-edit '></i></a></li>
+
 									<li class="list-inline-item">
-									<form id="deleteForm_{{ $user->id }}" action="{{ route('user.destroy', ['user' => $user->id]) }}" method="POST">
+										<form id="deleteForm_{{ $user->id }}" action="{{ route('user.destroy', ['user' => $user->id]) }}" method="POST">
 											@csrf
 											@method('DELETE')
 										</form>
 
-										<a href="#" onclick="deleteConfirmation('{{ $user->id }}')">
+										<a href="#" class="delete-link active" onclick="deleteConfirmation('{{ $user->id }}')" data-id="{{ $user->id }}">
 											<i class='bx bx-trash'></i>
 										</a>
 
-										<script>
-											function deleteConfirmation( user_id ) {
-												if (confirm('Anda yakin untuk menghapus?')) {
-													document.getElementById('deleteForm_' + user_id).submit();
-												}
-											}
-										</script>
+
 									</li>
 								</ul>
 							</td>
@@ -87,4 +81,42 @@
 		</div>
 	</div>
 </div>
+<script>
+	$(document).ready(function() {
+		$('#example').on('click', '.delete-link', function(e) {
+			e.preventDefault();
+
+			var id = $(this).data('id');
+			var link = $(this).attr("href");
+			var form = $('#deleteForm_' + id);
+
+
+			Swal.fire({
+				title: 'Apakah Anda Yakin?',
+				text: "Anda tidak akan bisa memulihkannya!",
+				icon: 'warning',
+				showCancelButton: true,
+				confirmButtonColor: '#3085d6',
+				cancelButtonColor: '#d33',
+				confirmButtonText: 'Ya, hapus!'
+			}).then((result) => {
+				if (result.isConfirmed) {
+					form.submit();
+				}
+			});
+		});
+
+		// Listen for the success flash message
+		var successMessage = "{{ session('success') }}";
+
+		if (successMessage) {
+			Swal.fire({
+				title: 'Berhasil!',
+				text: successMessage,
+				icon: 'success'
+			});
+		}
+
+	});
+</script>
 @endsection

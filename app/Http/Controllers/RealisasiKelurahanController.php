@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Exports\RealisasiKelurahanExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class RealisasiKelurahanController extends Controller
 {
@@ -26,6 +28,8 @@ class RealisasiKelurahanController extends Controller
         $PBB_MIN = $request->input('PBB_MIN');
         $PBB_MAX = $request->input('PBB_MAX');
         $TGL_REALISASI = $request->input('TGL_REALISASI');
+
+        
 
         $data_user = DB::table('users');
         $user = $data_user->where('id', Auth()->user()->id)->first();
@@ -111,9 +115,14 @@ class RealisasiKelurahanController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function export(Request $request)
     {
-        //
+        $THN_PAJAK_SPPT = $request->input('THN_PAJAK_SPPT');
+        $PBB_MIN = $request->input('PBB_MIN');
+        $PBB_MAX = $request->input('PBB_MAX');
+        $TGL_REALISASI = $request->input('TGL_REALISASI');
+
+        return Excel::download(new RealisasiKelurahanExport($TGL_REALISASI, $THN_PAJAK_SPPT, $PBB_MIN, $PBB_MAX ), 'realisasi_kelurahan.xlsx');
     }
 
     /**

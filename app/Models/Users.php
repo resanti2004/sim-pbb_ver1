@@ -16,6 +16,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $username
  * @property string $fullname
  * @property string $password
+ * @property string $email
  * @property string|null $remember_token
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
@@ -45,6 +46,7 @@ class Users extends Model
 		'role',
 		'jabatan',
 		'nip',
+		'email',
 		'nomor_ponsel'
 	];
 }

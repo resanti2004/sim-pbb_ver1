@@ -9,6 +9,7 @@ namespace App\Models;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use DateTimeInterface;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Class Pelayanan
@@ -188,4 +189,45 @@ class Pelayanan extends Model
 		'TTD_NIP_KANAN',
 		'KETERANGAN_BERKAS'
 	];
+
+
+	public function getLaporan($tgl_awal, $tgl_akhir, $jenis_pelayanan, $status_pelayanan){
+        $q = '';
+        if(!empty($status_pelayanan)){
+            $q .=  " AND STATUS_PELAYANAN = $status_pelayanan";
+        }
+        if(!empty($jenis_pelayanan)){
+            $q .=  " AND pelayanan.KD_JNS_PELAYANAN = '$jenis_pelayanan' ";
+        }
+        
+	
+		$data = DB::table('pelayanan')
+			->select(
+				'NO_PELAYANAN',
+				'NAMA_PEMOHON',
+				'TANGGAL_PELAYANAN',
+				DB::raw("CONCAT(
+					KD_PROPINSI,
+					KD_DATI2,
+					KD_KECAMATAN,
+					KD_KELURAHAN,
+					KD_BLOK,
+					NO_URUT,
+					KD_JNS_OP
+				) AS NOP"),
+				'ref_jns_pelayanan.NM_JENIS_PELAYANAN AS JENIS_PELAYANAN',
+				'status_pelayanan.nama AS STATUS_PELAYANAN',
+				'KETERANGAN_BERKAS'
+			)
+			->leftJoin('status_pelayanan', 'pelayanan.STATUS_PELAYANAN', '=', 'status_pelayanan.id')
+			->leftJoin('ref_jns_pelayanan', 'ref_jns_pelayanan.KD_JNS_PELAYANAN', '=', 'pelayanan.KD_JNS_PELAYANAN')
+			// ->whereBetween('TANGGAL_PELAYANAN', [$tgl_awal, $tgl_akhir])
+			->whereRaw("TANGGAL_PELAYANAN BETWEEN '$tgl_awal' AND '$tgl_akhir' $q")
+			->get();
+	
+		return $data;
+		
+        
+
+    }
 }

@@ -28,6 +28,7 @@ class User extends Authenticatable
 		'status',
 		'role',
 		'jabatan',
+        'email',
 		'nip',
 		'nomor_ponsel'
     ];

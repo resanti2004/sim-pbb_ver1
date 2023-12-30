@@ -12,6 +12,9 @@ use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\DataTables;
 use Illuminate\Support\Facades\Log;
 use Carbon\Carbon;
+use App\Exports\PelayananExport;
+use App\Models\RefJnsPelayanan;
+use Maatwebsite\Excel\Facades\Excel;
 
 
 class PelayananController extends Controller
@@ -211,7 +214,15 @@ public function data(Request $request)
         $fullname = $user->fullname;
         $username = $user->username;
 
-        return view('pelayanan.laporan_pelayanan', compact('fullname', 'username'));
+        $JNS_PELAYANAN = \App\Models\RefJnsPelayanan::select(['KD_JNS_PELAYANAN', DB::raw("CONCAT('[', KD_JNS_PELAYANAN, '] ', NM_JENIS_PELAYANAN) AS full_name")])
+            ->pluck('full_name', 'KD_JNS_PELAYANAN')
+            ->toArray();
+
+        $STATUS_PELAYANAN  = \App\Models\StatusPelayanan::select(['id', DB::raw("CONCAT('[', id, '] ', nama) AS full_name")])
+        ->pluck('full_name', 'id')
+        ->toArray();
+
+        return view('pelayanan.laporan_pelayanan', compact('fullname', 'username', 'JNS_PELAYANAN', 'STATUS_PELAYANAN'));
     }
 
     /**
@@ -245,9 +256,15 @@ public function data(Request $request)
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function export(Request $request)
     {
-        //
+        $TGL_AWAL = $request->TGL_AWAL;
+        $TGL_AKHIR = $request->TGL_AKHIR;
+        $JNS_PELAYANAN = $request->JNS_PELAYANAN;
+        $STATUS_PELAYANAN = $request->STATUS_PELAYANAN;
+        
+
+        return Excel::download(new PelayananExport($TGL_AWAL, $TGL_AKHIR, $JNS_PELAYANAN, $STATUS_PELAYANAN), 'Pelayanan.xlsx');
     }
 
     /**

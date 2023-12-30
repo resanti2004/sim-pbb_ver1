@@ -21,12 +21,12 @@
 						</ol>
 					</div> -->
 					<div class=" p-0 d-flex align-items-start" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">Beranda</a></li>
-                            <li class="breadcrumb-item"><a href="#">Dokumen</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">LSPOP</li>
-                        </ol>
-                    </div>
+						<ol class="breadcrumb">
+							<li class="breadcrumb-item"><a href="#">Beranda</a></li>
+							<li class="breadcrumb-item"><a href="#">Dokumen</a></li>
+							<li class="breadcrumb-item active" aria-current="page">LSPOP</li>
+						</ol>
+					</div>
 				</div>
 				<!-- <form action="#">
 								<div class="form-group">
@@ -34,12 +34,12 @@
 									<i class='bx bx-search icon' ></i>
 								</div>
 						</form> -->
-				<div class="pencarian d-flex justify-content-between align-items-end">
-					<p class="m-0">Menampilkan <b>{{ $data_lspop->count() }}</b> data dari total <b>{{ $data_lspop->total() }}</b> </p>
-					<a href="{{ route('lspop.create')}}"><button type="button">Buat Baru</button></a>
-				</div>
 
-				<table>
+				<div class="pencarian d-flex justify-content-between align-items-end">
+					<a href="{{ route('lspop.create') }}"><button type="button">Buat Baru</button></a>
+
+				</div>
+				<table id="example" class="table table-striped" style="width:100%">
 					<thead>
 						<tr>
 							<td width="50px">No</td>
@@ -50,50 +50,104 @@
 							<td width="100px" class="text-center">Opsi</td>
 						</tr>
 					</thead>
-
-					<tbody>
-						@foreach($data_lspop as $lspop)
-						<tr>
-							<td class="text-center">{{ $no++ }}</td>
-							<td>{{ $lspop->nop }}</td>
-							<td>{{ $lspop->NO_BNG }}</td>
-							<td>{{ $lspop->LUAS_BNG }}</td>
-							<td>{{ $lspop->JML_LANTAI_BNG }}</td>
-							<td>
-								<ul class="list-inline">
-									<li class="list-inline-item"><a href="{{ route('lspop.show') }}" class="active"><i class='bx bx-show'></i></a></li>
-									<li class="list-inline-item"><a href="{{ route('lspop.edit') }}" class="active"><i class='bx bxs-edit'></i></a></li>
-									<li class="list-inline-item">
-
-										<form id="deleteForm_{{ $lspop->nop }}" action="{{ route('lspop.destroy', ['lspop' => $lspop->nop]) }}" method="POST">
-											@csrf
-											@method('DELETE')
-										</form>
-
-										<a href="#" onclick="deleteConfirmation('{{ $lspop->nop }}')">
-											<i class='bx bx-trash'></i>
-										</a>
-
-										<script>
-											function deleteConfirmation(nop) {
-												if (confirm('Anda yakin untuk menghapus?')) {
-													document.getElementById('deleteForm_' + nop).submit();
-												}
-											}
-										</script>
-									</li>
-								</ul>
-							</td>
-						</tr>
-						@endforeach
-					</tbody>
 				</table>
-
-				<div class="d-flex justify-content-center mt-3">
-					{{ $data_lspop->links() }}
-				</div>
-
 			</div>
 		</div>
 	</div>
+
+	<script>
+		$.noConflict();
+		jQuery(document).ready(function($) {
+			$('#example').DataTable({
+				"processing": true,
+				"serverSide": true,
+				"ajax": "{{ route('lspop.data') }}", // Replace with your actual route for server-side processing
+				"columns": [{
+						"data": "DT_RowIndex"
+					}, // Replace "id" with the actual column name
+					{
+						"data": "nop"
+					},
+					{
+						"data": "NO_BNG"
+					},
+					{
+						"data": "LUAS_BNG",
+
+					},
+					{
+						"data": "JML_LANTAI_BNG"
+					},
+					{
+						"data": null,
+						"render": function(data, type, row) {
+							// Customize the rendering of the "Opsi" column
+							return `<ul class="list-inline">
+                                <li class="list-inline-item"><a href="#" class="active show-link" data-id="${row.nop}"><i class='bx bx-show'></i></a></li>
+                                <li class="list-inline-item"><a href="#" class="active edit-link" data-id="${row.nop}"><i class='bx bxs-edit'></i></a></li>
+                                <li class="list-inline-item">
+                                    <form id="deleteForm_${row.nop}" action="/lspop/${row.nop}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                    </form>
+                                    <a href="#" class="active delete-link" data-id="${row.nop}" id="delete_${row.nop}">
+                                        <i class='bx bx-trash'></i>
+                                    </a>
+
+                                </li>
+                            </ul>`;
+						}
+					}
+
+				]
+				// Add other DataTables configurations as needed
+			});
+
+			$('#example').on('click', '.show-link', function() {
+				var id = $(this).data('id');
+				window.location.href = "{{ url('/lspop/detail') }}/" + id;
+			});
+
+			$('#example').on('click', '.edit-link', function() {
+				var id = $(this).data('id');
+				window.location.href = "{{ url('/lspop') }}/" + id + "/edit";
+			});
+
+			$(document).ready(function() {
+				$('#example').on('click', '.delete-link', function(e) {
+					e.preventDefault();
+
+					var id = $(this).data('id');
+					var link = $(this).attr("href");
+					var form = $('#deleteForm_' + id);
+
+
+					Swal.fire({
+						title: 'Apakah Anda Yakin?',
+						text: "Anda tidak akan bisa memulihkannya!",
+						icon: 'warning',
+						showCancelButton: true,
+						confirmButtonColor: '#3085d6',
+						cancelButtonColor: '#d33',
+						confirmButtonText: 'Ya, hapus!'
+					}).then((result) => {
+						if (result.isConfirmed) {
+							form.submit();
+						}
+					});
+				});
+			});
+			// Listen for the success flash message
+			var successMessage = "{{ session('success') }}";
+
+			if (successMessage) {
+				Swal.fire({
+					title: 'Berhasil!',
+					text: successMessage,
+					icon: 'success'
+				});
+			}
+
+		});
+	</script>
 	@endsection

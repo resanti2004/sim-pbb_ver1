@@ -536,6 +536,8 @@ class Sppt extends Model
         $data[$thn]['NETTO'] = $data[$thn]['SISA'] - $data[$thn]['PENYISIHAN_PIUTANG'];
 
       }
+
+      
       return $data;
   }
 

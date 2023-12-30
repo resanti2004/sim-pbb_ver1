@@ -37,6 +37,47 @@ class LspopController extends Controller
 
         return view('lspop.lspop', compact('data_lspop', 'no', 'fullname', 'username'));
     }
+
+    public function data(Request $request)
+    {
+        $perPage = $request->input('length', 25);
+        $page = $request->input('start', 0) / $perPage + 1;
+    
+        $query = DB::table('pbb.lspop');
+    
+        // Apply additional filters or conditions based on DataTables request
+        // Example: if ($request->has('some_column')) $query->where('some_column', $request->input('some_column'));
+    
+        // Handle global search
+        if ($request->filled('search.value')) {
+            $searchValue = $request->input('search.value');
+            $query->where(function ($query) use ($searchValue) {
+                // Adjust column names as per your database schema
+                $query->orWhere(DB::raw("CONCAT(lspop.KD_PROPINSI, lspop.KD_DATI2, lspop.KD_KECAMATAN, lspop.KD_KELURAHAN, lspop.KD_BLOK, lspop.NO_URUT, lspop.KD_JNS_OP)"), 'like', "%$searchValue%")
+                    ->orWhere('lspop.NO_BNG', 'like', "%$searchValue%")
+                    ->orWhere('lspop.LUAS_BNG', 'like', "%$searchValue%")
+                    ->orWhere('lspop.JML_LANTAI_BNG', 'like', "%$searchValue%");
+            });
+        }
+    
+        $lspops = $query->paginate($perPage, ['*'], 'page', $page);
+    
+        foreach ($lspops->items() as $index => $lspop) {
+            $lspop->DT_RowIndex = $index + 1 + ($page - 1) * $perPage;
+            $lspop->nop = $lspop->KD_PROPINSI . $lspop->KD_DATI2 . $lspop->KD_KECAMATAN . $lspop->KD_KELURAHAN . $lspop->KD_BLOK . $lspop->NO_URUT . $lspop->KD_JNS_OP;
+        }
+    
+        // Build the JSON response explicitly
+        $jsonResponse = [
+            'data' => $lspops->items(),
+            'draw' => $request->input('draw', 1),
+            'recordsTotal' => $lspops->total(),
+            'recordsFiltered' => $lspops->total(),
+        ];
+    
+        return response()->json($jsonResponse);
+    }
+
     public function create()
     {
         $data_user = DB::table('users');
@@ -134,7 +175,7 @@ class LspopController extends Controller
             ->with('success', 'LSPOP berhasil ditambah.');
     }
 
-    public function edit()
+    public function edit($lspop)
     {
         $data_user = DB::table('users');
         $user = $data_user->where('id', Auth()->user()->id)->first();
@@ -157,18 +198,35 @@ class LspopController extends Controller
             ->with('success', 'LSPOP berhasil dihapus.');
     }
 
-    public function show($no)
+    public function show($lspop)
     {
         // Fetch user data
-        $no = $no;
         $data_user = DB::table('users');
         $user = $data_user->where('id', Auth()->user()->id)->first();
         $fullname = $user->fullname;
         $username = $user->username;
 
+        $KD_PROPINSI = substr($lspop, 0, 2);
+        $KD_DATI2 = substr($lspop, 2, 2);
+        $KD_KECAMATAN = substr($lspop, 4, 3);
+        $KD_KELURAHAN = substr($lspop, 7, 3);
+        $KD_BLOK = substr($lspop, 10, 3);
+        $NO_URUT = substr($lspop, 13, 4);
+        $KD_JNS_OP = substr($lspop, 17, 1);
+
+        $data_lspop = DB::table('lspop')->where([
+            'lspop.KD_PROPINSI' => $KD_PROPINSI,
+            'lspop.KD_DATI2' => $KD_DATI2,
+            'lspop.KD_KECAMATAN' => $KD_KECAMATAN,
+            'lspop.KD_KELURAHAN' => $KD_KELURAHAN,
+            'lspop.KD_BLOK' => $KD_BLOK,
+            'lspop.NO_URUT' => $NO_URUT,
+            'lspop.KD_JNS_OP' => $KD_JNS_OP,
+        ])        ->first();
+
         
 
         // Return the view with the user and Kelurahan data
-        return view('lspop.detail_lspop', compact('fullname', 'username', 'no'));
+        return view('lspop.detail_lspop', compact('fullname', 'username', 'data_lspop', 'lspop'));
     }
 }

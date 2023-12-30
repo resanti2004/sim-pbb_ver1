@@ -46,7 +46,7 @@
 							<td width="30px">No</td>
 							<td>Kode Provinsi</td>
 							<td>Nama Provinsi</td>
-							<td width="60px" class="text-center">Opsi</td>
+							<td width="200px" class="text-center">Opsi</td>
 						</tr>
 					</thead>
 
@@ -56,16 +56,12 @@
 							<td class="text-center">{{ $no++ }}</td>
 							<td>{{ $provinsi->KD_PROPINSI }}</td>
 							<td>{{ $provinsi->NM_PROPINSI }}</td>
-							<td>
-								<ul class="list-inline">
-									<li class="list-inline-item"><a href="
+							<td class="text-center">
+								<a href="
 											{{ route('provinsi.show', [
 										'kdPropinsi' => $provinsi->KD_PROPINSI,
 										'no' => $no-1
-									]) }}" class="active"><i class='bx bx-show'></i></a></li>
-									<li class="list-inline-item"><a href="#" class="active" id="info"><i class='bx bxs-edit'></i></a></li>
-									<li class="list-inline-item"><a href="#" class="active" id="info"><i class='bx bx-trash'></i></a></li>
-								</ul>
+									]) }}" class="active">Lihat detail</a>
 							</td>
 						</tr>
 						@endforeach

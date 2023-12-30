@@ -35,113 +35,113 @@
 						
 						<div class="table-detail d-flex flex-column align-items-center justify-content-center">
 							<div class="no-detail">
-								<b class="fs-3">-- {{ $no }} --</b>
+								<b class="fs-3">Detail LSPOP {{ $lspop }}</b>
 							</div>
 							<table class="table table-striped table-hover table-bordered">
 								<tbody>
 									<tr class="mb-3">
 										<th  scope="row" class="align-middle" width="300px">Kode Provinsi</th>
-										<td > 12 </td>
+										<td >{{ $data_lspop->KD_PROPINSI }}</td>
 									</tr>
 									<tr class="mb-3">
 										<th width="200" class="align-middle">Kode Dati2</th>
-										<td > </td>
+										<td>{{ $data_lspop->KD_DATI2 }}</td>
 									</tr>
 									<tr class="mb-3">
 										<th scope="row" class="align-middle">Kode Kecamatan</th>
-										<td>12</td>
+										<td>{{ $data_lspop->KD_KECAMATAN }}</td>
 									</tr>
 									<tr class="mb-3">
 										<th scope="row" class="align-middle">Kode Kelurahan</th>
-										<td>12</td>
+										<td>{{ $data_lspop->KD_KELURAHAN }}</td>
 									</tr>
 									<tr class="mb-3">
 										<th scope="row" class="align-middle">Kode Blok</th>
-										<td>12</td>
+										<td>{{ $data_lspop->KD_BLOK }}</td>
 									</tr>
 									<tr class="mb-3">
 										<th scope="row" class="align-middle">No Urut</th>
-										<td></td>
+										<td>{{ $data_lspop->NO_URUT }}</td>
 									</tr>
 									<tr class="mb-3">
 										<th scope="row" class="align-middle">Kode Jenis Op</th>
-										<td>  </td>
+										<td>{{ $data_lspop->KD_JNS_OP }}</td>
 									</tr>
 									<tr class="mb-3">
 										<th scope="row" class="align-middle">No Bangunan</th>
-										<td> </td>
+										<td>{{ $data_lspop->NO_BNG }}</td>
 									</tr>
 									<tr class="mb-3">
 										<th scope="row" class="align-middle">Kode Jpb</th>
-										<td>  </td>
+										<td>{{ $data_lspop->KD_JPB }}</td>
 									</tr>
 									<tr class="mb-3">
 										<th scope="row" class="align-middle">No Formulir Lspop</th>
-										<td>  </td>
+										<td> {{ $data_lspop->NO_FORMULIR_LSPOP }} </td>
 									</tr>
 									<tr class="mb-3">
 										<th scope="row" class="align-middle">Tahun Dibangun Bangunan</th>
-										<td>  </td>
+										<td>{{ $data_lspop->THN_DIBANGUN_BNG }}</td>
 									</tr>
 									<tr class="mb-3">
 										<th scope="row" class="align-middle">Tahun Renovasi Bangunan</th>
-										<td>  </td>
+										<td>{{ $data_lspop->THN_RENOVASI_BNG }}</td>
 									</tr>
 									<tr class="mb-3">
 										<th scope="row" class="align-middle">Luas Bangunan</th>
-										<td></td>
+										<td>{{ $data_lspop->LUAS_BNG }}</td>
 									</tr>
 									<tr class="mb-3">
 										<th scope="row" class="align-middle">Jumlah Lantai Bagunan</th>
-										<td></td>
+										<td>{{ $data_lspop->JML_LANTAI_BNG }}</td>
 									</tr>
 									<tr class="mb-3">
 										<th scope="row" class="align-middle">Kondisi Bangunan</th>
-										<td></td>
+										<td>{{ $data_lspop->KONDISI_BNG }}</td>
 									</tr>
 									<tr class="mb-3">
 										<th scope="row" class="align-middle">Jenis Konstruksi Bangunan</th>
-										<td></td>
+										<td>{{ $data_lspop->JNS_KONSTRUKSI_BNG }}</td>
 									</tr>
 									<tr class="mb-3">
 										<th scope="row" class="align-middle">Jenis Atap Bangunan</th>
-										<td></td>
+										<td>{{ $data_lspop->JNS_ATAP_BNG }}</td>
 									</tr>
 									<tr class="mb-3">
-										<th scope="row" class="align-middle">Kd Dinding</th>
-										<td></td>
+										<th scope="row" class="align-middle">Kode Dinding</th>
+										<td>{{ $data_lspop->KD_DINDING }}</td>
 									</tr>
 									<tr class="mb-3">
 										<th scope="row" class="align-middle">Kd Lantai</th>
-										<td></td>
+										<td>{{ $data_lspop->KD_LANTAI }}</td>
 									</tr>
 									<tr class="mb-3">
 										<th scope="row" class="align-middle">Kd Langit-Langit</th>
-										<td></td>
+										<td>{{ $data_lspop->KD_LANGIT_LANGIT }}</td>
 									</tr>
 									<tr class="mb-3">
 										<th scope="row" class="align-middle">Nilai Sistem Bangunan</th>
-										<td></td>
+										<td>{{ $data_lspop->NILAI_SISTEM_BNG }}</td>
 									</tr>
 									<tr class="mb-3">
 										<th scope="row" class="align-middle">Jenis Transaksi Bangunan</th>
-										<td></td>
+										<td>{{ $data_lspop->JNS_TRANSAKSI_BNG }}</td>
 									</tr>
 									<tr class="mb-3">
 										<th scope="row" class="align-middle">Tanggal Pendataan Bangunan</th>
-										<td></td>
+										<td>{{ $data_lspop->TGL_PENDATAAN_BNG }}</td>
 									</tr>
 									<tr class="mb-3">
 										<th scope="row" class="align-middle">NIP Pendata Bangunan</th>
-										<td></td>
+										<td>{{ $data_lspop->NIP_PENDATA_BNG }}</td>
 									</tr>
 									<tr class="mb-3">
 										<th scope="row" class="align-middle">Tanggal Pemeriksaan Bangunan</th>
-										<td></td>
+										<td>{{ $data_lspop->TGL_PEMERIKSAAN_BNG }}</td>
 									</tr>
 									<tr class="mb-3">
 										<th scope="row" class="align-middle">NIP Pemeriksa Bangunan</th>
-										<td></td>
+										<td>{{ $data_lspop->NIP_PEMERIKSA_BNG }}</td>
 									</tr>
 									<tr class="mb-3">
 										<th scope="row" class="align-middle">Tanggal Perekaman Bangunan</th>
@@ -153,15 +153,15 @@
 									</tr>
 									<tr class="mb-3">
 										<th scope="row" class="align-middle">Tanggal Kunjungan Kembali</th>
-										<td></td>
+										<td>{{ $data_lspop->TGL_KUNJUNGAN_KEMBALI }}</td>
 									</tr>
 									<tr class="mb-3">
 										<th scope="row" class="align-middle">Nilai Individu</th>
-										<td></td>
+										<td>{{ $data_lspop->NILAI_INDIVIDU }}</td>
 									</tr>
 									<tr>
 										<th  class="align-middle ">Aktif</th>
-										<td class="border-bottom-right"></td>
+										<td class="border-bottom-right">{{ $data_lspop->AKTIF }}</td>
 									</tr>
 									</tr>
 								</tbody>

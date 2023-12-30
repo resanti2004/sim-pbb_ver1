@@ -30,7 +30,7 @@ class NeracaBPKController extends Controller
         if (!empty($post_data)) {
             $model = new Sppt();
             $data = $model->neracaBpk($post_data['tahun_awal'], $post_data['tahun_akhir'], $post_data['per_tanggal']);
-            return redirect()->route('laporan.cetak_neraca_bpk');
+            return redirect()->route('laporan.cetak_neraca_bpk')->compact('data');
         }
 
         return view('laporan.neraca_bpk', [
