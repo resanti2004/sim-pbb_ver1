@@ -33,23 +33,23 @@
                             <div class="col-md-6">
                                 <form method="POST" action="{{ route('spop.store') }}" class="row g-4 p-3 needs-validation" novalidate>
                                     <div class="col-md-12">
-                                        <label for="kd_prov" class="form-label">No Pelayanan</label>
-                                        <input type="text" class="form-control" id="kd_prov" name="KD_PROPINSI" required>
+                                        <label for="NO_PELAYANAN" class="form-label">No Pelayanan</label>
+                                        <input type="text" class="form-control" id="NO_PELAYANAN" name="NO_PELAYANAN" required>
                                         <div class="invalid-feedback">
                                             Isi kolom ini terlebih dahulu!
                                         </div>
                                     </div>
                                     <div class="col-md-12">
-                                        <label for="kd_dati" class="form-label">Kode Dati 2</label>
-                                        <input type="text" class="form-control" id="kd_dati" name="KD_DATI2" required>
+                                        <label for="KD_DATI2" class="form-label">Kode Dati 2</label>
+                                        <input type="text" class="form-control" id="KD_DATI2" name="KD_DATI2" required>
                                         <div class="invalid-feedback">
                                             Isi kolom ini terlebih dahulu!
                                         </div>
                                     </div>
                                     <div class="col-md-12">
-                                        <label for="kd_kec" class="form-label">Kode Jenis Pelayanan</label>
+                                        <label for="KD_JNS_PELAYANAN" class="form-label">Kode Jenis Pelayanan</label>
                                         <!-- <input type="text" class="form-control" id="kd_jenisTransaksi" name="kd_jenisTransaksi" required> -->
-                                        <select class="form-select" id="kd_kec" name="KD_KECAMATAN" required>
+                                        <select class="form-select" id="KD_JNS_PELAYANAN" name="KD_JNS_PELAYANAN" required>
                                             <option selected disabled value="">Choose...</option>
                                             <option value="1">[010] WAKANDA SELATAN</option>
                                             <option value="2">[020] WAKANDA TIMUR </option>
@@ -60,7 +60,7 @@
                                     </div>
 
                                     <div class="col-md-12">
-                                        <label for="kd_kec" class="form-label">Lampiran Dokumen</label>
+                                        <label for="LAMPIRAN_DOKUMEN" class="form-label">Lampiran Dokumen</label>
                                         <table class="table table-bordered">
                                             <thead>
                                                 <tr>
@@ -71,91 +71,91 @@
                                             <tbody>
                                                 <tr >
                                                     <th scope="row" class="text-center">
-                                                        <input class="form-check-input border border-primary" type="checkbox" name="ttd" id="ttd" />
+                                                        <input class="form-check-input border border-primary" type="checkbox" name="PENGAJUAN_PERMOHONAN" id="PENGAJUAN_PERMOHONAN" />
                                                     </th>
                                                     <td class="p-2">1. Pengajuan Permohonan</td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row" class="text-center">
-                                                        <input class="form-check-input border border-primary" type="checkbox" name="ttd" id="ttd" />
+                                                        <input class="form-check-input border border-primary" type="checkbox" name="SURAT_KUASA" id="SURAT_KUASA" />
                                                     </th>
                                                     <td class="p-2">2. Surat Kuasa</td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row" class="text-center">
-                                                        <input class="form-check-input border border-primary" type="checkbox" name="ttd" id="ttd" />
+                                                        <input class="form-check-input border border-primary" type="checkbox" name="COPY_KTP" id="COPY_KTP" />
                                                     </th>
                                                     <td class="p-2">3. Copy KTP</td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row" class="text-center">
-                                                        <input class="form-check-input border border-primary" type="checkbox" name="ttd" id="ttd" />
+                                                        <input class="form-check-input border border-primary" type="checkbox" name="COPY_SERTIFIKAT_TANAH" id="COPY_SERTIFIKAT_TANAH" />
                                                     </th>
                                                     <td class="p-2">4. Copy Sertifikat Tanah</td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row" class="text-center">
-                                                        <input class="form-check-input border border-primary" type="checkbox" name="ttd" id="ttd" />
+                                                        <input class="form-check-input border border-primary" type="checkbox" name="ASLI_SPPT" id="ASLI_SPPT" />
                                                     </th>
                                                     <td class="p-2">5. Asli SPPT</td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row" class="text-center">
-                                                        <input class="form-check-input border border-primary" type="checkbox" name="ttd" id="ttd" />
+                                                        <input class="form-check-input border border-primary" type="checkbox" name="COPY_IMB" id="COPY_IMB" />
                                                     </th>
                                                     <td class="p-2">6. Copy IMB</td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row" class="text-center">
-                                                        <input class="form-check-input border border-primary" type="checkbox" name="ttd" id="ttd" />
+                                                        <input class="form-check-input border border-primary" type="checkbox" name="COPY_AK_JUALBELI" id="COPY_AK_JUALBELI" />
                                                     </th>
                                                     <td class="p-2">7. Copy Ak. Jual Beli/ Hibah</td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row" class="text-center">
-                                                        <input class="form-check-input border border-primary" type="checkbox" name="ttd" id="ttd" />
+                                                        <input class="form-check-input border border-primary" type="checkbox" name="COPY_SK_PENSIUN" id="COPY_SK_PENSIUN" />
                                                     </th>
                                                     <td class="p-2">8. Copy SK Pensiun</td>
                                                 </tr>
                                                 <tr>
                                                 <th scope="row" class="text-center">
-                                                        <input class="form-check-input border border-primary" type="checkbox" name="ttd" id="ttd" />
+                                                        <input class="form-check-input border border-primary" type="checkbox" name="COPY_SPPT/SPPD" id="COPY_SPPT/SPPD" />
                                                     </th>
-                                                    <td class="p-2">9. Copy SK Pensiun</td>
+                                                    <td class="p-2">9. Copy SPPT/SPPD</td>
                                                 </tr>
                                                 <tr>
                                                 <th scope="row" class="text-center">
-                                                        <input class="form-check-input border border-primary" type="checkbox" name="ttd" id="ttd" />
+                                                        <input class="form-check-input border border-primary" type="checkbox" name="ASLI_SPPD" id="ASLI_SPPD" />
                                                     </th>
                                                     <td class="p-2">10. Asli SPPD</td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row" class="text-center">
-                                                        <input class="form-check-input border border-primary" type="checkbox" name="ttd" id="ttd" />
+                                                        <input class="form-check-input border border-primary" type="checkbox" name="COPY_SK_PENGURANGAN" id="COPY_SK_PENGURANGAN" />
                                                     </th>
                                                     <td class="p-2">11. Copy SK Pengurangan</td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row" class="text-center">
-                                                        <input class="form-check-input border border-primary" type="checkbox" name="ttd" id="ttd" />
+                                                        <input class="form-check-input border border-primary" type="checkbox" name="COPY_SK_KEBERATAN" id="COPY_SK_KEBERATAN" />
                                                     </th>
                                                     <td class="p-2">12. Copy SK Keberatan</td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row" class="text-center">
-                                                        <input class="form-check-input border border-primary" type="checkbox" name="ttd" id="ttd" />
+                                                        <input class="form-check-input border border-primary" type="checkbox" name="COPY_SSPD_BPHTB" id="COPY_SSPD_BPHTB" />
                                                     </th>
                                                     <td class="p-2">13. Copy SSPD BPHTB</td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row" class="text-center">
-                                                        <input class="form-check-input border border-primary" type="checkbox" name="ttd" id="ttd" />
+                                                        <input class="form-check-input border border-primary" type="checkbox" name="SURAT_PERNYATAAN_MILIK" id="SURAT_PERNYATAAN_MILIK" />
                                                     </th>
                                                     <td class="p-2">14. Surat Pernyataan Milik</td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row" class="text-center">
-                                                        <input class="form-check-input border border-primary" type="checkbox" name="ttd" id="ttd" />
+                                                        <input class="form-check-input border border-primary" type="checkbox" name="LAIN_LAIN" id="LAIN_LAIN" />
                                                     </th>
                                                     <td class="p-2">15. Lain-lain</td>
                                                 </tr>
@@ -170,44 +170,43 @@
                             <div class="col-md-6">
                                 <form method="POST" action="{{ route('spop.store') }}" class="row g-4 p-3 needs-validation" novalidate>
                                     <div class="col-md-12">
-                                        <label for="jalan_op" class="form-label">Nama Pemohon</label>
-                                        <input type="text" class="form-control" id="jalan_op" name="JALAN_OP" required>
+                                        <label for="NAMA_PEMOHON" class="form-label">Nama Pemohon</label>
+                                        <input type="text" class="form-control" id="NAMA_PEMOHON" name="NAMA_PEMOHON" required>
                                         <div class="invalid-feedback">
                                             Isi kolom ini terlebih dahulu!
                                         </div>
                                     </div>
                                     <div class="col-md-12">
-                                        <label for="blok_kav" class="form-label">Alamat Pemohon</label>
-                                        <input type="text" class="form-control" id="blok_kav" name="BLOK_KAV_NO_OP" required>
+                                        <label for="ALAMAT_PEMOHON" class="form-label">Alamat Pemohon</label>
+                                        <input type="text" class="form-control" id="ALAMAT_PEMOHON" name="ALAMAT_PEMOHON" required>
                                         <div class="invalid-feedback">
                                             Isi kolom ini terlebih dahulu!
                                         </div>
                                     </div>
                                     <div class="col-md-12">
-                                        <label for="rw_op" class="form-label">NOP</label>
-                                        <input type="text" class="form-control" id="blok_kav" name="BLOK_KAV_NO_OP" required>                                        
+                                        <label for="NOP" class="form-label">NOP</label>
+                                        <input type="text" class="form-control" id="NOP" name="NOP" required>                                        
                                         <div class="invalid-feedback">
                                             Isi kolom ini terlebih dahulu!
                                         </div>
                                     </div>
                                     <div class="col-md-12">
-                                        <label for="rw_op" class="form-label">Keterangan</label>
-                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+                                        <label for="KETERANGAN" class="form-label">Keterangan</label>
+                                        <textarea class="form-control" id="KETERANGAN" name="KETERANGAN" rows="5"></textarea>
                                         <div class="invalid-feedback">
                                             Isi kolom ini terlebih dahulu!
                                         </div>
                                     </div>
                                     <div class="col-md-12">
-                                        <label for="rt_op" class="form-label">Letak Op</label>
-                                        <input type="text" class="form-control" id="rt_op" name="RT_OP" required>
+                                        <label for="LETAK_OP" class="form-label">Letak Op</label>
+                                        <input type="text" class="form-control" id="LETAK_OP" name="LETAK_OP" required>
                                         <div class="invalid-feedback">
                                             Isi kolom ini terlebih dahulu!
                                         </div>
                                     </div>
                                     <div class="col-md-12">
-                                        <label for="kd_statusWp" class="form-label">Kecamatan</label>
-                                        <!-- <input type="text" class="form-control" id="kd_statusWp" name="kd_statusWp" required> -->
-                                        <select class="form-select" id="kd_statusWp" name="KD_STATUS_WP" required>
+                                        <label for="KD_KECAMATAN" class="form-label">Kecamatan</label>
+                                        <select class="form-select" id="KD_KECAMATAN" name="KD_KECAMATAN" required>
                                             <option selected disabled value="">Choose...</option>
                                             <option value="1">PEMILIK</option>
                                             <option value="2">PENYEWA</option>
@@ -220,9 +219,8 @@
                                         </div>
                                     </div>
                                     <div class="col-md-12">
-                                        <label for="kd_statusWp" class="form-label">Kelurahan</label>
-                                        <!-- <input type="text" class="form-control" id="kd_statusWp" name="kd_statusWp" required> -->
-                                        <select class="form-select" id="kd_statusWp" name="KD_STATUS_WP" required  disabled>
+                                        <label for="KD_KELURAHAN" class="form-label">Kelurahan</label>
+                                        <select class="form-select" id="KD_KELURAHAN" name="KD_KELURAHAN" required  disabled>
                                             <option selected disabled value="">Choose...</option>
                                             <option value="1">PEMILIK</option>
                                             <option value="2">PENYEWA</option>
@@ -235,15 +233,15 @@
                                         </div>
                                     </div>
                                     <div class="col-md-12">
-                                        <label for="rw_op" class="form-label">Keterangan</label>
-                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+                                        <label for="KETERANGAN" class="form-label">Keterangan</label>
+                                        <textarea class="form-control" id="KETERANGAN" name="KETERANGAN" rows="5"></textarea>
                                         <div class="invalid-feedback">
                                             Isi kolom ini terlebih dahulu!
                                         </div>
                                     </div>
                                     <div class="col-md-12">
-                                        <label for="rt_op" class="form-label">Tanggal Perkiraan Selesai</label>
-                                        <input type="text" class="form-control" id="rt_op" name="RT_OP" required>
+                                        <label for="TANGGAL_PERKIRAAN_SELESAI" class="form-label">Tanggal Perkiraan Selesai</label>
+                                        <input type="text" class="form-control" id="TANGGAL_PERKIRAAN_SELESAI" name="TANGGAL_PERKIRAAN_SELESAI" required>
                                         <div class="invalid-feedback">
                                             Isi kolom ini terlebih dahulu!
                                         </div>
