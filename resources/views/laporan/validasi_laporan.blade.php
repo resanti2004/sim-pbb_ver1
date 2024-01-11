@@ -28,9 +28,8 @@
                             <form method="POST" action="{{ route('provinsi.store') }}" enctype="multipart/form-data" class="row g-4 p-5">
                                 @csrf
                                 <div class="col-md-4">
-                                    <label for="kd_statusWp" class="form-label">KECAMATAN</label>
-                                    <!-- <input type="text" class="form-control" id="kd_statusWp" name="kd_statusWp" required> -->
-                                    <select class="form-select" id="kd_statusWp" name="KD_STATUS_WP" required>
+                                    <label for="KD_KECAMATAN" class="form-label">KECAMATAN</label>
+                                    <select class="form-select" id="KD_KECAMATAN" name="KD_KECAMATAN" required>
                                         <!-- <option selected disabled value="">Choose...</option> -->
                                         <option value="1">WAKANDA SELATAN</option>
                                         <option value="2">WAKANDA TIMUR</option>
@@ -40,9 +39,8 @@
                                     </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <label for="kd_statusWp" class="form-label">KELURAHAN</label>
-                                    <!-- <input type="text" class="form-control" id="kd_statusWp" name="kd_statusWp" required> -->
-                                    <select class="form-select" id="kd_statusWp" name="KD_STATUS_WP" required  disabled>
+                                    <label for="KD_KELURAHAN" class="form-label">KELURAHAN</label>
+                                    <select class="form-select" id="KD_KELURAHAN" name="KD_KELURAHAN" required  disabled>
                                         <option selected disabled value=""> </option>
                                         <option value="1">PEMILIK</option>
                                         <option value="2">PENYEWA</option>
@@ -55,9 +53,9 @@
                                     </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <label for="kd_statusWp" class="form-label">BLOK</label>
+                                    <label for="KD_BLOK" class="form-label">BLOK</label>
                                     <!-- <input type="text" class="form-control" id="kd_statusWp" name="kd_statusWp" required> -->
-                                    <select class="form-select" id="kd_statusWp" name="KD_STATUS_WP" required  disabled>
+                                    <select class="form-select" id="KD_BLOK" name="KD_BLOK" required  disabled>
                                         <option selected disabled value=""> </option>
                                         <option value="1">PEMILIK</option>
                                         <option value="2">PENYEWA</option>
@@ -70,29 +68,29 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="PerTanggalBayar" class="form-label">Tahun Minimal</label>
-                                    <input type="number" class="form-control" id="PerTanggalBayar" name="PerTanggalBayar" value="{{ date('Y')-10 }}" >
+                                    <label for="THN_MINIMAL" class="form-label">Tahun Minimal</label>
+                                    <input type="number" class="form-control" id="THN_MINIMAL" name="THN_MINIMAL" value="{{ date('Y')-10 }}" >
                                 </div>
                                 <div class="col-md-6 ">
-                                    <label for="TahunAwal" class="form-label">Tahun Maksimal</label>
-                                    <input type="number" class="form-control" id="TahunAwal" name="TahunAwal" value="{{ date('Y') }}">
+                                    <label for="THN_MAKSIMAL" class="form-label">Tahun Maksimal</label>
+                                    <input type="number" class="form-control" id="THN_MAKSIMAL" name="THN_MAKSIMAL" value="{{ date('Y') }}">
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="TahunAkhir" class="form-label">PBB Minimal</label>
-                                    <input type="number" class="form-control" id="TahunAkhir" name="TahunAkhir" value="0">
+                                    <label for="PBB_MINIMAL" class="form-label">PBB Minimal</label>
+                                    <input type="number" class="form-control" id="PBB_MINIMAL" name="PBB_MINIMAL" value="0">
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="TahunAkhir" class="form-label">PBB Maksimal</label>
-                                    <input type="number" class="form-control" id="TahunAkhir" name="TahunAkhir" value="1000000000">
+                                    <label for="PBB_MAKSIMAL" class="form-label">PBB Maksimal</label>
+                                    <input type="number" class="form-control" id="PBB_MAKSIMAL" name="PBB_MAKSIMAL" value="1000000000">
                                 </div>
                                 <div class="col-md-3">
-                                    <label for="PerTanggalBayar" class="form-label">Validasi Ke</label>
-                                    <input type="text" class="form-control" id="PerTanggalBayar" name="PerTanggalBayar" placeholder="Semua" >
+                                    <label for="VALIDASI_KE" class="form-label">Validasi Ke</label>
+                                    <input type="text" class="form-control" id="VALIDASI_KE" name="VALIDASI_KE" placeholder="Semua" >
                                 </div>
                                 <div class="col-md-3">
-                                    <label for="TahunAwal" class="form-label">Is Cetak</label>
+                                    <label for="IS_CETAK" class="form-label">Is Cetak</label>
                                     <!-- <input type="number" class="form-control" id="TahunAwal" name="TahunAwal" value="{{ date('Y') }}"> -->
-                                    <select class="form-select" id="kd_statusWp" name="KD_STATUS_WP" required>
+                                    <select class="form-select" id="IS_CETAK" name="IS_CETAK" required>
                                         <option value="1">Semua</option>
                                         <option value="2">Belum</option>
                                         <option value="3">Sudah</option>
@@ -102,9 +100,9 @@
                                     </div>
                                 </div>
                                 <div class="col-md-3">
-                                    <label for="TahunAkhir" class="form-label">Is Validated</label>
+                                    <label for="IS_VALIDATED" class="form-label">Is Validated</label>
                                     <!-- <input type="number" class="form-control" id="TahunAkhir" name="TahunAkhir" value="{{ date('Y') }}"> -->
-                                    <select class="form-select" id="kd_statusWp" name="KD_STATUS_WP" required>
+                                    <select class="form-select" id="IS_VALIDATED" name="IS_VALIDATED" required>
                                         <option value="1">Semua</option>
                                         <option value="2">Belum</option>
                                         <option value="3">Sudah</option>
@@ -114,13 +112,13 @@
                                     </div>
                                 </div>
                                 <div class="col-md-3">
-                                    <label for="TahunAkhir" class="form-label">Kelompok</label>
-                                    <input type="text" class="form-control" id="PerTanggalBayar" name="PerTanggalBayar" placeholder="Semua" >
+                                    <label for="KELOMPOK" class="form-label">Kelompok</label>
+                                    <input type="text" class="form-control" id="KELOMPOK" name="KELOMPOK" placeholder="Semua" >
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="PerTanggalBayar" class="form-label">Kategori</label>
+                                    <label for="KATEGORI" class="form-label">Kategori</label>
                                     <!-- <input type="date" class="form-control" id="PerTanggalBayar" name="PerTanggalBayar" value="{{ date('Y').'-12-31' }}" > -->
-                                    <select class="form-select" id="kd_statusWp" name="KD_STATUS_WP" required>
+                                    <select class="form-select" id="KATEGORI" name="KATEGORI" required>
                                         <option value="1">Semua</option>
                                         <option value="2">Objek Pajak tidak dapat ditemukan lokasinya di lapangan</option>
                                         <option value="3">Objek Pajak memiliki dua atau lebih NOP untuk lokasi yang sama</option>
@@ -134,22 +132,22 @@
                                     </div>
                                 </div>
                                 <div class="col-md-2">
-                                    <label for="TahunAkhir" class="form-label">Cut-Off Tanggal</label>
-                                    <input type="date" class="form-control" id="PerTanggalBayar" name="PerTanggalBayar" value="{{ date('Y').'-12-31' }}" >
+                                    <label for="CUT_OFF_TANGGAL" class="form-label">Cut-Off Tanggal</label>
+                                    <input type="date" class="form-control" id="CUT_OFF_TANGGAL" name="CUT_OFF_TANGGAL" value="{{ date('Y').'-12-31' }}" >
                                 </div>
                                 <div class="col-md-4">
-                                    <label for="kd_kec" class="form-label">Jenis</label>
+                                    <label for="JENIS" class="form-label">Jenis</label>
                                     <!-- <input type="text" class="form-control" id="kd_jenisTransaksi" name="kd_jenisTransaksi" required> -->
-                                    <select class="form-select" id="kd_kec" name="KD_KECAMATAN" required>
+                                    <select class="form-select" id="JENIS" name="JENIS" required>
                                         <option selected disabled value="">Pilih Jenis</option>
                                         <option value="1">PIUTANG KPP</option>
                                         <option value="2">PIUTANG KPP 2013/2015 TIDAK TERCETAK</option>
                                     </select>
                                 </div>
                                 <div class="col-md-4">
-                                    <label for="PerTanggalBayar" class="form-label">Status Pembayaran</label>
+                                    <label for="STATUS_PEMBAYARAN" class="form-label">Status Pembayaran</label>
                                     <!-- <input type="date" class="form-control" id="PerTanggalBayar" name="PerTanggalBayar" value="{{ date('Y').'-12-31' }}" > -->
-                                    <select class="form-select" id="kd_statusWp" name="KD_STATUS_WP" required>
+                                    <select class="form-select" id="STATUS_PEMBAYARAN" name="STATUS_PEMBAYARAN" required>
                                         <option value="1">SEMUA</option>
                                         <option value="2">LUNAS</option>
                                         <option value="3">BELUM LUNAS</option>

@@ -29,9 +29,8 @@
                                 @csrf
                                 <div class="box1 row g-4">
                                     <div class="col-md-4">
-                                        <label for="kd_statusWp" class="form-label">KECAMATAN</label>
-                                        <!-- <input type="text" class="form-control" id="kd_statusWp" name="kd_statusWp" required> -->
-                                        <select class="form-select" id="kd_statusWp" name="KD_STATUS_WP" required>
+                                        <label for="KD_KECAMATAN" class="form-label">KECAMATAN</label>
+                                        <select class="form-select" id="KD_KECAMATAN" name="KD_KECAMATAN" required>
                                             <!-- <option selected disabled value="">Choose...</option> -->
                                             <option value="1">WAKANDA SELATAN</option>
                                             <option value="2">WAKANDA TIMUR</option>
@@ -41,9 +40,9 @@
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <label for="kd_statusWp" class="form-label">KELURAHAN</label>
+                                        <label for="KD_KELURAHAN" class="form-label">KELURAHAN</label>
                                         <!-- <input type="text" class="form-control" id="kd_statusWp" name="kd_statusWp" required> -->
-                                        <select class="form-select" id="kd_statusWp" name="KD_STATUS_WP" required  disabled>
+                                        <select class="form-select" id="KD_KELURAHAN" name="KD_KELURAHAN" required  disabled>
                                             <option selected disabled value=""> </option>
                                             <option value="1">PEMILIK</option>
                                             <option value="2">PENYEWA</option>
@@ -56,9 +55,8 @@
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <label for="kd_statusWp" class="form-label">BLOK</label>
-                                        <!-- <input type="text" class="form-control" id="kd_statusWp" name="kd_statusWp" required> -->
-                                        <select class="form-select" id="kd_statusWp" name="KD_STATUS_WP" required  disabled>
+                                        <label for="KD_BLOK" class="form-label">BLOK</label>
+                                        <select class="form-select" id="KD_BLOK" name="KD_BLOK" required  disabled>
                                             <option selected disabled value=""> </option>
                                             <option value="1">PEMILIK</option>
                                             <option value="2">PENYEWA</option>
@@ -71,12 +69,12 @@
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="TahunAkhir" class="form-label">PBB Minimal</label>
-                                        <input type="number" class="form-control" id="TahunAkhir" name="TahunAkhir" value="0">
+                                        <label for="PBB_MINIMAL" class="form-label">PBB Minimal</label>
+                                        <input type="number" class="form-control" id="PBB_MINIMAL" name="PBB_MINIMAL" value="0">
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="TahunAkhir" class="form-label">PBB Maksimal</label>
-                                        <input type="number" class="form-control" id="TahunAkhir" name="TahunAkhir" value="1000000000">
+                                        <label for="PBB_MAKSIMAL" class="form-label">PBB Maksimal</label>
+                                        <input type="number" class="form-control" id="PBB_MAKSIMAL" name="PBB_MAKSIMAL" value="1000000000">
                                     </div>
 
                                     <div class="tombolAksi ">
@@ -94,13 +92,13 @@
                                     <hr>
 
                                     <div class="col-md-3">
-                                        <label for="PerTanggalBayar" class="form-label">Validasi Ke</label>
-                                        <input type="text" class="form-control" id="PerTanggalBayar" name="PerTanggalBayar" placeholder="Tidak usah di update" >
+                                        <label for="VALIDASI_KE" class="form-label">Validasi Ke</label>
+                                        <input type="text" class="form-control" id="VALIDASI_KE" name="VALIDASI_KE" placeholder="Tidak usah di update" >
                                     </div>
                                     <div class="col-md-3">
-                                        <label for="TahunAwal" class="form-label">Is Cetak</label>
+                                        <label for="IS_CETAK" class="form-label">Is Cetak</label>
                                         <!-- <input type="number" class="form-control" id="TahunAwal" name="TahunAwal" value="{{ date('Y') }}"> -->
-                                        <select class="form-select" id="kd_statusWp" name="KD_STATUS_WP" required>
+                                        <select class="form-select" id="IS_CETAK" name="IS_CETAK" required>
                                             <option value="1">Tidak usah di update</option>
                                             <option value="2">Belum</option>
                                             <option value="3">Sudah</option>
@@ -110,9 +108,9 @@
                                         </div>
                                     </div>
                                     <div class="col-md-3">
-                                        <label for="TahunAkhir" class="form-label">Is Validated</label>
+                                        <label for="IS_VALIDATED" class="form-label">Is Validated</label>
                                         <!-- <input type="number" class="form-control" id="TahunAkhir" name="TahunAkhir" value="{{ date('Y') }}"> -->
-                                        <select class="form-select" id="kd_statusWp" name="KD_STATUS_WP" required>
+                                        <select class="form-select" id="IS_VALIDATED" name="IS_VALIDATED" required>
                                             <option value="1">Tidak usah di update</option>
                                             <option value="2">Belum</option>
                                             <option value="3">Sudah</option>
@@ -122,13 +120,12 @@
                                         </div>
                                     </div>
                                     <div class="col-md-3">
-                                        <label for="TahunAkhir" class="form-label">Kelompok</label>
-                                        <input type="text" class="form-control" id="PerTanggalBayar" name="PerTanggalBayar" placeholder="Tidak usah di update" >
+                                        <label for="KELOMPOK" class="form-label">Kelompok</label>
+                                        <input type="text" class="form-control" id="KELOMPOK" name="KELOMPOK" placeholder="Tidak usah di update" >
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="PerTanggalBayar" class="form-label">Kategori</label>
-                                        <!-- <input type="date" class="form-control" id="PerTanggalBayar" name="PerTanggalBayar" value="{{ date('Y').'-12-31' }}" > -->
-                                        <select class="form-select" id="kd_statusWp" name="KD_STATUS_WP" required>
+                                        <label for="KATEGORI" class="form-label">Kategori</label>
+                                        <select class="form-select" id="KATEGORI" name="KATEGORI" required>
                                             <option value="1">Tidak usah di update</option>
                                             <option value="2">Objek Pajak tidak dapat ditemukan lokasinya di lapangan</option>
                                             <option value="3">Objek Pajak memiliki dua atau lebih NOP untuk lokasi yang sama</option>
@@ -142,8 +139,8 @@
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="PerTanggalBayar" class="form-label">Keterangan</label>
-                                        <input type="text" class="form-control" id="PerTanggalBayar" name="PerTanggalBayar" value="Tidak usah di update" >
+                                        <label for="KETERANGAN" class="form-label">Keterangan</label>
+                                        <input type="text" class="form-control" id="KETERANGAN" name="KETERANGAN" value="Tidak usah di update" >
                                         <div class="invalid-feedback">
                                             Isi kolom ini terlebih dahulu!
                                         </div>
