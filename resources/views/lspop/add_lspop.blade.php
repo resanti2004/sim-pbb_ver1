@@ -39,7 +39,7 @@
                             <div class="col-md-4 ">
                                 <div class="col-md-12">
                                     <label for="KodeProvinsi" class="form-label">Kode Provinsi</label>
-                                    <input type="text" class="form-control @error('KodeProvinsi') is-invalid @enderror" id="KodeProvinsi" name="KodeProvinsi" value="51" required disabled>
+                                    <input type="text" class="form-control @error('KodeProvinsi') is-invalid @enderror" id="KodeProvinsi" name="KD_PROPINSI" value="51" required disabled>
                                     @error('KodeProvinsi')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -48,7 +48,7 @@
                                 </div>
                                 <div class="col-md-12">
                                     <label for="KodeDati2" class="form-label">Kode Dati 2</label>
-                                    <input type="text" class="form-control @error('KodeDati2') is-invalid @enderror" id="KodeDati2" name="KodeDati2" value="71" required disabled>
+                                    <input type="text" class="form-control @error('KodeDati2') is-invalid @enderror" id="KodeDati2" name="KD_DATI2" value="71" required disabled>
                                     @error('KodeDati2')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -58,7 +58,7 @@
                                 <div class="col-md-12">
                                     <label for="KodeKecamatan" class="form-label">Kode Kecamatan</label>
                                     <!-- <input type="text" class="form-control @error('KodeKecamatan') is-invalid @enderror" id="KodeKecamatan" name="KodeKecamatan" required> -->
-                                    <select class="form-select" id="kd_statusWp" name="KD_STATUS_WP" required>
+                                    <select class="form-select" id="KodeKecamatan" name="KD_KECAMATAN" required>
                                             <option value="1">PEMILIK</option>
                                             <option value="2">PENYEWA</option>
                                             <option value="3">PENGELOLA</option>
@@ -74,7 +74,7 @@
                                 <div class="col-md-12">
                                     <label for="KodeKelurahan" class="form-label">Kode Kelurahan</label>
                                     <!-- <input type="text" class="form-control @error('KodeKelurahan') is-invalid @enderror" id="KodeKelurahan" name="KodeKelurahan" required> -->
-                                    <select class="form-select" id="kd_statusWp" name="KD_STATUS_WP" required disabled>
+                                    <select class="form-select" id="KodeKelurahan" name="KD_KELURAHAN" required disabled>
                                             <option value="1">PEMILIK</option>
                                             <option value="2">PENYEWA</option>
                                             <option value="3">PENGELOLA</option>
@@ -90,7 +90,7 @@
                                 <div class="col-md-12">
                                     <label for="KodeBlok" class="form-label">Kode Blok</label>
                                     <!-- <input type="text" class="form-control @error('KodeBlok') is-invalid @enderror" id="KodeBlok" name="KodeBlok" required> -->
-                                    <select class="form-select" id="kd_statusWp" name="KD_STATUS_WP" required disabled>
+                                    <select class="form-select" id="KodeBlok" name="KD_BLOK" required disabled>
                                             <option value="1">PEMILIK</option>
                                             <option value="2">PENYEWA</option>
                                             <option value="3">PENGELOLA</option>
@@ -105,7 +105,7 @@
                                 </div>
                                 <div class="col-md-12">
                                     <label for="NoUrut" class="form-label">No Urut</label>
-                                    <input type="text" class="form-control @error('NoUrut') is-invalid @enderror" id="NoUrut" name="NoUrut" required>
+                                    <input type="text" class="form-control @error('NoUrut') is-invalid @enderror" id="NoUrut" name="NO_URUT" required>
                                     @error('NoUrut')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -114,7 +114,7 @@
                                 </div>
                                 <div class="col-md-12">
                                     <label for="KodeJenisOp" class="form-label">Kode Jenis Op</label>
-                                    <input type="text" class="form-control @error('KodeJenisOp') is-invalid @enderror" id="KodeJenisOp" name="KodeJenisOp" value="0" required>
+                                    <input type="text" class="form-control @error('KodeJenisOp') is-invalid @enderror" id="KodeJenisOp" name="KD_JNS_OP" value="0" required>
                                     @error('KodeJenisOp')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -122,9 +122,9 @@
                                     @enderror
                                 </div>
                                 <div class="col-md-12">
-                                    <label for="JenisTransaksiKelurahan" class="form-label">Jenis Transaksi Bangunan</label>
+                                    <label for="JenisTransaksiBangunan" class="form-label">Jenis Transaksi Bangunan</label>
                                     <!-- <input type="text" class="form-control @error('JenisTransaksiKelurahan') is-invalid @enderror" id="JenisTransaksiKelurahan" name="JenisTransaksiKelurahan" required> -->
-                                    <select class="form-select" id="kd_statusWp" name="KD_STATUS_WP" required>
+                                    <select class="form-select" id="JenisTransaksiBangungan" name="JNS_TRANSAKSI_BNG" required>
                                             <option value="1">PEMILIK</option>
                                             <option value="2">PENYEWA</option>
                                             <option value="3">PENGELOLA</option>
@@ -142,7 +142,7 @@
                             <div class="col-md-4">
                                 <div class="col-md-12">
                                     <label for="NoBangunan" class="form-label">No Bangunan</label>
-                                    <input type="text" class="form-control @error('NoBangunan') is-invalid @enderror" id="NoBangunan" name="NoBangunan" value="1" required>
+                                    <input type="text" class="form-control @error('NoBangunan') is-invalid @enderror" id="NoBangunan" name="NO_BNG" value="1" required>
                                     @error('NoBangunan')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -151,7 +151,7 @@
                                 </div>
                                 <div class="col-md-12">
                                     <label for="NoFormulirLspop" class="form-label">No Formulir Lspop</label>
-                                    <input type="text" class="form-control @error('NoFormulirLspop') is-invalid @enderror" id="NoFormulirLspop" name="NoFormulirLspop" required>
+                                    <input type="text" class="form-control @error('NoFormulirLspop') is-invalid @enderror" id="NoFormulirLspop" name="NO_FORMULIR_LSPOP" required>
                                     @error('NoFormulirLspop')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -161,13 +161,14 @@
                             </div>
 
                             <div class="col-md-4">
+
                             </div>
 
                             <div class="col-md-4 mt-5">
                                 <div class="col-md-12">
                                     <label for="KodeJpb" class="form-label">Kode Jpb</label>
                                     <!-- <input type="text" class="form-control @error('KodeJpb') is-invalid @enderror" id="KodeJpb" name="KodeJpb" required> -->
-                                    <select class="form-select" id="kd_statusWp" name="KD_STATUS_WP" required>
+                                    <select class="form-select" id="KodeJpb" name="KD_JPB" required>
                                             <option value="1">PEMILIK</option>
                                             <option value="2">PENYEWA</option>
                                             <option value="3">PENGELOLA</option>
@@ -182,7 +183,7 @@
                                 </div>
                                 <div class="col-md-12">
                                     <label for="TahunDibangunBangunan" class="form-label">Tahun Dibangun Bangunan</label>
-                                    <input type="text" class="form-control @error('TahunDibangunBangunan') is-invalid @enderror" id="TahunDibangunBangunan" name="TahunDibangunBangunan" required>
+                                    <input type="text" class="form-control @error('TahunDibangunBangunan') is-invalid @enderror" id="TahunDibangunBangunan" name="THN_DIBANGUN_BNG" required>
                                     @error('TahunDibangunBangunan')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -200,7 +201,7 @@
                                 </div>
                                 <div class="col-md-12">
                                     <label for="LuasBangunan" class="form-label">Luas Bangunan</label>
-                                    <input type="text" class="form-control @error('LuasBangunan') is-invalid @enderror" id="LuasBangunan" name="LuasBangunan" value="0" required>
+                                    <input type="text" class="form-control @error('LuasBangunan') is-invalid @enderror" id="LuasBangunan" name="LUAS_BNG" value="0" required>
                                     @error('LuasBangunan')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -209,7 +210,7 @@
                                 </div>
                                 <div class="col-md-12">
                                     <label for="JumlahLantaiBangunan" class="form-label">Jumlah Lantai Bangunan</label>
-                                    <input type="text" class="form-control @error('JumlahLantaiBangunan') is-invalid @enderror" id="JumlahLantaiBangunan" name="JumlahLantaiBangunan" value="1" required>
+                                    <input type="text" class="form-control @error('JumlahLantaiBangunan') is-invalid @enderror" id="JumlahLantaiBangunan" name="JML_LANTAI_BNG" value="1" required>
                                     @error('JumlahLantaiBangunan')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -219,7 +220,7 @@
                                 <div class="col-md-12">
                                     <label for="KondisiBangunan" class="form-label">Kondisi Bangunan</label>
                                     <!-- <input type="text" class="form-control @error('KondisiBangunan') is-invalid @enderror" id="KondisiBangunan" name="KondisiBangunan" required> -->
-                                    <select class="form-select" id="kd_statusWp" name="KD_STATUS_WP" required>
+                                    <select class="form-select" id="KondisiBangunan" name="KONDISI_BNG" required>
                                             <option value="1">PEMILIK</option>
                                             <option value="2">PENYEWA</option>
                                             <option value="3">PENGELOLA</option>
@@ -235,7 +236,7 @@
                                 <div class="col-md-12">
                                     <label for="JenisKonstruksiBangunan" class="form-label">Jenis Konstruksi Bangunan</label>
                                     <!-- <input type="text" class="form-control @error('JenisKonstruksiBangunan') is-invalid @enderror" id="JenisKonstruksiBangunan" name="JenisKonstruksiBangunan" required> -->
-                                    <select class="form-select" id="kd_statusWp" name="KD_STATUS_WP" required>
+                                    <select class="form-select" id="JenisKonstruksiBangunan" name="JNS_KONSTRUKSI_BNG" required>
                                             <option value="1">PEMILIK</option>
                                             <option value="2">PENYEWA</option>
                                             <option value="3">PENGELOLA</option>
@@ -251,7 +252,7 @@
                                 <div class="col-md-12">
                                     <label for="JenisAtapBangunan" class="form-label">Jenis Atap Bangunan</label>
                                     <!-- <input type="text" class="form-control @error('JenisAtapBangunan') is-invalid @enderror" id="JenisAtapBangunan" name="JenisAtapBangunan" required> -->
-                                    <select class="form-select" id="kd_statusWp" name="KD_STATUS_WP" required>
+                                    <select class="form-select" id="JenisAtapBangunan" name="JNS_ATAP_BNG" required>
                                             <option value="1">PEMILIK</option>
                                             <option value="2">PENYEWA</option>
                                             <option value="3">PENGELOLA</option>
@@ -267,7 +268,7 @@
                                 <div class="col-md-12">
                                     <label for="KdDinding" class="form-label">Kd Dinding</label>
                                     <!-- <input type="text" class="form-control @error('KdDinding') is-invalid @enderror" id="KdDinding" name="KdDinding" required> -->
-                                    <select class="form-select" id="kd_statusWp" name="KD_STATUS_WP" required>
+                                    <select class="form-select" id="KdDinding" name="KD_DINDING" required>
                                             <option value="1">PEMILIK</option>
                                             <option value="2">PENYEWA</option>
                                             <option value="3">PENGELOLA</option>
@@ -283,7 +284,7 @@
                                 <div class="col-md-12">
                                     <label for="KdLantai" class="form-label">Kd Lantai</label>
                                     <!-- <input type="text" class="form-control @error('KdLantai') is-invalid @enderror" id="KdLantai" name="KdLantai" required> -->
-                                    <select class="form-select" id="kd_statusWp" name="KD_STATUS_WP" required>
+                                    <select class="form-select" id="KdLantai" name="KD_LANTAI" required>
                                             <option value="1">PEMILIK</option>
                                             <option value="2">PENYEWA</option>
                                             <option value="3">PENGELOLA</option>
@@ -299,7 +300,7 @@
                                 <div class="col-md-12">
                                     <label for="KdLangitLangit" class="form-label">Kd Langit-Langit</label>
                                     <!-- <input type="text" class="form-control @error('KdLangitLangit') is-invalid @enderror" id="KdLangitLangit" name="KdLangit_Langit" required> -->
-                                    <select class="form-select" id="kd_statusWp" name="KD_STATUS_WP" required>
+                                    <select class="form-select" id="KdLangitLangit" name="KD_LANGIT_LANGIT" required>
                                             <option value="1">PEMILIK</option>
                                             <option value="2">PENYEWA</option>
                                             <option value="3">PENGELOLA</option>
@@ -316,8 +317,8 @@
 
                             <div class="col-md-4 mt-5">
                                 <div class="col-md-12">
-                                    <label for="Aktif" class="form-label">AC SPLIT</label>
-                                    <input type="text" class="form-control @error('Aktif') is-invalid @enderror" id="Aktif" name="Aktif" value="0" required>
+                                    <label for="AcSplit" class="form-label">AC SPLIT</label>
+                                    <input type="text" class="form-control @error('Aktif') is-invalid @enderror" id="AcSplit" name="AC_SPLIT" value="0" required>
                                     @error('Aktif')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -325,8 +326,8 @@
                                     @enderror
                                 </div>
                                 <div class="col-md-12">
-                                    <label for="Aktif" class="form-label">AC WINDOWS</label>
-                                    <input type="text" class="form-control @error('Aktif') is-invalid @enderror" id="Aktif" name="Aktif" value="0" required>
+                                    <label for="AcWindows" class="form-label">AC WINDOWS</label>
+                                    <input type="text" class="form-control @error('Aktif') is-invalid @enderror" id="AcWindows" name="AC_WINDOWS" value="0" required>
                                     @error('Aktif')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -334,69 +335,69 @@
                                     @enderror
                                 </div>                                
                                 <div class="col-md-12">
-                                    <label for="Aktif" class="form-label">AC CENTRAL</label>
+                                    <label for="AcCentral" class="form-label">AC CENTRAL</label>
                                     <!-- <input type="text" class="form-control @error('Aktif') is-invalid @enderror" id="Aktif" name="Aktif" value="0" required> -->
                                     <div class="col-md-12 d-flex ">
                                         <div class="me-2">
-                                            <input class="form-check-input border border-primary" type="checkbox" name="baru" id="baru" />
+                                            <input class="form-check-input border border-primary" type="checkbox" name="AC_CENTRAL" id="AcCentral" />
                                         </div>
                                         <label for="baru" class="form-label">Baru</label>
                                     </div>
-                                    @error('Aktif')
+                                    @error('AcCentral')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
                                     @enderror
                                 </div>
                                 <div class="col-md-12">
-                                    <label for="Aktif" class="form-label">KOLAM RENANG DIPLESTER</label>
-                                    <input type="text" class="form-control @error('Aktif') is-invalid @enderror" id="Aktif" name="Aktif" value="0" required>
-                                    @error('Aktif')
+                                    <label for="KolamRenangDiplester" class="form-label">KOLAM RENANG DIPLESTER</label>
+                                    <input type="text" class="form-control @error('KolamRenangDiplester') is-invalid @enderror" id="KolamRenangDiplester" name="KLM_RENANG_DIPLESTER" value="0" required>
+                                    @error('KolamRenangDiplester')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
                                     @enderror
                                 </div>
                                 <div class="col-md-12">
-                                    <label for="Aktif" class="form-label">KOLAM RENANG DENGAN PELAPIS</label>
-                                    <input type="text" class="form-control @error('Aktif') is-invalid @enderror" id="Aktif" name="Aktif" value="0" required>
-                                    @error('Aktif')
+                                    <label for="KolamRenangDgnPelapis" class="form-label">KOLAM RENANG DENGAN PELAPIS</label>
+                                    <input type="text" class="form-control @error('KolamRenangDgnPelapis') is-invalid @enderror" id="KolamRenangDgnPelapis" name="KLM_RENANG_DGN_PELAPIS" value="0" required>
+                                    @error('KolamRenangDgnPelapis')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
                                     @enderror
                                 </div>
                                 <div class="col-md-12">
-                                    <label for="Aktif" class="form-label">PERKERASAN KONSTRUKSI RINGAN</label>
-                                    <input type="text" class="form-control @error('Aktif') is-invalid @enderror" id="Aktif" name="Aktif" value="0" required>
-                                    @error('Aktif')
+                                    <label for="PerkerasanKonstruksiRingan" class="form-label">PERKERASAN KONSTRUKSI RINGAN</label>
+                                    <input type="text" class="form-control @error('PerkerasanKonstruksiRingan') is-invalid @enderror" id="PerkerasanKonstruksiRingan" name="PERKERASAN_KONSTRUKSI_RINGAN" value="0" required>
+                                    @error('PerkerasanKonstruksiRingan')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
                                     @enderror
                                 </div>
                                 <div class="col-md-12">
-                                    <label for="Aktif" class="form-label">PERKERASAN KONSTRUKSI SEDANG</label>
-                                    <input type="text" class="form-control @error('Aktif') is-invalid @enderror" id="Aktif" name="Aktif" value="0" required>
-                                    @error('Aktif')
+                                    <label for="PerkerasanKonstruksiSedang" class="form-label">PERKERASAN KONSTRUKSI SEDANG</label>
+                                    <input type="text" class="form-control @error('PerkerasanKonstruksiSedang') is-invalid @enderror" id="PerkerasanKonstruksiSedang" name="PERKERASAN_KONSTRUKSI_SEDANG" value="0" required>
+                                    @error('PerkerasanKonstruksiSedang')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
                                     @enderror
                                 </div>
                                 <div class="col-md-12">
-                                    <label for="Aktif" class="form-label">PERKERASAN KONSTRUKSI BERAT</label>
-                                    <input type="text" class="form-control @error('Aktif') is-invalid @enderror" id="Aktif" name="Aktif" value="0" required>
-                                    @error('Aktif')
+                                    <label for="PerkerasanKonstruksiBerat" class="form-label">PERKERASAN KONSTRUKSI BERAT</label>
+                                    <input type="text" class="form-control @error('PerkerasanKonstruksiBerat') is-invalid @enderror" id="PerkerasanKonstruksiBerat" name="PERKERASAN_KONSTRUKSI_BERAT" value="0" required>
+                                    @error('PerkerasanKonstruksiBerat')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
                                     @enderror
                                 </div>
                                 <div class="col-md-12">
-                                    <label for="Aktif" class="form-label">PENUTUPAN PERKERASAN</label>
-                                    <input type="text" class="form-control @error('Aktif') is-invalid @enderror" id="Aktif" name="Aktif" value="0" required>
-                                    @error('Aktif')
+                                    <label for="PenutupanPerkerasan" class="form-label">PENUTUPAN PERKERASAN</label>
+                                    <input type="text" class="form-control @error('PenutupanPerkerasan') is-invalid @enderror" id="PenutupanPerkerasan" name="PNTP_PERKERASAN" value="0" required>
+                                    @error('PenutupanPerkerasan')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>

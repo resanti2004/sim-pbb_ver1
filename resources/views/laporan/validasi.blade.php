@@ -54,7 +54,6 @@
                                     <label for="kd_kec" class="form-label">Is Validate</label>
                                     <!-- <input type="text" class="form-control" id="kd_jenisTransaksi" name="kd_jenisTransaksi" required> -->
                                     <select class="form-select" id="kd_kec" name="KD_KECAMATAN" required>
-                                        <option selected disabled value="">Choose...</option>
                                         <option value="1">SUDAH</option>
                                         <option value="2">BELUM</option>
                                     </select>
@@ -63,7 +62,7 @@
                                     <label for="kd_kec" class="form-label">Jenis</label>
                                     <!-- <input type="text" class="form-control" id="kd_jenisTransaksi" name="kd_jenisTransaksi" required> -->
                                     <select class="form-select" id="kd_kec" name="KD_KECAMATAN" required>
-                                        <option selected disabled value="">Choose...</option>
+                                        <option selected disabled value="">Pilih Jenis</option>
                                         <option value="1">PIUTANG KPP</option>
                                         <option value="2">PIUTANG KPP 2013/2015 TIDAK TERCETAK</option>
                                     </select>
@@ -84,7 +83,71 @@
                                 <div class="tombol">
                                     <a href="{{ route('validasi.assign') }}"><button class="bg-success" type="button">Assign NOP</button></a>
                                     <a href="{{ route('validasi.laporan') }}"><button class="bg-warning" type="button">Laporan</button></a>
+                                    <a href="#"><button class="bg-danger" type="button" id="ModalButton">+</button></a>
                                 </div>
+
+                                            <div class="modal fade" id="staticBackdrop3" aria-hidden="true" aria-labelledby="staticBackdropLabel3" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+                                                <div class="modal-dialog modal-3 modal-dialog-centered">
+                                                    <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h1 class="modal-title fs-5" id="staticBackdropLabel3">Tambah NOP Validasi</h1>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <form method="POST" action="" enctype="multipart/form-data" class="row g-4 p-1 needs-validation" novalidate>
+                                                            @csrf
+                                                            @method('PUT')
+                                                            <div class="col-md-2">
+                                                                <label for="username" class="form-label">KECAMATAN</label>
+                                                                <input type="text" class="form-control" id="username" name="username" value="">
+                                                                <div class="invalid-feedback">
+                                                                    Isi kolom ini terlebih dahulu!
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <label for="fullname" class="form-label">KELURAHAN</label>
+                                                                <input type="text" class="form-control" id="fullname" name="fullname" value="">
+                                                                <div class="invalid-feedback">
+                                                                    Isi kolom ini terlebih dahulu!
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <label for="email" class="form-label">BLOK</label>
+                                                                <input type="text" class="form-control" id="email" name="email" value="" >
+                                                                <div class="invalid-feedback">
+                                                                    Isi kolom ini terlebih dahulu!
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <label for="status" class="form-label">NO URUT</label>
+                                                                <input type="text" class="form-control" id="status" name="status" value="">
+                                                                <div class="invalid-feedback">
+                                                                    Isi kolom ini terlebih dahulu!
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <label for="jabatan" class="form-label">KD</label>
+                                                                <input type="text" class="form-control" id="jabatan" name="jabatan" value="">
+                                                                <div class="invalid-feedback">
+                                                                    Isi kolom ini terlebih dahulu!
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-12">
+                                                                <label for="role" class="form-label">Keterangan</label>
+                                                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="6"></textarea>
+                                                                <div class="invalid-feedback">
+                                                                    Isi kolom ini terlebih dahulu!
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                        <button type="button" class="btn btn-primary" id="addButton">Simpan</button>
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                             </div>
                             
                             <div class="dataTable" style="overflow-x: scroll;">
@@ -132,7 +195,7 @@
                                             <td>20</td>
                                             <td>
                                                 <ul class="list-inline">									
-                                                    <li class="list-inline-item"><a class="active" id="showModalButton"><i class='bx bx-show' ></i></a></li>
+                                                    <li class="list-inline-item"><a href="#" class="active" id="showModalButton"><i class='bx bx-show' ></i></a></li>
                                                     <li class="list-inline-item"><a href="#" class="active" id="delete"><i class='bx bx-trash' ></i></a></li>
                                                     <li class="list-inline-item"><a href="#" class="active" id="info"><i class='bx bxs-printer' ></i></a></li>
                                                 </ul>
@@ -355,6 +418,22 @@
                         
                         // Menampilkan kembali modal staticBackdrop
                         staticBackdrop.show();
+                    });
+                });
+            </script>
+
+            <script>
+                // Mendeklarasikan variabel global untuk modal
+                var staticBackdrop3 = new bootstrap.Modal(document.getElementById('staticBackdrop3'));
+
+                document.addEventListener('DOMContentLoaded', function () {
+                    // Mengaktifkan modal saat ikon "Show" diklik
+                    document.getElementById('ModalButton').addEventListener('click', function () {
+                        staticBackdrop3.show();
+                    });
+
+                    // Menambahkan event listener untuk tombol "Edit" pada modal staticBackdrop
+                    document.getElementById('addButton').addEventListener('click', function () {
                     });
                 });
             </script>
