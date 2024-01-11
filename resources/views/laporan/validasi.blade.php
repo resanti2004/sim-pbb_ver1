@@ -51,17 +51,17 @@
                                     <input type="number" class="form-control" id="TahunAkhir" name="tahun_akhir" style="border-top-left-radius: 0; border-bottom-left-radius: 0;" required>
                                 </div>
                                 <div class="col-md-12">
-                                    <label for="kd_kec" class="form-label">Is Validate</label>
+                                    <label for="IS_VALIDATED" class="form-label">Is Validate</label>
                                     <!-- <input type="text" class="form-control" id="kd_jenisTransaksi" name="kd_jenisTransaksi" required> -->
-                                    <select class="form-select" id="kd_kec" name="KD_KECAMATAN" required>
+                                    <select class="form-select" id="IS_VALIDATED" name="IS_VALIDATED" required>
                                         <option value="1">SUDAH</option>
                                         <option value="2">BELUM</option>
                                     </select>
                                 </div>
                                 <div class="col-md-12">
-                                    <label for="kd_kec" class="form-label">Jenis</label>
+                                    <label for="JENIS" class="form-label">Jenis</label>
                                     <!-- <input type="text" class="form-control" id="kd_jenisTransaksi" name="kd_jenisTransaksi" required> -->
-                                    <select class="form-select" id="kd_kec" name="KD_KECAMATAN" required>
+                                    <select class="form-select" id="JENIS" name="JENIS" required>
                                         <option selected disabled value="">Pilih Jenis</option>
                                         <option value="1">PIUTANG KPP</option>
                                         <option value="2">PIUTANG KPP 2013/2015 TIDAK TERCETAK</option>
@@ -98,43 +98,43 @@
                                                             @csrf
                                                             @method('PUT')
                                                             <div class="col-md-2">
-                                                                <label for="username" class="form-label">KECAMATAN</label>
-                                                                <input type="text" class="form-control" id="username" name="username" value="">
+                                                                <label for="KD_KECAMATAN" class="form-label">KECAMATAN</label>
+                                                                <input type="text" class="form-control" id="KD_KECAMATAN" name="KD_KECAMATAN" value="">
                                                                 <div class="invalid-feedback">
                                                                     Isi kolom ini terlebih dahulu!
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-2">
-                                                                <label for="fullname" class="form-label">KELURAHAN</label>
-                                                                <input type="text" class="form-control" id="fullname" name="fullname" value="">
+                                                                <label for="KD_KELURAHAN" class="form-label">KELURAHAN</label>
+                                                                <input type="text" class="form-control" id="KD_KELURAHAN" name="KD_KELURAHAN" value="">
                                                                 <div class="invalid-feedback">
                                                                     Isi kolom ini terlebih dahulu!
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-3">
-                                                                <label for="email" class="form-label">BLOK</label>
-                                                                <input type="text" class="form-control" id="email" name="email" value="" >
+                                                                <label for="KD_BLOK" class="form-label">BLOK</label>
+                                                                <input type="text" class="form-control" id="KD_BLOK" name="KD_BLOK" value="" >
                                                                 <div class="invalid-feedback">
                                                                     Isi kolom ini terlebih dahulu!
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-3">
-                                                                <label for="status" class="form-label">NO URUT</label>
-                                                                <input type="text" class="form-control" id="status" name="status" value="">
+                                                                <label for="NO_URUT" class="form-label">NO URUT</label>
+                                                                <input type="text" class="form-control" id="NO_URUT" name="NO_URUT" value="">
                                                                 <div class="invalid-feedback">
                                                                     Isi kolom ini terlebih dahulu!
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-2">
-                                                                <label for="jabatan" class="form-label">KD</label>
-                                                                <input type="text" class="form-control" id="jabatan" name="jabatan" value="">
+                                                                <label for="KD" class="form-label">KD</label>
+                                                                <input type="text" class="form-control" id="KD" name="KD" value="">
                                                                 <div class="invalid-feedback">
                                                                     Isi kolom ini terlebih dahulu!
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-12">
-                                                                <label for="role" class="form-label">Keterangan</label>
-                                                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="6"></textarea>
+                                                                <label for="KETERANGAN" class="form-label">Keterangan</label>
+                                                                <textarea class="form-control" id="KETERANGAN" name="KETERANGAN" rows="6"></textarea>
                                                                 <div class="invalid-feedback">
                                                                     Isi kolom ini terlebih dahulu!
                                                                 </div>
@@ -284,85 +284,85 @@
                                                             @csrf
                                                             @method('PUT')
                                                             <div class="col-md-6">
-                                                                <label for="username" class="form-label">PR</label>
-                                                                <input type="text" class="form-control" id="username" name="username" value="">
+                                                                <label for="PR" class="form-label">PR</label>
+                                                                <input type="text" class="form-control" id="PR" name="PR" value="">
                                                                 <div class="invalid-feedback">
                                                                     Isi kolom ini terlebih dahulu!
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
-                                                                <label for="fullname" class="form-label">DT</label>
-                                                                <input type="text" class="form-control" id="fullname" name="fullname" value="">
+                                                                <label for="DT" class="form-label">DT</label>
+                                                                <input type="text" class="form-control" id="DT" name="DT" value="">
                                                                 <div class="invalid-feedback">
                                                                     Isi kolom ini terlebih dahulu!
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
-                                                                <label for="email" class="form-label">KECAMATAN</label>
-                                                                <input type="text" class="form-control" id="email" name="email" value="" >
+                                                                <label for="KD_KECAMATAN" class="form-label">KECAMATAN</label>
+                                                                <input type="text" class="form-control" id="KD_KECAMATAN" name="KD_KECAMATAN" value="" >
                                                                 <div class="invalid-feedback">
                                                                     Isi kolom ini terlebih dahulu!
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
-                                                                <label for="status" class="form-label">KELURAHAN</label>
-                                                                <input type="text" class="form-control" id="status" name="status" value="">
+                                                                <label for="KD_KELURAHAN" class="form-label">KELURAHAN</label>
+                                                                <input type="text" class="form-control" id="KD_KELURAHAN" name="KD_KELURAHAN" value="">
                                                                 <div class="invalid-feedback">
                                                                     Isi kolom ini terlebih dahulu!
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
-                                                                <label for="jabatan" class="form-label">BLOK</label>
-                                                                <input type="text" class="form-control" id="jabatan" name="jabatan" value="">
+                                                                <label for="KD_BLOK" class="form-label">BLOK</label>
+                                                                <input type="text" class="form-control" id="KD_BLOK" name="KD_BLOK" value="">
                                                                 <div class="invalid-feedback">
                                                                     Isi kolom ini terlebih dahulu!
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
-                                                                <label for="role" class="form-label">NO URUT</label>
-                                                                <input type="text" class="form-control" id="role" name="role" value="">
+                                                                <label for="NO_URUT" class="form-label">NO URUT</label>
+                                                                <input type="text" class="form-control" id="NO_URUT" name="NO_URUT" value="">
                                                                 <div class="invalid-feedback">
                                                                     Isi kolom ini terlebih dahulu!
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
-                                                                <label for="nip" class="form-label">KD</label>
-                                                                <input type="text" class="form-control" id="nip" name="nip" value="">
+                                                                <label for="KD" class="form-label">KD</label>
+                                                                <input type="text" class="form-control" id="KD" name="KD" value="">
                                                                 <div class="invalid-feedback">
                                                                     Isi kolom ini terlebih dahulu!
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
-                                                                <label for="nomorponsel" class="form-label">Keterangan</label>
-                                                                <input type="text" class="form-control" id="nomorponsel" name="nomor_ponsel" value="">
+                                                                <label for="KETERANGAN" class="form-label">Keterangan</label>
+                                                                <input type="text" class="form-control" id="KETERANGAN" name="KETERANGAN" value="">
                                                                 <div class="invalid-feedback">
                                                                     Isi kolom ini terlebih dahulu!
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
-                                                                <label for="nomorponsel" class="form-label">Is Cetak</label>
-                                                                <input type="text" class="form-control" id="nomorponsel" name="nomor_ponsel" value="">
+                                                                <label for="IS_CETAK" class="form-label">Is Cetak</label>
+                                                                <input type="text" class="form-control" id="IS_CETAK" name="IS_CETAK" value="">
                                                                 <div class="invalid-feedback">
                                                                     Isi kolom ini terlebih dahulu!
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
-                                                                <label for="nomorponsel" class="form-label">Is Validated</label>
-                                                                <input type="text" class="form-control" id="nomorponsel" name="nomor_ponsel" value="">
+                                                                <label for="IS_VALIDATED" class="form-label">Is Validated</label>
+                                                                <input type="text" class="form-control" id="IS_VALIDATED" name="IS_VALIDATED" value="">
                                                                 <div class="invalid-feedback">
                                                                     Isi kolom ini terlebih dahulu!
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
-                                                                <label for="nomorponsel" class="form-label">Kelompok</label>
-                                                                <input type="text" class="form-control" id="nomorponsel" name="nomor_ponsel" value="">
+                                                                <label for="KELOMPOK" class="form-label">Kelompok</label>
+                                                                <input type="text" class="form-control" id="KELOMPOK" name="KELOMPOK" value="">
                                                                 <div class="invalid-feedback">
                                                                     Isi kolom ini terlebih dahulu!
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
-                                                                <label for="nomorponsel" class="form-label">Modified</label>
-                                                                <input type="text" class="form-control" id="nomorponsel" name="nomor_ponsel" value="">
+                                                                <label for="MODIFIED" class="form-label">Modified</label>
+                                                                <input type="text" class="form-control" id="MODIFIED" name="MODIFIED" value="">
                                                                 <div class="invalid-feedback">
                                                                     Isi kolom ini terlebih dahulu!
                                                                 </div>
@@ -371,7 +371,7 @@
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button class="btn btn-secondary" id="cancelButton">Cancel</button>
-                                                        <button type="button" class="btn btn-primary" id="editButton">Simpan</button>
+                                                        <button type="button" class="btn btn-primary" id="saveButton">Simpan</button>
                                                     </div>
                                                     </div>
                                                 </div>
