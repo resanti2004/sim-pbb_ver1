@@ -35,9 +35,9 @@
                     </div>
                 </div>
 
-                <table id="example" class="table table-striped" style="width:100%">
-                    <thead>
-                        <tr>
+                <table id="example" class="table table-striped mt-3" style="width:100%; margin-top: 20px;">
+                    <thead >
+                        <tr class="mt-3">
                             <td width="30px">No</td>
                             <td>No Pelayanan</td>
                             <td>Nama Pemohon</td>
@@ -162,6 +162,8 @@
                 });
             });
         });
+
+
         // Listen for the success flash message
     var successMessage = "{{ session('success') }}";
 

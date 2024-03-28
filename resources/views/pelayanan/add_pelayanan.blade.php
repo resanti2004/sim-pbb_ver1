@@ -192,7 +192,7 @@
                                     </div>
                                     <div class="col-md-12">
                                         <label for="KETERANGAN" class="form-label">Keterangan</label>
-                                        <textarea class="form-control" id="KETERANGAN" name="KETERANGAN" rows="5"></textarea>
+                                        <textarea class="form-control" id="KETERANGAN" name="KETERANGAN" rows="4"></textarea>
                                         <div class="invalid-feedback">
                                             Isi kolom ini terlebih dahulu!
                                         </div>

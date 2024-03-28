@@ -270,12 +270,15 @@ allProgress.forEach(item=> {
 // APEXCHART
 var options = {
   series: [{
-  name: 'series1',
+  name: 'Total Pendapatan PBB',
   data: [31, 40, 28, 51, 42, 109, 100]
 }, {
-  name: 'series2',
+  name: 'Total PBB Terbayar',
   data: [11, 32, 45, 32, 34, 52, 41]
-}],
+}, {
+	name: 'Total PBB Belum Terbayar',
+	data: [14, 35, 50, 37, 38, 60, 70]
+} ],
   chart: {
   height: 350,
   type: 'area'

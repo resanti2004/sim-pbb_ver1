@@ -508,6 +508,12 @@
 	border-bottom-left-radius: 10px;	
 }
 
+    /* Tambahkan margin untuk tabel */
+#example {
+    margin-bottom: 20px; /* Sesuaikan dengan margin yang diinginkan */
+}
+
+
 /* CSS untuk memposisikan label setelah input dengan ikon kalender */
 .form-floating > .input-group > .datepicker_input + .input-group-text + label {
     padding-left: 3.5rem;

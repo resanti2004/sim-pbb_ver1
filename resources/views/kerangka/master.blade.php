@@ -75,9 +75,9 @@
 		<!-- MAIN -->
 
 		<!-- FOOTER -->
-		<footer>
+		<!-- <footer>
 			@include('include.footer')
-		</footer>
+		</footer> -->
 		<!-- FOOTER -->
 	</section>
 

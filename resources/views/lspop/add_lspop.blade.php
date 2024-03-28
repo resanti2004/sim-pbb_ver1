@@ -33,11 +33,12 @@
                     </div>
                 </div>
 
-                <form id="addlspop" method="POST" action="{{ route('lspop.store') }}" enctype="multipart/form-data" class="row g-4 p-5 needs-validation" novalidate>
+                <form id="addlspop" method="POST" action="{{ route('lspop.store') }}" enctype="multipart/form-data" class="row g-2 p-5 mx-auto my-3 d-flex justify-content-center needs-validation" novalidate>
                     @csrf
-                    <div class="row m-5 ">
-                            <div class="col-md-4 ">
-                                <div class="col-md-12">
+                    <div class="row ">
+                            <div class="col-md-4">
+                                <hr class="border-dark border-4 mb-2">
+                                <div class="col-md-11 mx-auto mb-2">
                                     <label for="KodeProvinsi" class="form-label">Kode Provinsi</label>
                                     <input type="text" class="form-control @error('KodeProvinsi') is-invalid @enderror" id="KodeProvinsi" name="KD_PROPINSI" value="51" required disabled>
                                     @error('KodeProvinsi')
@@ -46,7 +47,7 @@
                                     </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-11 mx-auto mb-2">
                                     <label for="KodeDati2" class="form-label">Kode Dati 2</label>
                                     <input type="text" class="form-control @error('KodeDati2') is-invalid @enderror" id="KodeDati2" name="KD_DATI2" value="71" required disabled>
                                     @error('KodeDati2')
@@ -55,7 +56,7 @@
                                     </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-11 mx-auto mb-2">
                                     <label for="KodeKecamatan" class="form-label">Kode Kecamatan</label>
                                     <!-- <input type="text" class="form-control @error('KodeKecamatan') is-invalid @enderror" id="KodeKecamatan" name="KodeKecamatan" required> -->
                                     <select class="form-select" id="KodeKecamatan" name="KD_KECAMATAN" required>
@@ -71,7 +72,7 @@
                                     </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-11 mx-auto mb-2">
                                     <label for="KodeKelurahan" class="form-label">Kode Kelurahan</label>
                                     <!-- <input type="text" class="form-control @error('KodeKelurahan') is-invalid @enderror" id="KodeKelurahan" name="KodeKelurahan" required> -->
                                     <select class="form-select" id="KodeKelurahan" name="KD_KELURAHAN" required disabled>
@@ -87,7 +88,7 @@
                                     </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-11 mx-auto mb-2">
                                     <label for="KodeBlok" class="form-label">Kode Blok</label>
                                     <!-- <input type="text" class="form-control @error('KodeBlok') is-invalid @enderror" id="KodeBlok" name="KodeBlok" required> -->
                                     <select class="form-select" id="KodeBlok" name="KD_BLOK" required disabled>
@@ -103,7 +104,7 @@
                                     </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-11 mx-auto mb-2">
                                     <label for="NoUrut" class="form-label">No Urut</label>
                                     <input type="text" class="form-control @error('NoUrut') is-invalid @enderror" id="NoUrut" name="NO_URUT" required>
                                     @error('NoUrut')
@@ -112,7 +113,7 @@
                                     </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-11 mx-auto mb-2">
                                     <label for="KodeJenisOp" class="form-label">Kode Jenis Op</label>
                                     <input type="text" class="form-control @error('KodeJenisOp') is-invalid @enderror" id="KodeJenisOp" name="KD_JNS_OP" value="0" required>
                                     @error('KodeJenisOp')
@@ -121,7 +122,7 @@
                                     </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-11 mx-auto mb-2">
                                     <label for="JenisTransaksiBangunan" class="form-label">Jenis Transaksi Bangunan</label>
                                     <!-- <input type="text" class="form-control @error('JenisTransaksiKelurahan') is-invalid @enderror" id="JenisTransaksiKelurahan" name="JenisTransaksiKelurahan" required> -->
                                     <select class="form-select" id="JenisTransaksiBangungan" name="JNS_TRANSAKSI_BNG" required>
@@ -140,7 +141,8 @@
                             </div>
 
                             <div class="col-md-4">
-                                <div class="col-md-12">
+                                <hr class="border-dark border-4 mb-2">
+                                <div class="col-md-11 mx-auto mb-2">
                                     <label for="NoBangunan" class="form-label">No Bangunan</label>
                                     <input type="text" class="form-control @error('NoBangunan') is-invalid @enderror" id="NoBangunan" name="NO_BNG" value="1" required>
                                     @error('NoBangunan')
@@ -149,7 +151,7 @@
                                     </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-11 mx-auto mb-2">
                                     <label for="NoFormulirLspop" class="form-label">No Formulir Lspop</label>
                                     <input type="text" class="form-control @error('NoFormulirLspop') is-invalid @enderror" id="NoFormulirLspop" name="NO_FORMULIR_LSPOP" required>
                                     @error('NoFormulirLspop')
@@ -161,11 +163,13 @@
                             </div>
 
                             <div class="col-md-4">
+                            <hr class="border-dark border-4 mb-2">
 
                             </div>
 
                             <div class="col-md-4 mt-5">
-                                <div class="col-md-12">
+                                <div class="col-md-11 mx-auto mb-2">
+                                    <hr class="border-dark border-4 mb-2">
                                     <label for="KodeJpb" class="form-label">Kode Jpb</label>
                                     <!-- <input type="text" class="form-control @error('KodeJpb') is-invalid @enderror" id="KodeJpb" name="KodeJpb" required> -->
                                     <select class="form-select" id="KodeJpb" name="KD_JPB" required>
@@ -181,7 +185,7 @@
                                     </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-11 mx-auto mb-2">
                                     <label for="TahunDibangunBangunan" class="form-label">Tahun Dibangun Bangunan</label>
                                     <input type="text" class="form-control @error('TahunDibangunBangunan') is-invalid @enderror" id="TahunDibangunBangunan" name="THN_DIBANGUN_BNG" required>
                                     @error('TahunDibangunBangunan')
@@ -190,7 +194,7 @@
                                     </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-11 mx-auto mb-2">
                                     <label for="TahunRenovasiBangunan" class="form-label">Tahun Renovasi Bangunan</label>
                                     <input type="text" class="form-control @error('TahunRenovasiBangunan') is-invalid @enderror" id="TahunRenovasiBangunan" name="TahunRenovasiBangunan" required>
                                     @error('TahunRenovasiBangunan')
@@ -199,7 +203,7 @@
                                     </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-11 mx-auto mb-2">
                                     <label for="LuasBangunan" class="form-label">Luas Bangunan</label>
                                     <input type="text" class="form-control @error('LuasBangunan') is-invalid @enderror" id="LuasBangunan" name="LUAS_BNG" value="0" required>
                                     @error('LuasBangunan')
@@ -208,7 +212,7 @@
                                     </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-11 mx-auto mb-2">
                                     <label for="JumlahLantaiBangunan" class="form-label">Jumlah Lantai Bangunan</label>
                                     <input type="text" class="form-control @error('JumlahLantaiBangunan') is-invalid @enderror" id="JumlahLantaiBangunan" name="JML_LANTAI_BNG" value="1" required>
                                     @error('JumlahLantaiBangunan')
@@ -217,7 +221,7 @@
                                     </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-11 mx-auto mb-2">
                                     <label for="KondisiBangunan" class="form-label">Kondisi Bangunan</label>
                                     <!-- <input type="text" class="form-control @error('KondisiBangunan') is-invalid @enderror" id="KondisiBangunan" name="KondisiBangunan" required> -->
                                     <select class="form-select" id="KondisiBangunan" name="KONDISI_BNG" required>
@@ -233,7 +237,7 @@
                                     </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-11 mx-auto mb-2">
                                     <label for="JenisKonstruksiBangunan" class="form-label">Jenis Konstruksi Bangunan</label>
                                     <!-- <input type="text" class="form-control @error('JenisKonstruksiBangunan') is-invalid @enderror" id="JenisKonstruksiBangunan" name="JenisKonstruksiBangunan" required> -->
                                     <select class="form-select" id="JenisKonstruksiBangunan" name="JNS_KONSTRUKSI_BNG" required>
@@ -249,7 +253,7 @@
                                     </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-11 mx-auto mb-2">
                                     <label for="JenisAtapBangunan" class="form-label">Jenis Atap Bangunan</label>
                                     <!-- <input type="text" class="form-control @error('JenisAtapBangunan') is-invalid @enderror" id="JenisAtapBangunan" name="JenisAtapBangunan" required> -->
                                     <select class="form-select" id="JenisAtapBangunan" name="JNS_ATAP_BNG" required>
@@ -265,7 +269,7 @@
                                     </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-11 mx-auto mb-2">
                                     <label for="KdDinding" class="form-label">Kd Dinding</label>
                                     <!-- <input type="text" class="form-control @error('KdDinding') is-invalid @enderror" id="KdDinding" name="KdDinding" required> -->
                                     <select class="form-select" id="KdDinding" name="KD_DINDING" required>
@@ -281,7 +285,7 @@
                                     </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-11 mx-auto mb-2">
                                     <label for="KdLantai" class="form-label">Kd Lantai</label>
                                     <!-- <input type="text" class="form-control @error('KdLantai') is-invalid @enderror" id="KdLantai" name="KdLantai" required> -->
                                     <select class="form-select" id="KdLantai" name="KD_LANTAI" required>
@@ -297,7 +301,7 @@
                                     </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-11 mx-auto mb-2">
                                     <label for="KdLangitLangit" class="form-label">Kd Langit-Langit</label>
                                     <!-- <input type="text" class="form-control @error('KdLangitLangit') is-invalid @enderror" id="KdLangitLangit" name="KdLangit_Langit" required> -->
                                     <select class="form-select" id="KdLangitLangit" name="KD_LANGIT_LANGIT" required>
@@ -316,7 +320,8 @@
                             </div>
 
                             <div class="col-md-4 mt-5">
-                                <div class="col-md-12">
+                                <hr class="border-dark border-4 mb-2">
+                                <div class="col-md-11 mx-auto mb-2">
                                     <label for="AcSplit" class="form-label">AC SPLIT</label>
                                     <input type="text" class="form-control @error('Aktif') is-invalid @enderror" id="AcSplit" name="AC_SPLIT" value="0" required>
                                     @error('Aktif')
@@ -325,7 +330,7 @@
                                     </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-11 mx-auto mb-2">
                                     <label for="AcWindows" class="form-label">AC WINDOWS</label>
                                     <input type="text" class="form-control @error('Aktif') is-invalid @enderror" id="AcWindows" name="AC_WINDOWS" value="0" required>
                                     @error('Aktif')
@@ -334,10 +339,10 @@
                                     </div>
                                     @enderror
                                 </div>                                
-                                <div class="col-md-12">
+                                <div class="col-md-11 mx-auto mb-2">
                                     <label for="AcCentral" class="form-label">AC CENTRAL</label>
                                     <!-- <input type="text" class="form-control @error('Aktif') is-invalid @enderror" id="Aktif" name="Aktif" value="0" required> -->
-                                    <div class="col-md-12 d-flex ">
+                                    <div class="col-md-12 d-flex">
                                         <div class="me-2">
                                             <input class="form-check-input border border-primary" type="checkbox" name="AC_CENTRAL" id="AcCentral" />
                                         </div>
@@ -349,7 +354,7 @@
                                     </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-11 mx-auto mb-2">
                                     <label for="KolamRenangDiplester" class="form-label">KOLAM RENANG DIPLESTER</label>
                                     <input type="text" class="form-control @error('KolamRenangDiplester') is-invalid @enderror" id="KolamRenangDiplester" name="KLM_RENANG_DIPLESTER" value="0" required>
                                     @error('KolamRenangDiplester')
@@ -358,7 +363,7 @@
                                     </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-11 mx-auto mb-2">
                                     <label for="KolamRenangDgnPelapis" class="form-label">KOLAM RENANG DENGAN PELAPIS</label>
                                     <input type="text" class="form-control @error('KolamRenangDgnPelapis') is-invalid @enderror" id="KolamRenangDgnPelapis" name="KLM_RENANG_DGN_PELAPIS" value="0" required>
                                     @error('KolamRenangDgnPelapis')
@@ -367,7 +372,7 @@
                                     </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-11 mx-auto mb-2">
                                     <label for="PerkerasanKonstruksiRingan" class="form-label">PERKERASAN KONSTRUKSI RINGAN</label>
                                     <input type="text" class="form-control @error('PerkerasanKonstruksiRingan') is-invalid @enderror" id="PerkerasanKonstruksiRingan" name="PERKERASAN_KONSTRUKSI_RINGAN" value="0" required>
                                     @error('PerkerasanKonstruksiRingan')
@@ -376,7 +381,7 @@
                                     </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-11 mx-auto mb-2">
                                     <label for="PerkerasanKonstruksiSedang" class="form-label">PERKERASAN KONSTRUKSI SEDANG</label>
                                     <input type="text" class="form-control @error('PerkerasanKonstruksiSedang') is-invalid @enderror" id="PerkerasanKonstruksiSedang" name="PERKERASAN_KONSTRUKSI_SEDANG" value="0" required>
                                     @error('PerkerasanKonstruksiSedang')
@@ -385,7 +390,7 @@
                                     </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-11 mx-auto mb-2">
                                     <label for="PerkerasanKonstruksiBerat" class="form-label">PERKERASAN KONSTRUKSI BERAT</label>
                                     <input type="text" class="form-control @error('PerkerasanKonstruksiBerat') is-invalid @enderror" id="PerkerasanKonstruksiBerat" name="PERKERASAN_KONSTRUKSI_BERAT" value="0" required>
                                     @error('PerkerasanKonstruksiBerat')
@@ -394,7 +399,7 @@
                                     </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-11 mx-auto mb-2">
                                     <label for="PenutupanPerkerasan" class="form-label">PENUTUPAN PERKERASAN</label>
                                     <input type="text" class="form-control @error('PenutupanPerkerasan') is-invalid @enderror" id="PenutupanPerkerasan" name="PNTP_PERKERASAN" value="0" required>
                                     @error('PenutupanPerkerasan')
@@ -403,7 +408,7 @@
                                     </div>
                                     @enderror  
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-11 mx-auto mb-2">
                                     <label for="Aktif" class="form-label">LAP TENIS 1 BAN BETON DG LAMPU</label>
                                     <input type="text" class="form-control @error('Aktif') is-invalid @enderror" id="Aktif" name="Aktif" value="0" required>
                                     @error('Aktif')
@@ -412,7 +417,7 @@
                                     </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-11 mx-auto mb-2">
                                     <label for="Aktif" class="form-label">LAP TENIS 1 BAN ASPAL DG LAMPU</label>
                                     <input type="text" class="form-control @error('Aktif') is-invalid @enderror" id="Aktif" name="Aktif" value="0" required>
                                     @error('Aktif')
@@ -421,7 +426,7 @@
                                     </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-11 mx-auto mb-2">
                                     <label for="Aktif" class="form-label">LAP TENIS 1 BAN TANAH LIAT DG LAMPU</label>
                                     <input type="text" class="form-control @error('Aktif') is-invalid @enderror" id="Aktif" name="Aktif" value="0" required>
                                     @error('Aktif')
@@ -430,7 +435,7 @@
                                     </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-11 mx-auto mb-2">
                                     <label for="Aktif" class="form-label">LAP TENIS 1 BAN BETON TANPA LAMPU</label>
                                     <input type="text" class="form-control @error('Aktif') is-invalid @enderror" id="Aktif" name="Aktif" value="0" required>
                                     @error('Aktif')
@@ -439,7 +444,7 @@
                                     </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-11 mx-auto mb-2">
                                     <label for="Aktif" class="form-label">LAP TENIS 1 BAN ASPAL TANPA LAMPU</label>
                                     <input type="text" class="form-control @error('Aktif') is-invalid @enderror" id="Aktif" name="Aktif" value="0" required>
                                     @error('Aktif')
@@ -448,7 +453,7 @@
                                     </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-11 mx-auto mb-2">
                                     <label for="Aktif" class="form-label">LAP TENIS 1 BAN TANAH LIAT TANPA LAMPU</label>
                                     <input type="text" class="form-control @error('Aktif') is-invalid @enderror" id="Aktif" name="Aktif" value="0" required>
                                     @error('Aktif')
@@ -457,7 +462,7 @@
                                     </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-11 mx-auto mb-2">
                                     <label for="Aktif" class="form-label">LAP TENIS> 1 BAN BETON DG LAMPU</label>
                                     <input type="text" class="form-control @error('Aktif') is-invalid @enderror" id="Aktif" name="Aktif" value="0" required>
                                     @error('Aktif')
@@ -466,7 +471,7 @@
                                     </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-11 mx-auto mb-2">
                                     <label for="Aktif" class="form-label">LAP TENIS> 1 BAN ASPAL DG LAMPU</label>
                                     <input type="text" class="form-control @error('Aktif') is-invalid @enderror" id="Aktif" name="Aktif" value="0" required>
                                     @error('Aktif')
@@ -475,7 +480,7 @@
                                     </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-11 mx-auto mb-2">
                                     <label for="Aktif" class="form-label">LAP TENIS> 1 BAN TANAH LIAT DG LAMPU</label>
                                     <input type="text" class="form-control @error('Aktif') is-invalid @enderror" id="Aktif" name="Aktif" value="0" required>
                                     @error('Aktif')
@@ -484,7 +489,7 @@
                                     </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-11 mx-auto mb-2">
                                     <label for="Aktif" class="form-label">LAP TENIS> 1 BAN BETON TANPA LAMPU</label>
                                     <input type="text" class="form-control @error('Aktif') is-invalid @enderror" id="Aktif" name="Aktif" value="0" required>
                                     @error('Aktif')
@@ -493,7 +498,7 @@
                                     </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-11 mx-auto mb-2">
                                     <label for="Aktif" class="form-label">LAP TENIS> 1 BAN ASPAL TANPA LAMPU</label>
                                     <input type="text" class="form-control @error('Aktif') is-invalid @enderror" id="Aktif" name="Aktif" value="0" required>
                                     @error('Aktif')
@@ -502,7 +507,7 @@
                                     </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-11 mx-auto mb-2">
                                     <label for="Aktif" class="form-label">LAP TENIS> 1 BAN TANAH LIAT TANPA LAMPU</label>
                                     <input type="text" class="form-control @error('Aktif') is-invalid @enderror" id="Aktif" name="Aktif" value="0" required>
                                     @error('Aktif')
@@ -511,7 +516,7 @@
                                     </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-11 mx-auto mb-2">
                                     <label for="Aktif" class="form-label">LIFT PENUMPANG BIASA</label>
                                     <input type="text" class="form-control @error('Aktif') is-invalid @enderror" id="Aktif" name="Aktif" value="0" required>
                                     @error('Aktif')
@@ -520,7 +525,7 @@
                                     </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-11 mx-auto mb-2">
                                     <label for="Aktif" class="form-label">LIFT KAPSUL</label>
                                     <input type="text" class="form-control @error('Aktif') is-invalid @enderror" id="Aktif" name="Aktif" value="0" required>
                                     @error('Aktif')
@@ -529,7 +534,7 @@
                                     </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-11 mx-auto mb-2">
                                     <label for="Aktif" class="form-label">LIST BARANG</label>
                                     <input type="text" class="form-control @error('Aktif') is-invalid @enderror" id="Aktif" name="Aktif" value="0" required>
                                     @error('Aktif')
@@ -538,7 +543,7 @@
                                     </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-11 mx-auto mb-2">
                                     <label for="Aktif" class="form-label">TANGGA BERJALAN (ESCALATOR) <= 0.80 M</label>
                                     <input type="text" class="form-control @error('Aktif') is-invalid @enderror" id="Aktif" name="Aktif" value="0" required>
                                     @error('Aktif')
@@ -547,7 +552,7 @@
                                     </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-11 mx-auto mb-2">
                                     <label for="Aktif" class="form-label">TANGGA BERJALAN (ESCALATOR) < 0.80 M</label>
                                     <input type="text" class="form-control @error('Aktif') is-invalid @enderror" id="Aktif" name="Aktif" value="0" required>
                                     @error('Aktif')
@@ -556,7 +561,7 @@
                                     </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-11 mx-auto mb-2">
                                     <label for="Aktif" class="form-label">PAGAR BAJA/BESI</label>
                                     <input type="text" class="form-control @error('Aktif') is-invalid @enderror" id="Aktif" name="Aktif" value="0" required>
                                     @error('Aktif')
@@ -565,7 +570,7 @@
                                     </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-11 mx-auto mb-2">
                                     <label for="Aktif" class="form-label">PAGAR BATA/BATAKO</label>
                                     <input type="text" class="form-control @error('Aktif') is-invalid @enderror" id="Aktif" name="Aktif" value="0" required>
                                     @error('Aktif')
@@ -574,7 +579,7 @@
                                     </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-11 mx-auto mb-2">
                                     <label for="Aktif" class="form-label">PROTEKSI API</label>
                                     <!-- <input type="text" class="form-control @error('Aktif') is-invalid @enderror" id="Aktif" name="Aktif" value="0" required> -->
                                     <div class="col-md-12 d-flex ">
@@ -601,7 +606,7 @@
                                     </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-11 mx-auto mb-2">
                                     <label for="Aktif" class="form-label">GENSET</label>
                                     <input type="text" class="form-control @error('Aktif') is-invalid @enderror" id="Aktif" name="Aktif" value="0" required>
                                     @error('Aktif')
@@ -610,7 +615,7 @@
                                     </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-11 mx-auto mb-2">
                                     <label for="Aktif" class="form-label">SALURAN PESAWAT PABX</label>
                                     <input type="text" class="form-control @error('Aktif') is-invalid @enderror" id="Aktif" name="Aktif" value="0" required>
                                     @error('Aktif')
@@ -619,7 +624,7 @@
                                     </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-11 mx-auto mb-2">
                                     <label for="Aktif" class="form-label">SUMUR ARTESIS</label>
                                     <input type="text" class="form-control @error('Aktif') is-invalid @enderror" id="Aktif" name="Aktif" value="0" required>
                                     @error('Aktif')
@@ -628,7 +633,7 @@
                                     </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-11 mx-auto mb-2">
                                     <label for="Aktif" class="form-label">BOILER HOTEL</label>
                                     <input type="text" class="form-control @error('Aktif') is-invalid @enderror" id="Aktif" name="Aktif" value="0" required>
                                     @error('Aktif')
@@ -637,7 +642,7 @@
                                     </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-11 mx-auto mb-2">
                                     <label for="Aktif" class="form-label">LISTRIK</label>
                                     <input type="text" class="form-control @error('Aktif') is-invalid @enderror" id="Aktif" name="Aktif" value="0" required>
                                     @error('Aktif')
@@ -646,7 +651,7 @@
                                     </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-11 mx-auto mb-2">
                                     <label for="Aktif" class="form-label">BOILER APARTEMEN</label>
                                     <input type="text" class="form-control @error('Aktif') is-invalid @enderror" id="Aktif" name="Aktif" value="0" required>
                                     @error('Aktif')
@@ -658,7 +663,8 @@
                             </div>
 
                             <div class="col-md-4 mt-5">
-                                <div class="col-md-12">
+                                <hr class="border-dark border-4 mb-2">
+                                <div class="col-md-11 mx-auto mb-2">
                                     <label for="NilaiSistemBangunan" class="form-label">Nilai Sistem Bangunan</label>
                                     <input type="text" class="form-control @error('NilaiSistemBangunan') is-invalid @enderror" id="NilaiSistemBangunan" name="NilaiSistemBangunan" value="0" required disabled>
                                     @error('NilaiSistemBangunan')
@@ -667,7 +673,7 @@
                                     </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-11 mx-auto mb-2">
                                     <label for="TanggalPendataanBangunan" class="form-label">Tanggal Pendataan Bangunan</label>
                                     <input type="date" class="form-control @error('TanggalPendataanBangunan') is-invalid @enderror" id="TanggalPendataanBangunan" name="TanggalPendataanBangunan" value="{{ date('Y').'-12-31' }}"  required disabled>
                                     @error('TanggalPendataanBangunan')
@@ -676,7 +682,7 @@
                                     </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-11 mx-auto mb-2">
                                     <label for="NIPPendataBangunan" class="form-label">NIP Pendata Bangunan</label>
                                     <input type="text" class="form-control @error('NIPPendataBangunan') is-invalid @enderror" id="NIPPendataBangunan" name="NIPPendataBangunan" value="33012321313" required disabled>
                                     @error('NIPPendataBangunan')
@@ -685,7 +691,7 @@
                                     </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-11 mx-auto mb-2">
                                     <label for="TanggalPemeriksaanBangunan" class="form-label">Tanggal Pemeriksaan Bangunan</label>
                                     <input type="date" class="form-control @error('TanggalPemeriksaanBangunan') is-invalid @enderror" id="TanggalPemeriksaanBangunan" name="TanggalPemeriksaanBangunan" value="{{ date('Y').'-12-31' }}"  required>
                                     @error('TanggalPemeriksaanBangunan')
@@ -694,7 +700,7 @@
                                     </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-11 mx-auto mb-2">
                                     <label for="NIPPemeriksaBangunan" class="form-label">NIP Pemeriksa Bangunan</label>
                                     <input type="text" class="form-control @error('NIPPemeriksaBangunan') is-invalid @enderror" id="NIPPemeriksaBangunan" name="NIPPemeriksaBangunan" value="33012321313" required>
                                     @error('NIPPemeriksaBangunan')
@@ -703,7 +709,7 @@
                                     </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-11 mx-auto mb-2">
                                     <label for="TanggalPerekamanBangunan" class="form-label">Tanggal Perekaman Bangunan</label>
                                     <input type="date" class="form-control @error('TanggalPerekamanBangunan') is-invalid @enderror" id="TanggalPerekamanBangunan" name="TanggalPerekamanBangunan" value="{{ date('Y').'-12-31' }}" required disabled>
                                     @error('TanggalPerekamanBangunan')
@@ -712,7 +718,7 @@
                                     </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-11 mx-auto mb-2">
                                     <label for="NIPPerekamBangunan" class="form-label">NIP Perekam Bangunan</label>
                                     <input type="text" class="form-control @error('NIPPerekamBangunan') is-invalid @enderror" id="NIPPerekamBangunan" name="NIPPerekamBangunan" value="33012321313" required disabled>
                                     @error('NIPPerekamBangunan')
@@ -721,7 +727,7 @@
                                     </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-11 mx-auto mb-2">
                                     <label for="TanggalKunjunganKembali" class="form-label">Tanggal Kunjungan Kembali</label>
                                     <input type="date" class="form-control @error('TanggalKunjunganKembali') is-invalid @enderror" id="TanggalKunjunganKembali" name="TanggalKunjunganKembali" value="{{ date('Y').'-12-31' }}" required>
                                     @error('TanggalKunjunganKembali')
@@ -730,7 +736,7 @@
                                     </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-11 mx-auto mb-2">
                                     <label for="NilaiIndividu" class="form-label">Nilai Individu</label>
                                     <input type="text" class="form-control @error('NilaiIndividu') is-invalid @enderror" id="NilaiIndividu" name="NilaiIndividu" value="0" required>
                                     @error('NilaiIndividu')
@@ -739,7 +745,7 @@
                                     </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-11 mx-auto mb-2">
                                     <label for="Aktif" class="form-label">Aktif</label>
                                     <input type="text" class="form-control @error('Aktif') is-invalid @enderror" id="Aktif" name="Aktif" value="1" required>
                                     @error('Aktif')
@@ -750,7 +756,7 @@
                                 </div>
                             </div>
 
-                                <div class="col-md-12 text-center">
+                                <div class="col-md-12 text-center mt-4">
                                     <button type="submit" class="btn btn-primary" style="width:150px;">Tambah</button>
                                 </div>
                 </form>

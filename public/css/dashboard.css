@@ -12,11 +12,14 @@
   .details .recentOrders {
 	position: relative;
 	display: grid;
+	max-width: 100%;
+	min-width: 100%;
 	min-height: 400px;
 	background: var(--light);
 	padding: 20px;
 	box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
 	border-radius: 20px;
+	overflow-x: scroll;
   }
   
   .details .cardHeader {
